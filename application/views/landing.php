@@ -2,17 +2,22 @@
     <div class="container pt-7 pt-md-11 pb-8">
         <div class="row gx-0 gy-10 align-items-center">
           <div class="col-lg-6" data-cues="slideInDown" data-group="page-title" data-delay="600">
-            <h1 class="display-1  mb-4">Coders Lab Academy <br /><span class="typer text-primary text-nowrap" data-delay="100" data-words="Belajar coding dari Nol"></span><span class="cursor text-primary" data-owner="typer"></span></h1>
-            <p class="lead fs-24 lh-sm  mb-7 pe-md-18 pe-lg-0 pe-xxl-15">Kita memberikan pembelajaran yang memudahkan anda untuk menguasai Teknologi Informasi</p>
+            <h1 class="display-1  mb-4">Connecting the World, Sourcing Indonesia's  <span class="underline-3 style-3 primary">Finest.</span></h1>
+            <p class="lead fs-24 lh-sm  mb-7 pe-md-18 pe-lg-0 pe-xxl-15">Find Company, Product, Supplier what u need</p>
             <div>
-              <a class="btn btn-lg btn-primary rounded">Mulai Belajar</a>
+              <form action="#">
+          <div class="form-floating input-group">
+            <input type="url" class="form-control border-0" placeholder="Find Supplier, Product" id="analyze">
+            <label for="analyze">Find Supplier, Product</label>
+            <button class="btn btn-primary" type="button">Find</button>
+          </div>
+        </form>
             </div>
           </div>
           <!-- /column -->
           <div class="col-lg-5 offset-lg-1 mb-n13" data-cues="slideInDown">
             <div class="position-relative">
-              <a href="<?= base_url()?>./assets/front/media/movie.mp4" class="btn btn-circle btn-primary btn-play ripple mx-auto mb-6 position-absolute" style="top:50%; left: 50%; transform: translate(-50%,-50%); z-index:3;" data-glightbox><i class="icn-caret-right"></i></a>
-              <figure class="rounded shadow-lg"><img src="<?= base_url()?>./assets/front/img/photos/about13.jpg" srcset="<?= base_url()?>./assets/front/img/photos/about13@2x.jpg 2x" alt=""></figure>
+              <figure class="rounded shadow-lg"><img src="<?= base_url()?>./assets/front/img/photos/about7.jpg" srcset="<?= base_url()?>./assets/front/img/photos/about13@2x.jpg 2x" alt=""></figure>
             </div>
             <!-- /div -->
           </div>
@@ -23,12 +28,12 @@
       <!-- /.container -->
     </section>
     <!-- /section -->
-    <section class="wrapper bg-light ">
+    <section class="wrapper bg-light mt-7">
       <div class="container pt-14 pt-md-16">
         <div class="row text-center">
           <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <h2 class="fs-16 text-uppercase text-muted mb-3">Materi yang kita berikan</h2>
-            <h3 class="display-4 mb-10 px-xl-10">Materi yang kita berikan memudahkan Anda belajar Teknologi Informasi</h3>
+            <h2 class="fs-16 text-uppercase text-muted mb-3"></h2>
+            <h3 class="display-4 mb-10 px-xl-10">Best Commodity In Indonesia</h3>
           </div>
           <!-- /column -->
         </div>
@@ -40,10 +45,10 @@
             <div class="col-md-6 col-xl-3">
               <div class="card shadow-lg">
                 <div class="card-body">
-                  <img src="<?= base_url()?>./assets/front/img/icons/lineal/analytics.svg" class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
-                  <h4>Data Scientist</h4>
-                  <p class="mb-2">Pembelajaran tentang pengolahan data  proses, algoritma, dan sistem serta visualisasi data</p>
-                  <a href="#" class="more hover link-yellow">Learn More</a>
+                  <img src="<?= base_url()?>./assets/front/img/icons/kopi.png" class="svg-inject icon-svg icon-svg-md text-yellow mb-3" alt="" />
+                  <h4>Coffe</h4>
+                  <p class="mb-2"> Coffee is one of Indonesia's agricultural products which is a leading export commodity.</p>
+                  <a href="#" class="more hover link-blue">Find Supplier</a>
                 </div>
                 <!--/.card-body -->
               </div>
@@ -53,10 +58,10 @@
             <div class="col-md-6 col-xl-3">
               <div class="card shadow-lg">
                 <div class="card-body">
-                  <img src="<?= base_url()?>./assets/front/img/icons/lineal/browser.svg" class="svg-inject icon-svg icon-svg-md text-red mb-3" alt="" />
-                  <h4>Pemrograman Web</h4>
+                  <img src="<?= base_url()?>./assets/front/img/icons/udang.png" class="svg-inject icon-svg icon-svg-md text-red mb-3" alt="" />
+                  <h4>Shrimp</h4>
                   <p class="mb-2">Memberikan anda pembelajaran tentang pembuatan web front-end dan back-end </p>
-                  <a href="#" class="more hover link-red">Learn More</a>
+                  <a href="#" class="more hover link-blue">Find Supplier</a>
                 </div>
                 <!--/.card-body -->
               </div>
@@ -66,10 +71,10 @@
             <div class="col-md-6 col-xl-3">
               <div class="card shadow-lg">
                 <div class="card-body">
-                  <img src="<?= base_url()?>./assets/front/img/icons/lineal/smartphone.svg" class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
-                  <h4>Android Development</h4>
+                  <img src="<?= base_url()?>./assets/front/img/icons/minyak-kelapa.png" class="svg-inject icon-svg icon-svg-md text-green mb-3" alt="" />
+                  <h4>Coconut Oil</h4>
                   <p class="mb-2">Pembelajaran tentang pembuatan aplikasi mobile dengan framework yang kekinian</p>
-                  <a href="#" class="more hover link-green">Learn More</a>
+                  <a href="#" class="more hover link-blue">Find Supplier</a>
                 </div>
                 <!--/.card-body -->
               </div>
@@ -79,10 +84,10 @@
             <div class="col-md-6 col-xl-3">
               <div class="card shadow-lg">
                 <div class="card-body">
-                  <img src="<?= base_url()?>./assets/front/img/icons/lineal/controller.svg" class="svg-inject icon-svg icon-svg-md text-blue mb-3" alt="" />
-                  <h4>Machine Learning</h4>
+                  <img src="<?= base_url()?>./assets/front/img/icons/kakao.png" class="svg-inject icon-svg icon-svg-md text-blue mb-3" alt="" />
+                  <h4>Cacao</h4>
                   <p class="mb-2">Pembelajaran tentang Pembelajaran mesin dan deploy model A dengan Python</p>
-                  <a href="#" class="more hover link-blue">Learn More</a>
+                  <a href="#" class="more hover link-blue">Find Supplier</a>
                 </div>
                 <!--/.card-body -->
               </div>
@@ -98,64 +103,140 @@
     </section>
     <!-- /section -->
     <section class="wrapper bg-gradient-reverse-primary">
-      <div class="container py-16 py-md-18">
-      <div class="row gx-lg-8 gx-xl-12 gy-10 mb-lg-15 mb-xl-20 align-items-center">
-          <div class="col-lg-7">
-            <figure><img class="w-auto" src="<?= base_url()?>./assets/front/img/illustrations/i6.png" srcset="<?= base_url()?>./assets/front/img/illustrations/i6@2x.png 2x" alt="" /></figure>
+    <div class="container pt-15 pt-md-17 pb-10 pb-md-15">
+        <div class="row gx-lg-8 gx-xl-12 gy-10 gy-lg-0">
+          <div class="col-lg-4 mt-lg-2">
+            <h2 class="display-4 mb-3">Coconut</h2>
+            <p class="lead fs-lg mb-6 pe-xxl-5">coconut products and their derivatives</p>
+            <a href="#" class="btn btn-soft-primary rounded-pill">View More</a>
           </div>
-          <!--/column -->
-          <div class="col-lg-5">
-            <h2 class="fs-16 text-uppercase text-muted mb-3">Kenapa di Coders Lab?</h2>
-            <h3 class="display-4 mb-7">Kita memberikan solusi untuk anda agar dapat pemahaman terbaik</h3>
-            <div class="accordion accordion-wrapper" id="accordionExample">
-              <div class="card plain accordion-item">
-                <div class="card-header" id="headingOne">
-                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Pemateri Expert</button>
-                </div>
-                <!--/.card-header -->
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                  <div class="card-body">
-                    <p>Kami memiliki pembimbing yang sudah ahli pada masing-masing bidangnya dan memiliki keahlian yang tidak bisa diremehkan</p>
+          <!-- /column -->
+          <div class="col-lg-8">
+            <div class="swiper-container blog grid-view mb-6" data-margin="30" data-dots="true" data-items-md="2" data-items-xs="1">
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <article>
+                      <figure  class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="<?= base_url()?>./assets/front/img/produk/briket.jpg" alt="" /></a>
+                        <figcaption>
+                          <h5 class="from-top mb-0">Read More</h5>
+                        </figcaption>
+                      </figure>
+                      <div class="post-header">
+                        <div class="post-category text-line">
+                          <a href="#" class="hover" rel="category">Bricket</a>
+                        </div>
+                        <!-- /.post-category -->
+                        <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="../../blog-post.html">Charcoal Briquettes / Bricket</a></h2>
+                      </div>
+                      <!-- /.post-header -->
+                      <div class="post-footer">
+                        <ul class="post-meta mb-0">
+                          <li class="post-date"><i class="uil uil-address"></i><span>PT. Coco Indo Jaya</span></li>
+                          <li class="post-comments"><a href="#"> Malang</a></li>
+                        </ul>
+                        <!-- /.post-meta -->
+                      </div>
+                      <!-- /.post-footer -->
+                    </article>
+                    <!-- /article -->
                   </div>
-                  <!--/.card-body -->
-                </div>
-                <!--/.accordion-collapse -->
-              </div>
-              <!--/.accordion-item -->
-              <div class="card plain accordion-item">
-                <div class="card-header" id="headingTwo">
-                  <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Vidio & Materi Lengkap</button>
-                </div>
-                <!--/.card-header -->
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                  <div class="card-body">
-                    <p>Kami memberikan vidio dan materi secara lengkap, mulai dari tingkat dasar hingga tingkat mahir</p>
+                  <!--/.swiper-slide -->
+                  <div class="swiper-slide">
+                    <article>
+                      <figure style="height: 275px;" class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="<?= base_url()?>./assets/front/img/produk/husked.jpg" alt="" /></a>
+                        <figcaption>
+                          <h5 class="from-top mb-0">Read More</h5>
+                        </figcaption>
+                      </figure>
+                      <div class="post-header">
+                        <div class="post-category text-line">
+                          <a href="#" class="hover" rel="category">Husked Coconut</a>
+                        </div>
+                        <!-- /.post-category -->
+                        <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="../../blog-post.html">Dry Husked Coconut</a></h2>
+                      </div>
+                      <!-- /.post-header -->
+                      <div class="post-footer">
+                        <ul class="post-meta mb-0">
+                          <li class="post-date"><i class="uil uilt"></i><span>PT. Indo coco</span></li>
+                          <li class="post-comments"><a href="#">Jember</a></li>
+                        </ul>
+                        <!-- /.post-meta -->
+                      </div>
+                      <!-- /.post-footer -->
+                    </article>
+                    <!-- /article -->
                   </div>
-                  <!--/.card-body -->
-                </div>
-                <!--/.accordion-collapse -->
-              </div>
-              <!--/.accordion-item -->
-              <div class="card plain accordion-item">
-                <div class="card-header" id="headingThree">
-                  <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> Forum terbuka </button>
-                </div>
-                <!--/.card-header -->
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                  <div class="card-body">
-                    <p>Kami membuat forum terbuka untuk Anda dapat berdiskusi terkait hal yang ingin anda tanyakan pada Expert</p>
+                  <!--/.swiper-slide -->
+                  <div class="swiper-slide">
+                    <article>
+                      <figure style="height: 275px;" class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="<?= base_url()?>./assets/front/img/produk/fiber.jpg" alt="" /></a>
+                        <figcaption>
+                          <h5 class="from-top mb-0">Read More</h5>
+                        </figcaption>
+                      </figure>
+                      <div class="post-header">
+                        <div class="post-category text-line">
+                          <a href="#" class="hover" rel="category">Coco Peat</a>
+                        </div>
+                        <!-- /.post-category -->
+                        <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="../../blog-post.html">Coco Fiber/Peat</a></h2>
+                      </div>
+                      <!-- /.post-header -->
+                      <div class="post-footer">
+                        <ul class="post-meta mb-0">
+                          <li class="post-date"><i class="uil uil-cale"></i><span>PT. Hazzelnut Mega</span></li>
+                          <li class="post-comments"><a href="#">Magetan</a></li>
+                        </ul>
+                        <!-- /.post-meta -->
+                      </div>
+                      <!-- /.post-footer -->
+                    </article>
+                    <!-- /article -->
                   </div>
-                  <!--/.card-body -->
+                  <!--/.swiper-slide -->
+                  <div class="swiper-slide">
+                    <article>
+                      <figure  class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img src="<?= base_url()?>./assets/front/img/produk/briket.jpg" alt="" /></a>
+                        <figcaption>
+                          <h5 class="from-top mb-0">Read More</h5>
+                        </figcaption>
+                      </figure>
+                      <div class="post-header">
+                        <div class="post-category text-line">
+                          <a href="#" class="hover" rel="category">Bricket</a>
+                        </div>
+                        <!-- /.post-category -->
+                        <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark" href="../../blog-post.html">Charcoal Briquettes / Bricket</a></h2>
+                      </div>
+                      <!-- /.post-header -->
+                      <div class="post-footer">
+                        <ul class="post-meta mb-0">
+                          <li class="post-date"><i class="uil uil-address"></i><span>PT. Coco Indo Jaya</span></li>
+                          <li class="post-comments"><a href="#"> Malang</a></li>
+                        </ul>
+                        <!-- /.post-meta -->
+                      </div>
+                      <!-- /.post-footer -->
+                    </article>
+                    <!-- /article -->
+                  </div>
+                  <!--/.swiper-slide -->
                 </div>
-                <!--/.accordion-collapse -->
+                <!--/.swiper-wrapper -->
               </div>
-              <!--/.accordion-item -->
+              <!-- /.swiper -->
             </div>
-            <!--/.accordion -->
+            <!-- /.swiper-container -->
           </div>
-          <!--/column -->
+          <!-- /column -->
         </div>
-        <!--/.row -->
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+      <div class="container py-16 py-md-18">
+      
         <div class="row gx-md-8 gx-xl-12 gy-10 mb-14 mb-md-18 align-items-center">
           <div class="col-lg-6 order-lg-2">
             <div class="card shadow-lg me-lg-6">
