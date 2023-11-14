@@ -33,14 +33,54 @@
             <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
               <ul class="navbar-nav">
                 <li class="nav-item ">
-                  <a class="nav-link dropdown-item" href="<?= base_url()?>/home/materi" >Materi</a>
+                  <a class="nav-link dropdown-item" href="<?= base_url()?>/home/materi" >Supplier</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-item" href="#" >Langganan</a>
+                  <a class="nav-link dropdown-item" href="#" >Product</a>
                 </li>
-                <li class="nav-item dropdown ">
-                  <a class="nav-link dropdown-item" href="#" >Documentation</a>
-                </li>
+                <li class="nav-item dropdown dropdown-mega">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Category</a>
+                    <ul class="dropdown-menu mega-menu">
+                      <li class="mega-menu-content">
+                        <div class="row gx-0 gx-lg-3">
+                          <div class="col-lg-4">
+                            <h6 class="dropdown-header">Coconut</h6>
+                            <ul class="list-unstyled cc-2 pb-lg-1">
+                              <li><a class="dropdown-item" href="./docs/index.html">Bricket</a></li>
+                              <li><a class="dropdown-item" href="./docs/forms.html">Cocopeat</a></li>
+                              <li><a class="dropdown-item" href="./docs/faq.html">Coco-Fiber</a></li>
+                            </ul>
+                            <h6 class="dropdown-header mt-lg-6">Food and Agricultural</h6>
+                            <ul class="list-unstyled cc-2">
+                              <li><a class="dropdown-item" href="./docs/styleguide/colors.html">Apple</a></li>
+                              <li><a class="dropdown-item" href="./docs/styleguide/fonts.html">Cinamon</a></li>
+                              <li><a class="dropdown-item" href="./docs/styleguide/icons-svg.html">Penapple</a></li>
+                              <li><a class="dropdown-item" href="./docs/styleguide/colors.html">Apple</a></li>
+                              <li><a class="dropdown-item" href="./docs/styleguide/fonts.html">Cinamon</a></li>
+                              <li><a class="dropdown-item" href="./docs/styleguide/icons-svg.html">Penapple</a></li>
+                            </ul>
+                          </div>
+                          <!--/column -->
+                          <div class="col-lg-8">
+                            <h6 class="dropdown-header">Sea & Water</h6>
+                            <ul class="list-unstyled cc-3">
+                              <li><a class="dropdown-item" href="./docs/elements/accordion.html">Sarder</a></li>
+                              <li><a class="dropdown-item" href="./docs/elements/alerts.html">Ikan Kering</a></li>
+                              <li><a class="dropdown-item" href="./docs/elements/animations.html">Fish Oil</a></li>
+                              <li><a class="dropdown-item" href="./docs/elements/accordion.html">Sarder</a></li>
+                              <li><a class="dropdown-item" href="./docs/elements/alerts.html">Ikan Kering</a></li>
+                              <li><a class="dropdown-item" href="./docs/elements/animations.html">Fish Oil</a></li>
+                              <li><a class="dropdown-item" href="./docs/elements/avatars.html"></a></li>
+                            </ul>
+                          </div>
+                          <!--/column -->
+                        </div>
+                        <!--/.row -->
+                      </li>
+                      <!--/.mega-menu-content-->
+                    </ul>
+                    <!--/.dropdown-menu -->
+                  </li>
               </ul>
               <!-- /.navbar-nav -->
               <div class="offcanvas-footer d-lg-none">
