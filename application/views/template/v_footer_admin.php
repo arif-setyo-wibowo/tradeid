@@ -43,8 +43,12 @@
 <script src="<?= base_url() ?>assets/admin/js/plugins/datatables-buttons/buttons.print.min.js"></script>
 <script src="<?= base_url() ?>assets/admin/js/plugins/datatables-buttons/buttons.html5.min.js"></script>
 
+
+<script src="<?= base_url() ?>assets/admin/js/plugins/select2/js/select2.full.min.js"></script>
+
 <!-- Page JS Code -->
 <script src="<?= base_url() ?>assets/admin/js/pages/be_tables_datatables.min.js"></script>
+<script>One.helpersOnLoad([ 'jq-select2']);</script>
 </body>
 
 </html>

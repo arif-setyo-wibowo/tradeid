@@ -1,11 +1,6 @@
 <?php $this->load->view($header)?>
 <!-- Main Container -->
 <main id="main-container">
-            <!-- Page Content -->
-            <div class="content">
-                
-            </div>
-            <!-- END Page Content -->
         <!-- Page Content -->
         <div class="content">
           <!-- Results -->
@@ -15,7 +10,7 @@
                 <button type="button" class="nav-link active" id="search-projects-tab" data-bs-toggle="tab" data-bs-target="#search-projects" role="tab" aria-controls="search-projects" aria-selected="true">Data</button>
               </li>
               <li class="nav-item">
-                <button type="button" class="nav-link" id="search-users-tab" data-bs-toggle="tab" data-bs-target="#search-users" role="tab" aria-controls="search-users" aria-selected="false">Tambah Kategori</button>
+                <button type="button" class="nav-link" id="search-users-tab" data-bs-toggle="tab" data-bs-target="#search-users" role="tab" aria-controls="search-users" aria-selected="false">Tambah Sub Kategori A</button>
               </li>
             </ul>
             <div class="block-content tab-content overflow-hidden">
@@ -29,23 +24,25 @@
                             <thead>
                                 <tr>
                                     <th class="text-center" style="width: 80px;">ID</th>
+                                    <th>Sub Kategori A</th>
                                     <th>Kategori</th>
                                     <th class="d-none d-sm-table-cell" style="width: 15%;">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no=1; foreach ($kategori as $data) :?>
+                                <?php $no=1; foreach ($subkategori_a as $data) :?>
                                 <tr>
                                     <td class="text-center fs-sm"><?= $no++;?></td>
+                                    <td class="fw-semibold fs-sm"><?= $data->namaSubKategori?></td>
                                     <td class="fw-semibold fs-sm"><?= $data->namaKategori?></td>
                                     <td class="d-nonea d-sm-table-cell text-center">
                                         <div class="btn-group">
-                                        <a href="<?= base_url('admin/kategori/updateKategori/'.$data->idkategori)?>">
+                                        <a href="<?= base_url('admin/subkategoriA/updatesubkategoriA/'.$data->idsubkategori_a)?>">
                                           <button type="button" class="btn btn-sm btn-alt-secondary" data-bs-toggle="tooltip" title="Edit">
                                               <i class="fa fa-pencil-alt"></i>
                                           </button>
                                         </a>
-                                        <a href="<?= base_url('admin/kategori/deleteKategori/'.$data->idkategori)?>">
+                                        <a href="<?= base_url('admin/subkategoriA/deletesubkategoriA/'.$data->idsubkategori_a)?>">
                                             <button type="button" class="btn btn-sm btn-alt-secondary" data-bs-toggle="tooltip" title="Delete">
                                                 <i class="fa fa-times"></i>
                                             </button>
@@ -73,10 +70,19 @@
                 </div>
                 <div class="col-lg-5 space-y-5">
                   <!-- Form Labels on top - Default Style -->
-                  <form action="<?= base_url('admin/kategori/tambahkategori')?>" method="POST">
+                  <form action="<?= base_url('admin/subkategoriA/tambahsubkategoriA')?>" method="POST">
                     <div class="mb-4">
-                      <label class="form-label">Nama Kategori</label>
-                      <input type="kategori" class="form-control"  name="namaKategori" placeholder="kategori" required>
+                        <label class="form-label">Nama Kategori</label>
+                        <select class="js-select2 form-select" id="example-select2" name="namaKategori" style="width: 100%;" data-placeholder="Pilih Kategori" required>
+                        <option disable value=""></option>
+                        <?php foreach ($kategori as $data) : ?>
+                            <option value="<?= $data->idkategori?>"><?= $data->namaKategori?></option>
+                        <?php endforeach; ?>
+                      </select>
+                    </div>
+                    <div class="mb-4">
+                      <label class="form-label">Nama Sub Kategori</label>
+                      <input type="text" class="form-control"  name="namaSubKategori" placeholder="Sub Kategori A">
                     </div>
                     <div class="mb-4">
                       <button type="submit" class="btn btn-alt-primary">Submit</button>

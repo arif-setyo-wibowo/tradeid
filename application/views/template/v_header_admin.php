@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/admin/js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/admin/js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/admin/js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/admin/js/plugins/select2/css/select2.min.css">
 
     <!-- Stylesheets -->
     <!-- OneUI framework -->
@@ -218,24 +219,26 @@
                 </a>
                 <ul class="nav-main-submenu">
                   <li class="nav-main-item">
-                    <a class="nav-main-link" href="<?= base_url('admin/kategori')?>">
+                    <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                       <span class="nav-main-link-name">Kategori</span>
                     </a>
-                  </li>
-                  <li class="nav-main-item">
-                    <a class="nav-main-link" href="be_blocks_options.html">
-                      <span class="nav-main-link-name">Konten</span>
-                    </a>
-                  </li>
-                  <li class="nav-main-item">
-                    <a class="nav-main-link" href="be_blocks_options.html">
-                      <span class="nav-main-link-name">Langganan</span>
-                    </a>
-                  </li>
-                  <li class="nav-main-item">
-                    <a class="nav-main-link" href="be_blocks_options.html">
-                      <span class="nav-main-link-name">Pegawai</span>
-                    </a>
+                    <ul class="nav-main-submenu">
+                      <li class="nav-main-item">
+                        <a class="nav-main-link" href="<?= base_url('admin/kategori')?>">
+                          <span class="nav-main-link-name">Kategori</span>
+                        </a>
+                      </li>
+                      <li class="nav-main-item">
+                        <a class="nav-main-link"  href="<?= base_url('admin/subkategoriA')?>">
+                          <span class="nav-main-link-name">Sub Kategori A</span>
+                        </a>
+                      </li>
+                      <li class="nav-main-item">
+                        <a class="nav-main-link"  href="<?= base_url('admin/subkategoriB')?>">
+                          <span class="nav-main-link-name">Sub Kategori B</span>
+                        </a>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </li>

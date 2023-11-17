@@ -59,6 +59,22 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'Admin/Admin';
 
 //kategori
-
 $route['admin/kategori'] = 'Admin/Kategori';
+$route['admin/kategori/tambahkategori'] = 'Admin/Kategori/store';
+$route['admin/kategori/deleteKategori/(:any)'] = 'Admin/Kategori/delete/$1';
+$route['admin/kategori/updateKategori/(:any)'] = 'Admin/Kategori/edit/$1';
+$route['admin/kategori/update'] = 'Admin/Kategori/update';
 
+//subkategori A
+$route['admin/subkategoriA'] = 'Admin/SubKategoriA';
+$route['admin/subkategoriA/tambahsubkategoriA'] = 'Admin/SubKategoriA/store';
+$route['admin/subkategoriA/deletesubkategoriA/(:any)'] = 'Admin/SubKategoriA/delete/$1';
+$route['admin/subkategoriA/updatesubkategoriA/(:any)'] = 'Admin/SubKategoriA/edit/$1';
+$route['admin/subkategoriA/updatesubkategoriA'] = 'Admin/SubKategoriA/update';
+
+//subkategori B
+$route['admin/subkategoriB'] = 'Admin/SubKategoriB';
+$route['admin/subkategoriB/tambahsubkategoriB'] = 'Admin/SubKategoriB/store';
+$route['admin/subkategoriB/deletesubkategoriB/(:any)'] = 'Admin/SubKategoriB/delete/$1';
+$route['admin/subkategoriB/updatesubkategoriB/(:any)'] = 'Admin/SubKategoriB/edit/$1';
+$route['admin/subkategoriB/updatesubkategoriB'] = 'Admin/SubKategoriB/update';
