@@ -25,4 +25,10 @@ class Home extends CI_Controller{
         $this->load->view('dasboard');
         $this->load->view('componen/footer');
     }
+
+    function regisSupplier(){
+        $this->load->view('componen/header');
+        $this->load->view('regisSupplier');
+        $this->load->view('componen/footer');
+    }
 }

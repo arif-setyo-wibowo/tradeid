@@ -105,7 +105,7 @@
           <div class="navbar-other w-100 d-flex ms-auto">
             <ul class="navbar-nav flex-row align-items-center ms-auto">
             <li class="nav-item">
-                <a href="<?=base_url()?>" class="nav-link" >jadi supplier</a>
+                <a href="<?=base_url()?>home/regisSupplier" class="nav-link" >jadi supplier</a>
               </li>
               <li class="nav-item">
                 <a href="<?=base_url()?>home/dasboard" class="nav-link" >dasbor</a>
