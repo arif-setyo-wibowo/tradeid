@@ -1,9 +1,6 @@
 <footer class="bg-navy text-inverse">
     <div class="container pt-15 pt-md-17 pb-13 pb-md-15">
-      <div class="d-lg-flex flex-row align-items-lg-center">
-        <h3 class="display-4 mb-6 mb-lg-0 pe-lg-20 pe-xl-22 pe-xxl-25 text-white">Join our community by using our services and grow your business.</h3>
-        <a href="#" class="btn btn-primary rounded-pill mb-0 text-nowrap">Try It For Free</a>
-      </div>
+      
       <!--/div -->
       <hr class="mt-11 mb-12" />
       <div class="row gy-6 gy-lg-0">
