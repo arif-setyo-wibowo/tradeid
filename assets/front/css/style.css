@@ -243,6 +243,8 @@ Author:		elemis
   --bs-form-valid-border-color: #198754;
   --bs-form-invalid-color: #dc3545;
   --bs-form-invalid-border-color: #dc3545;
+
+  --wr-soft-primary: rgb(157, 217, 219);
 }
 *,
 *::before,
@@ -4379,6 +4381,7 @@ fieldset:disabled .btn {
   --bs-btn-disabled-bg: #3f78e0;
   --bs-btn-disabled-border-color: #3f78e0;
 }
+
 .btn-secondary {
   --bs-btn-color: #343f52;
   --bs-btn-bg: #aab0bc;
@@ -24855,7 +24858,7 @@ figure img {
   z-index: 1;
 }
 .bg-soft-primary {
-  background-color: var(--bs-soft-primary) !important;
+  background-color: var(--wr-soft-primary) !important;
 }
 .bg-soft-blue {
   background-color: var(--bs-soft-blue) !important;
@@ -24957,7 +24960,7 @@ figure img {
   background-color: var(--bs-pale-ash) !important;
 }
 .bg-gradient-primary {
-  background: linear-gradient(180deg, var(--bs-soft-primary), rgba(var(--bs-white-rgb), 0) 100%);
+  background: linear-gradient(180deg, var(--wr-soft-primary), rgba(var(--bs-white-rgb), 0) 100%);
 }
 .bg-gradient-reverse-primary {
   background: linear-gradient(0deg, var(--bs-soft-primary), rgba(var(--bs-white-rgb), 0) 100%);
