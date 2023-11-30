@@ -107,7 +107,7 @@
         <!-- Side Header -->
         <div class="content-header">
           <!-- Logo -->
-          <a class="fw-semibold text-dual" href="index.html">
+          <a class="fw-semibold text-dual" href="<?=base_url()?>">
             <span class="smini-visible">
               <i class="fa fa-circle-notch text-primary"></i>
             </span>
@@ -251,7 +251,7 @@
                 </ul>
               </li> -->
 
-              <li class="nav-main-heading">Data Report</li>
+              <!-- <li class="nav-main-heading">Data Report</li>
               <li class="nav-main-item">
                 <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                   <i class="nav-main-link-icon si si-energy"></i>
@@ -271,7 +271,7 @@
                 </ul>
               </li>
             </ul>
-          </div>
+          </div> -->
           <!-- END Side Navigation -->
         </div>
         <!-- END Sidebar Scrolling -->

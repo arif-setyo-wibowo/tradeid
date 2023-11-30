@@ -108,7 +108,7 @@
                 <a href="<?=base_url()?>home/regisSupplier" class="nav-link" >jadi supplier</a>
               </li>
               <li class="nav-item">
-                <a href="<?=base_url()?>home/dasboard" class="nav-link" >dasbor</a>
+                <a href="<?=base_url()?>supplier/supplier" class="nav-link" >dasbor</a>
               </li>
               <li class="nav-item">
                 <a href="<?=base_url()?>home/login" class="nav-link" >Sign In</a>

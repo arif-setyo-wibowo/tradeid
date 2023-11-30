@@ -50,6 +50,15 @@
 <!-- Page JS Code -->
 <script src="<?= base_url() ?>assets/admin/js/pages/be_tables_datatables.min.js"></script>
 <script>One.helpersOnLoad([ 'jq-select2']);</script>
+
+<!-- Page JS Plugins -->
+<script src="<?= base_url() ?>assets/admin/js/plugins/select2/js/select2.full.min.js"></script>
+    <script src="<?= base_url() ?>assets/admin/js/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+    <script src="<?= base_url() ?>assets/admin/js/plugins/ckeditor/ckeditor.js"></script>
+    <script src="<?= base_url() ?>assets/admin/js/plugins/dropzone/min/dropzone.min.js"></script>
+
+    <!-- Page JS Helpers (Select2 + Bootstrap Maxlength + CKEditor plugins) -->
+    <script>One.helpersOnLoad(['jq-select2', 'jq-maxlength', 'js-ckeditor']);</script>
 </body>
 
 </html>
