@@ -104,23 +104,6 @@
           <!-- /.navbar-collapse -->
           <div class="navbar-other w-100 d-flex ms-auto">
             <ul class="navbar-nav flex-row align-items-center ms-auto">
-<<<<<<< HEAD
-            <li class="nav-item">
-                <a href="<?=base_url()?>home/regisSupplier" class="nav-link" >jadi supplier</a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url()?>supplier/supplier" class="nav-link" >dasbor</a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url()?>home/login" class="nav-link" >Sign In</a>
-              </li>
-              <li class="nav-item d-none d-md-block">
-                <a href="<?=base_url()?>home/register" class="btn btn-sm btn-primary rounded" >Sign Up</a>
-              </li>
-              <li class="nav-item d-lg-none">
-                <button class="hamburger offcanvas-nav-btn"><span></span></button>
-              </li>
-=======
               <?php $username = $this->session->userdata('username');
                 if ($username) : ?>
                   <li class="nav-item">
@@ -146,7 +129,6 @@
                   <li class="nav-item d-lg-none">
                     <button class="hamburger offcanvas-nav-btn"><span></span></button>
                   </li>
->>>>>>> b091a27f6dec4d4935e8046b69895e7dca25eff9
             </ul>
             <!-- /.navbar-nav -->
           </div>
