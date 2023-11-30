@@ -3,12 +3,13 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class SubKategoriB extends CI_Controller {
+class Databuyer extends CI_Controller {
 
     
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('M_Databuyer');
         $this->load->model('M_SubkategoriB');
         $this->load->model('M_SubkategoriA');
         $this->load->model('M_Kategori');
@@ -17,14 +18,13 @@ class SubKategoriB extends CI_Controller {
     public function index()
     {
         $data = [
-            'judul' => 'Data Kategori',
             'kategori' => $this->M_Kategori->getKategori(),
             'subkategori_a' => $this->M_SubkategoriA->getSubKategori(),
             'subkategori_b' => $this->M_SubkategoriB->getSubKategori(),
             'header' => 'template/v_header_admin',
             'footer' => 'template/v_footer_admin',
         ];
-        return $this->load->view('admin/v_subkategori_b',$data);
+        return $this->load->view('admin/v_databuyer',$data);
     }
 
     public function getSubkategoriAOptions() {
@@ -89,4 +89,4 @@ class SubKategoriB extends CI_Controller {
     }
 }
 
-/* End of file Kategori.php */
+/* End of file Databuyer.php */

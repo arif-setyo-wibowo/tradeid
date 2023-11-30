@@ -12,8 +12,14 @@
         <!-- /.row -->
         <div class="row">
           <div class="col">
-            
+            <!-- /.tab-content -->
                 <div class="card shadow-lg p-3">
+                <ul class="nav nav-tabs nav-tabs-basic">
+                    <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab3-1">Information</a> </li>
+                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab3-2">Contact</a> </li>
+                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab3-3">Description</a> </li>
+                </ul>
+                <!-- /.nav-tabs -->
                 <form class="text-start mb-3" action="">
                 <div class="tab-content mt-0 mt-md-5">
                     <div class="tab-pane fade show active" id="tab3-1">
@@ -77,14 +83,6 @@
                 </form>
                     <!--/.tab-pane -->
                     </div>
-               
-                    <!-- /.tab-content -->
-                <ul class="nav nav-tabs nav-tabs-basic">
-                    <li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab3-1">Information</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab3-2">Contact</a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab3-3">Description</a> </li>
-                    </ul>
-                    <!-- /.nav-tabs -->
                 </div>
                 <!-- /.card -->
             

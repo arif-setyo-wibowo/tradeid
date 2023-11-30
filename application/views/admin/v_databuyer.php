@@ -17,15 +17,15 @@
             <!-- Projects -->
             <div class="tab-pane fade fade-up show active" id="search-projects" role="tabpanel" aria-labelledby="search-projects-tab" tabindex="0">
             <!-- Dynamic Table with Export Buttons -->
-            <div class="block block-rounded">
+            <div class="block block-rounded ">
                 <div class="block-content block-content-full">
                     <!-- DataTables init on table by adding .js-dataTable-buttons class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
                     <table class="table table-bordered table-striped table-vcenter js-dataTable-buttons">
                         <thead>
                             <tr>
                                 <th class="text-center" style="width: 80px;">ID</th>
-                                <th>Sub Kategori B</th>
-                                <th>Sub Kategori A</th>
+                                <th>Nama Buyer</th>
+                                <th>Email</th>
                                 <th>Kategori</th>
                                 <th class="d-none d-sm-table-cell" style="width: 15%;">Action</th>
                             </tr>
