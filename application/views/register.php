@@ -1,3 +1,4 @@
+<?php $this->load->view($header); ?>
 <section class="wrapper bg-gradient-primary">
       <div class="container pt-10 pb-19 pt-md-14 pb-md-20 text-center">
         <div class="row">
@@ -23,56 +24,35 @@
                 <!--/column -->
                 <div class="col-lg-8">
                   <div class="p-10 p-md-11 p-lg-13">
-                    <h3 class="mb-3 text-start">Your Contact Detail</h3>
-                    <p class="lead mb-6 text-start"><p>
-                    <form class="text-start mb-3">
-                      <div class="form-floating mb-4">
-                        <input type="text" class="form-control" placeholder="Name" id="loginName">
-                        <label for="loginName">Name</label>
-                      </div>
-                      <div class="form-floating mb-4">
-                        <textarea id="textareaExample" class="form-control" placeholder="Address" style="height: 150px" required></textarea>
-                        <label for="textareaExample">Address</label>
-                      </div>
-                      <div class="form-floating mb-4">
-                        <input type="text" class="form-control" placeholder="Name" id="loginName">
-                        <label for="loginName">City</label>
-                      </div>
-                      <div class="form-floating mb-4">
-                        <input type="text" class="form-control" placeholder="Name" id="loginName">
-                        <label for="loginName">State</label>
-                      </div>
-                      <div class="form-floating mb-4">
-                        <input type="text" class="form-control" placeholder="Name" id="loginName">
-                        <label for="loginName">Country</label>
-                      </div>
-                      <div class="form-floating mb-4">
-                        <input type="text" class="form-control" placeholder="Name" id="loginName">
-                        <label for="loginName">Phone Number with Country & Area Code</label>
-                      </div>
+                    <form class="text-start mb-3" method="POST" action="<?= base_url('register')?>">
                       <h3 class="mb-3 mt-2 text-start">Your Email Detail</h3>
+                      <?php if (validation_errors() == TRUE):?>
+                          <div class="alert alert-danger" role="alert">
+                              <?php echo validation_errors(); ?>
+                          </div>
+                      <?php endif;?>
                       <div class="form-floating mb-4">
-                        <input type="text" class="form-control" placeholder="Name" id="loginName">
+                        <input type="text" class="form-control" placeholder="Name" name="username" id="loginName">
                         <label for="loginName">Username</label>
                       </div>
                       <div class="form-floating mb-4">
-                        <input type="email" class="form-control" placeholder="Name" id="loginName">
-                        <label for="loginName">Email</label>
+                        <input type="email" class="form-control" placeholder="Name" name="email" id="loginEmail">
+                        <label for="loginEmail">Email</label>
                       </div>
                       <div class="form-floating password-field mb-4">
-                        <input type="password" class="form-control" placeholder="Password" id="loginPassword">
+                        <input type="password" class="form-control" placeholder="Password" name="password" id="loginPassword">
                         <span class="password-toggle"><i class="uil uil-eye"></i></span>
                         <label for="loginPassword">Password</label>
                       </div>
                       <div class="form-floating password-field mb-4">
-                        <input type="password" class="form-control" placeholder="Confirm Password" id="loginPasswordConfirm">
+                        <input type="password" class="form-control" placeholder="Confirm Password" name="confirm_password" id="loginPasswordConfirm">
                         <span class="password-toggle"><i class="uil uil-eye"></i></span>
                         <label for="loginPasswordConfirm">Confirm Password</label>
                       </div>
-                      <a class="btn btn-primary rounded-pill btn-login w-100 mb-2 mt-3">Sign Up</a>
+                      <button type="submit" class="btn btn-primary rounded-pill btn-login w-100 mb-2 mt-3">Sign Up</button>
                     </form>
                     <!-- /form -->
-                    <p class="mb-0">Already have an account? <a href="./signin2.html" class="hover">Sign in</a></p>
+                    <p class="mb-0">Already have an account? <a href="<?= base_url('login')?>" class="hover">Sign in</a></p>
                     <div class="divider-icon my-4">or</div>
                     <nav class="nav social justify-content-center text-center">
                       <a href="#" class="btn btn-circle btn-sm btn-google"><i class="uil uil-google"></i></a>
@@ -97,3 +77,4 @@
     </section>
     <!-- /section -->
   </div>
+  <?php $this->load->view($footer); ?>

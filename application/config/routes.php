@@ -55,6 +55,14 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 
+//Front 
+
+//registrasi
+$route['register'] = 'Front/User/regis';
+$route['login'] = 'Front/User/login';
+$route['logout'] = 'Front/User/logout';
+
+
 //Admin
 $route['admin'] = 'Admin/Admin';
 
@@ -78,3 +86,10 @@ $route['admin/subkategoriB/tambahsubkategoriB'] = 'Admin/SubKategoriB/store';
 $route['admin/subkategoriB/deletesubkategoriB/(:any)'] = 'Admin/SubKategoriB/delete/$1';
 $route['admin/subkategoriB/updatesubkategoriB/(:any)'] = 'Admin/SubKategoriB/edit/$1';
 $route['admin/subkategoriB/updatesubkategoriB'] = 'Admin/SubKategoriB/update';
+
+//data buyer
+$route['admin/databuyer'] = 'Admin/Databuyer';
+$route['admin/databuyer/tambahdatabuyer'] = 'Admin/Databuyer/store';
+$route['admin/databuyer/deletedatabuyer/(:any)'] = 'Admin/Databuyer/delete/$1';
+$route['admin/databuyer/updatedatabuyer/(:any)'] = 'Admin/Databuyer/edit/$1';
+$route['admin/databuyer/update'] = 'Admin/Databuyer/update';

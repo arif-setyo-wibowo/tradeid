@@ -104,21 +104,31 @@
           <!-- /.navbar-collapse -->
           <div class="navbar-other w-100 d-flex ms-auto">
             <ul class="navbar-nav flex-row align-items-center ms-auto">
-            <li class="nav-item">
-                <a href="<?=base_url()?>home/regisSupplier" class="nav-link" >jadi supplier</a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url()?>home/dasboard" class="nav-link" >dasbor</a>
-              </li>
-              <li class="nav-item">
-                <a href="<?=base_url()?>home/login" class="nav-link" >Sign In</a>
-              </li>
-              <li class="nav-item d-none d-md-block">
-                <a href="<?=base_url()?>home/register" class="btn btn-sm btn-primary rounded" >Sign Up</a>
-              </li>
-              <li class="nav-item d-lg-none">
-                <button class="hamburger offcanvas-nav-btn"><span></span></button>
-              </li>
+              <?php $username = $this->session->userdata('username');
+                if ($username) : ?>
+                  <li class="nav-item">
+                    <a href="<?=base_url()?>home/regisSupplier" class="nav-link" >jadi supplier</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="<?=base_url()?>home/dasboard" class="nav-link" >dasbor</a>
+                  </li>
+                  <li class="nav-item d-none d-md-block">
+                    <a href="<?=base_url()?>profil" class="nav-link" ><?= $this->session->userdata('username')?></a>
+                  </li>
+                  <li class="nav-item d-none d-md-block">
+                    <a href="<?=base_url()?>logout" class="nav-link" >logout</a>
+                  </li>
+                <?php else : ?>
+                  <li class="nav-item">
+                    <a href="<?=base_url()?>login" class="nav-link" >Sign In</a>
+                  </li>
+                  <li class="nav-item d-none d-md-block">
+                    <a href="<?=base_url()?>register" class="btn btn-sm btn-primary rounded" >Sign Up</a>
+                  </li>
+                  <?php endif; ?>
+                  <li class="nav-item d-lg-none">
+                    <button class="hamburger offcanvas-nav-btn"><span></span></button>
+                  </li>
             </ul>
             <!-- /.navbar-nav -->
           </div>

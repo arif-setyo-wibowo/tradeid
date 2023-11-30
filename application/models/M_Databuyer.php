@@ -3,7 +3,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_SubkategoriB extends CI_Model {
+class M_Databuyer extends CI_Model {
 
     function getSubKategori() {
         $this->db->select('*')
