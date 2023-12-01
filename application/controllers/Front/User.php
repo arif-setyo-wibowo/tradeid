@@ -14,7 +14,24 @@ class User extends CI_Controller {
     
     public function index()
     {
+        $data = [
+            'header' => 'componen/header',
+            'footer' => 'componen/footer',
+        ];
         
+        return $this->load->view('profile',$data);
+    
+    }
+
+    public function editProfile()
+    {
+        $data = [
+            'header' => 'componen/header',
+            'footer' => 'componen/footer',
+        ];
+        
+        return $this->load->view('editProfile',$data);
+    
     }
 
     function regis(){

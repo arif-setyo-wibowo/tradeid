@@ -209,7 +209,7 @@
               </li>
               <li class="nav-main-heading">Input Data</li>
               <li class="nav-main-item">
-                <a class="nav-main-link" href="be_pages_dashboard.html">
+                <a class="nav-main-link" href="<?= base_url('supplier/company')?>">
                   <i class="nav-main-link-icon si si-speedometer"></i>
                   <span class="nav-main-link-name">Profile Company</span>
                 </a>
