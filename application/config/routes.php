@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 //Front 
+$route['profil'] = 'Front/User';
 
 //registrasi
 $route['register'] = 'Front/User/regis';

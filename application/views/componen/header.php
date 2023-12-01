@@ -13,8 +13,6 @@
   <link rel="stylesheet" href="<?= base_url()?>./assets/front/css/style.css">
   <link rel="stylesheet" href="<?= base_url()?>./assets/front/css/colors/yellow.css">
   <link rel="preload" href="<?= base_url()?>./assets/front/css/fonts/thicccboi.css" as="style" onload="this.rel='stylesheet'">
-</head>
-
 <body>
   <div class="content-wrapper">
     <header class="wrapper bg-soft-primary">
@@ -106,9 +104,7 @@
             <ul class="navbar-nav flex-row align-items-center ms-auto">
               <?php $username = $this->session->userdata('username');
                 if ($username) : ?>
-                  <li class="nav-item">
-                    <a href="<?=base_url()?>home/regisSupplier" class="nav-link" >jadi supplier</a>
-                  </li>
+                  
                   <li class="nav-item">
                     <a href="<?=base_url()?>supplier/supplier" class="nav-link" >dasbor</a>
                   </li>
