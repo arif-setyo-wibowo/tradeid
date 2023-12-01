@@ -61,6 +61,12 @@ $route['translate_uri_dashes'] = FALSE;
 $route['register'] = 'Front/User/regis';
 $route['login'] = 'Front/User/login';
 $route['logout'] = 'Front/User/logout';
+$route['regisSupplier'] = 'Front/Supplier/regis';
+
+
+//Supllier
+$route['supplier'] = 'Supplier/Supplier';
+
 
 
 //Admin

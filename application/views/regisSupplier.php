@@ -1,3 +1,4 @@
+<?php $this->load->view($header); ?>
 <section class="wrapper bg-light">
       <div class="container pt-11 pt-md-13 pb-11 pb-md-19 pb-lg-22 text-center">
         <div class="row">
@@ -20,31 +21,19 @@
                     <li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab3-3">Description</a> </li>
                 </ul>
                 <!-- /.nav-tabs -->
-                <form class="text-start mb-3" action="">
+                <form class="text-start mb-3" action="<?= base_url('regisSupplier')?>">
                 <div class="tab-content mt-0 mt-md-5">
                     <div class="tab-pane fade show active" id="tab3-1">
                     <div class="p p-md-3 p-lg-3">
                         <p class="lead mb-6 text-start">Information About Your Company</p>
                         <div class="form-floating mb-4">
-                            <input type="text" class="form-control" placeholder="Email" id="loginEmail">
+                            <input type="text" class="form-control" placeholder="Name" name="comapny" id="loginEmail">
                             <label for="loginEmail">Your Comapany Name</label>
                         </div>
                         <div class="form-floating mb-4">
-                                <textarea id="textareaExample" class="form-control" placeholder="Address" style="height: 150px" ></textarea>
+                                <textarea id="textareaExample" class="form-control" placeholder="Address" name="alamat" style="height: 150px" ></textarea>
                                 <label for="textareaExample">Address</label>
                         </div>
-                            <div class="form-floating mb-4">
-                                <input type="text" class="form-control" placeholder="Name" id="loginName">
-                                <label for="loginName">City</label>
-                            </div>
-                            <div class="form-floating mb-4">
-                                <input type="text" class="form-control" placeholder="Name" id="loginName">
-                                <label for="loginName">State</label>
-                            </div>
-                            <div class="form-floating mb-4">
-                                <input type="text" class="form-control" placeholder="Name" id="loginName">
-                                <label for="loginName">Country</label>
-                            </div>
                     </div>
                     <!--/div -->
                     </div>
@@ -53,15 +42,15 @@
                     <div class="p p-md-3 p-lg-3">
                         <p class="lead mb-6 text-start">Contact About Your Company</p>
                         <div class="form-floating mb-4">
-                            <input type="email" class="form-control" placeholder="Email" id="loginEmail">
+                            <input type="email" class="form-control" placeholder="Email" name="nama" id="loginEmail">
                             <label for="loginEmail">Full Name</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="email" class="form-control" placeholder="Email" id="loginEmail">
-                            <label for="loginEmail"> Email</label>
+                            <input type="email" class="form-control" placeholder="Email" name="email" id="loginEmail">
+                            <label for="loginEmail">Email</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="text" class="form-control" placeholder="Name" id="loginName">
+                            <input type="text" class="form-control" placeholder="Name" name="telp" id="loginName">
                             <label for="loginName">Phone Number with Country & Area Code</label>
                         </div>
                     </div>
@@ -72,7 +61,7 @@
                     <div class="p p-md-3 p-lg-3">
                         <p class="lead mb-6 text-start">Briefly tell us about your business and the website you want us to build for it:</p>
                         <div class="form-floating mb-4">
-                                <textarea id="textareaExample" class="form-control" placeholder="Address" style="height: 150px" ></textarea>
+                                <textarea id="textareaExample" class="form-control" placeholder="Address" name="deskrip" style="height: 150px" ></textarea>
                                 <label for="textareaExample">Describe your company</label>
                         </div>
                     
@@ -94,4 +83,4 @@
       
       <!-- /.container -->
 </section>
-    
+<?php $this->load->view($footer); ?>

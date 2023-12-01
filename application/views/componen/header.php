@@ -110,7 +110,7 @@
                     <a href="<?=base_url()?>home/regisSupplier" class="nav-link" >jadi supplier</a>
                   </li>
                   <li class="nav-item">
-                    <a href="<?=base_url()?>supplier/supplier" class="nav-link" >dasbor</a>
+                    <a href="<?=base_url()?>supplier" class="nav-link" >dasbor</a>
                   </li>
                   <li class="nav-item d-none d-md-block">
                     <a href="<?=base_url()?>profil" class="nav-link" ><?= $this->session->userdata('username')?></a>
@@ -125,7 +125,7 @@
                   <li class="nav-item d-none d-md-block">
                     <a href="<?=base_url()?>register" class="btn btn-sm btn-primary rounded" >Sign Up</a>
                   </li>
-                  <?php endif; ?>
+                <?php endif; ?>
                   <li class="nav-item d-lg-none">
                     <button class="hamburger offcanvas-nav-btn"><span></span></button>
                   </li>
