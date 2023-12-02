@@ -23,19 +23,19 @@
                     <div class="swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <figure class="rounded"><img src="<?= base_url() ?>./assets/front/img/produk/fiber.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/fiber.jpg 2x" alt="" /><a class="item-link" href="./assets/img/photos/shs1@2x.jpg" data-glightbox data-gallery="product-group"><i class="uil uil-focus-add"></i></a></figure>
+                                <figure class="rounded"><img src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/briket.jpg 2x" alt="" /><a class="item-link" href="./assets/img/photos/shs1@2x.jpg" data-glightbox data-gallery="product-group"><i class="uil uil-focus-add"></i></a></figure>
                             </div>
                             <!--/.swiper-slide -->
                             <div class="swiper-slide">
-                                <figure class="rounded"><img src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/fiber.jpg 2x" alt="" /><a class="item-link" href="./assets/img/photos/shs2@2x.jpg" data-glightbox data-gallery="product-group"><i class="uil uil-focus-add"></i></a></figure>
+                                <figure class="rounded"><img src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/briket.jpg 2x" alt="" /><a class="item-link" href="./assets/img/photos/shs2@2x.jpg" data-glightbox data-gallery="product-group"><i class="uil uil-focus-add"></i></a></figure>
                             </div>
                             <!--/.swiper-slide -->
                             <div class="swiper-slide">
-                                <figure class="rounded"><img src="<?= base_url() ?>./assets/front/img/produk/fiber.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/fiber.jpg 2x" alt="" /><a class="item-link" href="./assets/img/photos/shs3@2x.jpg" data-glightbox data-gallery="product-group"><i class="uil uil-focus-add"></i></a></figure>
+                                <figure class="rounded"><img src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/briket.jpg 2x" alt="" /><a class="item-link" href="./assets/img/photos/shs3@2x.jpg" data-glightbox data-gallery="product-group"><i class="uil uil-focus-add"></i></a></figure>
                             </div>
                             <!--/.swiper-slide -->
                             <div class="swiper-slide">
-                                <figure class="rounded"><img src="<?= base_url() ?>./assets/front/img/produk/fiber.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/fiber.jpg 2x" alt="" /><a class="item-link" href="./assets/img/photos/shs4@2x.jpg" data-glightbox data-gallery="product-group"><i class="uil uil-focus-add"></i></a></figure>
+                                <figure class="rounded"><img src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/briket.jpg 2x" alt="" /><a class="item-link" href="./assets/img/photos/shs4@2x.jpg" data-glightbox data-gallery="product-group"><i class="uil uil-focus-add"></i></a></figure>
                             </div>
                             <!--/.swiper-slide -->
                         </div>
@@ -44,10 +44,10 @@
                     <!-- /.swiper -->
                     <div class="swiper swiper-thumbs">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="<?= base_url() ?>./assets/front/img/produk/fiber.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/fiber.jpg 2x" class="rounded" alt="" /></div>
-                            <div class="swiper-slide"><img src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/fiber.jpg 2x" class="rounded" alt="" /></div>
-                            <div class="swiper-slide"><img src="<?= base_url() ?>./assets/front/img/produk/fiber.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/fiber.jpg 2x" class="rounded" alt="" /></div>
-                            <div class="swiper-slide"><img src="<?= base_url() ?>./assets/front/img/produk/fiber.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/fiber.jpg 2x" class="rounded" alt="" /></div>
+                            <div class="swiper-slide"><img src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/briket.jpg 2x" class="rounded" alt="" /></div>
+                            <div class="swiper-slide"><img src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/briket.jpg 2x" class="rounded" alt="" /></div>
+                            <div class="swiper-slide"><img src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/briket.jpg 2x" class="rounded" alt="" /></div>
+                            <div class="swiper-slide"><img src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" srcset="<?= base_url() ?>./assets/front/img/produk/briket.jpg 2x" class="rounded" alt="" /></div>
                         </div>
                         <!--/.swiper-wrapper -->
                     </div>
@@ -84,9 +84,11 @@
                         </div>
                     </div>
                     <div class="flex-grow-1 mx-2">
-                        <button class="btn btn-primary btn-icon btn-icon-start  rounded w-100 "><i class="uil uil-envelope"></i> Inquire Now</button>
+                        <a href="" class="btn btn-primary btn-icon btn-icon-start  rounded w-100 " data-bs-toggle="modal" data-bs-target="#modal-signin">
+                            <i class="uil uil-envelope"></i> Inquire Now
+                        </a>
                     </div>
-                    <!-- <div class="post-body mb-5 d-flex">
+                    <div class="post-body mb-5 d-flex">
                         <div class="m-5">
                             <a href="<?= base_url() ?>Front/product/productDetail"><img style="max-width: 70px; max-height: 70px;" src="<?= base_url() ?>./assets/front/img/produk/fiber.jpg" srcset="./assets/img/photos/sh1@2x.jpg 2x" alt="" /></a>
                         </div>
@@ -94,7 +96,7 @@
                             <p class=" price fs-20 mb-2"><a href="" class="link-dark"><span class="amount">PT. Coco Indo jaya</span></p>
                         </div>
                         
-                    </div> -->
+                    </div>
                 </div>
                 <!-- /.post-header -->
             </div>
@@ -149,6 +151,47 @@
         <!-- /.tab-content -->
     </div>
     <!-- /.container -->
+
+    <div class="modal fade" id="modal-signin" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content text-center">
+        <div class="modal-body">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h2 class="mb-3 text-start">Contact Supplier</h2>
+            <p class="lead mb-6 text-start">Your message will be sent to the supplier</p>
+            <form class="text-start mb-3">
+            <div class="form-floating mb-4">
+                <input type="text" class="form-control" placeholder="Email" value="Jumali" >
+                <label for="loginEmail">Your Name</label>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="text" class="form-control" placeholder="Email" value="Jumali@gmail.com" >
+                <label for="loginEmail">Your Email</label>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="text" class="form-control" placeholder="Email" value="+628938837364">
+                <label for="loginEmail">Phone (Country And Area Code)</label>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="text" class="form-control" placeholder="Email" value="Indonesia">
+                <label for="loginEmail">Country</label>
+            </div>
+            <div class="form-floating mb-4">
+                <textarea id="textareaExample" class="form-control" placeholder="Textarea" style="height: 150px" required></textarea>
+                <label for="textareaExample">Message to Supplier</label>
+            </div>
+            <a class="btn btn-primary rounded-pill btn-login w-100 mb-2">Send Inquire</a>
+            </form>
+            <!-- /form -->
+            <!--/.social -->
+        </div>
+        <!--/.modal-content -->
+        </div>
+        <!--/.modal-body -->
+    </div>
+    <!--/.modal-dialog -->
+    </div>
+    <!--/.modal -->
 </section>
 <!-- /section -->
 

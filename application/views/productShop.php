@@ -79,7 +79,7 @@
                   </div>
                   <div >
                     <div>
-                    <a href="" class="text-blue fs-sm"><i class="uil uil-envelope"></i> Inquire now</a>
+                    <a href="" class="text-blue fs-sm" data-bs-toggle="modal" data-bs-target="#modal-signin"><i class="uil uil-envelope"></i> Inquire now</a>
                     </div>
                   </div>
                 </div>
@@ -168,6 +168,48 @@
     <!-- /.row -->
   </div>
   <!-- /.container -->
+
+  <div class="modal fade" id="modal-signin" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content text-center">
+        <div class="modal-body">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h2 class="mb-3 text-start">Contact Supplier</h2>
+            <p class="lead mb-6 text-start">Your message will be sent to the supplier</p>
+            <form class="text-start mb-3">
+            <div class="form-floating mb-4">
+                <input type="text" class="form-control" placeholder="Email" value="Jumali" >
+                <label for="loginEmail">Your Name</label>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="text" class="form-control" placeholder="Email" value="Jumali@gmail.com" >
+                <label for="loginEmail">Your Email</label>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="text" class="form-control" placeholder="Email" value="+628938837364">
+                <label for="loginEmail">Phone (Country And Area Code)</label>
+            </div>
+            <div class="form-floating mb-4">
+                <input type="text" class="form-control" placeholder="Email" value="Indonesia">
+                <label for="loginEmail">Country</label>
+            </div>
+            <div class="form-floating mb-4">
+                <textarea id="textareaExample" class="form-control" placeholder="Textarea" style="height: 150px" required></textarea>
+                <label for="textareaExample">Message to Supplier</label>
+            </div>
+            <a href="" class="btn btn-primary rounded-pill btn-login w-100 mb-2" >Send Inquire</a>
+            </form>
+            <!-- /form -->
+            <!--/.social -->
+        </div>
+        <!--/.modal-content -->
+        </div>
+        <!--/.modal-body -->
+    </div>
+    <!--/.modal-dialog -->
+    </div>
+    <!--/.modal -->
+
 </section>
 <!-- /section -->
 
