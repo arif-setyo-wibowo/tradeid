@@ -104,15 +104,13 @@
             <ul class="navbar-nav flex-row align-items-center ms-auto">
               <?php $username = $this->session->userdata('username');
                 if ($username) : ?>
-                  
-                  <li class="nav-item">
-                    <a href="<?=base_url()?>supplier" class="nav-link" >dasbor</a>
-                  </li>
-                  <li class="nav-item d-none d-md-block">
-                    <a href="<?=base_url()?>profil" class="nav-link" ><?= $this->session->userdata('username')?></a>
-                  </li>
-                  <li class="nav-item d-none d-md-block">
-                    <a href="<?=base_url()?>logout" class="nav-link" >logout</a>
+                  <li class="nav-item dropdown text-uppercase">
+                    <a class="dropdown-item dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><?= $this->session->userdata('username')?></a>
+                    <ul class="dropdown-menu show" data-bs-popper="static">
+                      <li class="nav-item"><a class="dropdown-item" href="<?=base_url()?>profil">Profil</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="<?=base_url()?>supplier">Dashbord</a></li>
+                      <li class="nav-item"><a class="dropdown-item" href="<?=base_url()?>logout">Logout</a></li>
+                    </ul>
                   </li>
                 <?php else : ?>
                   <li class="nav-item">

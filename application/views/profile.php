@@ -1,6 +1,18 @@
 <?php $this->load->view($header); ?>
 <section class="wrapper bg-gradient-primary">
     <div class="container p-2   pt-5 pb-10  pt-md-10 pb-md-20 ">
+        <?php  $pesan = $this->session->flashdata('pesan') ?>
+            <?php  if($pesan != NULL) : ?>
+                <div class="alert alert-success alert-icon alert-dismissible fade show" role="alert">
+                    <i class="uil uil-check-circle"></i> <?= $pesan ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php elseif($pesan = $this->session->flashdata('pesan_e')) : ?>
+                <div class="alert alert-danger alert-icon alert-dismissible fade show" role="alert">
+                    <i class="uil uil-times-circle"></i> <?= $pesan ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif;?>
         <div class="card p-3" style="background-color:rgba(255, 255, 255, 0.8);">
             <div class="d-flex row ">
                 <div class=" d-flex gap-10 ">
@@ -9,8 +21,8 @@
                         <div class="fw-light mt-n2">bowo@gmail.com</div>
                     </div>
                     <div class="my-auto " >
-                    <a href="<?=base_url()?>home/regisSupplier" class="btn btn-sm btn-sky " >Register as a supplier</a>
-                    <button class="btn btn-sm btn-sky rounded-pill">Supplier</button>
+                        <a href="<?=base_url()?>regSup" class="btn btn-sm btn-sky " >Register as a supplier</a>
+                        <button class="btn btn-sm btn-sky rounded-pill">Supplier</button>
                     </div>
                 </div>
                 
@@ -25,20 +37,29 @@
                 <div class="card p-3 " >
                     <div class="d-flex justify-content-between ">
                         <h4 class="fw-light">Profile Information</h4>
-                    <a href="<?=base_url()?>/Front/user/editprofile?" class="text-blue fw-light"><i class="uil uil-edit"></i>  profile</a>
+                    <a href="<?=base_url()?>editprofil" class="text-blue fw-light"><i class="uil uil-edit"></i>  profile</a>
                     </div>
                     
                     <div class="mb-2">
-                        <span class="fw-bold">Full Name :</span><span class="text-muted m-2 fw-light"> Arif Setyo Wibowo</span>
+                        <span class="fw-bold">Full Name :</span><span class="text-muted m-2 fw-light"> <?= $user[0]->nama?></span>
                     </div>
                     <div class="mb-2">
-                        <span class="fw-bold">Phone :</span><span class="text-muted m-2 fw-light"> +62872827262</span>
+                        <span class="fw-bold">Username :</span><span class="text-muted m-2 fw-light"> <?= $user[0]->username?></span>
                     </div>
                     <div class="mb-2">
-                        <span class="fw-bold">Email :</span><span class="text-muted m-2 fw-light"> Bowo@gmail.com</span>
+                        <span class="fw-bold">Phone :</span><span class="text-muted m-2 fw-light"> <?= $user[0]->telp?></span>
                     </div>
                     <div class="mb-2">
-                        <span class="fw-bold">Location :</span><span class="text-muted m-2 fw-light"> Indonesia</span>
+                        <span class="fw-bold">Email :</span><span class="text-muted m-2 fw-light"><?= $user[0]->email?> 
+                        <?php if ($user[0]->status == null) : ?>
+                            <a href="javascript:void(0);" onclick="showVerificationPopup()" class="text-blue fw-light font-sm"><i class="uil uil-"></i> Verify</a>
+                        <?php else : ?>
+                            <i class="uil uil-"></i> Telah Diverifikasi </a>
+                        <?php endif?>
+                        </span>
+                    </div>
+                    <div class="mb-2">
+                        <span class="fw-bold">Location :</span><span class="text-muted m-2 fw-light"><?= $user[0]->negara?></span>
                     </div>
                     <!-- /.social -->
                 </div>
@@ -84,8 +105,8 @@
                             </div>
                         </div>
                         <!-- /.social -->
-                    </div>
-                    <!--/.card-body -->
+                </div>
+                <!--/.card-body -->
             </div>
         </div>
     </div>
@@ -115,4 +136,22 @@
 </section>
 <!-- /section -->
 </div>
+<!-- Tambahkan script JavaScript di bagian bawah untuk menangani tampilan popup -->
+<script>
+    function showVerificationPopup() {
+        // Tampilkan popup verifikasi email
+        var confirmation = confirm('Apakah Anda ingin memverifikasi email?');
+
+        if (confirmation) {
+            // Jika pengguna mengklik "OK", tambahkan logika untuk mengirim token verifikasi
+            // dan tanggapi sukses atau gagal (Anda dapat menyesuaikannya sesuai kebutuhan)
+            $.post('<?= base_url("auth/send_direct_verification_email") ?>', function(data) {
+                alert(data); // Gantilah dengan tindakan yang sesuai
+            });
+        } else {
+            // Jika pengguna mengklik "Batal"
+            alert('Verifikasi dibatalkan.');
+        }
+    }
+</script>
 <?php $this->load->view($footer); ?>

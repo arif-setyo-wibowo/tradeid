@@ -63,12 +63,14 @@ $route['register'] = 'Front/User/regis';
 $route['login'] = 'Front/User/login';
 $route['logout'] = 'Front/User/logout';
 $route['regisSupplier'] = 'Front/Supplier/regis';
+$route['regSup'] = 'Front/Supplier/cekSup';
 
 
 //Supllier
 $route['supplier'] = 'Supplier/Supplier';
 
-
+//Profil
+$route['editprofil'] = '/Front/user/editProfile';
 
 //Admin
 $route['admin'] = 'Admin/Admin';

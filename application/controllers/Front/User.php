@@ -15,6 +15,7 @@ class User extends CI_Controller {
     public function index()
     {
         $data = [
+            'user' => $this->M_User->getUser(),
             'header' => 'componen/header',
             'footer' => 'componen/footer',
         ];
@@ -24,14 +25,34 @@ class User extends CI_Controller {
     }
 
     public function editProfile()
-    {
-        $data = [
-            'header' => 'componen/header',
-            'footer' => 'componen/footer',
-        ];
-        
-        return $this->load->view('editProfile',$data);
-    
+    { 
+        $iduser = $this->session->userdata('iduser');
+
+        if ($this->input->post()) {
+            $data = array(
+                'nama' => $this->input->post('nama'),
+                'alamat' => $this->input->post('alamat'),
+                'telp' => $this->input->post('telp'),
+                'negara' => $this->input->post('negara'),
+            );
+
+            $this->M_User->update_countries($iduser,$data);
+
+            redirect('profil');
+        }else{
+            $data = [
+                'user' => $this->M_User->getUser(),
+                'header' => 'componen/header',
+                'footer' => 'componen/footer',
+            ];
+            
+            return $this->load->view('editProfile',$data);
+        }
+    }
+
+    public function get_countries() {
+        $countries = $this->M_User->get_all_countries();
+        echo json_encode($countries);
     }
 
     function regis(){
@@ -55,7 +76,7 @@ class User extends CI_Controller {
 
                 $this->M_User->insertUser($data);
 
-                return redirect('register');
+                 redirect('register');
              }else{
                 $data = [
                     'header' => 'componen/header',
@@ -83,7 +104,14 @@ class User extends CI_Controller {
             $user = $this->M_User->get_email_or_username($username_or_email);
 
             if ($user && password_verify($password, $user->password)) {
+                $this->session->set_userdata('iduser', $user->iduser);
+                $this->session->set_userdata('email', $user->email);
                 $this->session->set_userdata('username', $user->username);
+                $this->session->set_userdata('nama', $user->nama);
+                $this->session->set_userdata('alamat', $user->alamat);
+                $this->session->set_userdata('negara', $user->negara);
+                $this->session->set_userdata('telp', $user->telp);
+                $this->session->set_userdata('cSupplier', $user->cSupplier);
                 redirect('home');
             } else {
                 $data = array(
@@ -106,6 +134,8 @@ class User extends CI_Controller {
     }
 
     function logout(){
+        $this->session->unset_userdata('iduser');
+        $this->session->unset_userdata('email');
         $this->session->unset_userdata('username');
         redirect('login');
     }
