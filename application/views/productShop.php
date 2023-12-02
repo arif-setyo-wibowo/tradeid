@@ -56,7 +56,7 @@
               <div class="row">
                 <div class="d-flex mb-2">
                   <div class="">
-                    <a href=""><img style="max-width: 150px; max-height: 150px;" src="<?= base_url() ?>./assets/front/img/produk/fiber.jpg" srcset="./assets/img/photos/sh1@2x.jpg 2x" alt="" /></a>
+                    <a href="<?= base_url() ?>Front/product/productDetail"><img style="max-width: 150px; max-height: 150px;" src="<?= base_url() ?>./assets/front/img/produk/fiber.jpg" srcset="./assets/img/photos/sh1@2x.jpg 2x" alt="" /></a>
                   </div>
                   <div class="" style="margin-left:10px;">
                     <div class="align-items-center">

@@ -17,10 +17,10 @@ class Product extends CI_Controller {
     public function productDetail()
     {
         $data = [
-            'header' => 'template/v_header_supplier',
-            'footer' => 'template/v_footer_supplier',
+            'header' => 'componen/header',
+            'footer' => 'componen/footer',
         ];
-        return $this->load->view('supplier/v_productDetail',$data);
+        return $this->load->view('productDetail',$data);
     }
 
     public function productForm()
