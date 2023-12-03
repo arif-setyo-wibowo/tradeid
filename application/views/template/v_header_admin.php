@@ -262,6 +262,11 @@
                     </a>
                   </li>
                   <li class="nav-main-item">
+                    <a class="nav-main-link" href="<?= base_url('admin/supplier') ?>">
+                      <span class="nav-main-link-name">Registrasi Supplier</span>
+                    </a>
+                  </li>
+                  <li class="nav-main-item">
                     <a class="nav-main-link" href="be_blocks_options.html">
                       <span class="nav-main-link-name">User</span>
                     </a>

@@ -10,17 +10,23 @@ class User extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('M_User');
+        $this->load->model('M_Supplier');
     }
     
     public function index()
     {
-        $data = [
-            'user' => $this->M_User->getUser(),
-            'header' => 'componen/header',
-            'footer' => 'componen/footer',
-        ];
-        
-        return $this->load->view('profile',$data);
+        if (!$this->session->userdata('iduser')) {
+           redirect('logout');
+        }else{
+            $data = [
+                'supplier' => $this->M_Supplier->getSupplier(),
+                'user' => $this->M_User->getUser(),
+                'header' => 'componen/header',
+                'footer' => 'componen/footer',
+            ];
+            
+            return $this->load->view('profile',$data);
+        }
     
     }
 
@@ -28,25 +34,30 @@ class User extends CI_Controller {
     { 
         $iduser = $this->session->userdata('iduser');
 
-        if ($this->input->post()) {
-            $data = array(
-                'nama' => $this->input->post('nama'),
-                'alamat' => $this->input->post('alamat'),
-                'telp' => $this->input->post('telp'),
-                'negara' => $this->input->post('negara'),
-            );
+        if (!$this->session->userdata('iduser')) {
+            redirect('logout');
+         }else{
+            if ($this->input->post()) {
+                $data = array(
+                    'nama' => $this->input->post('nama'),
+                    'email' => $this->input->post('email'),
+                    'alamat' => $this->input->post('alamat'),
+                    'telp' => $this->input->post('telp'),
+                    'negara' => $this->input->post('negara'),
+                );
 
-            $this->M_User->update_countries($iduser,$data);
+                $this->M_User->update($iduser,$data);
 
-            redirect('profil');
-        }else{
-            $data = [
-                'user' => $this->M_User->getUser(),
-                'header' => 'componen/header',
-                'footer' => 'componen/footer',
-            ];
-            
-            return $this->load->view('editProfile',$data);
+                redirect('profil');
+            }else{
+                $data = [
+                    'user' => $this->M_User->getUser(),
+                    'header' => 'componen/header',
+                    'footer' => 'componen/footer',
+                ];
+                
+                return $this->load->view('editProfile',$data);
+            }
         }
     }
 
@@ -76,7 +87,7 @@ class User extends CI_Controller {
 
                 $this->M_User->insertUser($data);
 
-                 redirect('register');
+                 redirect('login');
              }else{
                 $data = [
                     'header' => 'componen/header',
@@ -137,8 +148,15 @@ class User extends CI_Controller {
         $this->session->unset_userdata('iduser');
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('username');
+        $this->session->unset_userdata('nama');
+        $this->session->unset_userdata('alamat');
+        $this->session->unset_userdata('negara');
+        $this->session->unset_userdata('telp');
+        $this->session->unset_userdata('cSupplier');
         redirect('login');
     }
+
+    
 }
 
 /* End of file User.php */

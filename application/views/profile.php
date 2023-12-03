@@ -21,8 +21,11 @@
                         <div class="fw-light mt-n2">bowo@gmail.com</div>
                     </div>
                     <div class="my-auto " >
-                        <a href="<?=base_url()?>regSup" class="btn btn-sm btn-sky " >Register as a supplier</a>
-                        <button class="btn btn-sm btn-sky rounded-pill">Supplier</button>
+                        <?php if($supplier[0]->verify == 1) : ?>
+                            <a href="<?=base_url()?>regSup" class="btn btn-sm btn-sky ">Register as a supplier</a>
+                        <?php else : ?>
+                            <a href="<?=base_url()?>supplier" class="btn btn-sm btn-sky ">Supplier</a>
+                        <?php endif; ?>
                     </div>
                 </div>
                 
@@ -52,7 +55,8 @@
                     <div class="mb-2">
                         <span class="fw-bold">Email :</span><span class="text-muted m-2 fw-light"><?= $user[0]->email?> 
                         <?php if ($user[0]->status == null) : ?>
-                            <a href="javascript:void(0);" onclick="showVerificationPopup()" class="text-blue fw-light font-sm"><i class="uil uil-"></i> Verify</a>
+                           
+                            <button data-email="<?= $user[0]->email ?>" onclick="verifyEmail()">Verify</button>
                         <?php else : ?>
                             <i class="uil uil-"></i> Telah Diverifikasi </a>
                         <?php endif?>
@@ -67,6 +71,7 @@
             </div>
             <div class="col-lg-6 ">
                 <div class="card p-3 " >
+                    <?php if($user[0]->cSupplier == 1 || $user[0]->cSupplier != NULL) : ?>
                         <div class="d-flex justify-content-between ">
                             <h4 class="fw-light">Company Information</h4>
                             <a href="<?=base_url()?>/supplier/company" class="text-blue fw-light font-sm"><i class="uil uil-"></i> Manage company </a>
@@ -105,6 +110,9 @@
                             </div>
                         </div>
                         <!-- /.social -->
+                    <?php else : ?>
+                    
+                    <?php endif;?>
                 </div>
                 <!--/.card-body -->
             </div>
@@ -136,22 +144,4 @@
 </section>
 <!-- /section -->
 </div>
-<!-- Tambahkan script JavaScript di bagian bawah untuk menangani tampilan popup -->
-<script>
-    function showVerificationPopup() {
-        // Tampilkan popup verifikasi email
-        var confirmation = confirm('Apakah Anda ingin memverifikasi email?');
-
-        if (confirmation) {
-            // Jika pengguna mengklik "OK", tambahkan logika untuk mengirim token verifikasi
-            // dan tanggapi sukses atau gagal (Anda dapat menyesuaikannya sesuai kebutuhan)
-            $.post('<?= base_url("auth/send_direct_verification_email") ?>', function(data) {
-                alert(data); // Gantilah dengan tindakan yang sesuai
-            });
-        } else {
-            // Jika pengguna mengklik "Batal"
-            alert('Verifikasi dibatalkan.');
-        }
-    }
-</script>
 <?php $this->load->view($footer); ?>
