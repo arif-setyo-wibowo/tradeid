@@ -58,6 +58,8 @@ $route['translate_uri_dashes'] = FALSE;
 //Front 
 $route['profil'] = 'Front/User';
 
+
+
 //registrasi
 $route['register'] = 'Front/User/regis';
 $route['login'] = 'Front/User/login';
@@ -74,6 +76,11 @@ $route['editprofil'] = '/Front/user/editProfile';
 
 //Admin
 $route['admin'] = 'Admin/Admin';
+
+//cek Supplier
+$route['admin/supplier'] = 'Admin/Admin/registrasiSupplier';
+$route['admin/supplier/update/(:any)'] = 'Admin/Admin/verify/$1';
+
 
 //kategori
 $route['admin/kategori'] = 'Admin/Kategori';

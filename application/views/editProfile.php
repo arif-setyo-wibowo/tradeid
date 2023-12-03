@@ -23,7 +23,7 @@
                             <label for="loginEmail">Full Name</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="email" class="form-control" placeholder="Email" name="nama" value="<?= $user[0]->email?>"  id="loginEmail">
+                            <input type="email" class="form-control" placeholder="Email" name="email" value="<?= $user[0]->email?>"  id="loginEmail">
                             <label for="loginEmail">Email</label>
                         </div>
                         <div class="form-floating mb-4">

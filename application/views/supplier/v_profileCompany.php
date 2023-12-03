@@ -37,17 +37,11 @@
                         <div class="mb-4">
                             <label class="form-label" for="one-profile-edit-username">Company Name</label>
                             <input type="text" class="form-control" id="one-profile-edit-username"
-                                name="one-profile-edit-username" placeholder="" value="">
+                                name="one-profile-edit-username" placeholder="" value="<?= $supplier[0]->namaPerusahaan?>">
                         </div>
                         <div class="mb-4">
-                            <label class="form-label" for="one-profile-edit-street-1">Street Address </label>
-                            <input type="text" class="form-control" id="one-profile-edit-street-1"
-                                name="one-profile-edit-street-1">
-                        </div>
-                        <div class="mb-4">
-                            <label class="form-label" for="one-profile-edit-street-1">City </label>
-                            <input type="text" class="form-control" id="one-profile-edit-street-1"
-                                name="one-profile-edit-street-1">
+                            <label class="form-label" for="one-profile-edit-username">Address</label>
+                            <textarea id="textareaExample" class="form-control" style="height: 150px" required></textarea>
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Your Avatar</label>

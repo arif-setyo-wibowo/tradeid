@@ -30,11 +30,11 @@ class M_User extends CI_Model {
         $response = file_get_contents($api_url);
         return json_decode($response, true);
     }
-
-    function update_countries($id,$data){
-        $this->db->where('iduser', $id);
-        $this->db->update('user', $data);
+    
+    function update($id,$data){
+        $this->db->update('user', $data, array('iduser' => $id));
     }
+
 }
 
 /* End of file M_User.php */

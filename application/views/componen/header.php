@@ -105,7 +105,6 @@
                     <a class="dropdown-item dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><?= $this->session->userdata('username')?></a>
                     <ul class="dropdown-menu show" data-bs-popper="static">
                       <li class="nav-item"><a class="dropdown-item" href="<?=base_url()?>profil">Profil</a></li>
-                      <li class="nav-item"><a class="dropdown-item" href="<?=base_url()?>supplier">Dashbord</a></li>
                       <li class="nav-item"><a class="dropdown-item" href="<?=base_url()?>logout">Logout</a></li>
                     </ul>
                   </li>
