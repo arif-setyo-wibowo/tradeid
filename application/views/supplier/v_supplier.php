@@ -74,7 +74,7 @@
                     <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
                         <dl class="mb-0">
                             <dt class="fs-3 fw-bold">124</dt>
-                            <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">New Customers</dd>
+                            <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Incuirement</dd>
                         </dl>
                         <div class="item item-rounded-lg bg-body-light">
                             <i class="far fa-user-circle fs-3 text-primary"></i>
@@ -88,48 +88,6 @@
                     </div>
                 </div>
                 <!-- END New Customers -->
-            </div>
-            <div class="col-sm-6 col-xxl-3">
-                <!-- Messages -->
-                <div class="block block-rounded d-flex flex-column h-100 mb-0">
-                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
-                        <dl class="mb-0">
-                            <dt class="fs-3 fw-bold">45</dt>
-                            <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Messages</dd>
-                        </dl>
-                        <div class="item item-rounded-lg bg-body-light">
-                            <i class="far fa-paper-plane fs-3 text-primary"></i>
-                        </div>
-                    </div>
-                    <div class="bg-body-light rounded-bottom">
-                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                            <span>View all messages</span>
-                            <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- END Messages -->
-            </div>
-            <div class="col-sm-6 col-xxl-3">
-                <!-- Conversion Rate -->
-                <div class="block block-rounded d-flex flex-column h-100 mb-0">
-                    <div class="block-content block-content-full flex-grow-1 d-flex justify-content-between align-items-center">
-                        <dl class="mb-0">
-                            <dt class="fs-3 fw-bold">4.5%</dt>
-                            <dd class="fs-sm fw-medium fs-sm fw-medium text-muted mb-0">Conversion Rate</dd>
-                        </dl>
-                        <div class="item item-rounded-lg bg-body-light">
-                            <i class="fa fa-chart-bar fs-3 text-primary"></i>
-                        </div>
-                    </div>
-                    <div class="bg-body-light rounded-bottom">
-                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                            <span>View statistics</span>
-                            <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- END Conversion Rate-->
             </div>
         </div>
         <!-- END Overview -->
@@ -153,7 +111,7 @@
         <!-- Recent Orders -->
         <div class="block block-rounded">
             <div class="block-header block-header-default">
-                <h3 class="block-title">Recent Orders</h3>
+                <h3 class="block-title">Recent Requirement</h3>
                 <div class="block-options space-x-1">
                     <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="class-toggle" data-target="#one-dashboard-search-orders" data-class="d-none">
                   <i class="fa fa-search"></i>
@@ -205,181 +163,35 @@
                     <table class="table table-hover table-vcenter">
                         <thead>
                             <tr>
-                                <th>Order ID</th>
-                                <th class="d-none d-xl-table-cell">Customer</th>
-                                <th>Status</th>
-                                <th class="d-none d-sm-table-cell text-center">Profit</th>
-                                <th class="d-none d-sm-table-cell text-end">Created</th>
-                                <th class="d-none d-sm-table-cell text-end">Value</th>
+                                <th>Buyer</th>
+                                <th class=" d-xl-table-cell">Email</th>
+                                
+                                <th class=" d-sm-table-cell ">Country</th>
+                                <th class=" d-sm-table-cell ">Demain</th>
+                                <th class=" d-sm-table-cell ">Action</th>
                             </tr>
                         </thead>
                         <tbody class="fs-sm">
                             <tr>
                                 <td>
-                                    <a class="fw-semibold" href="javascript:void(0)">
-                          ORD.00925                  </a>
-                                    <p class="fs-sm fw-medium text-muted mb-0">Premium</p>
+                                    <a class="fw-semibold" href="">
+                                        Ahmad Romli                 
+                                    </a>
                                 </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <a class="fw-semibold" href="javascript:void(0)">Adam McCoy</a>
-                                    <p class="fs-sm fw-medium text-muted mb-0">Web developer</p>
+                                <td class=" d-xl-table-cell">
+                                    <span class="fw-semibold">Ahmad@gmail.com</span>
+                                    <span class="fs-xs fw-semibold d-inline-block p-1 rounded-pill  text-info"><i class="far fa-circle-check"></i> verivied</span>
+                                </td>
+                                
+                                <td class=" d-sm-table-cell fw-semibold ">Filipina</td>
+                                <td class=" d-sm-table-cell ">
+                                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio at vero ratione. Iste magni necessitatibus corporis nihil sapiente, dolor autem veritatis at amet, cupiditate doloribus? In esse alias cum molestiae?</span>
                                 </td>
                                 <td>
-                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-info-light text-info">Active</span>
-                                </td>
-                                <td class="d-none d-sm-table-cell">
-                                    <div class="progress mb-1" style="height: 5px;" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100">
-                                        <div class="progress-bar bg-success" style="width: 12%;"></div>
+                                    <div class="d-flex justify-content-between gap-2">
+                                        <a href="" class="btn btn-outline-info px-3"><i class="fa fa-info"></i></a>
+                                        <a href="" class="btn btn-outline-danger"><i class="far fa-trash-can"></i></a>
                                     </div>
-                                    <p class="fs-xs fw-semibold mb-0">12%</p>
-                                </td>
-                                <td class="d-none d-sm-table-cell fw-semibold text-muted text-end">8 min ago</td>
-                                <td class="d-none d-sm-table-cell text-end">
-                                    <strong>$2378,20</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a class="fw-semibold" href="javascript:void(0)">
-                          ORD.00924                  </a>
-                                    <p class="fs-sm fw-medium text-muted mb-0">Premium</p>
-                                </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <a class="fw-semibold" href="javascript:void(0)">Ralph Murray</a>
-                                    <p class="fs-sm fw-medium text-muted mb-0">Web developer</p>
-                                </td>
-                                <td>
-                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-warning-light text-warning">Pending</span>
-                                </td>
-                                <td class="d-none d-sm-table-cell">
-                                    <div class="progress mb-1" style="height: 5px;" role="progressbar" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100">
-                                        <div class="progress-bar bg-success" style="width: 22%;"></div>
-                                    </div>
-                                    <p class="fs-xs fw-semibold mb-0">22%</p>
-                                </td>
-                                <td class="d-none d-sm-table-cell fw-semibold text-muted text-end">10 min ago</td>
-                                <td class="d-none d-sm-table-cell text-end">
-                                    <strong>$1628,74</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a class="fw-semibold" href="javascript:void(0)">
-                          ORD.00923                  </a>
-                                    <p class="fs-sm fw-medium text-muted mb-0">Premium</p>
-                                </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <a class="fw-semibold" href="javascript:void(0)">Ralph Murray</a>
-                                    <p class="fs-sm fw-medium text-muted mb-0">Product Designer</p>
-                                </td>
-                                <td>
-                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">Completed</span>
-                                </td>
-                                <td class="d-none d-sm-table-cell">
-                                    <div class="progress mb-1" style="height: 5px;" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100">
-                                        <div class="progress-bar bg-success" style="width: 12%;"></div>
-                                    </div>
-                                    <p class="fs-xs fw-semibold mb-0">12%</p>
-                                </td>
-                                <td class="d-none d-sm-table-cell fw-semibold text-muted text-end">13 min ago</td>
-                                <td class="d-none d-sm-table-cell text-end">
-                                    <strong>$2481,55</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a class="fw-semibold" href="javascript:void(0)">
-                          ORD.00922                  </a>
-                                    <p class="fs-sm fw-medium text-muted mb-0">Premium</p>
-                                </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <a class="fw-semibold" href="javascript:void(0)">Barbara Scott</a>
-                                    <p class="fs-sm fw-medium text-muted mb-0">Application Manager</p>
-                                </td>
-                                <td>
-                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-info-light text-info">Active</span>
-                                </td>
-                                <td class="d-none d-sm-table-cell">
-                                    <div class="progress mb-1" style="height: 5px;" role="progressbar" aria-valuenow="13" aria-valuemin="0" aria-valuemax="100">
-                                        <div class="progress-bar bg-success" style="width: 13%;"></div>
-                                    </div>
-                                    <p class="fs-xs fw-semibold mb-0">13%</p>
-                                </td>
-                                <td class="d-none d-sm-table-cell fw-semibold text-muted text-end">3 min ago</td>
-                                <td class="d-none d-sm-table-cell text-end">
-                                    <strong>$1930,87</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a class="fw-semibold" href="javascript:void(0)">
-                          ORD.00921                  </a>
-                                    <p class="fs-sm fw-medium text-muted mb-0">Premium</p>
-                                </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <a class="fw-semibold" href="javascript:void(0)">Danielle Jones</a>
-                                    <p class="fs-sm fw-medium text-muted mb-0">Web developer</p>
-                                </td>
-                                <td>
-                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-info-light text-info">Active</span>
-                                </td>
-                                <td class="d-none d-sm-table-cell">
-                                    <div class="progress mb-1" style="height: 5px;" role="progressbar" aria-valuenow="13" aria-valuemin="0" aria-valuemax="100">
-                                        <div class="progress-bar bg-success" style="width: 13%;"></div>
-                                    </div>
-                                    <p class="fs-xs fw-semibold mb-0">13%</p>
-                                </td>
-                                <td class="d-none d-sm-table-cell fw-semibold text-muted text-end">15 min ago</td>
-                                <td class="d-none d-sm-table-cell text-end">
-                                    <strong>$2060,90</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a class="fw-semibold" href="javascript:void(0)">
-                          ORD.00920                  </a>
-                                    <p class="fs-sm fw-medium text-muted mb-0">Premium</p>
-                                </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <a class="fw-semibold" href="javascript:void(0)">Amanda Powell</a>
-                                    <p class="fs-sm fw-medium text-muted mb-0">Web developer</p>
-                                </td>
-                                <td>
-                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-warning-light text-warning">Pending</span>
-                                </td>
-                                <td class="d-none d-sm-table-cell">
-                                    <div class="progress mb-1" style="height: 5px;" role="progressbar" aria-valuenow="13" aria-valuemin="0" aria-valuemax="100">
-                                        <div class="progress-bar bg-success" style="width: 13%;"></div>
-                                    </div>
-                                    <p class="fs-xs fw-semibold mb-0">13%</p>
-                                </td>
-                                <td class="d-none d-sm-table-cell fw-semibold text-muted text-end">24 min ago</td>
-                                <td class="d-none d-sm-table-cell text-end">
-                                    <strong>$1610,13</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <a class="fw-semibold" href="javascript:void(0)">
-                          ORD.00919                  </a>
-                                    <p class="fs-sm fw-medium text-muted mb-0">Premium</p>
-                                </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <a class="fw-semibold" href="javascript:void(0)">Andrea Gardner</a>
-                                    <p class="fs-sm fw-medium text-muted mb-0">Digital Nomad</p>
-                                </td>
-                                <td>
-                                    <span class="fs-xs fw-semibold d-inline-block py-1 px-3 rounded-pill bg-success-light text-success">Completed</span>
-                                </td>
-                                <td class="d-none d-sm-table-cell">
-                                    <div class="progress mb-1" style="height: 5px;" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                        <div class="progress-bar bg-success" style="width: 25%;"></div>
-                                    </div>
-                                    <p class="fs-xs fw-semibold mb-0">25%</p>
-                                </td>
-                                <td class="d-none d-sm-table-cell fw-semibold text-muted text-end">13 min ago</td>
-                                <td class="d-none d-sm-table-cell text-end">
-                                    <strong>$1419,52</strong>
                                 </td>
                             </tr>
                         </tbody>

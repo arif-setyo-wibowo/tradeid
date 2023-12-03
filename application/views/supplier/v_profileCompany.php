@@ -1,15 +1,15 @@
 <?php $this->load->view($header); ?>
 
 <!-- Hero -->
-<div class="mb-6"></div>
-<div class="bg-image bg-info">
-    <div class="bg-primary-dark-op">
-        <div class="content content-full text-center">
-            <div class="my-3">
-                <img class="img-avatar img-avatar-thumb" src="assets/media/avatars/avatar13.jpg" alt="">
+<div class=""></div>
+<div class="">
+    <div class="bg-white ">
+        <div class="content content-full text-center ">
+            <div class="my-3 ">
+                <img class="img-avatar img-avatar-thumb" src="<?= base_url() ?>./assets/admin/media/avatars/avatar13.jpg" alt="">
             </div>
-            <h1 class="h2 text-white mb-0">PT Mencari Cinta Sejati</h1>
-            <h2 class="h4 fw-normal text-white-75">
+            <h1 class="h2  mb-0">PT Mencari Cinta Sejati</h1>
+            <h2 class="h4 fw-normal-75">
                 Arif Setyo
             </h2>
         </div>
@@ -44,12 +44,12 @@
                             <textarea id="textareaExample" class="form-control" style="height: 150px" required></textarea>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">Your Avatar</label>
+                            <label class="form-label">Your Logo</label>
                             <div class="mb-4">
-                                <img class="img-avatar" src="assets/media/avatars/avatar13.jpg" alt="">
+                                <img class="img-avatar" src="<?= base_url() ?>./assets/admin/media/avatars/avatar13.jpg" alt="">
                             </div>
                             <div class="mb-4">
-                                <label for="one-profile-edit-avatar" class="form-label">Choose a new avatar</label>
+                                <label for="one-profile-edit-avatar" class="form-label">Choose a new Logo</label>
                                 <input class="form-control" type="file" id="one-profile-edit-avatar">
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                                 Your short Description information about your companys’s 
                             </p>
                             <textarea class="form-control" id="one-ecom-product-description-short"
-                                name="one-ecom-product-description-short" rows="4"></textarea>
+                                name="one-ecom-product-description-short" rows="4" maxlength="70"></textarea>
                         </div>
                         <div class="mb-4">
                             <!-- CKEditor (js-ckeditor-inline + js-ckeditor ids are initialized in Helpers.jsCkeditor()) -->

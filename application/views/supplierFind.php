@@ -5,7 +5,7 @@
     <nav class="d-inline-block" aria-label="breadcrumb">
       <ol class="breadcrumb mb-0">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Shop</li>
+        <li class="breadcrumb-item active" aria-current="page">Supplier</li>
       </ol>
     </nav>
     <!-- /nav -->
@@ -19,7 +19,7 @@
       <div class="col-lg-9 order-lg-2">
         <div class="row align-items-center mb-10 position-relative zindex-1">
           <div class="col-md-7 col-xl-8 pe-xl-20">
-            <h2 class="display-6 mb-1">Product Wapik</h2>
+            <h2 class="display-6 mb-1">Find All Supplier</h2>
             <p class="mb-0 text-muted">Showing 1–9 of 30 results</p>
           </div>
           <!--/column -->
@@ -40,50 +40,26 @@
         <!--/.row -->
         <div class="grid grid-view projects-masonry shop mb-13">
           <div class="row gx-md-8 gy-10 gy-md-13 isotope">
-            <div class=" item col-md-12 col-xl-12  p-3 bg-soft-sky rounded" style="margin-bottom:-30px;">
-              <div class="row">
-                <div class="d-flex justify-content-between">
-                  <div class="">
-                    <div class="post-category text-ash "><a class="text-blue" href="">Semi-Husked Coconut</a></div>
-                  </div>
-                  <div class="">
-                    <div class="">
-                      <h4 class="post-title h4 fs-18"><a href="./shop-product.html" class="link-dark">PT.Indo Coco</a></h4>
+            <div class=" item col-md-4 col-xl-4  p-3  rounded" style="margin-bottom:-30px;">
+            <div class="card">
+                  <div class="card-body text-center">
+                    <img class="rounded-circle w-15 mb-4" src="<?= base_url()?>./assets/front/img/avatars/te1.jpg" srcset="<?= base_url()?>./assets/front/img/avatars/te1@2x.jpg 2x" alt="" />
+                    <h4 class="mb-1"><a href="<?= base_url('front/supplier/viewcompany')?>" class="link-dark">PT Mencari Cinta Sejati</a></h4>
+                    <div class="meta mb-2"><a href=""><a href="" class="text-blue">Supplier Of Coconut </a></div>
+                    <p class="mb-2">We have a variety of the best products from coconut derivatives</p>
+                    <div class="text-center w100">
+                    <nav class="navjustify-center social mb-0">
+                      <a href="#"><i class="uil uil-instagram"></i></a>
+                      <a href="#"><i class="uil uil-linkedin"></i></a>
+                      <a href="#"><i class="uil uil-facebook-f"></i></a>
+                      <a href="#"><i class="uil uil-dribbble"></i></a>
+                    </nav>
                     </div>
+                    <!-- /.social -->
                   </div>
+                  <!--/.card-body -->
                 </div>
-              </div>
-              <div class="row">
-                <div class="d-flex mb-2">
-                  <div class="">
-                    <a href="<?= base_url() ?>Front/product/productDetail"><img style="max-width: 150px; max-height: 150px;" src="<?= base_url() ?>./assets/front/img/produk/fiber.jpg" srcset="./assets/img/photos/sh1@2x.jpg 2x" alt="" /></a>
-                  </div>
-                  <div class="" style="margin-left:10px;">
-                    <div class="align-items-center">
-                        <span>We have a different type of Coconut Briquette Charcoal 100% pure charcoal briquettes made from
-                        the shell of coconut fruit and its dried pulp.
-                        Specification Information: Moisture MAX 6% Ash Content MAX 2,4% Volatile Matter MAX 13% Fix Carbon
-                        MIN 85% Calorific Value UP TO 7500 Kcal / kg
-                        Heat Content UP TO 600 C Ignition Time MAX 10 minutes Glowing Time MIN 2 hours Size Cubes : 22 mm x
-                        25 mm Size Hexagonal : 22 mm x 50 mm, 25 mm x
-                        50 mm
-                        </span>
-                      </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="d-flex justify-content-between">
-                  <div>
-                    <div class="fs-16 text-ash ">Supplier From Jawa Timur, Malang</div>
-                  </div>
-                  <div >
-                    <div>
-                    <a href="" class="text-blue fs-sm" data-bs-toggle="modal" data-bs-target="#modal-signin"><i class="uil uil-envelope"></i> Inquire now</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <!-- /.card -->
             </div>
             <!-- /.item -->
           </div>

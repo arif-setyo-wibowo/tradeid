@@ -1,15 +1,20 @@
 <?php $this->load->view($header); ?>
 
 <!-- Hero Content -->
-<div class="bg-primary-dark">
-    <div class="content content-full overflow-hidden pt-7 pb-6 text-center">
-        <h1 class="h2 text-white mb-2">
-            Detail Produck Briket Balok
+<div class="bg-white container d-flex ">
+    <div class="content  content-full overflow-hidden  ">
+        <h1 class="h3 text-dark mb-2">
+            Detail Product
         </h1>
-        <h2 class="h4 fw-normal text-white-75 mb-0">
-            Information about product
+        <h2 class="h5 fw-normal text-dark-75 mb-0">
+            Feel free to create and Edit.
         </h2>
     </div>
+    <div class="content text-end content-full  ">
+        <a href="" class="btn btn-outline-primary mb-2"><i class="fa fa-pen"></i> Edit</a>
+        <a href="" class="btn btn-outline-danger mb-2"><i class="fa fa-trash-can"></i> Delete</a>
+    </div>
+    
 </div>
 <!-- END Hero Content -->
 
@@ -58,23 +63,7 @@
                 </div>
             </div>
             <!-- END Categories -->
-            <div class="row col-md-6 block-content block-content-full d-flex flex-row-reverse align-items-center justify-content-between">
-                <div class="col">
-                <a class="block  bg-city text-white p-3 block-rounded block-link-shadow text-center" href="">
-                  <div class="me-3">
-                    <p class=" mb-0 fa fa-trash-can "> Delete</p>
-                    
-                  </div>
-                </a>
-                </div>
-                <div class="col">
-                <a class="block bg-primary-op text-white p-3 block-rounded block-link-shadow text-center" href="">
-                  <div class="me-3">
-                    <p class="fw-semibold mb-0 fa fa-pen-to-square"> Edit</p>
-                  </div>
-                </a>
-                </div>
-            </div>
+            
         </div>
         <div class="col-xl-8 order-xl-0">
             <!-- Product -->
@@ -120,14 +109,15 @@
                         </div>
                         <div class="col-md-6">
                             <!-- Info -->
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class=" justify-content-between align-items-center">
                                 <div>
-                                    <div class="fs- fw-semibold text-flat">PRICE</div>
-                                    <div class="fs- fw-bold">FOB in USD</div>
+                                    <div class="h3 fw-bold mb-0">Briket Mantap</div>
                                 </div>
-                                <div class="fs-2 fw-bold">
-                                    $ 15
-                                </div>
+                                <div class="fs-sm fw-bold">Price FOB in USD:
+                                        <span class="fw-normal">
+                                        to be discussed
+                                        </span>
+                                    </div>
                             </div>
                             <hr>
                             <div class="d-flex  align-items-center">
@@ -171,4 +161,6 @@
                 </div>
             </div>
             <!-- END Product -->
+
+            
             <?php $this->load->view($footer) ?>

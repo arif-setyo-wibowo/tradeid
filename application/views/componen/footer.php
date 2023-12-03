@@ -1,4 +1,4 @@
-<footer class="bg-navy text-inverse">
+<footer class="bg-navy text-inverse mt-5">
     <div class="container pt-15 pt-md-17 pb-13 pb-md-15">
       
       <!--/div -->

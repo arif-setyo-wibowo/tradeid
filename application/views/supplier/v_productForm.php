@@ -1,13 +1,7 @@
 <?php $this->load->view($header); ?>
 
-<!-- Hero Content -->
-<div class="">
-    <div class="content content-full overflow-hidden pt-6 pb-3 text-center">
-    
-    </div>
-</div>
-<form  method="POST" onsubmit="return false;">
-<!-- END Hero Content -->
+
+
 <div class="content">
   <div class="row">
     <div class="col-10">
@@ -19,18 +13,12 @@
       </ol>
     </nav>
     </div>
-    <div class="col-xs-2 col-lg-2">
-      <div class="">
-      <div class="flex justify-between ">
-        <button class="btn bg-gray-light ">cancel</button>
-        <button type="submit" style="margin-left: 8px;" class="btn bg-amethyst text-white ">Add product</button>
-      </div>
-      </div>
-    </div>
+    
   </div>
 </div>
 <!-- Page Content -->
         <div class="content">
+          <form action="">
           <!-- Info -->
             <div class="row ">
                 <div class="col-lg-8">
@@ -134,6 +122,12 @@
                           </div>
                         </div>
                       </div>
+                        <div class="">
+                        <div class="flex justify-between mb-3">
+                          <a href="<?= base_url()?>supplier/product" class="btn bg-gray-light ">cancel</a>
+                          <button type="submit" style="margin-left: 8px;" class="btn bg-amethyst text-white ">Add product</button>
+                        </div>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -159,6 +153,7 @@
             </div>
           
           <!-- END Info -->
+        
         </div>
         </form>
         <!-- END Page Content -->

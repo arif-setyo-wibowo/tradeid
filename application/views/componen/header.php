@@ -33,6 +33,9 @@
                 <li class="nav-item ">
                   <a class="nav-link dropdown-item" href="<?= base_url()?>/front/product" >Product</a>
                 </li>
+                <li class="nav-item ">
+                  <a class="nav-link dropdown-item" href="<?= base_url()?>/front/supplier" >Supplier</a>
+                </li>
                 <li class="nav-item dropdown dropdown-mega">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Category</a>
                     <ul class="dropdown-menu mega-menu">
