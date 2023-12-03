@@ -88,7 +88,7 @@
                                 Your short Description information about your companys’s 
                             </p>
                             <textarea class="form-control" id="one-ecom-product-description-short"
-                                name="one-ecom-product-description-short" rows="4"></textarea>
+                                name="one-ecom-product-description-short" rows="4" maxlength="70"></textarea>
                         </div>
                         <div class="mb-4">
                             <!-- CKEditor (js-ckeditor-inline + js-ckeditor ids are initialized in Helpers.jsCkeditor()) -->

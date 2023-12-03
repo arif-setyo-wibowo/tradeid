@@ -12,6 +12,28 @@ class Supplier extends CI_Controller {
         $this->load->model('M_Supplier');
         $this->load->model('M_User');
     }
+
+    public function index()
+    {
+        $data = [
+            'header' => 'componen/header',
+            'footer' => 'componen/footer',
+        ];
+        
+        return $this->load->view('supplierFind',$data);
+    }
+
+    public function viewCompany()
+    {
+        $data = [
+            'header' => 'componen/header',
+            'footer' => 'componen/footer',
+        ];
+        
+        return $this->load->view('viewCompany',$data);
+    }
+
+
     
     function cekSup(){
         $iduser = $this->session->userdata('iduser');
