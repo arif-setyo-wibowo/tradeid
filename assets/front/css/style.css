@@ -4944,7 +4944,7 @@ fieldset:disabled .btn {
 }
 .dropdown-toggle::after {
   font-family: "Unicons";
-  display: inline-block;
+  display: none;
   margin-left: 0.05rem;
   vertical-align: -3px;
   font-weight: 700 !important;
