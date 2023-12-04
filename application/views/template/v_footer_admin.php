@@ -32,6 +32,7 @@
 
 <!-- Page JS Plugins -->
 <script src="<?= base_url() ?>assets/admin/js/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/js/pages/be_tables_datatables.js"></script>
 <script src="<?= base_url() ?>assets/admin/js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js"></script>
 <script src="<?= base_url() ?>assets/admin/js/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?= base_url() ?>assets/admin/js/plugins/datatables-responsive-bs5/js/responsive.bootstrap5.min.js"></script>

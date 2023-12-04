@@ -40,6 +40,7 @@
                                     <td class="fw-semibold fs-sm"><?= $data->namaPerusahaan?></td>
                                     <td>12-12-2012</td>
                                     <!-- <td class="fw-semibold fs-sm"><?= $data->deskripsiPerusahaan?></td> -->
+                                    <!-- <td class="fw-semibold fs-sm"><?= $data->deskripsiPerusahaan?></td> -->
                                     <td class="d-nonea d-sm-table-cell text-center">
                                         <div class="btn-group">
                                         <?php if($data->verify == 1):?>
