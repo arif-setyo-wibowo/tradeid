@@ -80,7 +80,7 @@
                     <?php if($user[0]->cSupplier == 1 || $user[0]->cSupplier != NULL) : ?>
                         <div class="d-flex justify-content-between ">
                             <h4 class="fw-light">Company Information</h4>
-                            <a href="<?=base_url()?>/supplier/company" class="text-blue fw-light font-sm"><i class="uil uil-"></i> Manage company </a>
+                            <a href="<?=base_url()?>supplier/company" class="text-blue fw-light font-sm"><i class="uil uil-"></i> Manage company </a>
                         </div>
                         <div class="mb-2">
                         <img class="rounded  " style="height: 80px; width: 80px;" src="<?= base_url() ?>./assets/front/img/avatars/te1.jpg" srcset="<?= base_url() ?>./assets/front//avatars/te1@2x.jpg 2x" alt="" />

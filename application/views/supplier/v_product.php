@@ -36,44 +36,6 @@
               </a>
             </div>
             <!-- END Story -->
-            <!-- Story -->
-            <div class="col-lg-4 col-md-4 ">
-              <a class="block block-rounded block-link-pop overflow-hidden" href="<?= base_url('supplier/product/productDetail')?>">
-                <img class="img-fluid"  src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" alt="">
-                <div class="block-content">
-                  <h4 class="mb-1">
-                    Bricket On Top
-                  </h4>
-                  <p class="fs-sm fw-medium mb-2">
-                    <span class="text-primary">Category : </span> Coconut , Agricultur
-                  </p>
-                  <p class="fs-sm text-muted">
-                  We have a different type of Coconut Briquette Charcoal 100% pure charcoal briquettes made from the shell of coconut fruit and its dried pulp. 
-                              
-                  </p>
-                </div>
-              </a>
-            </div>
-            <!-- END Story -->
-            <!-- Story -->
-            <div class="col-lg-4 col-md-4 ">
-              <a class="block block-rounded block-link-pop overflow-hidden" href="<?= base_url('supplier/product/productDetail')?>">
-                <img class="img-fluid"  src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" alt="">
-                <div class="block-content">
-                  <h4 class="mb-1">
-                    Bricket On Top
-                  </h4>
-                  <p class="fs-sm fw-medium mb-2">
-                    <span class="text-primary">Category : </span> Coconut , Agricultur
-                  </p>
-                  <p class="fs-sm text-muted">
-                  We have a different type of Coconut Briquette Charcoal 100% pure charcoal briquettes made from the shell of coconut fruit and its dried pulp. 
-                              
-                  </p>
-                </div>
-              </a>
-            </div>
-            <!-- END Story -->
 
             
           </div>

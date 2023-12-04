@@ -60,7 +60,6 @@ class Supplier extends CI_Controller {
     function regis(){
         $iduser = $this->session->userdata('iduser');
         $user = $this->M_User->get_where($iduser);
-        $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
 
         if (!$this->session->userdata('iduser')) {
             redirect('logout');
@@ -83,9 +82,6 @@ class Supplier extends CI_Controller {
 
                     redirect('profil');
                 }else{
-                    if ($supplier->verify == 2) {
-                       redirect('supplier');
-                    }
                     $data = array(
                         'header' => 'componen/header',
                         'footer' => 'componen/footer',

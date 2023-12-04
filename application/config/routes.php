@@ -70,6 +70,15 @@ $route['regSup'] = 'Front/Supplier/cekSup';
 
 //Supllier
 $route['supplier'] = 'Supplier/Supplier';
+$route['supplier/company'] = 'Supplier/Company';
+$route['tambahcompany'] = 'Supplier/Company/store';
+$route['updatecompany'] = 'Supplier/Company/update';
+$route['tambahdeskripsi'] = 'Supplier/Company/store_desk';
+$route['updatedeskripsi'] = 'Supplier/Company/update_desk';
+$route['tambahsosmed'] = 'Supplier/Company/store_sosmed';
+$route['updatesosmed'] = 'Supplier/Company/update_sosmed';
+
+
 
 //Profil
 $route['editprofil'] = '/Front/user/editProfile';
