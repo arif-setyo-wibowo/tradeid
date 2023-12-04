@@ -1,4 +1,11 @@
 <?php $this->load->view($header); ?>
+<style>
+    .btn-verif{
+        border: none;
+        background: none;
+    
+    }
+</style>
 <section class="wrapper bg-gradient-primary">
     <div class="container p-2   pt-5 pb-10  pt-md-10 pb-md-20 ">
         <?php  $pesan = $this->session->flashdata('pesan') ?>
@@ -55,8 +62,7 @@
                     <div class="mb-2">
                         <span class="fw-bold">Email :</span><span class="text-muted m-2 fw-light"><?= $user[0]->email?> 
                         <?php if ($user[0]->status == null) : ?>
-                           
-                            <button data-email="<?= $user[0]->email ?>" onclick="verifyEmail()">Verify</button>
+                            <button class="btn-verif text-blue" data-email="<?= $user[0]->email ?>" onclick="verifyEmail()">verify</button>
                         <?php else : ?>
                             <i class="uil uil-"></i> Telah Diverifikasi </a>
                         <?php endif?>
@@ -111,7 +117,12 @@
                         </div>
                         <!-- /.social -->
                     <?php else : ?>
-                    
+                        <div class="d-flex justify-content-center ">
+                            <figure>
+                                
+                            </figure>
+                        </div>
+                        <!-- /.social -->
                     <?php endif;?>
                 </div>
                 <!--/.card-body -->
@@ -144,4 +155,6 @@
 </section>
 <!-- /section -->
 </div>
+
+
 <?php $this->load->view($footer); ?>
