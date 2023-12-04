@@ -11,7 +11,7 @@
         </h2>
     </div>
     <div class="content text-end content-full  ">
-        <a href="" class="btn btn-outline-primary mb-2"><i class="fa fa-pen"></i> Edit</a>
+        <a href="<?= base_url('supplier/product/editProduct/'.$product[0]->idproduct)?>" class="btn btn-outline-primary mb-2"><i class="fa fa-pen"></i> Edit</a>
         <a href="" class="btn btn-outline-danger mb-2"><i class="fa fa-trash-can"></i> Delete</a>
     </div>
     
@@ -49,13 +49,13 @@
                         <li class="nav-item mb-1">
                             <a class="nav-link  d-flex justify-content-between align-items-center"
                                 href="javascript:void(0)">
-                                Coconut 
+                               <?= $product[0]->namaSubKategori ?>
                             </a>
                         </li>
                         <li class="nav-item mb-1">
                             <a class="nav-link d-flex justify-content-between align-items-center"
                                 href="javascript:void(0)">
-                                Bricket 
+                                <?= $product[0]->namaSubKategori_b ?>
                             </a>
                         </li>
                         
@@ -111,24 +111,18 @@
                             <!-- Info -->
                             <div class=" justify-content-between align-items-center">
                                 <div>
-                                    <div class="h3 fw-bold mb-0">Briket Mantap</div>
+                                    <div class="h3 fw-bold mb-0"><?= $product[0]->namaProduk ?></div>
                                 </div>
                                 <div class="fs-sm fw-bold">Price FOB in USD:
                                         <span class="fw-normal">
-                                        to be discussed
+                                        <?= $product[0]->harga ?>
                                         </span>
                                     </div>
                             </div>
                             <hr>
                             <div class="d-flex  align-items-center">
                                 <div class="fs">
-                                    We have a different type of Coconut Briquette Charcoal 100% pure charcoal briquettes
-                                    made from the shell of coconut fruit and its dried pulp. <br ><p></p>
-                                    <p>Specification Information: <br> Moisture MAX 6% <br>Ash Content MAX 24% <br> Volatile Matter MAX
-                                    13% <br> Fix Carbon MIN 85% <br> Calorific Value UP TO 7500 Kcal / kg <br>
-                                    Heat Content UP TO 600 C br Ignition Time MAX 10 minutes <br> Glowing Time MIN 2 hours <br> Size
-                                    Cubes : 22 mm x 25 mm <br> Size Hexagonal : 22 mm x 50 mm, 25 mm x
-                                    50 mm</p>
+                                   <?= $product[0]->deskripsiProduk?>
                                 </div>
                             </div>
                             <div class="d-flex mt-3 text-primary fw-bold ustify-content-between align-items-center">

@@ -47,7 +47,8 @@ class Admin extends CI_Controller {
         $data_user = array(
             'cSupplier' => 1
         );
-            $this->M_User->update($id,$data_user);
+        
+        $this->M_User->update($id,$data_user);
         $this->M_Admin->update($id,$data);
         redirect('admin/supplier');
     }

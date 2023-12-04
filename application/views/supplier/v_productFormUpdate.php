@@ -30,17 +30,17 @@
                             <div class="mb-4">
                               <label class="form-label" for="one-ecom-product-name">Name your product</label>
                               <input type="hidden" class="form-control"  name="idsupplier" value="<?= $supplier[0]->idsupplier?>">
-                              <input type="text" class="form-control"  name="product" value="">
+                              <input type="text" class="form-control"  name="product" value="<?= $product[0]->namaProduk?>">
                             </div>
                             <div class="mb-4">
                               <!-- CKEditor (js-ckeditor-inline + js-ckeditor ids are initialized in Helpers.jsCkeditor()) -->
                               <!-- For more info and examples you can check out http://ckeditor.com -->
                               <label class="form-label">Description</label>
-                              <textarea id="js-ckeditor" name="despan" required></textarea>
+                              <textarea id="js-ckeditor" name="despan" required><?= $product[0]->deskripsiProduk?></textarea>
                             </div>
                             <div class="mb-4">
                               <label class="form-label" for="one-ecom-product-description-short">Short Description</label>
-                              <textarea class="form-control" name="despen" rows="4" required></textarea>
+                              <textarea class="form-control" name="despen" rows="4" required><?= $product[0]->deskripsiPendek?></textarea>
                             </div>
                         </div>
                       </div>
@@ -136,8 +136,26 @@
     Dropzone.autoDiscover = false;
 
     $(document).ready(function() {
+        loadKategori();
         setupDropzone();
     });
+
+    function loadKategori() {
+        // Lakukan permintaan Ajax untuk mendapatkan opsi kategori
+        $.ajax({
+            url: "<?= site_url('Supplier/Product/getKategoriOptions') ?>",
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+                var options = '<option value="">Pilih Kategori</option>';
+                $.each(data, function(index, item) {
+                    options += '<option value="' + item.idkategori + '">' + item.namaKategori + '</option>';
+                });
+                $("#kategori").html(options).val('<?= $product->idkategori ?>');
+                loadSubkategoriA(); // Memuat subkategori A setelah memuat kategori
+            }
+        });
+    }
 
     function loadSubkategoriA() {
         var idkategori = $("#kategori").val();
@@ -149,67 +167,39 @@
                 data: { idkategori: idkategori },
                 dataType: "json",
                 success: function(data) {
-                    var options = '<option value="">Choose SubCategory A</option>';
+                    var options = '<option value="">Pilih Subkategori A</option>';
                     $.each(data, function(index, item) {
                         options += '<option value="' + item.idsubkategori_a + '">' + item.namaSubKategori + '</option>';
                     });
-                    $("#subkategori_a").html(options);
-
-                    loadSubkategoriB();
+                    $("#subkategori_a").html(options).val('<?= $product->idsubkategoria_a ?>');
+                    loadSubkategoriB(); // Memuat subkategori B setelah memuat subkategori A
                 }
             });
         } else {
-            $("#subkategori_a").html('<option value="">Choose SubCategory A/option>');
-            $("#subkategori_b").html('<option value="">Choose SubCategory B</option>').prop("disabled", true);
+            $("#subkategori_a").html('<option value="">Pilih Subkategori A</option>');
         }
     }
 
     function loadSubkategoriB() {
         var idsubkategoria = $("#subkategori_a").val();
         if (idsubkategoria !== "") {
+            // Lakukan permintaan Ajax untuk mendapatkan opsi Subkategori B
             $.ajax({
                 url: "<?= site_url('Supplier/Product/getSubkategoriBOptions') ?>",
                 type: "POST",
                 data: { idsubkategoria: idsubkategoria },
                 dataType: "json",
                 success: function(data) {
-                console.log(data);
-                    var options = '<option value="">Choose SubCategory B</option>';
+                    var options = '<option value="">Pilih Subkategori B</option>';
                     $.each(data, function(index, item) {
                         options += '<option value="' + item.idsubkategori_b + '">' + item.namaSubKategori_b + '</option>';
                     });
-                    $("#subkategori_b").html(options).prop("disabled", false);
+                    $("#subkategori_b").html(options).val('<?= $product->idsubkategori_b ?>');
                 }
             });
         } else {
-            $("#subkategori_b").html('<option value="">Choose SubCategory B</option>').prop("disabled", true);
+            $("#subkategori_b").html('<option value="">Pilih Subkategori B</option>');
         }
-    }
-
-    function setupDropzone() {
-        // Konfigurasi Dropzone
-        var myDropzone = new Dropzone(".dropzone", {
-            url: $(".dropzone").data("action"), // Menggunakan data-action dari div dropzone
-            paramName: "file", // Nama parameter yang digunakan untuk mengirim file
-            maxFilesize: 5, // Ukuran maksimum file dalam MB
-            acceptedFiles: "image/*", // Hanya menerima file gambar
-            addRemoveLinks: true, // Menampilkan link untuk menghapus file yang diunggah
-            init: function() {
-                // Callback saat Dropzone diinisialisasi
-                this.on("success", function(file, response) {
-                    // Callback saat file berhasil diunggah
-                    console.log(response);
-                    // Set nilai gambar menjadi URL yang diunggah
-                    $("#gambar").val(response.url);
-                });
-                this.on("removedfile", function(file) {
-                    // Callback saat file dihapus
-                    console.log(file);
-                    // Set nilai gambar menjadi kosong saat file dihapus
-                    $("#gambar").val("");
-                });
-            }
-        });
     }
 
 

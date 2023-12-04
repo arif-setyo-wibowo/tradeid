@@ -15,16 +15,20 @@ class Company extends CI_Controller {
     
     public function index()
     {
-        $iduser =  $this->session->userdata('iduser');
-        $data = [
-            'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
-            'cekdata' => $this->M_Supplier->getWhereIdCompany($iduser),
-            'header' => 'template/v_header_supplier',
-            'footer' => 'template/v_footer_supplier',
-        ];
+        if (!$this->session->userdata('iduser')) {
+            redirect('logout');
+         }else{
+            $iduser =  $this->session->userdata('iduser');
+            $data = [
+                'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                'cekdata' => $this->M_Supplier->getWhereIdCompany($iduser),
+                'header' => 'template/v_header_supplier',
+                'footer' => 'template/v_footer_supplier',
+            ];
 
 
-        return $this->load->view('supplier/v_profileCompany',$data);
+            return $this->load->view('supplier/v_profileCompany',$data);
+        }
     }
 
     function store(){

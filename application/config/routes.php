@@ -78,7 +78,11 @@ $route['updatedeskripsi'] = 'Supplier/Company/update_desk';
 $route['tambahsosmed'] = 'Supplier/Company/store_sosmed';
 $route['updatesosmed'] = 'Supplier/Company/update_sosmed';
 
-
+//Supplier Product 
+$route['supplier/product'] = 'Supplier/Product';
+$route['tambahproduct'] = 'Supplier/Product/store';
+$route['supplier/product/productDetail/(:any)'] = 'Supplier/Product/detail/$1';
+$route['supplier/product/editProduct/(:any)'] = 'Supplier/Product/edit/$1';
 
 //Profil
 $route['editprofil'] = '/Front/user/editProfile';

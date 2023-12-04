@@ -16,59 +16,70 @@
 
 <!-- Page Content -->
 <div class="content content-boxed">
-          <div class="row">
-            <!-- Story -->
-            <div class="col-lg-4 col-md-4">
-              <a class="block block-rounded block-link-pop overflow-hidden" href="<?= base_url('supplier/product/productDetail')?>">
-                <img class="img-fluid"  src="<?= base_url() ?>./assets/front/img/produk/husked.jpg" alt="">
-                <div class="block-content">
-                  <h4 class="mb-1">
-                    Bricket On Top
-                  </h4>
-                  <p class="fs-sm fw-medium mb-2">
-                    <span class="text-primary">Category : </span> Coconut , Agricultur
-                  </p>
-                  <p class="fs-sm text-muted">
-                  We have a different type of Coconut Briquette Charcoal 100% pure charcoal briquettes made from the shell of coconut fruit and its dried pulp. 
-                              
-                  </p>
+<?php  $pesan = $this->session->flashdata('pesan') ?>
+            <?php  if($pesan != NULL) : ?>
+                <div class="alert alert-success alert-icon alert-dismissible fade show mb-2" role="alert">
+                    <i class="uil uil-check-circle"></i> <?= $pesan ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-              </a>
+            <?php elseif($pesan = $this->session->flashdata('pesan_e')) : ?>
+                <div class="alert alert-danger alert-icon alert-dismissible fade show mb-2" role="alert">
+                    <i class="uil uil-times-circle"></i> <?= $pesan ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif;?>
+    <div class="row">
+      <!-- Story -->
+      <?php foreach ($product as $data) : ?>
+        <div class="col-lg-4 col-md-4">
+          <a class="block block-rounded block-link-pop overflow-hidden" href="<?= base_url('supplier/product/productDetail/'.$data->idproduct)?>">
+            <img class="img-fluid"  src="<?= base_url() ?>./assets/front/img/produk/husked.jpg" alt="">
+            <div class="block-content">
+              <h4 class="mb-1">
+                <?= $data->namaProduk?>
+              </h4>
+              <p class="fs-sm fw-medium mb-2">
+                <span class="text-primary">Category : </span> <?= $data->namaSubKategori ?> , <?= $data->namaSubKategori_b ?>
+              </p>
+              <p class="fs-sm text-muted">
+                  <?= $data->deskripsiPendek?>     
+              </p>
             </div>
-            <!-- END Story -->
-
-            
-          </div>
-
-          <!-- Pagination -->
-          <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center push">
-              <li class="page-item active">
-                <a class="page-link" href="javascript:void(0)">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="javascript:void(0)">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="javascript:void(0)">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="javascript:void(0)">4</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="javascript:void(0)">5</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="javascript:void(0)" aria-label="Next">
-                  <span aria-hidden="true">
-                    <i class="fa fa-angle-right"></i>
-                  </span>
-                  <span class="visually-hidden">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <!-- END Pagination -->
+          </a>
         </div>
-        <!-- END Page Content -->
+      <?php endforeach;?>
+      <!-- END Story -->
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center push">
+        <li class="page-item active">
+          <a class="page-link" href="javascript:void(0)">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="javascript:void(0)">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="javascript:void(0)">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="javascript:void(0)">4</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="javascript:void(0)">5</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="javascript:void(0)" aria-label="Next">
+            <span aria-hidden="true">
+              <i class="fa fa-angle-right"></i>
+            </span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- END Pagination -->
+</div>
+<!-- END Page Content -->
 <?php $this->load->view($footer) ?>
