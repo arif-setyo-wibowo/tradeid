@@ -22,6 +22,23 @@ class Admin extends CI_Controller {
         return $this->load->view('admin/v_admin',$data);
     }
 
+    public function loginadmin()
+    {  $data = [
+        'header' => 'template/v_header_admin',
+        'footer' => 'template/v_footer_admin',
+               ];
+        return $this->load->view('admin/v_login_admin',$data);
+    }
+
+    public function akunbaru()
+    {  $data = [
+        'header' => 'template/v_header_admin',
+        'footer' => 'template/v_footer_admin',
+               ];
+        return $this->load->view('admin/v_signup_admin',$data);
+    }
+
+
     function registrasiSupplier(){
         $data = [
             'supplier'  => $this->M_Admin->getSupplier(),
