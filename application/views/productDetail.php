@@ -117,7 +117,7 @@
                   </div>
                   <div class="">
                     <div class="">
-                      <h4 class="post-title h4 fs-18"><a href="./shop-product.html" class="link-dark">PT.Indo Coco</a></h4>
+                      <h4 class="post-title h4 fs-18"><a href="./assets/admin/img/shop-product.html" class="link-dark">PT.Indo Coco</a></h4>
                     </div>
                   </div>
                 </div>
