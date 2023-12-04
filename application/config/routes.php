@@ -85,6 +85,9 @@ $route['editprofil'] = '/Front/user/editProfile';
 
 //Admin
 $route['admin'] = 'Admin/Admin';
+$route['signup'] = 'Admin/Admin/akunbaru';
+$route['login'] = 'Admin/Admin/loginadmin';
+
 
 //identitas
 $route['admin/identitas'] ='Admin/Identitas';
