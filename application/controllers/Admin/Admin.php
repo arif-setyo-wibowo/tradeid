@@ -31,6 +31,14 @@ class Admin extends CI_Controller {
         return $this->load->view('admin/v_registrasiSupplier',$data);
     }
 
+    function registrasiDetail(){
+        $data = [
+            'header' => 'template/v_header_admin',
+            'footer' => 'template/v_footer_admin',
+        ];
+        return $this->load->view('admin/v_registrasiDetail',$data);
+    }
+
     function verify($id){
 
         $data = array(

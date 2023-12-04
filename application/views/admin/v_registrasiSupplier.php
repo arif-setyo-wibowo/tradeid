@@ -12,10 +12,7 @@
           <div class="block block-rounded overflow-hidden">
             <ul class="nav nav-tabs nav-tabs-block" role="tablist">
               <li class="nav-item">
-                <button type="button" class="nav-link active" id="search-projects-tab" data-bs-toggle="tab" data-bs-target="#search-projects" role="tab" aria-controls="search-projects" aria-selected="true">Data</button>
-              </li>
-              <li class="nav-item">
-                <button type="button" class="nav-link" id="search-users-tab" data-bs-toggle="tab" data-bs-target="#search-users" role="tab" aria-controls="search-users" aria-selected="false">Tambah Kategori</button>
+                <button type="button" class="nav-link active" id="search-projects-tab" data-bs-toggle="tab" data-bs-target="#search-projects" role="tab" aria-controls="search-projects" aria-selected="true">Data Registed Supplier</button>
               </li>
             </ul>
             <div class="block-content tab-content overflow-hidden">
@@ -27,11 +24,13 @@
                         <!-- DataTables init on table by adding .js-dataTable-buttons class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
                         <table class="table table-bordered table-striped table-vcenter js-dataTable-buttons">
                             <thead>
-                                <tr>
+                                <tr >
                                     <th class="text-center" style="width: 80px;">ID</th>
                                     <th>Nama Perusahaan</th>
-                                    <th>Deskripsi Perusahaan</th>
-                                    <th class="d-none d-sm-table-cell" style="width: 15%;">Action</th>
+                                    <th>tanggal</th>
+                                    <!-- <th>Deskripsi Perusahaan</th> -->
+                                    <th class="text-center">Status</th>
+                                    <th class="d-none d-sm-table-cell text-center" style="width: 15%;">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,21 +38,29 @@
                                 <tr>
                                     <td class="text-center fs-sm"><?= $no++;?></td>
                                     <td class="fw-semibold fs-sm"><?= $data->namaPerusahaan?></td>
-                                    <td class="fw-semibold fs-sm"><?= $data->deskripsiPerusahaan?></td>
+                                    <td>12-12-2012</td>
+                                    <!-- <td class="fw-semibold fs-sm"><?= $data->deskripsiPerusahaan?></td> -->
                                     <td class="d-nonea d-sm-table-cell text-center">
                                         <div class="btn-group">
                                         <?php if($data->verify == 1):?>
-                                            <a href="<?= base_url('admin/supplier/update/'.$data->iduser)?>">
-                                            <button type="button" class="btn btn-alt-danger" data-bs-toggle="tooltip" title="Tidak Diterima">
+                                            <!-- <a href="<?= base_url('admin/supplier/update/'.$data->iduser)?>"> -->
+                                            <button type="button" class="btn btn-alt-danger"  title="Tidak Diterima">
                                                 Tidak Diterima
                                             </button>
-                                        <?php else : ?>
-                                            <button type="button" class="btn btn-alt-success" data-bs-toggle="tooltip" title="Diterima">
+                                        <?php elseif($data->verify == 2):?>
+                                            <button type="button" class="btn btn-alt-success"  title="Diterima">
                                                 Diterima
+                                            </button>
+                                          <?php else:?>
+                                            <button type="button" class="btn btn-alt-primary"  title="menunggu">
+                                                Menuggu
                                             </button>
                                         <?php endif;?>
                                         </a>
                                         </div>
+                                    </td>
+                                    <td class="text-center">
+                                          <a href="<?= base_url('admin/admin/registrasiDetail')?>" class=" px-3">lihat detail</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
