@@ -22,6 +22,8 @@ class Admin extends CI_Controller {
         return $this->load->view('admin/v_admin',$data);
     }
 
+    
+
     function registrasiSupplier(){
         $data = [
             'supplier'  => $this->M_Admin->getSupplier(),

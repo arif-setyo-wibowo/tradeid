@@ -200,14 +200,14 @@
           <div class="content-side">
             <ul class="nav-main">
               <li class="nav-main-item">
-                <a class="nav-main-link active" href="be_pages_dashboard.html">
+                <a class="nav-main-link active" href="<?= base_url('admin')?>">
                   <i class="nav-main-link-icon si si-speedometer"></i>
                   <span class="nav-main-link-name">Dashboard</span>
                 </a>
               </li>
               <li class="nav-main-heading">Input Data</li>
               <li class="nav-main-item">
-                <a class="nav-main-link" href="be_pages_dashboard.html">
+                <a class="nav-main-link" href="<?= base_url('admin/identitas')?>">
                   <i class="nav-main-link-icon si si-speedometer"></i>
                   <span class="nav-main-link-name">Identitas</span>
                 </a>
@@ -257,7 +257,7 @@
                 </a>
                 <ul class="nav-main-submenu">
                   <li class="nav-main-item">
-                    <a class="nav-main-link" href="be_blocks_styles.html">
+                    <a class="nav-main-link" href="<?= base_url('admin/pembelian') ?>">
                       <span class="nav-main-link-name">Pembelian</span>
                     </a>
                   </li>

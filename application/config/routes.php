@@ -86,6 +86,12 @@ $route['editprofil'] = '/Front/user/editProfile';
 //Admin
 $route['admin'] = 'Admin/Admin';
 
+//identitas
+$route['admin/identitas'] ='Admin/Identitas';
+
+//identitas
+$route['admin/pembelian'] ='Admin/Pembelian';
+
 //cek Supplier
 $route['admin/supplier'] = 'Admin/Admin/registrasiSupplier';
 $route['admin/supplier/update/(:any)'] = 'Admin/Admin/verify/$1';
