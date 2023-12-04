@@ -51,6 +51,38 @@ class Admin extends CI_Controller {
         $this->M_Admin->update($id,$data);
         redirect('admin/supplier');
     }
+
+    public function store()
+    {
+        if ($this->input->post()) {
+            $data = array(
+                'username' => $this->input->post('username'),
+                'password' => $this->input->post('password'),
+            );
+    
+            $this->M_Admin->insertAdmin($data);
+
+            redirect('admin/admin');
+        }
+    }
+
+    function edit($id){
+
+        $data = array(
+            'admin' =>  $this->M_Admin->getWhere($id),
+            'judul' => "Update Admin",
+            'footer' => 'template/v_footer_admin',
+            'header' => 'template/v_header_admin',
+        );
+
+        return $this->load->view('admin/v_admin_update',$data);
+    }
+
+    function delete($id) {
+        $this->M_Admin->deleteAdmin($id);
+
+		redirect('admin/admin');
+    }
 }
 
 /* End of file Admin.php */

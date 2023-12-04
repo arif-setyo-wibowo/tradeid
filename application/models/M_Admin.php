@@ -11,6 +11,18 @@ class M_Admin extends CI_Model {
    function update($id,$data){
         $this->db->update('supplier', $data, array('iduser' => $id));
    }
+   function insertAdmin($data){
+     $this->db->insert('admin', $data);
+   }
+
+   function getWhere($id) {
+     $query = $this->db->get_where('admin', array('idadmin' => $id));
+     return $query->result();
+   }
+   function deleteAdmin($id){
+     $this->db->where('idadmin', $id);
+     $this->db->delete('admin');
+   }
 
 }
 
