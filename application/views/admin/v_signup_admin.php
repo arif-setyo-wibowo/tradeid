@@ -110,37 +110,22 @@
                       <!-- Sign Up Form -->
                       <!-- jQuery Validation (.js-validation-signup class is initialized in js/pages/op_auth_signup.min.js which was auto compiled from _js/pages/op_auth_signup.js) -->
                       <!-- For more info and examples you can check out https://github.com/jzaefferer/jquery-validation -->
-                      <form class="js-validation-signup" action="be_pages_auth_all.html" method="POST">
+                      <form class="js-validation-signup" action="<?php echo base_url('admin/admin/store') ?>" method="POST">
                         <div class="py-3">
                           <div class="mb-4">
                             <input type="text" 
                             class="form-control form-control-lg form-control-alt" 
-                            id="signup-username" 
-                            name="signup-username" 
+                            id="username" 
+                            name="username" 
                             placeholder="Username">
-                          </div>
-                          <div class="mb-4">
-                            <input 
-                            type="email" 
-                            class="form-control form-control-lg form-control-alt" 
-                            id="signup-email" 
-                            name="signup-email" 
-                            placeholder="Email">
                           </div>
                           <div class="mb-4">
                             <input 
                             type="password" 
                             class="form-control form-control-lg form-control-alt" 
-                            id="signup-password" 
-                            name="signup-password" 
+                            id="password" 
+                            name="password" 
                             placeholder="Password">
-                          </div>
-                          <div class="mb-4">
-                            <input type="password" 
-                            class="form-control form-control-lg form-control-alt" 
-                            id="signup-password-confirm" 
-                            name="signup-password-confirm" 
-                            placeholder="Confirm Password">
                           </div>
                           <div class="mb-4">
                             <div class="form-check">
