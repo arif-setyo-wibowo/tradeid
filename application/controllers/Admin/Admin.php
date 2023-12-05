@@ -23,7 +23,8 @@ class Admin extends CI_Controller {
     }
 
     public function loginadmin()
-    {  $data = [
+    {  
+        $data = [
         'header' => 'template/v_header_admin',
         'footer' => 'template/v_footer_admin',
                ];
@@ -31,7 +32,8 @@ class Admin extends CI_Controller {
     }
 
     public function akunbaru()
-    {  $data = [
+    {  
+        $data = [
         'header' => 'template/v_header_admin',
         'footer' => 'template/v_footer_admin',
                ];
@@ -64,7 +66,7 @@ class Admin extends CI_Controller {
         $data_user = array(
             'cSupplier' => 1
         );
-        
+
         $this->M_User->update($id,$data_user);
         $this->M_Admin->update($id,$data);
         redirect('admin/supplier');

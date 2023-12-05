@@ -24,11 +24,11 @@
             <div class="d-flex row ">
                 <div class=" d-flex gap-10 ">
                     <div class="p-2 col ">
-                        <div class="fw-bold">Polixyner</div>
-                        <div class="fw-light mt-n2">bowo@gmail.com</div>
+                        <div class="fw-bold"><?= $user->username ?></div>
+                        <div class="fw-light mt-n2"><?= $user->email ?></div>
                     </div>
                     <div class="my-auto " >
-                        <?php if($supplier[0]->verify == 1) : ?>
+                        <?php if($supplier == false || $supplier[0]->verify == 1) : ?>
                             <a href="<?=base_url()?>regSup" class="btn btn-sm btn-sky ">Register as a supplier</a>
                         <?php else : ?>
                             <a href="<?=base_url()?>supplier" class="btn btn-sm btn-sky ">Supplier</a>
@@ -51,25 +51,25 @@
                     </div>
                     
                     <div class="mb-2">
-                        <span class="fw-bold">Full Name :</span><span class="text-muted m-2 fw-light"> <?= $user[0]->nama?></span>
+                        <span class="fw-bold">Full Name :</span><span class="text-muted m-2 fw-light"> <?= $user->nama?></span>
                     </div>
                     <div class="mb-2">
-                        <span class="fw-bold">Username :</span><span class="text-muted m-2 fw-light"> <?= $user[0]->username?></span>
+                        <span class="fw-bold">Username :</span><span class="text-muted m-2 fw-light"> <?= $user->username?></span>
                     </div>
                     <div class="mb-2">
-                        <span class="fw-bold">Phone :</span><span class="text-muted m-2 fw-light"> <?= $user[0]->telp?></span>
+                        <span class="fw-bold">Phone :</span><span class="text-muted m-2 fw-light"> <?= $user->telp?></span>
                     </div>
                     <div class="mb-2">
-                        <span class="fw-bold">Email :</span><span class="text-muted m-2 fw-light"><?= $user[0]->email?> 
-                        <?php if ($user[0]->status == null) : ?>
-                            <button class="btn-verif text-blue" data-email="<?= $user[0]->email ?>" onclick="verifyEmail()">verify</button>
+                        <span class="fw-bold">Email :</span><span class="text-muted m-2 fw-light"><?= $user->email?> 
+                        <?php if ($user->status == null) : ?>
+                            <button class="btn-verif text-blue" data-email="<?= $user->email ?>" onclick="verifyEmail()">verify</button>
                         <?php else : ?>
                             <i class="uil uil-"></i> Telah Diverifikasi </a>
                         <?php endif?>
                         </span>
                     </div>
                     <div class="mb-2">
-                        <span class="fw-bold">Location :</span><span class="text-muted m-2 fw-light"><?= $user[0]->negara?></span>
+                        <span class="fw-bold">Location :</span><span class="text-muted m-2 fw-light"><?= $user->negara?></span>
                     </div>
                     <!-- /.social -->
                 </div>
@@ -77,7 +77,7 @@
             </div>
             <div class="col-lg-6 ">
                 <div class="card p-3 " >
-                    <?php if($user[0]->cSupplier == 1 || $user[0]->cSupplier != NULL) : ?>
+                    <?php if($user->cSupplier == 1 || $user->cSupplier != NULL) : ?>
                         <div class="d-flex justify-content-between ">
                             <h4 class="fw-light">Company Information</h4>
                             <a href="<?=base_url()?>supplier/company" class="text-blue fw-light font-sm"><i class="uil uil-"></i> Manage company </a>

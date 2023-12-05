@@ -43,17 +43,23 @@ class Supplier extends CI_Controller {
         if (!$this->session->userdata('iduser')) {
             redirect('logout');
          }else{
-            if ($user->negara == 'Indonesia') {
-                if ($supplier->verify == 1) {
-                    $this->session->set_flashdata('pesan', 'Tunggu pengajuanmu diverifikasi Admin 1x24 Jam');
-                    redirect('profil');
+            if($user->nama && $user->alamat && $user->email && $user->negara && $user->telp){
+                if ($user->negara == 'Indonesia') {
+                    if ($supplier[0]->verify == 1) {
+                        $this->session->set_flashdata('pesan', 'Tunggu pengajuanmu diverifikasi Admin 1x24 Jam');
+                        redirect('profil');
+                    }else{
+                        redirect('regisSupplier');
+                    }
                 }else{
-                    redirect('regisSupplier');
+                    $this->session->set_flashdata('pesan_e', 'Supplier only for indonesia country');
+                    redirect('profil');
                 }
             }else{
-                $this->session->set_flashdata('pesan_e', 'Supplier only for indonesia country');
+                $this->session->set_flashdata('pesan_e', 'Please fill the all profile data');
                 redirect('profil');
             }
+            
         }
         
     }
@@ -73,7 +79,8 @@ class Supplier extends CI_Controller {
                         'email' => $this->input->post('email'),
                         'telp' => $this->input->post('telp'),
                         'iduser' => $this->input->post('iduser'),
-                        'verify' => '1'
+                        'verify' => '1',
+                        'tgl' => date('Y-m-d H:i:s')
                     );
                     
                     $this->M_Supplier->insertSupplier($data);

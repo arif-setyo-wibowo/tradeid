@@ -47,28 +47,47 @@ class Product extends CI_Controller {
             return $this->load->view('supplier/v_productDetail',$data);
         }
     }
-
-    function uploadImage(){
-        
-    }
-
     function store(){
+    
+        $this->load->library('upload');
+        $uploaded_files = array();
 
-        $data = array(
-            'namaProduk' => $this->input->post('product'),
-            'idsupplier' => $this->input->post('idsupplier'),
-            'idkategori' => $this->input->post('kategori'),
-            'idsubkategori_a' => $this->input->post('subkategori_a'),
-            'idsubkategori_b' => $this->input->post('subkategori_b'),
-            'deskripsiProduk' => $this->input->post('despan'),
-            'deskripsiPendek' => $this->input->post('despen'),
-            'harga' => $this->input->post('harga'),
-        );
-        
+        foreach ($_FILES['gambar']['name'] as $data) {
+            $_FILES['userfile']['name']     = $_FILES['gambar']['name'][$data];
+            $_FILES['userfile']['type']     = $_FILES['gambar']['type'][$data];
+            $_FILES['userfile']['tmp_name'] = $_FILES['gambar']['tmp_name'][$data];
+            $_FILES['userfile']['error']    = $_FILES['gambar']['error'][$data];
+            $_FILES['userfile']['size']     = $_FILES['gambar']['size'][$data];
 
-        $this->M_Product->insertProduct($data);
-        $this->session->set_flashdata('pesan', 'Succesfully Insert Product');
-        redirect('supplier/product');
+            if ($this->upload->do_upload('userfile')) {
+                $uploaded_files[] = $this->upload->data('file_name');
+            } else {
+                $this->session->set_flashdata('pesan_e', 'Gambar gagal diupload');
+                redirect('supplier/product');
+            }
+        }
+
+        if (!$this->upload->do_upload('gambar')) {
+            $this->session->set_flashdata('pesan_e', 'Gambar gagal diupload');
+            redirect('supplier/product');
+        } else {
+            $data = array(
+                'namaProduk' => $this->input->post('product'),
+                'idsupplier' => $this->input->post('idsupplier'),
+                'idkategori' => $this->input->post('kategori'),
+                'idsubkategori_a' => $this->input->post('subkategori_a'),
+                'idsubkategori_b' => $this->input->post('subkategori_b'),
+                'deskripsiProduk' => $this->input->post('despan'),
+                'deskripsiPendek' => $this->input->post('despen'),
+                'harga' => $this->input->post('harga'),
+                'gambar' => $this->upload->data('file_name')
+            );
+            
+
+            $this->M_Product->insertProduct($data);
+            $this->session->set_flashdata('pesan', 'Succesfully Insert Product');
+            redirect('supplier/product');
+        }
 
     }
 

@@ -38,7 +38,7 @@
                                 <tr>
                                     <td class="text-center fs-sm"><?= $no++;?></td>
                                     <td class="fw-semibold fs-sm"><?= $data->namaPerusahaan?></td>
-                                    <td>12-12-2012</td>
+                                    <td><?=  date('d-m-Y', strtotime($data->tgl))?></td>
                                     <!-- <td class="fw-semibold fs-sm"><?= $data->deskripsiPerusahaan?></td> -->
                                     <!-- <td class="fw-semibold fs-sm"><?= $data->deskripsiPerusahaan?></td> -->
                                     <td class="d-nonea d-sm-table-cell text-center">

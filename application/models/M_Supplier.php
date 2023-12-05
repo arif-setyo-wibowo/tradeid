@@ -15,8 +15,11 @@ class M_Supplier extends CI_Model {
     
 
     function getWhereIdSupplier($id){
-        $query = $this->db->get_where('supplier', array('iduser' => $id));
-        return $query->result();
+        $this->db->select('*')
+                ->from('supplier')
+                ->where('iduser',$id);
+                        
+        return $this->db->get()->result();
     }
 
     function getWhereIdCompany($id){

@@ -19,24 +19,26 @@
                     <div class="tab-pane fade show active" id="tab3-1">
                     <div class="p p-md-3 p-lg-3">
                         <div class="form-floating mb-4">
-                            <input type="text" class="form-control" placeholder="Email" name="nama" value="<?= $user[0]->nama?>"  id="loginEmail">
+                            <input type="text" class="form-control" placeholder="Email" name="nama" value="<?= $user->nama?>"  id="loginEmail">
                             <label for="loginEmail">Full Name</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="email" class="form-control" placeholder="Email" name="email" value="<?= $user[0]->email?>"  id="loginEmail">
+                            <input type="email" class="form-control" placeholder="Email" name="email" value="<?= $user->email?>"  id="loginEmail">
                             <label for="loginEmail">Email</label>
                         </div>
                         <div class="form-floating mb-4">
-                                <textarea id="textareaExample" class="form-control" placeholder="Address" name="alamat"  style="height: 150px" ><?= $user[0]->alamat?></textarea>
+                                <textarea id="textareaExample" class="form-control" placeholder="Address" name="alamat"  style="height: 150px" ><?= $user->alamat?></textarea>
                                 <label for="textareaExample">Address</label>
                         </div>
                             <div class="form-floating mb-4">
-                                <input type="text" class="form-control" placeholder="Name" name="telp" value="<?= $user[0]->telp ?>" id="loginName">
+                                <input type="text" class="form-control" placeholder="Name" name="telp" value="<?= $user->telp ?>" id="loginName">
                                 <label for="loginName">Phone</label>
                             </div>
                             <div class="form-select-wrapper mb-4">
-                                <select class="form-select" id="countrySelect" name="negara" >
-
+                                <select class="form-select" name="negara" >
+                                    <option disabled value="">Choose Country</option>
+                                    <option value="Indonesia">Indonesia</option>
+                                    <option value="Malaysia">Malaysia</option>
                                 </select>
                             </div>
                     </div>

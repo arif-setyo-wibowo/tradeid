@@ -18,9 +18,10 @@ class User extends CI_Controller {
         if (!$this->session->userdata('iduser')) {
            redirect('logout');
         }else{
+            $iduser = $this->session->userdata('iduser');
             $data = [
-                'supplier' => $this->M_Supplier->getSupplier(),
-                'user' => $this->M_User->getUser(),
+                'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                'user' => $this->M_User->get_where($iduser),
                 'header' => 'componen/header',
                 'footer' => 'componen/footer',
             ];
@@ -51,7 +52,7 @@ class User extends CI_Controller {
                 redirect('profil');
             }else{
                 $data = [
-                    'user' => $this->M_User->getUser(),
+                    'user' => $this->M_User->get_where($iduser),
                     'header' => 'componen/header',
                     'footer' => 'componen/footer',
                 ];

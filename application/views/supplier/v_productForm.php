@@ -58,7 +58,7 @@
                                 <!-- For more info and examples you can check out https://github.com/select2/select2 -->
                                 <label class="form-label" for="one-ecom-product-category">product Category</label>
                                 <select class="js-select2 form-select" id="kategori" name="kategori" onchange="loadSubkategoriA()" required style="width: 100%;" data-placeholder="Choose one..">
-                                    <option disabled value="">Choose Category</option>
+                                    <option value="">Choose Category</option>
                                     <?php foreach ($kategori as $data) : ?>
                                         <option value="<?= $data->idkategori?>"><?= $data->namaKategori?></option>
                                     <?php endforeach; ?>
@@ -116,10 +116,16 @@
                       <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-12">
                           <h3>Media</h3>
-                            <div class="row mb-4">
+                            <div class="row mb-4" >
                               <div class="col-md-6 col-lg-12">
                               <label class="form-label" for="one-ecom-product-price">Image Product</label>
-                              <div class="dropzone" action="<?= site_url('Supplier/Product/uploadImage') ?>"></div>
+                              <div class="mb-4 image-preview">
+                              <div class="d-flex flex-wrap" id="previewContainer">
+                                  <img id="previewAvatar" class="img-avatar" style="height:150px;width:150px;" src="<?= base_url() ?>./assets/admin/media/avatars/avatar13.jpg" alt="">
+                                  <span class="remove-preview" onclick="removePreview()">Remove</span>
+                              </div>
+                              <div class="mb-4 ">
+                                  <input class="form-control" type="file" name="gambar[]" accept="image/*" multiple id="one-profile-edit-avatar">
                               </div>
                             </div>
                         </div>
@@ -131,12 +137,11 @@
         </div>
       </form>
 
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script>
-    // Dropzone configuration
-    Dropzone.autoDiscover = false;
 
-    $(document).ready(function() {
-        setupDropzone();
+    $(document).ready(function () {
+        setupFileInput();
     });
 
     function loadSubkategoriA() {
@@ -186,33 +191,37 @@
         }
     }
 
-    function setupDropzone() {
-        // Konfigurasi Dropzone
-        var myDropzone = new Dropzone(".dropzone", {
-            url: $(".dropzone").data("action"), // Menggunakan data-action dari div dropzone
-            paramName: "file", // Nama parameter yang digunakan untuk mengirim file
-            maxFilesize: 5, // Ukuran maksimum file dalam MB
-            acceptedFiles: "image/*", // Hanya menerima file gambar
-            addRemoveLinks: true, // Menampilkan link untuk menghapus file yang diunggah
-            init: function() {
-                // Callback saat Dropzone diinisialisasi
-                this.on("success", function(file, response) {
-                    // Callback saat file berhasil diunggah
-                    console.log(response);
-                    // Set nilai gambar menjadi URL yang diunggah
-                    $("#gambar").val(response.url);
-                });
-                this.on("removedfile", function(file) {
-                    // Callback saat file dihapus
-                    console.log(file);
-                    // Set nilai gambar menjadi kosong saat file dihapus
-                    $("#gambar").val("");
-                });
+    function setupFileInput() {
+        $('#one-profile-edit-avatar').on('change', function (event) {
+            var fileInput = event.target;
+            var previewContainer = $('#previewContainer');
+
+            // Hapus pratinjau gambar sebelumnya
+            previewContainer.empty();
+
+            if (fileInput.files && fileInput.files.length > 0) {
+                for (var i = 0; i < fileInput.files.length; i++) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        var imageHtml = '<div class="image-preview mb-2 me-2">' +
+                            '<img class="img-avatar" style="height:150px;width:150px;" src="' + e.target.result + '" alt="Preview">' +
+                            '<span class="remove-preview" onclick="removePreview(this)">Remove</span>' +
+                            '</div>';
+                        previewContainer.append(imageHtml);
+                    };
+
+                    reader.readAsDataURL(fileInput.files[i]);
+                }
             }
         });
     }
 
-
-    
+    function removePreview(element) {
+        // Hapus pratinjau gambar yang terkait dengan tombol Remove yang ditekan
+        $(element).parent().remove();
+        // Bersihkan file input
+        $('#one-profile-edit-avatar').val('');
+    }
 </script>
 <?php $this->load->view($footer) ?>
