@@ -100,7 +100,7 @@
           <!-- Left Section -->
           <div class="d-flex align-items-center">
             <!-- Logo -->
-            <a class="fw-semibold fs-5 tracking-wider text-dual me-3" href="index.html"> OneUI </a>
+            <a class="fw-semibold fs-5 tracking-wider text-dual me-3" href="<?= base_url('supplier')?>"> OneUI </a>
             <!-- END Logo -->
 
             <!-- Notifications Dropdown -->
@@ -305,31 +305,31 @@
                 <ul class="nav-main nav-main-dark nav-main-horizontal nav-main-hover">
                   <li class="nav-main-item">
                     <a class="nav-main-link active" href="<?= base_url('supplier')?>">
-                      <i class="nav-main-link-icon si si-compass"></i>
+                      <i class="nav-main-link-icon si si-speedometer"></i>
                       <span class="nav-main-link-name">Dashboard</span>
                     </a>
                   </li>
                   <li class="nav-main-item">
                     <a class="nav-main-link " href="<?= base_url('supplier/company')?>">
-                      <i class="nav-main-link-icon si si-compass"></i>
+                      <i class="nav-main-link-icon far fa-building"></i>
                       <span class="nav-main-link-name">Company</span>
                     </a>
                   </li>
                   <li class="nav-main-item">
                     <a class="nav-main-link " href="<?= base_url('supplier/product')?>">
-                      <i class="nav-main-link-icon si si-compass"></i>
+                      <i class="nav-main-link-icon si si-handbag"></i>
                       <span class="nav-main-link-name">Products</span>
                     </a>
                   </li>
                   <li class="nav-main-item">
                     <a class="nav-main-link " href="<?= base_url('supplier/facility')?>">
-                      <i class="nav-main-link-icon si si-compass"></i>
+                      <i class="nav-main-link-icon fa fa-archway"></i>
                       <span class="nav-main-link-name">Facility</span>
                     </a>
                   </li>
                   <li class="nav-main-heading">Pages</li>
                   <li class="nav-main-item">
-                    <a class="nav-main-link" href="bd_search.html">
+                    <a class="nav-main-link" href="">
                       <i class="nav-main-link-icon si si-magnifier"></i>
                       <span class="nav-main-link-name">Search</span>
                     </a>

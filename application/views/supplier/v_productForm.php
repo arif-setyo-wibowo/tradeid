@@ -120,7 +120,7 @@
                               <div class="col-md-6 col-lg-12">
                               <label class="form-label" for="one-ecom-product-price">Image Product</label>
                               <div class="mb-4 image-preview">
-                              <div class="d-flex flex-wrap" id="previewContainer">
+                              <div class="d-flex flex-wrap mt-2" id="previewContainer">
                                   <img id="previewAvatar" class="img-avatar" style="height:150px;width:150px;" src="<?= base_url() ?>./assets/admin/media/avatars/avatar13.jpg" alt="">
                                   <span class="remove-preview" onclick="removePreview()">Remove</span>
                               </div>
