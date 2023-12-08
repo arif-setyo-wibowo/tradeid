@@ -33,7 +33,10 @@
       <?php foreach ($product as $data) : ?>
         <div class="col-lg-4 col-md-4">
           <a class="block block-rounded block-link-pop overflow-hidden" href="<?= base_url('supplier/product/productDetail/'.$data->idproduct)?>">
-            <img class="img-fluid"  src="<?= base_url() ?>./assets/front/img/produk/husked.jpg" alt="">
+            <?php  $imageArray = explode(',', $data->gambar);
+                    $firstImage = $imageArray[0];
+            ?>
+            <img class="img-fluid"  src="<?php echo base_url('uploads/'.$firstImage) ?>" alt="">
             <div class="block-content">
               <h4 class="mb-1">
                 <?= $data->namaProduk?>

@@ -62,6 +62,12 @@ class M_Product extends CI_Model {
         $this->db->insert('product_images', $data);
     }
 
+    function deleteProduct($id,$idsupplier){
+        $this->db->where('idproduct', $id);
+        $this->db->where('idsupplier', $idsupplier);
+        $this->db->delete('arif_film');
+    }
+
 }
 
 /* End of file M_Product.php */

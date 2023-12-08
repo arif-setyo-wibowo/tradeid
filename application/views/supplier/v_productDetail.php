@@ -77,33 +77,26 @@
                             <!-- For more info and examples you can check out http://dimsemenov.com/plugins/magnific-popup/ -->
                             <div class="row g-sm js-gallery img-fluid-100">
                                 <div class="col-12 mb-3">
+                                <?php  $imageArray = explode(',', $product[0]->gambar);
+                                       
+                                ?>
                                     <a class="img-link img-link-zoom-in img-lightbox"
-                                        href="/media/various/ecom_product6.png">
+                                        href="<?= base_url('uploads/'.$imageArray[0]) ?>">
                                         <img class="img-fluid"
-                                            src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" alt="">
+                                            src="<?= base_url('uploads/'.$imageArray[0]) ?>" alt="">
                                     </a>
                                 </div>
+                                <?php  $imageArray = explode(',', $product[0]->gambar);
+                                        foreach ($imageArray as $data): 
+                                ?>
                                 <div class="col-4 mt-1">
                                     <a class="img-link img-link-zoom-in img-lightbox"
-                                        href="/media/various/ecom_product6_a.png">
+                                        href="<?= base_url('uploads/'.$data) ?>">
                                         <img class="img-fluid"
-                                            src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" alt="">
+                                            src="<?= base_url('uploads/'.$data) ?>" alt="">
                                     </a>
                                 </div>
-                                <div class="col-4 mt-1">
-                                    <a class="img-link img-link-zoom-in img-lightbox"
-                                        href="/media/various/ecom_product6_b.png">
-                                        <img class="img-fluid"
-                                            src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="col-4 mt-1">
-                                    <a class="img-link img-link-zoom-in img-lightbox"
-                                        href="/media/various/ecom_product6_c.png">
-                                        <img class="img-fluid"
-                                            src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" alt="">
-                                    </a>
-                                </div>
+                                <?php endforeach;?>
                             </div>
                             <!-- END Images -->
                         </div>
