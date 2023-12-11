@@ -124,7 +124,7 @@
                                   <img id="previewAvatar" class="img-avatar" style="height:150px;width:150px;" src="<?= base_url() ?>./assets/admin/media/avatars/avatar13.jpg" alt="">
                                   <span class="remove-preview" onclick="removePreview()">Remove</span>
                               </div>
-                              <div class="mb-4 ">
+                              <div class="mb-4 mt-3">
                                   <input class="form-control" type="file" name="gambar[]" accept="image/*" multiple id="one-profile-edit-avatar">
                               </div>
                             </div>

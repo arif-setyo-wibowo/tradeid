@@ -57,8 +57,11 @@
 <script src="<?= base_url() ?>assets/admin/js/plugins/ckeditor/ckeditor.js"></script>
 <script src="<?= base_url() ?>assets/admin/js/plugins/dropzone/min/dropzone.min.js"></script>
 
+<script src="<?= base_url() ?>assets/admin/js/plugins/magnific-popup/jquery.magnific-popup.js"></script>
+<script src="<?= base_url() ?>assets/admin/js/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+
     <!-- Page JS Helpers (Select2 + Bootstrap Maxlength + CKEditor plugins) -->
-    <script>One.helpersOnLoad(['jq-select2', 'jq-maxlength', 'js-ckeditor']);</script>
+    <script>One.helpersOnLoad(['jq-select2', 'jq-maxlength', 'js-ckeditor','jq-magnific-popup']);</script>
 </body>
 
 </html>

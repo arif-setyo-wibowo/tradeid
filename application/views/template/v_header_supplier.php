@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/admin/js/plugins/dropzone//min/dropzone.min.css">
 
 
+    <link rel="stylesheet" id="css-main" href="<?= base_url() ?>assets/admin/js/plugins/magnific-popup/magnific-popup.css">
 
     <!-- Stylesheets -->
     <!-- OneUI framework -->

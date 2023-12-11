@@ -75,7 +75,7 @@
                             <!-- Images -->
                             <!-- Magnific Popup (.js-gallery class is initialized in Helpers.jqMagnific()) -->
                             <!-- For more info and examples you can check out http://dimsemenov.com/plugins/magnific-popup/ -->
-                            <div class="row g-sm js-gallery img-fluid-100">
+                            <div class="row g-sm js-gallery img-fluid-100 ">
                                 <div class="col-12 mb-3">
                                 <?php  $imageArray = explode(',', $product[0]->gambar);
                                        

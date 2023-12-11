@@ -46,10 +46,13 @@
 
 
 <script src="<?= base_url() ?>assets/admin/js/plugins/select2/js/select2.full.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/js/plugins/magnific-popup/jquery.magnific-popup.js"></script>
+<script src="<?= base_url() ?>assets/admin/js/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
 
 <!-- Page JS Code -->
 <script src="<?= base_url() ?>assets/admin/js/pages/be_tables_datatables.min.js"></script>
-<script>One.helpersOnLoad([ 'jq-select2']);</script>
+<script>One.helpersOnLoad([ 'jq-select2',]);</script>
+<script>One.helpersOnLoad(['jq-magnific-popup']);</script>
 </body>
 
 </html>
