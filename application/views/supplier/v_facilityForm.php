@@ -27,11 +27,11 @@
                           <div class="mb-4">
                           <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-12">
-                            <div class="row mb-4">
-                              <div class="col-md-6 col-lg-12">
-                              <label class="form-label" for="one-ecom-product-price">Facility Image</label>
-                              <div class="dropzone" action="/"></div>
-                              </div>
+                      
+                        <div class="mb-4">
+                                <label for="one-profile-edit-avatar" class="form-label">Choose a new Image</label>
+                                <input class="form-control" type="file" name="upgambar" id="one-profile-edit-avatar">
+                                <input type="hidden" class="form-control" name="lastgambar" value="">
                             </div>
                         </div>
                       </div>

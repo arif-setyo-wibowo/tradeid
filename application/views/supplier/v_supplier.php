@@ -189,7 +189,7 @@
                                 </td>
                                 <td>
                                     <div class="d-flex justify-content-between gap-2">
-                                        <a href="" class="btn btn-outline-info px-3"><i class="fa fa-info"></i></a>
+                                        <a href="<?= base_url()?>supplier/Inquire" class="btn btn-outline-info px-3"><i class="fa fa-info"></i></a>
                                         <a href="" class="btn btn-outline-danger"><i class="far fa-trash-can"></i></a>
                                     </div>
                                 </td>
