@@ -36,7 +36,7 @@
             <?php  $imageArray = explode(',', $data->gambar);
                     $firstImage = $imageArray[0];
             ?>
-            <img class="img-fluid"  src="<?php echo base_url('uploads/'.$firstImage) ?>" alt="">
+            <img class="img-fluid" style="height:200px; width:450px;" src="<?php echo base_url('uploads/'.$firstImage) ?>" alt="">
             <div class="block-content">
               <h4 class="mb-1">
                 <?= $data->namaProduk?>

@@ -1,7 +1,4 @@
 <?php $this->load->view($header); ?>
-
-
-
 <div class="content">
   <div class="row">
     <div class="col-10">
@@ -116,10 +113,23 @@
                       <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-12">
                           <h3>Media</h3>
-                            <div class="row mb-4">
+                          <div class="row mb-4" >
                               <div class="col-md-6 col-lg-12">
                               <label class="form-label" for="one-ecom-product-price">Image Product</label>
-                              <div class="dropzone" action="<?= site_url('Supplier/Product/uploadImage') ?>"></div>
+                              <div class="mb-4 image-preview">
+                                <div class="d-flex flex-wrap mt-2" id="previewContainer">
+                                <?php
+                                    $imageArray = explode(',', $product[0]->gambar);
+                                    foreach ($imageArray as $data):
+                                    ?>
+                                        <div class="image-preview-container mb-2 me-2">
+                                            <img class="img-avatar" style="height:150px;width:150px;" src="<?= base_url('uploads/'.$data) ?>" alt="">
+                                            <span class="remove-preview" onclick="removeSinglePreview(this)">Remove</span>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                              <div class="mb-4 ">
+                                  <input class="form-control" type="file" name="gambar[]" accept="image/*" multiple id="one-profile-edit-avatar">
                               </div>
                             </div>
                         </div>
@@ -131,13 +141,11 @@
         </div>
       </form>
 
-  <script>
-    // Dropzone configuration
-    Dropzone.autoDiscover = false;
-
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
     $(document).ready(function() {
         loadKategori();
-        setupDropzone();
+        setupFileInput();
     });
 
     function loadKategori() {
@@ -202,7 +210,50 @@
         }
     }
 
-
     
+    function setupFileInput() {
+        var fileInput = document.getElementById('one-profile-edit-avatar');
+        var previewContainer = document.getElementById('previewContainer');
+
+        // Hapus pratinjau gambar sebelumnya
+        while (previewContainer.firstChild) {
+            previewContainer.removeChild(previewContainer.firstChild);
+        }
+
+        if (fileInput.files && fileInput.files.length > 0) {
+            for (var i = 0; i < fileInput.files.length; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var imageContainer = document.createElement('div');
+                    imageContainer.className = 'image-preview-container mb-2 me-2';
+
+                    var imageHtml = '<img class="img-avatar" style="height:150px;width:150px;" src="' + e.target.result + '" alt="Preview">';
+                    var removeButton = document.createElement('span');
+                    removeButton.className = 'remove-preview';
+                    removeButton.textContent = 'Remove';
+                    removeButton.onclick = function () { removeSinglePreview(this); };
+
+                    imageContainer.innerHTML = imageHtml;
+                    imageContainer.appendChild(removeButton);
+
+                    previewContainer.appendChild(imageContainer);
+                };
+
+                reader.readAsDataURL(fileInput.files[i]);
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('one-profile-edit-avatar').addEventListener('change', function (event) {
+            setupFileInput();
+        });
+    });
+
+    function removeSinglePreview(element) {
+        // Hapus pratinjau gambar tertentu
+        element.parentNode.remove();
+    }
 </script>
 <?php $this->load->view($footer) ?>

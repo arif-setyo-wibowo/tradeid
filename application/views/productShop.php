@@ -113,56 +113,72 @@
       <!-- /column -->
       <aside class="col-lg-3 sidebar">
         <div class="widget mt-1">
-          <h4 class="widget-title mb-3">Categories</h4>
-          <ul class="list-unstyled ps-0">
-            <li class="mb-1">
-              <a href="#" class="align-items-center rounded link-body" data-bs-toggle="collapse" data-bs-target="#clothing-collapse" aria-expanded="true"> Clothing <span class="fs-sm text-muted ms-1">(21)</span>
-              </a>
-              <div class="collapse show mt-1" id="clothing-collapse" style="">
-                <ul class="btn-toggle-nav list-unstyled ps-2">
-                  <li><a href="#" class="link-body">Dresses</a></li>
-                  <li><a href="#" class="link-body">Knitwear</a></li>
-                  <li><a href="#" class="link-body">Jeans</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="mb-1">
-              <a href="#" class="align-items-center rounded collapsed link-body" data-bs-toggle="collapse" data-bs-target="#electronics-collapse" aria-expanded="false"> Electronics <span class="fs-sm text-muted ms-1">(19)</span>
-              </a>
-              <div class="collapse mt-1" id="electronics-collapse" style="">
-                <ul class="btn-toggle-nav list-unstyled ps-2">
-                  <li><a href="#" class="link-body">Headphones</a></li>
-                  <li><a href="#" class="link-body">Computers</a></li>
-                  <li><a href="#" class="link-body">Cameras</a></li>
-                  <li><a href="#" class="link-body">Annually</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="mb-1">
-              <a href="#" class="align-items-center rounded collapsed link-body" data-bs-toggle="collapse" data-bs-target="#shoes-collapse" aria-expanded="false"> Shoes <span class="fs-sm text-muted ms-1">(12)</span>
-              </a>
-              <div class="collapse mt-1" id="shoes-collapse" style="">
-                <ul class="btn-toggle-nav list-unstyled ps-2">
-                  <li><a href="#" class="link-body">Sneakers</a></li>
-                  <li><a href="#" class="link-body">Sandals</a></li>
-                  <li><a href="#" class="link-body">Boots</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="mb-1">
-              <a href="#" class="align-items-center rounded collapsed link-body" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false"> Home & Kitchen <span class="fs-sm text-muted ms-1">(16)</span>
-              </a>
-              <div class="collapse mt-1" id="home-collapse" style="">
-                <ul class="btn-toggle-nav list-unstyled ps-2">
-                  <li><a href="#" class="link-body">Clocks</a></li>
-                  <li><a href="#" class="link-body">Kettles</a></li>
-                  <li><a href="#" class="link-body">Kitchenware</a></li>
-                </ul>
-              </div>
-            </li>
+            <h4 class="widget-title mb-3">Categories</h4>
+            <ul class="list-unstyled ps-0">
+              <?php
+              $current_kategori = '';
+              foreach ($kategori_structure as $kategori_row):
+                  // Filter hanya kategori yang memiliki subkategori_a
+                  $kategori_a_exists = false;
+                  foreach ($kategori_structure as $subkategori_a_check):
+                      if ($kategori_row['kategori'] == $subkategori_a_check['kategori']) {
+                          $kategori_a_exists = true;
+                          break;
+                      }
+                  endforeach;
+
+                  if (!$kategori_a_exists) {
+                      continue; // Skip kategori yang tidak memiliki subkategori_a
+                  }
+
+                  if ($current_kategori != $kategori_row['kategori']):
+                      // Tutup tag </ul></li> dari subkategori_a dan subkategori_b sebelumnya
+                      if ($current_kategori != ''):
+                          echo '</li>';
+                      endif;
+
+                      $current_kategori = $kategori_row['kategori'];
+              ?>
+                      <li class="mb-1">
+                          <a href="<?= base_url('product/'.$current_kategori)?>"  class="align-items-center rounded link-body" data-bs-target="#<?= strtodash($current_kategori) ?>-collapse" aria-expanded="true"><?= $current_kategori ?> <span class="fs-sm text-muted ms-1"></span>
+                          </a>
+                          <div class="collapse show mt-1" id="<?= strtodash($current_kategori) ?>-collapse" style="">
+                              <ul class="btn-toggle-nav list-unstyled ps-2">
+                                  <?php
+                                  $current_subkategori_a = '';
+                                  foreach ($kategori_structure as $subkategori_a_row):
+                                      if ($current_kategori == $subkategori_a_row['kategori'] && $current_subkategori_a != $subkategori_a_row['subkategori_a']):
+                                  ?>
+                                          <li><a href="<?= base_url('product/'.$kategori_row['idkategori'].'/'.$subkategori_a_row['subkategori_a']) ?>" class="align-items-center rounded link-body" data-bs-toggle="collapse" data-bs-target="#<?= strtodash($current_kategori) ?>-<?= strtodash($current_subkategori_a) ?>-collapse" aria-expanded="true"><?= $subkategori_a_row['subkategori_a'] ?></a>
+                                              <div class="collapse show mt-1" id="<?= strtodash($current_kategori) ?>-<?= strtodash($current_subkategori_a) ?>-collapse" style="">
+                                                  <ul class="btn-toggle-nav list-unstyled ps-2">
+                                                      <?php
+                                                      $current_subkategori_a = $subkategori_a_row['subkategori_a'];
+                                                      $current_subkategori_b = '';
+                                                      foreach ($kategori_structure as $subkategori_b_row):
+                                                          if ($current_kategori == $subkategori_b_row['kategori'] && $current_subkategori_a == $subkategori_b_row['subkategori_a'] && $current_subkategori_b != $subkategori_b_row['subkategori_b']):
+                                                      ?>
+                                                              <li><a href="#" class="link-body"><?= $subkategori_b_row['subkategori_b'] ?></a></li>
+                                                      <?php
+                                                              $current_subkategori_b = $subkategori_b_row['subkategori_b'];
+                                                          endif;
+                                                      endforeach;
+                                                      ?>
+                                                  </ul>
+                                              </div>
+                                          </li>
+                                  <?php
+                                      endif;
+                                  endforeach;
+                                  ?>
+                              </ul>
+                          </div>
+                      </li>
+                  <?php endif; ?>
+              <?php endforeach; ?>
           </ul>
         </div>
-      </aside>
+    </aside>
       <!-- /column .sidebar -->
     </div>
     <!-- /.row -->
@@ -212,5 +228,4 @@
 
 </section>
 <!-- /section -->
-
 <?php $this->load->view($footer); ?>

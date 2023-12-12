@@ -42,10 +42,10 @@
             <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
               <ul class="navbar-nav">
                 <li class="nav-item ">
-                  <a class="nav-link dropdown-item" href="<?= base_url() ?>/front/product">Product</a>
+                  <a class="nav-link dropdown-item" href="<?= base_url() ?>product">Product</a>
                 </li>
                 <li class="nav-item ">
-                  <a class="nav-link dropdown-item" href="<?= base_url() ?>/front/supplier">Supplier</a>
+                  <a class="nav-link dropdown-item" href="<?= base_url() ?>supplier">Supplier</a>
                 </li>
                 <li class="nav-item dropdown dropdown-mega">
                   <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Category</a>
