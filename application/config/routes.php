@@ -60,6 +60,8 @@ $route['profil'] = 'Front/User';
 $route['product'] = 'Front/Product';
 $route['supplier'] = 'Front/Supplier';
 $route['product/(:any)'] = 'Front/Product/productShop/$1';
+$route['premium'] = 'Front/Premium';
+$route['checkout'] = 'Front/Premium/checkout';
 
 
 
@@ -99,7 +101,15 @@ $route['admin/login'] = 'Admin/Admin/loginadmin';
 //identitas
 $route['admin/identitas'] ='Admin/Identitas';
 
-//identitas
+//perusahaan
+$route['admin/perusahaan'] ='Admin/Perusahaan';
+$route['admin/detailPerusahaan/(:any)'] ='Admin/Perusahaan/detail/$1';
+
+//product
+$route['admin/product'] ='Admin/Product';
+$route['admin/detailProduct/(:any)'] ='Admin/Product/detail/$1';
+
+//pembelian
 $route['admin/pembelian'] ='Admin/Pembelian';
 
 //cek Supplier

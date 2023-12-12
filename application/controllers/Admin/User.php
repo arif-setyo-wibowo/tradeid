@@ -16,6 +16,7 @@ class User extends CI_Controller {
     public function index()
     {
         $data = [
+            'user' => $this->M_User->getUser(),
             'header' => 'template/v_header_admin',
             'footer' => 'template/v_footer_admin',
         ];

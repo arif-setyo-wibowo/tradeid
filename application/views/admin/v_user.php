@@ -37,38 +37,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no=1; ?>
+                            <?php $no=1; foreach ($user as $data) :?>
                                 <tr>
                                     <td class="text-center fs-sm"><?= $no++;?></td>
-                                    <td class="fw-semibold fs-sm">Bambang</td>
-                                    <td class="d-none d-sm-table-cell" style="width: 30%;">bambang Sahid</td>
-                                    <td class="d-none d-sm-table-cell" style="width: 25%;">bambang@gmail.com</td>
-                                    <td class="d-none d-sm-table-cell" style="width: 25%;">+78276263763</td>
-                                    <td class="d-none d-sm-table-cell" style="width: 20%;">Indonesia</td>
-                                    <td class="d-none " style="width: 80%;">Bluru Kidul Dua,asd w,aw awd ad, wa d</td>
+                                    <td class="fw-semibold fs-sm"><?= $data->username?></td>
+                                    <td class="d-none d-sm-table-cell" style="width: 30%;"><?= $data->nama?></td>
+                                    <td class="d-none d-sm-table-cell" style="width: 25%;"><?= $data->email?></td>
+                                    <td class="d-none d-sm-table-cell" style="width: 25%;"><?= $data->telp?></td>
+                                    <td class="d-none d-sm-table-cell" style="width: 20%;"><?= $data->negara?></td>
+                                    <td class="d-none " style="width: 80%;"><?= $data->alamat?></td>
                                     <td class="d-none text-center d-sm-table-cell" style="width: 30%;">
-                                      <button class="btn rounded-pill px-3 btn-sm btn-alt-primary">Yes</button>
+                                      <?php if($data->cSupplier == 1 ):?>
+                                        <button class="btn rounded-pill px-3 btn-sm btn-alt-primary">Yes</button>
+                                      <?php else:?>
+                                        <button class="btn rounded-pill px-3 btn-sm btn-alt-danger">No</button>
+                                      <?php endif?>
                                     </td>
                                     <td class="d-none d-sm-table-cell" style="width: 30%;">
-                                      <a href="" class=" rounded-pill px-3 btn-sm text-primary"data-bs-toggle="modal" data-bs-target="#modal-block-popout">Lihat</a>
+                                      <a href="" class=" rounded-pill px-3 btn-sm text-primary" data-bs-toggle="modal" data-bs-target="#modal-block-popout">Lihat</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="text-center fs-sm"><?= $no++;?></td>
-                                    <td class="fw-semibold fs-sm">Bambang</td>
-                                    <td class="d-none d-sm-table-cell" style="width: 30%;">bambang Sahid</td>
-                                    <td class="d-none d-sm-table-cell" style="width: 25%;">bambang@gmail.com</td>
-                                    <td class="d-none d-sm-table-cell" style="width: 25%;">+78276263763</td>
-                                    <td class="d-none d-sm-table-cell" style="width: 20%;">Indonesia</td>
-                                    <td class="d-none " style="width: 80%;">Bluru Kidul Dua,asd w,aw awd ad, wa d</td>
-                                    <td class="d-none text-center d-sm-table-cell" style="width: 30%;">
-                                      <button class="btn rounded-pill px-3 btn-sm btn-alt-danger">No</button>
-                                    </td>
-                                    <td class="d-none d-sm-table-cell" style="width: 30%;">
-                                      <a href="" class=" rounded-pill px-3 btn-sm text-primary"data-bs-toggle="modal" data-bs-target="#modal-block-popout">Lihat</a>
-                                    </td>
-                                </tr>
-                                
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

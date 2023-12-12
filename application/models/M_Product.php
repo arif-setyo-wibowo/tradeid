@@ -16,6 +16,29 @@ class M_Product extends CI_Model {
     
     }
 
+    function getProductAll(){
+        $this->db->select('*')
+                 ->from('product')
+                 ->join('supplier', 'supplier.idsupplier = product.idsupplier')
+                 ->join('kategori', 'kategori.idKategori = product.idkategori')
+                 ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
+                 ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
+        
+         return  $this->db->get()->result();
+    }
+
+    function getWhereOne($id){
+        $this->db->select('*')
+        ->from('product')
+        ->where('idproduct',$id)    
+        ->join('supplier', 'supplier.idsupplier = product.idsupplier')
+        ->join('kategori', 'kategori.idKategori = product.idkategori')
+        ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
+        ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
+
+        return  $this->db->get()->result();
+    }
+
     function getWhere($id,$idsup) {
         $this->db->select('*')
                 ->from('product')
