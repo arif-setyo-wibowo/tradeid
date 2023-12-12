@@ -24963,7 +24963,7 @@ figure img {
   background: linear-gradient(180deg, var(--wr-soft-primary), rgba(var(--bs-white-rgb), 0) 100%);
 }
 .bg-gradient-reverse-primary {
-  background: linear-gradient(0deg, var(--bs-soft-primary), rgba(var(--bs-white-rgb), 0) 100%);
+  background: linear-gradient(0deg, var(--wr-soft-primary), rgba(var(--bs-white-rgb), 0) 100%);
 }
 .bg-gradient-blue {
   background: linear-gradient(180deg, var(--bs-soft-blue), rgba(var(--bs-white-rgb), 0) 100%);

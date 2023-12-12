@@ -127,6 +127,7 @@
                   <ul class="dropdown-menu ">
                     <!-- IF already creator -->
                     <li class="nav-item"><a class="dropdown-item" href="<?= base_url() ?>supplier">Dashboard</a></li>
+                    <li class="nav-item"><a class="dropdown-item" href="<?= base_url() ?>premium">Get Premium</a></li>
                     <!-- Else -->
                     <li class="nav-item"><a class="dropdown-item" href="<?= base_url() ?>profil">Profile</a></li>
                     <li class="nav-item"><a class="dropdown-item" href="<?= base_url() ?>logout">Logout</a></li>

@@ -57,6 +57,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 //Front 
 $route['profil'] = 'Front/User';
+$route['premium'] = 'Front/Premium';
+$route['checkout'] = 'Front/Premium/checkout';
 
 
 
