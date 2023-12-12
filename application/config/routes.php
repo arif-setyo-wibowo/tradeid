@@ -98,7 +98,11 @@ $route['admin/login'] = 'Admin/Admin/loginadmin';
 //identitas
 $route['admin/identitas'] ='Admin/Identitas';
 
-//identitas
+//perusahaan
+$route['admin/perusahaan'] ='Admin/Perusahaan';
+$route['admin/detailPerusahaan/(:any)'] ='Admin/Perusahaan/detail/$1';
+
+//pembelian
 $route['admin/pembelian'] ='Admin/Pembelian';
 
 //cek Supplier

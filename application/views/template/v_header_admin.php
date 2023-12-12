@@ -252,27 +252,24 @@
 
               <li class="nav-main-heading">Data Report</li>
               <li class="nav-main-item">
-                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                  <i class="nav-main-link-icon si si-energy"></i>
-                  <span class="nav-main-link-name">Data Report</span>
+                <a class="nav-main-link" href="<?= base_url('admin/pembelian') ?>">
+                  <span class="nav-main-link-name">Pembelian</span>
                 </a>
-                <ul class="nav-main-submenu">
-                  <li class="nav-main-item">
-                    <a class="nav-main-link" href="<?= base_url('admin/pembelian') ?>">
-                      <span class="nav-main-link-name">Pembelian</span>
-                    </a>
-                  </li>
-                  <li class="nav-main-item">
-                    <a class="nav-main-link" href="<?= base_url('admin/supplier') ?>">
-                      <span class="nav-main-link-name">Registrasi Supplier</span>
-                    </a>
-                  </li>
-                  <li class="nav-main-item">
-                    <a class="nav-main-link" href="<?= base_url('admin/user') ?>">
-                      <span class="nav-main-link-name">User</span>
-                    </a>
-                  </li>
-                </ul>
+              </li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="<?= base_url('admin/supplier') ?>">
+                  <span class="nav-main-link-name">Registrasi Supplier</span>
+                </a>
+              </li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="<?= base_url('admin/user') ?>">
+                  <span class="nav-main-link-name">User</span>
+                </a>
+              </li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="<?= base_url('admin/perusahaan') ?>">
+                  <span class="nav-main-link-name">Perusahaan</span>
+                </a>
               </li>
             </ul>
           </div>
