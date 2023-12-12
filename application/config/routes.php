@@ -102,6 +102,10 @@ $route['admin/identitas'] ='Admin/Identitas';
 $route['admin/perusahaan'] ='Admin/Perusahaan';
 $route['admin/detailPerusahaan/(:any)'] ='Admin/Perusahaan/detail/$1';
 
+//product
+$route['admin/product'] ='Admin/Product';
+$route['admin/detailProduct/(:any)'] ='Admin/Product/detail/$1';
+
 //pembelian
 $route['admin/pembelian'] ='Admin/Pembelian';
 

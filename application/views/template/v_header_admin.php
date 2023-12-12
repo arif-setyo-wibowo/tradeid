@@ -271,6 +271,11 @@
                   <span class="nav-main-link-name">Perusahaan</span>
                 </a>
               </li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="<?= base_url('admin/product') ?>">
+                  <span class="nav-main-link-name">Products</span>
+                </a>
+              </li>
             </ul>
           </div>
           <!-- END Side Navigation -->
