@@ -13,4 +13,14 @@ class Home extends CI_Controller{
         $this->load->view('dasboard');
         $this->load->view('componen/footer');
     }
+
+    function notFound(){
+        $data = [
+            'header' => 'componen/header',
+            'footer' => 'componen/footer',
+        ];
+        
+        return $this->load->view('404',$data);
+        
+    }
 }
