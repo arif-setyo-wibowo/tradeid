@@ -44,8 +44,8 @@
                                     </div> 
                                     </a>
                                     </td>
-                                    <td class="fw-semibold text-center fs-sm"><?= $data->kota?></td>
-                                    <td class="fw-semibold fs-sm"><?= $data->deskripsiPendek?></td>
+                                    <td class="fw-semibold text-center "><?= $data->kota?></td>
+                                    <td class="fw-semibold "><?= $data->deskripsiPendek?></td>
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>

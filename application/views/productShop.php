@@ -1,5 +1,51 @@
 <?php $this->load->view($header); ?>
 
+<style>
+  .dropend .dropdown-toggle::after{
+    display: none;
+  }
+
+  .dropdown-header {
+  max-width: 340px; /* Menggunakan lebar maksimum sesuai dengan parent atau viewport */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  letter-spacing: 1px;
+}
+
+/* Contoh responsif menggunakan media query */
+@media screen and (max-width: 1540px) {
+  .dropdown-header {
+    max-width: 250px; /* Ubah lebar menjadi 80% dari lebar viewport saat lebar layar kurang dari 768px */
+  }
+}
+
+/* Atau untuk pengaturan lainnya */
+@media screen and (max-width: 1340px) {
+  .dropdown-header {
+    max-width: 175px; /* Ubah lebar menjadi 90% dari lebar viewport saat lebar layar kurang dari 480px */
+  }
+}
+
+/* Atau untuk pengaturan lainnya */
+@media screen and (max-width: 991px) {
+  .dropdown-header {
+    max-width: 100%; /* Ubah lebar menjadi 90% dari lebar viewport saat lebar layar kurang dari 480px */
+  }
+}
+/* Atau untuk pengaturan lainnya */
+@media screen and (max-width: 595px) {
+  .dropdown-header {
+    max-width: 80%; /* Ubah lebar menjadi 90% dari lebar viewport saat lebar layar kurang dari 480px */
+  }
+}
+
+.item-header {
+  color: #3f78e0 !important;
+}
+
+</style>
+
 <section class="wrapper bg-gradient-primary">
   <div class="container py-3 py-md-5">
     <nav class="d-inline-block" aria-label="breadcrumb">
@@ -14,7 +60,7 @@
 </section>
 <!-- /section -->
 <section class="wrapper bg-light">
-  <div class="container pb-14 pb-md-16 pt-12">
+  <div class="container-fluid px-md-15 px-sm-8  pb-14 pb-md-16 pt-12">
     <div class="row gy-10">
       <div class="col-lg-9 order-lg-2">
         <div class="row align-items-center mb-10 position-relative zindex-1">
@@ -105,73 +151,57 @@
       </div>
       <!-- /column -->
       <aside class="col-lg-3 sidebar">
-        <div class="widget mt-1">
-            <h4 class="widget-title mb-3">Categories</h4>
-            <ul class="list-unstyled ps-0">
-              <?php
-              $current_kategori = '';
-              foreach ($kategori_structure as $kategori_row):
-                  // Filter hanya kategori yang memiliki subkategori_a
-                  $kategori_a_exists = false;
-                  foreach ($kategori_structure as $subkategori_a_check):
-                      if ($kategori_row['kategori'] == $subkategori_a_check['kategori']) {
-                          $kategori_a_exists = true;
-                          break;
-                      }
-                  endforeach;
-
-                  if (!$kategori_a_exists) {
-                      continue; // Skip kategori yang tidak memiliki subkategori_a
-                  }
-
-                  if ($current_kategori != $kategori_row['kategori']):
-                      // Tutup tag </ul></li> dari subkategori_a dan subkategori_b sebelumnya
-                      if ($current_kategori != ''):
-                          echo '</li>';
-                      endif;
-
-                      $current_kategori = $kategori_row['kategori'];
-              ?>
-                      <li class="mb-1">
-                          <a href="<?= base_url('product/'.$kategori_row['idkategori'])?>"  class="align-items-center rounded link-body" data-bs-target="#<?= strtodash($current_kategori) ?>-collapse" aria-expanded="true"><?= $current_kategori ?> <span class="fs-sm text-muted ms-1"></span>
-                          </a>
-                          <div class="collapse show mt-1" id="<?= strtodash($current_kategori) ?>-collapse" style="">
-                              <ul class="btn-toggle-nav list-unstyled ps-2">
-                                  <?php
-                                  $current_subkategori_a = '';
-                                  foreach ($kategori_structure as $subkategori_a_row):
-                                      if ($current_kategori == $subkategori_a_row['kategori'] && $current_subkategori_a != $subkategori_a_row['subkategori_a']):
-                                  ?>
-                                          <li><a href="<?= base_url('product/'.$kategori_row['idkategori'].'/'.$subkategori_a_row['idsubkategori_a']) ?>" class="align-items-center rounded link-body" data-bs-target="#<?= strtodash($current_kategori) ?>-<?= strtodash($current_subkategori_a) ?>-collapse" aria-expanded="true"><?= $subkategori_a_row['subkategori_a'] ?></a>
-                                              <div class="collapse show mt-1" id="<?= strtodash($current_kategori) ?>-<?= strtodash($current_subkategori_a) ?>-collapse" style="">
-                                                  <ul class="btn-toggle-nav list-unstyled ps-2">
-                                                      <?php
-                                                      $current_subkategori_a = $subkategori_a_row['subkategori_a'];
-                                                      $current_subkategori_b = '';
-                                                      foreach ($kategori_structure as $subkategori_b_row):
-                                                          if ($current_kategori == $subkategori_b_row['kategori'] && $current_subkategori_a == $subkategori_b_row['subkategori_a'] && $current_subkategori_b != $subkategori_b_row['subkategori_b']):
-                                                      ?>
-                                                              <li><a href="<?= base_url('product/'.$kategori_row['idkategori'].'/'.$subkategori_a_row['idsubkategori_a'].'/'.$subkategori_b_row['idsubkategori_b']) ?>" class="link-body"><?= $subkategori_b_row['subkategori_b'] ?></a></li>
-                                                      <?php
-                                                              $current_subkategori_b = $subkategori_b_row['subkategori_b'];
-                                                          endif;
-                                                      endforeach;
-                                                      ?>
-                                                  </ul>
-                                              </div>
-                                          </li>
-                                  <?php
-                                      endif;
-                                  endforeach;
-                                  ?>
-                              </ul>
-                          </div>
-                      </li>
-                  <?php endif; ?>
-              <?php endforeach; ?>
-          </ul>
-        </div>
-    </aside>
+    <div class="widget mt-1">
+        <h4 class="mb-3">Categories</h4>
+        <nav class="navbar list-unstyled ps-0 navbar-expand-lg navbar-expand-md navbar-expand-sm center-nav navbar-light navbar-bg-light">
+            <div class="container">
+                <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start my-auto">
+                    <div class="offcanvas-body flex-column text-dark h-100">
+                    <?php foreach ($kategori_structure as $row) : ?>
+                      <?php if (!isset($previous_category) || $previous_category != $row['kategori']) : ?>
+                        <ul class="navbar-nav ">
+                                    <!-- Jika kategori sebelumnya belum di-set atau tidak sama dengan kategori saat ini -->
+                                    <li class="dropdown dropdown-submenu dropend">
+                                        <a class="dropdown-item dropdown-header "  ><?php echo $row['kategori']; ?></a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a class="dropdown-item item-header" href="#"><?php echo $row['kategori']; ?></a>
+                                            </li>
+                                            <?php foreach ($kategori_structure as $subrow) : ?>
+                                                <?php if ($subrow['kategori'] == $row['kategori'] && $subrow['subkategori_a'] != null) : ?>
+                                                    <!-- Jika subkategori A tidak null -->
+                                                    <li class="dropdown dropdown-submenu dropend text-dark">
+                                                        <a class="dropdown-item text-dark" href="#" ><?php echo $subrow['subkategori_a']; ?></a>
+                                                        <ul class="dropdown-menu">
+                                                            <li class="nav-item">
+                                                                <a class="dropdown-item" href="#"><?php echo $subrow['subkategori_a']; ?></a>
+                                                            </li>
+                                                            <?php if ($subrow['subkategori_b'] != null) : ?>
+                                                                <!-- Jika subkategori B tidak null -->
+                                                                <li class="nav-item">
+                                                                    <a class="dropdown-item" href="#"><?php echo $subrow['subkategori_b']; ?></a>
+                                                                </li>
+                                                            <?php endif; ?>
+                                                        </ul>
+                                                    </li>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </li>
+                        </ul>
+                        <?php endif; ?>
+                                <?php $previous_category = $row['kategori']; // Set kategori sebelumnya untuk perbandingan selanjutnya ?>
+                            <?php endforeach; ?>
+                    </div>
+                    <!-- /.offcanvas-body -->
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+        <!-- /.navbar -->
+    </div>
+</aside>
       <!-- /column .sidebar -->
     </div>
     <!-- /.row -->

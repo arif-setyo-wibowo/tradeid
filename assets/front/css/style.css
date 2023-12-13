@@ -5587,10 +5587,11 @@ fieldset:disabled .btn {
   max-height: var(--bs-scroll-height, 75vh);
   overflow-y: auto;
 }
-@media (min-width: 576px) {
+@media (min-width: 360px) {
   .navbar-expand-sm {
     flex-wrap: nowrap;
     justify-content: flex-start;
+    width: 100%;
   }
   .navbar-expand-sm .navbar-nav {
     flex-direction: row;

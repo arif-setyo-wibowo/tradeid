@@ -48,11 +48,11 @@
                                                 Tidak Diterima
                                             </button>
                                         <?php elseif($data->verify == 2):?>
-                                            <button type="button" class="btn btn-alt-success"  title="Diterima">
+                                            <button type="button" class="btn btn-sm btn-alt-success"  title="Diterima">
                                                 Diterima
                                             </button>
                                           <?php else:?>
-                                            <button type="button" class="btn btn-alt-primary"  title="menunggu">
+                                            <button type="button" class="btn btn-sm btn-alt-primary"  title="menunggu">
                                                 Menuggu
                                             </button>
                                         <?php endif;?>
