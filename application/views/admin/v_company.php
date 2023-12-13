@@ -39,7 +39,7 @@
                                     <td class="fw-semibold fs-sm">
                                       <a href="<?= base_url('admin/detailPerusahaan/'.$data->idcompany)?>">
                                     <div class="my-auto text-center">
-                                        <img class="img-avatar  img-avatar-thumb" src="<?php echo base_url() ?>uploads/<?php echo $data->gambar ?>" alt=""><br>
+                                        <img class="img-avatar  img-avatar-thumb" src="<?php echo base_url() ?>uploads/<?php echo $data->gambarCompany ?>" alt=""><br>
                                         <span class="my-auto mt-2"><?= $data->namaPerusahaan?></span>
                                     </div> 
                                     </a>

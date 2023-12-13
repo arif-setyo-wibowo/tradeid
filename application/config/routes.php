@@ -59,7 +59,12 @@ $route['translate_uri_dashes'] = FALSE;
 $route['profil'] = 'Front/User';
 $route['product'] = 'Front/Product';
 $route['supplier'] = 'Front/Supplier';
-$route['product/(:any)'] = 'Front/Product/productShop/$1';
+$route['product/(:num)'] = 'Front/Product/productShopCategory/$1';
+$route['product/(:num)/(:num)'] = 'Front/Product/productShopSubCategoryA/$1/$2';
+$route['product/(:num)/(:num)/(:num)'] = 'Front/Product/productShopSubCategoryB/$1/$2/$3';
+$route['product/productDetail/(:num)'] = 'Front/Product/productDetail/$1';
+$route['inquireProduct/(:num)'] = 'Front/Product/inquireProduct/$1';
+
 $route['premium'] = 'Front/Premium';
 $route['checkout'] = 'Front/Premium/checkout';
 
@@ -73,9 +78,14 @@ $route['regisSupplier'] = 'Front/Supplier/regis';
 $route['regSup'] = 'Front/Supplier/cekSup';
 
 
-//Supllier
-$route['supplier'] = 'Supplier/Supplier';
-$route['supplier/company'] = 'Supplier/Company';
+//Supplier 
+$route['dashboard/supplier'] = 'Supplier/Supplier';
+$route['dashboard/supplier/inquireDetail/(:num)'] = 'Supplier/Supplier/buyerDetail/$1';
+
+
+
+//Supllier Company
+$route['dashboard/supplier/company'] = 'Supplier/Company';
 $route['tambahcompany'] = 'Supplier/Company/store';
 $route['updatecompany'] = 'Supplier/Company/update';
 $route['tambahdeskripsi'] = 'Supplier/Company/store_desk';
@@ -84,10 +94,15 @@ $route['tambahsosmed'] = 'Supplier/Company/store_sosmed';
 $route['updatesosmed'] = 'Supplier/Company/update_sosmed';
 
 //Supplier Product 
-$route['supplier/product'] = 'Supplier/Product';
+$route['dashboard/supplier/product'] = 'Supplier/Product';
+$route['dashboard/supplier/product/productForm'] = 'Supplier/Product/productForm';
 $route['tambahproduct'] = 'Supplier/Product/store';
-$route['supplier/product/productDetail/(:any)'] = 'Supplier/Product/detail/$1';
-$route['supplier/product/editProduct/(:any)'] = 'Supplier/Product/edit/$1';
+$route['dashboard/supplier/product/productDetail/(:any)'] = 'Supplier/Product/detail/$1';
+$route['dashboard/supplier/product/editProduct/(:any)'] = 'Supplier/Product/edit/$1';
+
+//Supplier Facility
+$route['dashboard/supplier/facility'] = 'Supplier/Facility';
+
 
 //Profil
 $route['editprofil'] = '/Front/user/editProfile';
@@ -105,7 +120,7 @@ $route['admin/identitas'] ='Admin/Identitas';
 $route['admin/perusahaan'] ='Admin/Perusahaan';
 $route['admin/detailPerusahaan/(:any)'] ='Admin/Perusahaan/detail/$1';
 
-//product
+//product admin
 $route['admin/product'] ='Admin/Product';
 $route['admin/detailProduct/(:any)'] ='Admin/Product/detail/$1';
 
@@ -114,7 +129,9 @@ $route['admin/pembelian'] ='Admin/Pembelian';
 
 //cek Supplier
 $route['admin/supplier'] = 'Admin/Admin/registrasiSupplier';
-$route['admin/supplier/update/(:any)'] = 'Admin/Admin/verify/$1';
+$route['admin/supplier/(:any)'] = 'Admin/Admin/regisdetail/$1';
+$route['admin/supplier/update/(:any)/(:any)'] = 'Admin/Admin/verify/$1/$2';
+$route['admin/supplier/update_d/(:any)/(:any)'] = 'Admin/Admin/verify_d/$1/$2';
 
 
 //kategori

@@ -10,7 +10,7 @@ class M_Kategori extends CI_Model {
     }
 
     function getKategoriandSubkategoriA() {
-        $this->db->select('kategori.idkategori AS idkategori, kategori.namaKategori AS kategori, subkategori_a.namaSubKategori AS subkategori_a, subkategori_a.idsubkategori_a AS idsubkategori_a, subkategori_b.namaSubKategori_b AS subkategori_b')
+        $this->db->select('kategori.idkategori AS idkategori, kategori.namaKategori AS kategori, subkategori_a.namaSubKategori AS subkategori_a, subkategori_a.idsubkategori_a AS idsubkategori_a, subkategori_b.namaSubKategori_b AS subkategori_b, subkategori_b.idsubkategori_b AS idsubkategori_b')
                 ->from('kategori')
                 ->join('subkategori_a', 'kategori.idkategori = subkategori_a.idkategori', 'left')
                 ->join('subkategori_b', 'subkategori_a.idsubkategori_a = subkategori_b.idsubkategori_a', 'left')

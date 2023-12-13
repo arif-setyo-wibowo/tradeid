@@ -9,6 +9,7 @@ class Company extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('M_Supplier');
+        $this->load->model('M_User');
         
         $this->load->library('form_validation');  
     }
@@ -19,41 +20,38 @@ class Company extends CI_Controller {
             redirect('logout');
          }else{
             $iduser = $this->session->userdata('iduser');
+            $user = $this->M_User->get_where($iduser);
             $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
             if ($supplier[0]->verify == 2) {
                 $data = [
                     'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
-                    'cekdata' => $this->M_Supplier->getWhereIdCompany($iduser),
+                    'cekdata' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
                     'header' => 'template/v_header_supplier',
                     'footer' => 'template/v_footer_supplier',
                 ];
                 
                 return $this->load->view('supplier/v_profileCompany',$data);
             }else{
-                
                 redirect('profil');
-                
             }
-
-
         }
     }
 
     function store(){
 
-        if (empty($_FILES['gambar']['name']))
+        if (empty($_FILES['gambarCompany']['name']))
         {
-            $this->form_validation->set_rules('gambar', 'Image');
+            $this->form_validation->set_rules('gambarCompany', 'Image');
         }
 
-        $gambar = $_FILES['gambar']['name'];
+        $gambar = $_FILES['gambarCompany']['name'];
         $config['upload_path']          = 'uploads/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['file_name']        = $gambar;
         
         $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('gambar')) {
+        if (!$this->upload->do_upload('gambarCompany')) {
             $this->session->set_flashdata('pesan_e', 'Gambar gagal diupload');
             redirect('supplier/company');
         } else {
@@ -61,8 +59,8 @@ class Company extends CI_Controller {
                 'namaPerusahaan' => $this->input->post('company'),
                 'alamat' => $this->input->post('alamat'),
                 'kota' => $this->input->post('kota'),
-                'gambar' => $this->upload->data('file_name'),
-                'iduser' => $this->input->post('iduser')
+                'gambarCompany' => $this->upload->data('file_name'),
+                'idsupplier' => $this->input->post('idsupplier')
             );
 
             $this->M_Supplier->insertCompany($data);
@@ -73,7 +71,7 @@ class Company extends CI_Controller {
 
     function update(){
 
-        $iduser = $this->input->post('iduser');
+        $idsupplier = $this->input->post('idsupplier');
         $gambar_lama = $this->input->post('lastgambar');
         $gambar_baru = $_FILES['upgambar']['name'];
 
@@ -103,10 +101,11 @@ class Company extends CI_Controller {
             'namaPerusahaan' => $this->input->post('ucompany'),
             'alamat' => $this->input->post('ualamat'),
             'kota' => $this->input->post('ukota'),
-            'gambar' => $gmb
+            'gambarCompany' => $gmb,
+            'idsupplier' => $this->input->post('idsupplier')
         );
 
-        $this->M_Supplier->updateCompany($iduser,$data);
+        $this->M_Supplier->updateCompany($idsupplier,$data);
         $this->session->set_flashdata('pesan', 'Update data berhasil');
         redirect('supplier/company');
     }
@@ -115,7 +114,9 @@ class Company extends CI_Controller {
 
         $data = array(
             'deskripsiPendek' => $this->input->post('despen'),
-            'deskripsiPanjang' => $this->input->post('despan')
+            'deskripsiPanjang' => $this->input->post('despan'),
+            'idsupplier' => $this->input->post('idsupplier')
+
         );
 
         $this->M_Supplier->insertCompany($data);
@@ -125,15 +126,15 @@ class Company extends CI_Controller {
     }
 
     function update_desk(){
-        $iduser = $this->input->post('iduser');
+        $idsupplier = $this->input->post('idsupplier');
 
         $data = array(
             'deskripsiPendek' => $this->input->post('udespen'),
             'deskripsiPanjang' => $this->input->post('udespan'),
-            'iduser' => $this->input->post('iduser')
+            'idsupplier' => $this->input->post('idsupplier')
         );
 
-        $this->M_Supplier->updateCompany($iduser,$data);
+        $this->M_Supplier->updateCompany($idsupplier,$data);
         $this->session->set_flashdata('pesan', 'Update data berhasil');
 
         redirect('supplier/company');
@@ -146,7 +147,7 @@ class Company extends CI_Controller {
             'facebook' => $this->input->post('facebook'),
             'linkedin' => $this->input->post('linkedin'),
             'website' => $this->input->post('website'),
-            'iduser' => $this->input->post('iduser')
+            'idsupplier' => $this->input->post('idsupplier')
         );
 
         $this->M_Supplier->insertCompany($data);
@@ -156,17 +157,17 @@ class Company extends CI_Controller {
     }
 
     function update_sosmed(){
-        $iduser = $this->input->post('iduser');
+        $idsupplier = $this->input->post('idsupplier');
 
         $data = array(
             'instagram' => $this->input->post('uinstagram'),
             'facebook' => $this->input->post('ufacebook'),
             'linkedin' => $this->input->post('ulinkedin'),
             'website' => $this->input->post('uwebsite'),
-            'iduser' => $this->input->post('uiduser')
+            'idsupplier' => $this->input->post('idsupplier')
         );
 
-        $this->M_Supplier->updateCompany($iduser,$data);
+        $this->M_Supplier->updateCompany($idsupplier,$data);
         $this->session->set_flashdata('pesan', 'Update data berhasil');
 
         redirect('supplier/company');

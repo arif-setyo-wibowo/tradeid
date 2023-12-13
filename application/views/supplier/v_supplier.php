@@ -172,28 +172,30 @@
                             </tr>
                         </thead>
                         <tbody class="fs-sm">
+                            <?php foreach ($inquire as $data) : ?>
                             <tr>
                                 <td>
                                     <a class="fw-semibold" href="">
-                                        Ahmad Romli                 
+                                        <?= $data->nama     ?>              
                                     </a>
                                 </td>
                                 <td class=" d-xl-table-cell">
-                                    <span class="fw-semibold">Ahmad@gmail.com</span>
-                                    <span class="fs-xs fw-semibold d-inline-block p-1 rounded-pill  text-info"><i class="far fa-circle-check"></i> verivied</span>
+                                    <span class="fw-semibold"><?= $data->email?></span>
+                                    <!-- <span class="fs-xs fw-semibold d-inline-block p-1 rounded-pill  text-info"><i class="far fa-circle-check"></i> verivied</span> -->
                                 </td>
                                 
-                                <td class=" d-sm-table-cell fw-semibold ">Filipina</td>
+                                <td class=" d-sm-table-cell fw-semibold "><?= $data->negara?></td>
                                 <td class=" d-sm-table-cell ">
-                                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio at vero ratione. Iste magni necessitatibus corporis nihil sapiente, dolor autem veritatis at amet, cupiditate doloribus? In esse alias cum molestiae?</span>
+                                    <span><?= $data->pesan?></span>
                                 </td>
                                 <td>
                                     <div class="d-flex justify-content-between gap-2">
-                                        <a href="<?= base_url()?>supplier/Inquire" class="btn btn-outline-info px-3"><i class="fa fa-info"></i></a>
+                                        <a href="<?= base_url('dashboard/supplier/inquireDetail/'.$data->idinquire)?>" class="btn btn-outline-info px-3"><i class="fa fa-info"></i></a>
                                         <a href="" class="btn btn-outline-danger"><i class="far fa-trash-can"></i></a>
                                     </div>
                                 </td>
                             </tr>
+                            <?php endforeach;?>
                         </tbody>
                     </table>
                 </div>

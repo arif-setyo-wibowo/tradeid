@@ -9,11 +9,19 @@ class M_Admin extends CI_Model {
    } 
 
    function update($id,$data){
-        $this->db->update('supplier', $data, array('iduser' => $id));
+        $this->db->update('supplier', $data, array('idsupplier' => $id));
    }
    function insertAdmin($data){
      $this->db->insert('admin', $data);
    }
+   
+   function getWhereSupplier($id) {
+      $this->db->select('*')
+              ->from('supplier')
+              ->where('idsupplier',$id);
+                  
+      return $this->db->get()->result();
+    }
 
    function getWhere($id) {
      $query = $this->db->get_where('admin', array('idadmin' => $id));

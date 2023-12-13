@@ -44,7 +44,6 @@
                                     <td class="d-nonea d-sm-table-cell text-center">
                                         <div class="btn-group">
                                         <?php if($data->verify == 1):?>
-                                            <!-- <a href="<?= base_url('admin/supplier/update/'.$data->iduser)?>"> -->
                                             <button type="button" class="btn btn-alt-danger"  title="Tidak Diterima">
                                                 Tidak Diterima
                                             </button>
@@ -57,11 +56,10 @@
                                                 Menuggu
                                             </button>
                                         <?php endif;?>
-                                        </a>
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                          <a href="<?= base_url('admin/admin/registrasiDetail')?>" class=" px-3">lihat detail</a>
+                                          <a href="<?= base_url('admin/supplier/'.$data->idsupplier)?>" class=" px-3">lihat detail</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

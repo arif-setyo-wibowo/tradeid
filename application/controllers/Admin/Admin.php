@@ -50,15 +50,18 @@ class Admin extends CI_Controller {
         return $this->load->view('admin/v_registrasiSupplier',$data);
     }
 
-    function registrasiDetail(){
+    function regisdetail($id){
         $data = [
+            'supplier' => $this->M_Admin->getWhereSupplier($id),
             'header' => 'template/v_header_admin',
             'footer' => 'template/v_footer_admin',
         ];
+
         return $this->load->view('admin/v_registrasiDetail',$data);
     }
 
-    function verify($id){
+    function verify($id,$iduser){
+
 
         $data = array(
             'verify' => 2
@@ -67,7 +70,22 @@ class Admin extends CI_Controller {
             'cSupplier' => 1
         );
 
-        $this->M_User->update($id,$data_user);
+        $this->M_User->update($iduser,$data_user);
+        $this->M_Admin->update($id,$data);
+        redirect('admin/supplier');
+    }
+
+    function verify_d($id,$iduser){
+
+
+        $data = array(
+            'verify' => 1
+        );
+        $data_user = array(
+            'cSupplier' => null
+        );
+
+        $this->M_User->update($iduser,$data_user);
         $this->M_Admin->update($id,$data);
         redirect('admin/supplier');
     }

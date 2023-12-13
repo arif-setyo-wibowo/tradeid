@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/admin/js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/admin/js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>assets/admin/js/plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/admin/js/plugins/dropzone//min/dropzone.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/admin/js/plugins/dropzone/min/dropzone.min.css">
 
 
     <link rel="stylesheet" id="css-main" href="<?= base_url() ?>assets/admin/js/plugins/magnific-popup/magnific-popup.css">
@@ -305,25 +305,25 @@
               <div id="main-navigation" class="d-none d-lg-block mt-2 mt-lg-0">
                 <ul class="nav-main nav-main-dark nav-main-horizontal nav-main-hover">
                   <li class="nav-main-item">
-                    <a class="nav-main-link active" href="<?= base_url('supplier')?>">
+                    <a class="nav-main-link active" href="<?= base_url('dashboard/supplier')?>">
                       <i class="nav-main-link-icon si si-speedometer"></i>
                       <span class="nav-main-link-name">Dashboard</span>
                     </a>
                   </li>
                   <li class="nav-main-item">
-                    <a class="nav-main-link " href="<?= base_url('supplier/company')?>">
+                    <a class="nav-main-link " href="<?= base_url('dashboard/supplier/company')?>">
                       <i class="nav-main-link-icon far fa-building"></i>
                       <span class="nav-main-link-name">Company</span>
                     </a>
                   </li>
                   <li class="nav-main-item">
-                    <a class="nav-main-link " href="<?= base_url('supplier/product')?>">
+                    <a class="nav-main-link " href="<?= base_url('dashboard/supplier/product')?>">
                       <i class="nav-main-link-icon si si-handbag"></i>
                       <span class="nav-main-link-name">Products</span>
                     </a>
                   </li>
                   <li class="nav-main-item">
-                    <a class="nav-main-link " href="<?= base_url('supplier/facility')?>">
+                    <a class="nav-main-link " href="<?= base_url('dashboard/supplier/facility')?>">
                       <i class="nav-main-link-icon fa fa-archway"></i>
                       <span class="nav-main-link-name">Facility</span>
                     </a>

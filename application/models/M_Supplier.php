@@ -23,7 +23,7 @@ class M_Supplier extends CI_Model {
     }
 
     function getWhereIdCompany($id){
-        $query = $this->db->get_where('company', array('iduser' => $id));
+        $query = $this->db->get_where('company', array('idsupplier' => $id));
         return $query->result();
     }
 
@@ -32,7 +32,7 @@ class M_Supplier extends CI_Model {
     }
 
     function updateCompany($id,$data){
-        $this->db->update('company', $data, array('iduser' => $id));
+        $this->db->update('company', $data, array('idsupplier' => $id));
     }
 }
 

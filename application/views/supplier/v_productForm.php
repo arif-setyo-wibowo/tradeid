@@ -7,8 +7,8 @@
     <div class="col-10">
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="<?= base_url('supplier/product')?>">Product</a></li>
+        <li class="breadcrumb-item"><a href="<?= base_url('dashboard/supplier')?>">Dashboard</a></li>
+        <li class="breadcrumb-item active"><a href="<?= base_url('dashboard/supplier/product')?>">Product</a></li>
         <li class="breadcrumb-item active" aria-current="page">Add Product</li>
       </ol>
     </nav>
@@ -29,7 +29,7 @@
                           <h3>General information</h3>
                             <div class="mb-4">
                               <label class="form-label" for="one-ecom-product-name">Name your product</label>
-                              <input type="hidden" class="form-control"  name="idsupplier" value="<?= $supplier[0]->idsupplier?>">
+                              <input type="hidden" class="form-control"  name="idcompany" value="<?= $company[0]->idcompany?>">
                               <input type="text" class="form-control"  name="product" value="">
                             </div>
                             <div class="mb-4">

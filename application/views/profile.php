@@ -31,7 +31,7 @@
                         <?php if($supplier == false || $supplier[0]->verify == 1) : ?>
                             <a href="<?=base_url()?>regSup" class="btn btn-sm btn-sky ">Register as a supplier</a>
                         <?php else : ?>
-                            <a href="<?=base_url()?>supplier" class="btn btn-sm btn-sky ">Supplier</a>
+                            <a href="<?=base_url()?>dashboard/supplier" class="btn btn-sm btn-sky ">Supplier</a>
                         <?php endif; ?>
                     </div>
                 </div>

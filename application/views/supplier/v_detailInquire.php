@@ -5,8 +5,8 @@
 <div class="w-100 bg-white">
     <div class="bg-white content content-full d-flex justify-content-between">
         <div class="">
-            <h1 class="h2  mb-2">Inquire From Hadi, Cina</h1>
-            <a class="my-auto text-primary fs-lg">January 17, 2020</a>
+            <h1 class="h2  mb-2">Inquire From <?= $inquire[0]->negara?></h1>
+            <a class="my-auto text-primary fs-lg"><?= $inquire[0]->tgl?></a>
         </div>
         <div class="">
             <a class="nav-main-link" href="<?= base_url() ?>supplier">

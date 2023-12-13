@@ -19,10 +19,12 @@ class Product extends CI_Controller {
         $iduser = $this->session->userdata('iduser');
         $user = $this->M_User->get_where($iduser);
         $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
+        $company = $this->M_Product->getWhereIdSupplier($supplier[0]->idsupplier);
 
         $data = [ 
-            'product' => $this->M_Product->getProduct($supplier[0]->idsupplier),
+            'product' => $this->M_Product->getProduct($company[0]->idcompany),
             'kategori' => $this->M_Kategori->getKategori(),
+            'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
             'header' => 'template/v_header_supplier',
             'footer' => 'template/v_footer_supplier',
         ];
@@ -34,12 +36,14 @@ class Product extends CI_Controller {
         $iduser = $this->session->userdata('iduser');
         $user = $this->M_User->get_where($iduser);
         $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
-        if (!$this->M_Product->getWhere($id,$supplier[0]->idsupplier)) {
+        $company = $this->M_Product->getWhereIdSupplier($supplier[0]->idsupplier);
+
+        if (!$this->M_Product->getWhere($id,$company[0]->idcompany)) {
             $this->session->set_flashdata('pesan_e', 'Cannot acces URL Product');
             redirect('supplier/product');
         }else{
             $data = [
-                'product' => $this->M_Product->getWhere($id,$supplier[0]->idsupplier),
+                'product' => $this->M_Product->getWhere($id,$company[0]->idcompany),
                 'header' => 'template/v_header_supplier',
                 'footer' => 'template/v_footer_supplier',
             ];
@@ -86,7 +90,7 @@ class Product extends CI_Controller {
         }
             $data = array(
                 'namaProduk' => $this->input->post('product'),
-                'idsupplier' => $this->input->post('idsupplier'),
+                'idcompany' => $this->input->post('idcompany'),
                 'idkategori' => $this->input->post('kategori'),
                 'idsubkategori_a' => $this->input->post('subkategori_a'),
                 'idsubkategori_b' => $this->input->post('subkategori_b'),
@@ -106,13 +110,15 @@ class Product extends CI_Controller {
         $iduser = $this->session->userdata('iduser');
         $user = $this->M_User->get_where($iduser);
         $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
-        if (!$this->M_Product->getWhere($id,$supplier[0]->idsupplier)) {
+        $company = $this->M_Product->getWhereIdSupplier($supplier[0]->idsupplier);
+
+        if (!$this->M_Product->getWhere($id,$company[0]->idcompany)) {
             $this->session->set_flashdata('pesan_e', 'Cannot acces URL Product');
             redirect('supplier/product');
         }else{
             $data = [
                 'supplier' => $supplier,
-                'product' => $this->M_Product->getWhere($id,$supplier[0]->idsupplier),
+                'product' => $this->M_Product->getWhere($id,$company[0]->idcompany),
                 'kategori' =>  $this->M_Kategori->getKategori(),
                 'header' => 'template/v_header_supplier',
                 'footer' => 'template/v_footer_supplier',
@@ -129,7 +135,7 @@ class Product extends CI_Controller {
         $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
 
         $data = [
-            'supplier' => $supplier,
+            'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
             'kategori' => $this->M_Kategori->getKategori(),
             'header' => 'template/v_header_supplier',
             'footer' => 'template/v_footer_supplier',
@@ -163,9 +169,6 @@ class Product extends CI_Controller {
             $this->session->set_flashdata('pesan_e', 'Product not found');
             redirect('supplier/product');
         }
-
-        
-        
 
 		redirect('film');
     }

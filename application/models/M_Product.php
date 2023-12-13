@@ -5,36 +5,99 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Product extends CI_Model {
 
-    function getProduct($id){
+    function getAllProduct(){
         $this->db->select('*')
                  ->from('product')
-                 ->where('idsupplier',$id)
-                 ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
-                 ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
+                 ->join('company', 'product.idcompany = company.idcompany');
 
         return  $this->db->get()->result();
     
     }
 
-    function getProductAll(){
+    function getWhereIdSupplier($id){
+        $query = $this->db->get_where('company', array('idsupplier' => $id));
+        return $query->result();
+    }
+    function getProduct($id){
         $this->db->select('*')
                  ->from('product')
-                 ->join('supplier', 'supplier.idsupplier = product.idsupplier')
-                 ->join('kategori', 'kategori.idKategori = product.idkategori')
+                 ->where('idcompany',$id)
+                 ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
+                 ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
+
+        return  $this->db->get()->result();
+    }
+
+    function getWhereProduct($id){
+        $this->db->select('*')
+                 ->from('product')
+                 ->where('idproduct',$id)
+                 ->join('company', 'company.idcompany = product.idcompany')
+                 ->join('kategori', 'kategori.idkategori = product.idkategori')
                  ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
                  ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
         
          return  $this->db->get()->result();
     }
 
-    function getWhereOne($id){
+
+    function getProductAll(){
+        $this->db->select('*')
+                 ->from('product')
+                 ->join('company', 'company.idcompany = product.idcompany')
+                 ->join('kategori', 'kategori.idkategori = product.idkategori')
+                 ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
+                 ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
+        
+         return  $this->db->get()->result();
+    }
+
+    function getWhereCategory($id){
         $this->db->select('*')
         ->from('product')
-        ->where('idproduct',$id)    
-        ->join('supplier', 'supplier.idsupplier = product.idsupplier')
-        ->join('kategori', 'kategori.idKategori = product.idkategori')
-        ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
-        ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
+        ->where('product.idkategori',$id)    
+        ->join('company', 'company.idcompany = product.idcompany')
+        ->join('kategori', 'kategori.idkategori = product.idkategori');
+
+        return  $this->db->get()->result();
+    }
+
+    function getWhereSubCategoryA($id,$idSuba){
+        $this->db->select('*')
+        ->from('product')
+        ->where('product.idkategori',$id)    
+        ->where('product.idsubkategori_a',$idSuba)  
+        ->join('company', 'company.idcompany = product.idcompany')
+        ->join('kategori', 'kategori.idkategori = product.idkategori')
+        ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a');
+
+        return  $this->db->get()->result();
+    }
+
+    function getWhereSubCategoryB($id,$idSuba,$idSubb){
+        $this->db->select('*')
+                    ->from('product')
+                    ->where('product.idkategori',$id)    
+                    ->where('product.idsubkategori_a',$idSuba) 
+                    ->where('product.idsubkategori_b',$idSubb)  
+                    ->join('company', 'company.idcompany = product.idcompany')
+                    ->join('kategori', 'kategori.idkategori = product.idkategori')
+                    ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
+                    ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
+
+        return  $this->db->get()->result();
+    }
+
+
+
+    function getWhereOne($id){
+        $this->db->select('*')
+                ->from('product')
+                ->where('idproduct',$id)    
+                ->join('company', 'company.idcompany = product.idcompany')
+                ->join('kategori', 'kategori.idKategori = product.idkategori')
+                ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
+                ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
 
         return  $this->db->get()->result();
     }
@@ -43,7 +106,7 @@ class M_Product extends CI_Model {
         $this->db->select('*')
                 ->from('product')
                 ->where('idproduct',$id)
-                ->where('idsupplier', $idsup)
+                ->where('idcompany', $idsup)
                 ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
                 ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
                         
@@ -77,17 +140,10 @@ class M_Product extends CI_Model {
         $this->db->insert('product',$data);
     }
 
-    public function insertImage($product_id, $url) {
-        $data = array(
-            'product_id' => $product_id,
-            'url' => $url
-        );
-        $this->db->insert('product_images', $data);
-    }
 
     function deleteProduct($id,$idsupplier){
         $this->db->where('idproduct', $id);
-        $this->db->where('idsupplier', $idsupplier);
+        $this->db->where('idcompany', $idsupplier);
         $this->db->delete('arif_film');
     }
 

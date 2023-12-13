@@ -9,12 +9,16 @@ class Product extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('M_Kategori');
+        $this->load->model('M_Product');
+        $this->load->model('M_Inquire');
+        $this->load->model('M_User');
     }
     
     public function index()
     {
         $data = [
             'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
+            'product' => $this->M_Product->getAllProduct(),
             'header' => 'componen/header',
             'footer' => 'componen/footer',
         ];
@@ -22,13 +26,44 @@ class Product extends CI_Controller {
         return $this->load->view('productShop',$data);
     }
 
-    public function productDetail()
-    {
+    public function productDetail($id)
+    {   
+        $iduser = $this->session->userdata('iduser');
         $data = [
+            'user' => $this->M_User->get_where($iduser),
+            'product' => $this->M_Product->getWhereProduct($id),
             'header' => 'componen/header',
             'footer' => 'componen/footer',
         ];
         return $this->load->view('productDetail',$data);
+    }
+
+    public function inquireProduct($id)
+    {
+        $iduser = $this->session->userdata('iduser');
+
+        if (!$this->session->userdata('iduser')) {
+            redirect('logout');
+         }else{
+            $data = array(
+                'nama'  => $this->input->post('namaInquire'),
+                'email'  => $this->input->post('emailInquire'),
+                'telp'  => $this->input->post('telpInquire'),
+                'negara'  => $this->input->post('negaraInquire'),
+                'pesan'  => $this->input->post('pesanInquire'),
+                'idproduct'  => $this->input->post('idproduct'),
+                'idcompany'  => $this->input->post('idcompany'),
+                'iduser'  => $this->input->post('iduser'),
+                'tgl' => date('Y-m-d H:i:s')
+            );
+
+            $this->M_Inquire->insertInquire($data);
+
+            $this->session->set_flashdata('pesan', 'Sent Inquire Successfully');
+
+            redirect('product/productDetail/'.$id);
+        }
+        
     }
 
     public function productForm()
@@ -40,8 +75,41 @@ class Product extends CI_Controller {
         return $this->load->view('supplier/v_productForm',$data);
     }
 
-    function productShop($id){
-        echo 'hallo';
+    function productShopCategory($id){
+        $data = [
+            'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
+            'product' => $this->M_Product->getWhereCategory($id),
+            'header' => 'componen/header',
+            'footer' => 'componen/footer',
+        ];
+        
+        return $this->load->view('productShopCategory',$data);
+    }
+
+    function productShopSubCategoryA($id,$idsuba){
+        $iduser = $this->session->userdata('iduser');
+        $data = [
+            'user' => $this->M_User->get_where($iduser),
+            'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
+            'product' => $this->M_Product->getWhereSubCategoryA($id,$idsuba),
+            'header' => 'componen/header',
+            'footer' => 'componen/footer',
+        ];
+        
+        return $this->load->view('productShopSubCategoryA',$data);
+    }
+
+    function productShopSubCategoryB($id,$idsuba,$idsubb){
+        $iduser = $this->session->userdata('iduser');
+        $data = [
+            'user' => $this->M_User->get_where($iduser),
+            'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
+            'product' => $this->M_Product->getWhereSubCategoryB($id,$idsuba,$idsubb),
+            'header' => 'componen/header',
+            'footer' => 'componen/footer',
+        ];
+        
+        return $this->load->view('productShopSubCategoryB',$data);
     }
 
 }

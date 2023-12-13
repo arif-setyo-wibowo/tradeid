@@ -17,7 +17,7 @@
                 </a>
                 <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
                 <button  type="button" class="btn-block-option" >
-                  <a href="<?= base_url('admin/admin/registrasiSupplier')?>">
+                  <a href="<?= base_url('admin/supplier')?>">
                   <i class="fa fa-reply text-muted"></i>
                   </a>
                 </button>
@@ -29,7 +29,7 @@
                   <tr class="bg-body-light">
                     <td class="d-none d-sm-table-cell"></td>
                     <td class="fs-sm text-muted">
-                      <a class="fw-semibold" href="be_pages_generic_profile.html">Udin Sapi</a> on <span class="text-muted">July 1, 2019 16:15</span>
+                      <a class="fw-semibold" href="be_pages_generic_profile.html"><?= $supplier[0]->nama?></a> on <span class="text-muted"><?= $supplier[0]->tgl?></span>
                     </td>
                   </tr>
                   <tr>
@@ -39,16 +39,20 @@
                           <!-- <img class="img-avatar" src="<?= base_url() ?>assets/admin/media/avatars/avatar3.jpg" alt=""> -->
                         </a>
                       </p>
-                      <p class="fs-sm fw-medium">PT Mencari Cinta Sejati</p>
+                      <p class="fs-sm fw-medium"><?= $supplier[0]->namaPerusahaan?></p>
                     </td>
                     <td>
-                      <p>Potenti elit lectus augue eget iaculis vitae etiam, ullamcorper etiam bibendum ad feugiat magna accumsan dolor, nibh molestie cras hac ac ad massa, fusce ante convallis ante urna molestie vulputate bibendum tempus ante justo arcu erat accumsan adipiscing risus, libero condimentum venenatis sit nisl nisi ultricies sed, fames aliquet consectetur consequat nostra molestie neque nullam scelerisque neque commodo turpis quisque etiam egestas vulputate massa, curabitur tellus massa venenatis congue dolor enim integer luctus, nisi suscipit gravida fames quis vulputate nisi viverra luctus id leo dictum lorem, inceptos nibh orci.</p>
+                      <p><?= $supplier[0]->deskripsiPerusahaan ?></p>
                       <hr>
                       <div class="d-flex justify-content-between">
                           <div></div>
                           <div class="d-flex justify-content-between gap-2">
-                            <button class="btn btn-sm  btn-outline-success"> Accept</button>
-                            <button class="btn btn-sm btn-outline-danger"> Decline</button>
+                            <a href="<?= base_url('admin/supplier/update/'.$supplier[0]->idsupplier.'/'.$supplier[0]->iduser)?>">
+                              <button class="btn btn-sm  btn-outline-success"> Accept</button>
+                            </a>
+                            <a href="<?= base_url('admin/supplier/update_d/'.$supplier[0]->idsupplier.'/'.$supplier[0]->iduser)?>">
+                              <button class="btn btn-sm btn-outline-danger"> Decline</button>
+                            </a>  
                         </div>
                       </div>
                       <!-- <p class="fs-sm text-muted">There is only one way to avoid criticism: do nothing, say nothing, and be nothing.</p> -->

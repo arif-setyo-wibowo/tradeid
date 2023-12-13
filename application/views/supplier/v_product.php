@@ -1,16 +1,20 @@
 <?php $this->load->view($header); ?>
 
+
+<?php if ($company == null ) :  ?>
+    <?=  'lengkapi data company' ?>
+<?php else : ?>
 <!-- Hero Content -->
 <div class="bg-white container d-flex ">
     <div class="content  content-full overflow-hidden  ">
         <h1 class="h3 text-dark mb-2">
-            Manage Your Product
+            Manage Your Product 
         </h1>
         <h2 class="h5 fw-normal text-dark-75 mb-0">
             Feel free to create and Edit.
         </h2>
     </div>
-    <a href="<?= base_url('supplier/product/productForm')?>" class="my-auto btn text-primary ">Add New Product</a>
+    <a href="<?= base_url('dashboard/supplier/product/productForm')?>" class="my-auto btn text-primary ">Add New Product</a>
 </div>
 <!-- END Hero Content -->
 
@@ -32,7 +36,7 @@
       <!-- Story -->
       <?php foreach ($product as $data) : ?>
         <div class="col-lg-4 col-md-4">
-          <a class="block block-rounded block-link-pop overflow-hidden" href="<?= base_url('supplier/product/productDetail/'.$data->idproduct)?>">
+          <a class="block block-rounded block-link-pop overflow-hidden" href="<?= base_url('dashboard/supplier/product/productDetail/'.$data->idproduct)?>">
             <?php  $imageArray = explode(',', $data->gambar);
                     $firstImage = $imageArray[0];
             ?>
@@ -85,4 +89,6 @@
     <!-- END Pagination -->
 </div>
 <!-- END Page Content -->
+<?php endif; ?>
+
 <?php $this->load->view($footer) ?>

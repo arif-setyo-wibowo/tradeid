@@ -79,7 +79,7 @@ class Supplier extends CI_Controller {
                         'email' => $this->input->post('email'),
                         'telp' => $this->input->post('telp'),
                         'iduser' => $this->input->post('iduser'),
-                        'verify' => '1',
+                        'verify' => '0',
                         'tgl' => date('Y-m-d H:i:s')
                     );
                     

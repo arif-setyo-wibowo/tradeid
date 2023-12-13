@@ -116,7 +116,7 @@
             <li class="nav-item d-lg-none">
                 <button class="hamburger offcanvas-nav-btn"><span></span></button>
               </li>
-              <?php $username = $this->session->userdata('username');
+              <?php $username = $this->session->userdata('iduser');
               if ($username): ?>
                 <li class="nav-item dropdown language-select">
                   <a class="nav-link text-dark dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -126,7 +126,7 @@
                   </a>
                   <ul class="dropdown-menu ">
                     <!-- IF already creator -->
-                    <li class="nav-item"><a class="dropdown-item" href="<?= base_url() ?>supplier">Dashboard</a></li>
+                    <li class="nav-item"><a class="dropdown-item" href="<?= base_url() ?>dashboard/supplier">Dashboard</a></li>
                     <li class="nav-item"><a class="dropdown-item" href="<?= base_url() ?>premium">Get Premium</a></li>
                     <!-- Else -->
                     <li class="nav-item"><a class="dropdown-item" href="<?= base_url() ?>profil">Profile</a></li>

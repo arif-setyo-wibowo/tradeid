@@ -6,7 +6,7 @@
     <div class="bg-white ">
         <div class="content content-full text-center ">
             <div class="my-3 ">
-                <img class="img-avatar img-avatar-thumb" src="<?= base_url() ?>./assets/admin/media/avatars/avatar13.jpg" alt="">
+                <img class="img-avatar img-avatar-thumb" src="<?= base_url('uploads/'.$cekdata[0]->gambarCompany) ?>" alt="">
             </div>
             <h1 class="h2  mb-0">
                 <?= $supplier[0]->namaPerusahaan?></h1>
@@ -50,7 +50,7 @@
                     <div class="col-lg-8 col-xl-5">
                         <div class="mb-4">
                             <label class="form-label" for="one-profile-edit-username">Company Name</label>
-                            <input type="hidden" class="form-control" placeholder="" name="iduser" >
+                            <input type="hidden" class="form-control" placeholder="" name="idsupplier" >
                             <input type="text" class="form-control" id="one-profile-edit-username" placeholder="" name="company" value="<?= $supplier[0]->namaPerusahaan?>">
                         </div>
                         <div class="mb-4">
@@ -90,7 +90,7 @@
                             </div>
                             <div class="mb-4">
                                 <label for="one-profile-edit-avatar" class="form-label">Choose a new Logo</label>
-                                <input class="form-control" type="file" name="gambar" id="one-profile-edit-avatar">
+                                <input class="form-control" type="file" name="gambarCompany" id="one-profile-edit-avatar">
                             </div>
                         </div>
                         <div class="mb-4">
@@ -112,7 +112,7 @@
                     <div class="col-lg-8 col-xl-5">
                         <div class="mb-4">
                             <label class="form-label" for="one-profile-edit-username">Company Name</label>
-                            <input type="hidden" name="iduser" value="<?= $cekdata[0]->iduser?>">
+                            <input type="hidden" name="idsupplier" value="<?= $cekdata[0]->idsupplier?>">
                             <input type="text" class="form-control" placeholder="" name="ucompany" value="<?= $cekdata[0]->namaPerusahaan?>">
                         </div>
                         <div class="mb-4">
@@ -149,12 +149,12 @@
                         <div class="mb-4">
                             <label class="form-label">Your Logo</label>
                             <div class="mb-4">
-                                <img class="img-avatar" id="previewAvatar"  style="height:250px;width:250px;" src='<?php echo base_url() ?>uploads/<?php echo $cekdata[0]->gambar ?>'>
+                                <img class="img-avatar" id="previewAvatar"  style="height:250px;width:250px;" src='<?php echo base_url() ?>uploads/<?php echo $cekdata[0]->gambarCompany ?>'>
                             </div>
                             <div class="mb-4">
                                 <label for="one-profile-edit-avatar" class="form-label">Choose a new Logo</label>
                                 <input class="form-control" type="file" name="upgambar" id="one-profile-edit-avatar">
-                                <input type="hidden" class="form-control" name="lastgambar" value="<?= $cekdata[0]->gambar ?>">
+                                <input type="hidden" class="form-control" name="lastgambar" value="<?= $cekdata[0]->gambarCompany ?>">
                             </div>
                         </div>
                         <div class="mb-4">
@@ -187,7 +187,7 @@
                             <p class="fs-sm text-muted">
                                 Your short Description information about your companys’s 
                             </p>
-                            <input type="hidden" class="form-control" placeholder="" name="iduser" >
+                            <input type="hidden" class="form-control" placeholder="" name="idsupplier" >
                             <textarea class="form-control" id="one-ecom-product-description-short"
                                 name="despen" rows="4" maxlength="70"><?= $supplier[0]->deskripsiPerusahaan ?></textarea>
                         </div>
@@ -217,7 +217,7 @@
                             <p class="fs-sm text-muted">
                                 Your short Description information about your companys’s 
                             </p>
-                            <input type="hidden" name="iduser" value="<?= $cekdata[0]->iduser?>">
+                            <input type="hidden" name="idsupplier" value="<?= $cekdata[0]->idsupplier?>">
                             <textarea class="form-control"
                                 name="udespen" rows="4" maxlength="70"><?= $cekdata[0]->deskripsiPendek?></textarea>
                         </div>
@@ -256,7 +256,7 @@
                 <div class="col-lg-8 col-xl-7">
                 <?php if($cekdata == null) : ?>
                     <form action="<?= base_url('tambahsosmed')?>" method="POST">
-                        <input type="hidden" class="form-control" name="iduser" >
+                        <input type="hidden" class="form-control" name="idsupplier" >
                         <div class="mb-4 col-sm-10 col-md-8 col-xl-6 text-primary">
                             <label class="form-label" for="one-profile-edit-street-1"><i class="fab fa-fw fa-facebook  me-1"></i> Connect to Facebook </label>
                             <input type="text" class="form-control" name="facebook">
@@ -281,7 +281,7 @@
                     </form>
                 <?php else : ?>
                     <form action="<?= base_url('updatesosmed')?>" method="POST">
-                    <input type="hidden" class="form-control" placeholder="" name="uiduser" value="<?= $cekdata[0]->iduser?>">
+                    <input type="hidden" class="form-control" placeholder="" name="idsupplier" value="<?= $cekdata[0]->idsupplier?>">
                         <div class="mb-4 col-sm-10 col-md-8 col-xl-6 text-primary">
                             <label class="form-label" for="one-profile-edit-street-1"><i class="fab fa-fw fa-facebook  me-1"></i> Connect to Facebook </label>
                             <input type="text" class="form-control" name="ufacebook" value="<?= $cekdata[0]->facebook?>">

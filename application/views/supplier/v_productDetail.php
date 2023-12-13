@@ -11,7 +11,7 @@
         </h2>
     </div>
     <div class="content text-end content-full  ">
-        <a href="<?= base_url('supplier/product/editProduct/'.$product[0]->idproduct)?>" class="btn btn-outline-primary mb-2"><i class="fa fa-pen"></i> Edit</a>
+        <a href="<?= base_url('dashboard/supplier/product/editProduct/'.$product[0]->idproduct)?>" class="btn btn-outline-primary mb-2"><i class="fa fa-pen"></i> Edit</a>
         <a href="" class="btn btn-outline-danger mb-2"><i class="fa fa-trash-can"></i> Delete</a>
     </div>
     
@@ -77,9 +77,7 @@
                             <!-- For more info and examples you can check out http://dimsemenov.com/plugins/magnific-popup/ -->
                             <div class="row g-sm js-gallery img-fluid-100 ">
                                 <div class="col-12 mb-3">
-                                <?php  $imageArray = explode(',', $product[0]->gambar);
-                                       
-                                ?>
+                                <?php  $imageArray = explode(',', $product[0]->gambar);?>
                                     <a class="img-link img-link-zoom-in img-lightbox"
                                         href="<?= base_url('uploads/'.$imageArray[0]) ?>">
                                         <img class="img-fluid"
@@ -93,7 +91,7 @@
                                     <a class="img-link img-link-zoom-in img-lightbox"
                                         href="<?= base_url('uploads/'.$data) ?>">
                                         <img class="img-fluid"
-                                            src="<?= base_url('uploads/'.$data) ?>" alt="">
+                                            src="<?= base_url('uploads/'.$data) ?>" style="height: 75px;" alt="">
                                     </a>
                                 </div>
                                 <?php endforeach;?>

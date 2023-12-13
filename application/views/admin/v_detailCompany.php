@@ -18,7 +18,7 @@
             <div class="block-content text-center">
               <div class="py-4">
                 <div class="mb-3">
-                  <img class="img-avatar" src="<?php echo base_url() ?>uploads/<?php echo $data->gambar ?>" alt="">
+                  <img class="img-avatar" src="<?php echo base_url() ?>uploads/<?php echo $data->gambarCompany ?>" alt="">
                 </div>
                 <h1 class="fs-lg mb-0">
                   <span><?= $data->namaPerusahaan?></span>
