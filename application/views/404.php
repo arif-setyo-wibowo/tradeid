@@ -1,6 +1,7 @@
 <?php $this->load->view($header); ?>
-<section class="wrapper bg-light">
-      <div class="container pt-12 pt-md-14 pb-14 pb-md-16">
+<section class="wrapper ">
+    <div class="bg-gradient-primary w-100 h-20"></div>
+      <div class="container pt-12 pt-md-14 pb-14 pb-md-16" style="margin-top: -150px;">
         <div class="row">
           <div class="col-lg-9 col-xl-8 mx-auto">
             <figure class="mb-10"><img class="img-fluid" src="<?= base_url() ?>./assets/front/img/illustrations/404.png" srcset="./assets/img/illustrations/404@2x.png 2x" alt=""></figure>
