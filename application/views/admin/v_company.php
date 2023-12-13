@@ -40,12 +40,12 @@
                                       <a href="<?= base_url('admin/detailPerusahaan/'.$data->idcompany)?>">
                                     <div class="my-auto text-center">
                                         <img class="img-avatar  img-avatar-thumb" src="<?php echo base_url() ?>uploads/<?php echo $data->gambar ?>" alt=""><br>
-                                        <span class="my-auto mt-2"><?= $data->namaPerusahaan?></span>
+                                        <span class="my-auto mt-2 "><?= $data->namaPerusahaan?></span>
                                     </div> 
                                     </a>
                                     </td>
-                                    <td class="fw-semibold text-center fs-sm"><?= $data->kota?></td>
-                                    <td class="fw-semibold fs-sm"><?= $data->deskripsiPendek?></td>
+                                    <td class="fw-semibold text-center "><?= $data->kota?></td>
+                                    <td class="fw-semibold "><?= $data->deskripsiPendek?></td>
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>

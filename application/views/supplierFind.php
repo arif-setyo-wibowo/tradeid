@@ -40,7 +40,7 @@
         <!--/.row -->
         <div class="grid grid-view projects-masonry shop mb-13">
           <div class="row gx-md-8 gy-10 gy-md-13 isotope">
-            <div class=" item col-md-4 col-xl-4  p-3  rounded" style="margin-bottom:-30px;">
+            <div class=" item col-md-6 col col-xl-4  p-3  rounded" style="margin-bottom:-30px;">
             <div class="card">
                   <div class="card-body text-center">
                     <img class="rounded-circle w-15 mb-4" src="<?= base_url()?>./assets/front/img/avatars/te1.jpg" srcset="<?= base_url()?>./assets/front/img/avatars/te1@2x.jpg 2x" alt="" />

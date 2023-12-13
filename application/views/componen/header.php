@@ -45,7 +45,7 @@
                   <a class="nav-link dropdown-item" href="<?= base_url() ?>product">Product</a>
                 </li>
                 <li class="nav-item ">
-                  <a class="nav-link dropdown-item" href="<?= base_url() ?>supplier">Supplier</a>
+                  <a class="nav-link dropdown-item" href="<?= base_url() ?>Supplier">Supplier</a>
                 </li>
                 <li class="nav-item dropdown dropdown-mega">
                   <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Category</a>
@@ -79,7 +79,6 @@
                             <li><a class="dropdown-item" href="./docs/elements/accordion.html">Sarder</a></li>
                             <li><a class="dropdown-item" href="./docs/elements/alerts.html">Ikan Kering</a></li>
                             <li><a class="dropdown-item" href="./docs/elements/animations.html">Fish Oil</a></li>
-                            <li><a class="dropdown-item" href="./docs/elements/avatars.html"></a></li>
                           </ul>
                         </div>
                         <!--/column -->

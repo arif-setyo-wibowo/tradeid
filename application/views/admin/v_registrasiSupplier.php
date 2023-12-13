@@ -45,15 +45,15 @@
                                         <div class="btn-group">
                                         <?php if($data->verify == 1):?>
                                             <!-- <a href="<?= base_url('admin/supplier/update/'.$data->iduser)?>"> -->
-                                            <button type="button" class="btn btn-alt-danger"  title="Tidak Diterima">
+                                            <button type="button" class="btn btn-sm btn-alt-danger"  title="Tidak Diterima">
                                                 Tidak Diterima
                                             </button>
                                         <?php elseif($data->verify == 2):?>
-                                            <button type="button" class="btn btn-alt-success"  title="Diterima">
+                                            <button type="button" class="btn btn-sm btn-alt-success"  title="Diterima">
                                                 Diterima
                                             </button>
                                           <?php else:?>
-                                            <button type="button" class="btn btn-alt-primary"  title="menunggu">
+                                            <button type="button" class="btn btn-sm btn-alt-primary"  title="menunggu">
                                                 Menuggu
                                             </button>
                                         <?php endif;?>
