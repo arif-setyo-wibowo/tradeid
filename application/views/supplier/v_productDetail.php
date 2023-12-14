@@ -14,7 +14,6 @@
         <a href="<?= base_url('dashboard/supplier/product/editProduct/'.$product[0]->idproduct)?>" class="btn btn-outline-primary mb-2"><i class="fa fa-pen"></i> Edit</a>
         <a href="" class="btn btn-outline-danger mb-2"><i class="fa fa-trash-can"></i> Delete</a>
     </div>
-    
 </div>
 <!-- END Hero Content -->
 
@@ -34,7 +33,6 @@
         </div>
     </div>
     <!-- END Toggle Side Content -->
-
     <div class="row">
         <div class="col-xl-4 order-xl-1">
             <!-- Categories -->

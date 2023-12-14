@@ -13,13 +13,12 @@
       </ol>
     </nav>
     </div>
-    
   </div>
 </div>
 <!-- Page Content -->
         <div class="content">
           <form action="<?= base_url('tambahproduct') ?>" enctype="multipart/form-data" method="POST">
-          <!-- Info -->
+            <!-- Info -->
             <div class="row ">
                 <div class="col-lg-8">
                   <div class="block block-rounded">
@@ -111,31 +110,31 @@
             </div>
             <div class="row">
             <div class="col-lg-8">
-              <div class="block block-rounded">
-                <div class="block-content">
-                  <div class="row justify-content-center">
-                    <div class="col-md-10 col-lg-12">
-                      <h3>Media</h3>
-                        <div class="row mb-4" >
-                          <div class="col-md-6 col-lg-12">
-                          <label class="form-label" for="one-ecom-product-price">Image Product</label>
-                          <div class="mb-4 image-preview">
-                          <div class="d-flex flex-wrap mt-2" id="previewContainer">
-                              <img id="previewAvatar" class="img-avatar" style="height:150px;width:150px;" src="<?= base_url() ?>./assets/admin/media/avatars/avatar13.jpg" alt="">
-                              <span class="remove-preview" onclick="removePreview()">Remove</span>
-                          </div>
-                          <div class="mb-4 mt-3">
-                              <input class="form-control" type="file" name="gambar[]" accept="image/*" multiple id="one-profile-edit-avatar">
-                          </div>
+                  <div class="block block-rounded">
+                    <div class="block-content">
+                      <div class="row justify-content-center">
+                        <div class="col-md-10 col-lg-12">
+                          <h3>Media</h3>
+                            <div class="row mb-4" >
+                              <div class="col-md-6 col-lg-12">
+                              <label class="form-label" for="one-ecom-product-price">Image Product</label>
+                              <div class="mb-4 image-preview">
+                              <div class="d-flex flex-wrap mt-2" id="previewContainer">
+                                  <img id="previewAvatar" class="img-avatar" style="height:150px;width:150px;" src="<?= base_url() ?>./assets/admin/media/avatars/avatar13.jpg" alt="">
+                                  <span class="remove-preview" onclick="removePreview()">Remove</span>
+                              </div>
+                              <div class="mb-4 mt-3">
+                                  <input class="form-control" type="file" name="gambar[]" accept="image/*" multiple id="one-profile-edit-avatar">
+                              </div>
+                            </div>
                         </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
         </div>
-    </div>
-  </form>
+      </form>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script>
