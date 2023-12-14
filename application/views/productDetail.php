@@ -195,8 +195,8 @@
                 </div>
                 <div class="form-floating mb-4">
                     <div class="form-select-wrapper">
-                        <select class="form-select" name="negaraInquire" >
-                            <option disabled value="">Choose Country</option>
+                        <select class="form-select" name="negaraInquire" id="negaraDropdown">
+                            <option  disabled value="">Choose Country</option>
                             <option value="Afghanistan" <?php if ($user->negara === "Afghanistan") echo "selected"; ?>>Afghanistan</option>
                             <option value="Albania" <?php if ($user->negara === "Albania") echo "selected"; ?>>Albania</option>
                             <option value="Algeria" <?php if ($user->negara === "Algeria") echo "selected"; ?>>Algeria</option>
@@ -319,5 +319,18 @@
     <!--/.modal -->
 </section>
 <!-- /section -->
+
+<script>
+    const selectElement = document.getElementById('negaraDropdown');
+const maxVisibleOptions = 10; 
+
+selectElement.addEventListener('click', function() {
+    this.size = (this.size === maxVisibleOptions) ? 1 : maxVisibleOptions;
+});
+
+selectElement.addEventListener('blur', function() {
+    this.size = 1;
+});
+</script>
 
 <?php $this->load->view($footer); ?>
