@@ -13,7 +13,11 @@
                 <?php endif;?>
             </div>
             <h1 class="h2  mb-0">
-                <?= $supplier[0]->namaPerusahaan?></h1>
+            <?php if($cekdata == null) : ?>
+                <?= $supplier[0]->namaUsaha?></h1>
+            <?php else :?>
+                <?= $cekdata[0]->namaPerusahaan?></h1>
+            <?php endif;?>
             <h2 class="h4 fw-normal-75">
                 <?= $supplier[0]->nama?>
             </h2>

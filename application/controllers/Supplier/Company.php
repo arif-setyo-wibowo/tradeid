@@ -25,6 +25,7 @@ class Company extends CI_Controller {
 
             if ($supplier[0]->verify == 2) {
                 $data = [
+                    'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
                     'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
                     'cekdata' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
                     'header' => 'template/v_header_supplier',
@@ -80,6 +81,7 @@ class Company extends CI_Controller {
         $config['upload_path']          = 'uploads/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['file_name']        = $gambar_baru;
+        $config['encrypt_name'] = TRUE;
         
         $this->load->library('upload', $config);
 
