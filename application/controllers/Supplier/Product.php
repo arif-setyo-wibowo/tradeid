@@ -61,6 +61,7 @@ class Product extends CI_Controller {
             redirect('supplier/product');
         }else{
             $data = [
+                'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
                 'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
                 'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
                 'product' => $this->M_Product->getWhere($id,$company[0]->idcompany),
@@ -105,7 +106,7 @@ class Product extends CI_Controller {
                 $uploaded_images[] = $this->upload->data('file_name');
             } else {
                 $this->session->set_flashdata('pesan_e', 'Failed Upload Images');
-                redirect('supplier/product');
+                redirect('dashboard/supplier/product');
             }
         }
             $data = array(
@@ -122,7 +123,7 @@ class Product extends CI_Controller {
         
             $this->M_Product->insertProduct($data);
             $this->session->set_flashdata('pesan', 'Succesfully Insert Product');
-            redirect('supplier/product');
+            redirect('dashboard/supplier/product');
     }
 
     function edit($id){
@@ -134,9 +135,10 @@ class Product extends CI_Controller {
 
         if (!$this->M_Product->getWhere($id,$company[0]->idcompany)) {
             $this->session->set_flashdata('pesan_e', 'Cannot acces URL Product');
-            redirect('supplier/product');
+            redirect('dashboard/supplier/product');
         }else{
             $data = [
+                'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
                 'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
                 'supplier' => $supplier,
                 'product' => $this->M_Product->getWhere($id,$company[0]->idcompany),
@@ -188,10 +190,10 @@ class Product extends CI_Controller {
             $this->M_Film->deleteFilm($id, $supplier[0]->idsupplier);
             
             $this->session->set_flashdata('pesan', 'Delete Image Successfully');
-            redirect('supplier/product');
+            redirect('dashboard/supplier/product');
         } else {
             $this->session->set_flashdata('pesan_e', 'Product not found');
-            redirect('supplier/product');
+            redirect('dashboard/supplier/product');
         }
 
 		redirect('film');
