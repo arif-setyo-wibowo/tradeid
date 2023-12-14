@@ -59,7 +59,7 @@
                         <div class="mb-4">
                             <label class="form-label" for="one-profile-edit-username">Company Name</label>
                             <input type="hidden" class="form-control" placeholder="" name="idsupplier"  value="<?= $supplier[0]->idsupplier?>">
-                            <input type="text" class="form-control" id="one-profile-edit-username" placeholder="" name="company" value="<?= $supplier[0]->namaPerusahaan?>">
+                            <input type="text" class="form-control" id="one-profile-edit-username" placeholder="" name="company" value="<?= $supplier[0]->namaUsaha?>">
                         </div>
                         <div class="mb-4">
                             <label class="form-label" for="one-profile-edit-username">Address Company</label>

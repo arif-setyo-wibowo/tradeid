@@ -37,7 +37,7 @@
                                 <?php $no=1; foreach ($supplier as $data) :?>
                                 <tr>
                                     <td class="text-center fs-sm"><?= $no++;?></td>
-                                    <td class="fw-semibold fs-sm"><?= $data->namaPerusahaan?></td>
+                                    <td class="fw-semibold fs-sm"><?= $data->namaUsaha?></td>
                                     <td><?=  date('d-m-Y', strtotime($data->tgl))?></td>
                                     <!-- <td class="fw-semibold fs-sm"><?= $data->deskripsiPerusahaan?></td> -->
                                     <!-- <td class="fw-semibold fs-sm"><?= $data->deskripsiPerusahaan?></td> -->

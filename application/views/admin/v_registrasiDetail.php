@@ -39,7 +39,7 @@
                           <!-- <img class="img-avatar" src="<?= base_url() ?>assets/admin/media/avatars/avatar3.jpg" alt=""> -->
                         </a>
                       </p>
-                      <p class="fs-sm fw-medium"><?= $supplier[0]->namaPerusahaan?></p>
+                      <p class="fs-sm fw-medium"><?= $supplier[0]->namaUsaha?></p>
                     </td>
                     <td>
                       <p><?= $supplier[0]->deskripsiPerusahaan ?></p>

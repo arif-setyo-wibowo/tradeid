@@ -23,6 +23,8 @@ class Product extends CI_Controller {
 
         if ($this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier) == null) {
             $data = [
+                'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
                 'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
                 'cekdata' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
                 'header' => 'template/v_header_supplier',
@@ -34,6 +36,7 @@ class Product extends CI_Controller {
             return $this->load->view('supplier/v_profileCompany',$data);
         }else{
             $data = [ 
+                'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
                 'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
                 'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
                 'product' => $this->M_Product->getProduct($company[0]->idcompany),
@@ -153,6 +156,8 @@ class Product extends CI_Controller {
         $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
 
         $data = [
+            'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+            'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
             'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
             'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
             'kategori' => $this->M_Kategori->getKategori(),
@@ -170,7 +175,7 @@ class Product extends CI_Controller {
 
         if ($data) {
             // Delete product record from the database
-            $this->product_model->delete_product($product_id);
+            $this->product_model->delete_product($id);
     
             // Delete associated files
             $file_paths = explode(',', $data->gambar);

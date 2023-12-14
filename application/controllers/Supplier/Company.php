@@ -25,6 +25,7 @@ class Company extends CI_Controller {
 
             if ($supplier[0]->verify == 2) {
                 $data = [
+                    'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
                     'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
                     'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
                     'cekdata' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),

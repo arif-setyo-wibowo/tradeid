@@ -73,7 +73,7 @@ class Supplier extends CI_Controller {
             if ($this->input->post()) {
                     
                     $data = array(
-                        'namaPerusahaan' => $this->input->post('company'),
+                        'NamaUsaha' => $this->input->post('company'),
                         'deskripsiPerusahaan' => $this->input->post('deskrip'),
                         'nama' => $this->input->post('nama'),
                         'email' => $this->input->post('email'),

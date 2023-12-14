@@ -13,13 +13,12 @@
       </ol>
     </nav>
     </div>
-    
   </div>
 </div>
 <!-- Page Content -->
         <div class="content">
           <form action="<?= base_url('tambahproduct') ?>" enctype="multipart/form-data" method="POST">
-          <!-- Info -->
+            <!-- Info -->
             <div class="row ">
                 <div class="col-lg-8">
                   <div class="block block-rounded">
@@ -135,7 +134,8 @@
                 </div>
             </div>
         </div>
-      </form>
+          </form>
+        </div>
 
       <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script>
