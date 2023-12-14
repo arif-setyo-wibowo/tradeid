@@ -22,6 +22,7 @@ class Company extends CI_Controller {
             $iduser = $this->session->userdata('iduser');
             $user = $this->M_User->get_where($iduser);
             $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
+
             if ($supplier[0]->verify == 2) {
                 $data = [
                     'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
@@ -48,6 +49,7 @@ class Company extends CI_Controller {
         $config['upload_path']          = 'uploads/';
         $config['allowed_types']        = 'gif|jpg|png';
         $config['file_name']        = $gambar;
+        $config['encrypt_name'] = TRUE;
         
         $this->load->library('upload', $config);
 

@@ -20,16 +20,29 @@ class Supplier extends CI_Controller {
          }else{
             $iduser = $this->session->userdata('iduser');
             $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
-            $company = $this->M_Product->getWhereIdSupplier($supplier[0]->idsupplier);
-
-
+            $company = $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier);
+            
             if ($supplier[0]->verify == 2) {
-                $data = [
-                    'inquire' => $this->M_Inquire->getWhereCompany($company[0]->idcompany),
-                    'header' => 'template/v_header_supplier',
-                    'footer' => 'template/v_footer_supplier',
-                ];
-                return $this->load->view('supplier/v_supplier',$data);
+
+                if ($this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier) == null) {
+                    $data = [
+                        'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                        'cekdata' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'header' => 'template/v_header_supplier',
+                        'footer' => 'template/v_footer_supplier',
+                    ];
+
+                    $this->session->set_flashdata('pesan', 'Complete Your Data Company');
+
+                    return $this->load->view('supplier/v_profileCompany',$data);
+                }else{
+                    $data = [
+                        'inquire' => $this->M_Inquire->getWhereCompany($company[0]->idcompany),
+                        'header' => 'template/v_header_supplier',
+                        'footer' => 'template/v_footer_supplier',
+                    ];
+                    return $this->load->view('supplier/v_supplier',$data);
+                }
             }else{
                 redirect('profil');
             }

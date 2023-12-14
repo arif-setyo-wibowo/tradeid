@@ -6,7 +6,11 @@
     <div class="bg-white ">
         <div class="content content-full text-center ">
             <div class="my-3 ">
-                <img class="img-avatar img-avatar-thumb" src="<?= base_url('uploads/'.$cekdata[0]->gambarCompany) ?>" alt="">
+                <?php if($cekdata == null) : ?>
+                    <img class="img-avatar img-avatar-thumb" src="<?= base_url() ?>./assets/admin/media/avatars/avatar13.jpg" alt="">
+                <?php else :?>
+                    <img class="img-avatar img-avatar-thumb" src="<?= base_url('uploads/'.$cekdata[0]->gambarCompany) ?>" alt="">
+                <?php endif;?>
             </div>
             <h1 class="h2  mb-0">
                 <?= $supplier[0]->namaPerusahaan?></h1>
@@ -50,7 +54,7 @@
                     <div class="col-lg-8 col-xl-5">
                         <div class="mb-4">
                             <label class="form-label" for="one-profile-edit-username">Company Name</label>
-                            <input type="hidden" class="form-control" placeholder="" name="idsupplier" >
+                            <input type="hidden" class="form-control" placeholder="" name="idsupplier"  value="<?= $supplier[0]->idsupplier?>">
                             <input type="text" class="form-control" id="one-profile-edit-username" placeholder="" name="company" value="<?= $supplier[0]->namaPerusahaan?>">
                         </div>
                         <div class="mb-4">
@@ -187,7 +191,7 @@
                             <p class="fs-sm text-muted">
                                 Your short Description information about your companys’s 
                             </p>
-                            <input type="hidden" class="form-control" placeholder="" name="idsupplier" >
+                            <input type="hidden" class="form-control" placeholder="" name="idsupplier" value="<?= $supplier[0]->idsupplier?>">
                             <textarea class="form-control" id="one-ecom-product-description-short"
                                 name="despen" rows="4" maxlength="70"><?= $supplier[0]->deskripsiPerusahaan ?></textarea>
                         </div>
@@ -256,7 +260,7 @@
                 <div class="col-lg-8 col-xl-7">
                 <?php if($cekdata == null) : ?>
                     <form action="<?= base_url('tambahsosmed')?>" method="POST">
-                        <input type="hidden" class="form-control" name="idsupplier" >
+                        <input type="hidden" class="form-control" name="idsupplier" value="<?= $supplier[0]->idsupplier?>">
                         <div class="mb-4 col-sm-10 col-md-8 col-xl-6 text-primary">
                             <label class="form-label" for="one-profile-edit-street-1"><i class="fab fa-fw fa-facebook  me-1"></i> Connect to Facebook </label>
                             <input type="text" class="form-control" name="facebook">

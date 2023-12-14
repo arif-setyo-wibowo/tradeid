@@ -18,6 +18,7 @@ class M_Product extends CI_Model {
         $query = $this->db->get_where('company', array('idsupplier' => $id));
         return $query->result();
     }
+    
     function getProduct($id){
         $this->db->select('*')
                  ->from('product')

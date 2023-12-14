@@ -45,7 +45,7 @@
                   <a class="nav-link dropdown-item" href="<?= base_url() ?>product">Product</a>
                 </li>
                 <li class="nav-item ">
-                  <a class="nav-link dropdown-item" href="<?= base_url() ?>Supplier">Supplier</a>
+                  <a class="nav-link dropdown-item" href="<?= base_url() ?>supplier">Supplier</a>
                 </li>
                 <li class="nav-item dropdown dropdown-mega">
                   <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Category</a>
