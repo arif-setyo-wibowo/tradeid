@@ -61,7 +61,7 @@
 <!-- /section -->
 <section class="wrapper bg-light">
   <div class="container-fluid px-md-15 px-sm-8  pb-14 pb-md-16 pt-12">
-    <div class="row gy-10">
+    <div class="row gy-10 p-3">
       <div class="col-lg-9 order-lg-2">
         <div class="row align-items-center mb-10 position-relative zindex-1">
           <div class="col-md-7 col-xl-8 pe-xl-20">
@@ -85,9 +85,9 @@
         </div>
         <!--/.row -->
         <div class="grid grid-view projects-masonry shop mb-13">
-          <div class="row gx-md-8 gy-10 gy-md-13 isotope">
+          <div class="row gx-md-8 gy-10 gy-md-13  isotope">
             <?php foreach ($product as $data) : ?>
-            <div class=" item col-md-12 col-xl-12  p-3 bg-soft-sky rounded" style="margin-bottom:-30px;">
+            <div class=" item col-md-12 col-xl-12 p-3 bg-soft-sky rounded" style="margin-bottom:-30px;">
               <div class="row">
                 <div class="d-flex justify-content-between">
                   <div class="">
