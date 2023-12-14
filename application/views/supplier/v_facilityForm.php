@@ -17,7 +17,7 @@
 
 <!-- Page Content -->
 <div class="content">
-          <form action="">
+          <form action="<?= base_url('tambahFacility') ?>" method="POST" enctype="multipart/form-data">
           <!-- Info -->
             <div class="row ">
                 <div class="col-lg-8">
@@ -29,22 +29,27 @@
                           <div class="mb-4">
                           <div class="row justify-content-center">
                         <div class="col-md-10 col-lg-12">
-                      
-                        <div class="mb-4">
+                            <div class="mb-4">
                                 <label for="one-profile-edit-avatar" class="form-label">Choose a new Image</label>
-                                <input class="form-control" type="file" name="upgambar" id="one-profile-edit-avatar">
-                                <input type="hidden" class="form-control" name="lastgambar" value="">
+                                <div class="d-flex flex-wrap mt-2" id="previewContainer">
+                                    <img id="previewAvatar" class="img-avatar" style="height:150px;width:150px;" src="<?= base_url() ?>./assets/admin/media/avatars/avatar13.jpg" alt="">
+                                    <span class="remove-preview" onclick="removePreview()">Remove</span>
+                                </div>
+                                <div class="mb-4 mt-3">
+                                    <input class="form-control" type="file" name="gambar[]" accept="image/*" multiple id="one-profile-edit-avatar">
+                                </div>
                             </div>
                         </div>
                       </div>
                           </div>
                             <div class="mb-4">
                               <label class="form-label" for="one-ecom-product-name">Name of Facility</label>
-                              <input type="text" class="form-control" id="one-ecom-product-name" name="one-ecom-product-name" value="">
+                              <input type="hidden" class="form-control" id="one-ecom-product-name" name="idcompany" value="<?= $company[0]->idcompany?>">
+                              <input type="text" class="form-control" id="one-ecom-product-name" name="nama">
                             </div>
                             <div class="mb-4">
                               <label class="form-label" for="one-ecom-product-description-short">Description</label>
-                              <textarea class="form-control" id="one-ecom-product-description-short" name="one-ecom-product-description-short" rows="4"></textarea>
+                              <textarea class="form-control" id="one-ecom-product-description-short" name="deskripsi" rows="4"></textarea>
                             </div>
                         </div>
                       </div>
@@ -55,7 +60,7 @@
                 <div class="block block-rounded ">
                     <div class="block-content">
                         <div class="d-flex justify-between mb-3 gap-3">
-                          <a href="<?= base_url()?>supplier/facility" class="btn bg-gray-light ">cancel</a>
+                          <a href="<?= base_url()?>dashboard/supplier/facility" class="btn bg-gray-light ">cancel</a>
                           <button type="submit"  class="btn bg-amethyst text-white ">Add product</button>
                         </div>
                     </div>
@@ -67,4 +72,43 @@
         </div>
         </form>
 
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+
+    $(document).ready(function () {
+        setupFileInput();
+    });
+    function setupFileInput() {
+        $('#one-profile-edit-avatar').on('change', function (event) {
+            var fileInput = event.target;
+            var previewContainer = $('#previewContainer');
+
+            // Hapus pratinjau gambar sebelumnya
+            previewContainer.empty();
+
+            if (fileInput.files && fileInput.files.length > 0) {
+                for (var i = 0; i < fileInput.files.length; i++) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        var imageHtml = '<div class="image-preview mb-2 me-2">' +
+                            '<img class="img-avatar" style="height:150px;width:150px;" src="' + e.target.result + '" alt="Preview">' +
+                            '<span class="remove-preview" onclick="removePreview(this)">Remove</span>' +
+                            '</div>';
+                        previewContainer.append(imageHtml);
+                    };
+
+                    reader.readAsDataURL(fileInput.files[i]);
+                }
+            }
+        });
+    }
+
+    function removePreview(element) {
+        // Hapus pratinjau gambar yang terkait dengan tombol Remove yang ditekan
+        $(element).parent().remove();
+        // Bersihkan file input
+        $('#one-profile-edit-avatar').val('');
+    }
+</script>
 <?php $this->load->view($footer) ?>

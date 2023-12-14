@@ -59,6 +59,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['profil'] = 'Front/User';
 $route['product'] = 'Front/Product';
 $route['supplier'] = 'Front/Supplier';
+
+//Front product
 $route['product/(:num)'] = 'Front/Product/productShopCategory/$1';
 $route['product/(:num)/(:num)'] = 'Front/Product/productShopSubCategoryA/$1/$2';
 $route['product/(:num)/(:num)/(:num)'] = 'Front/Product/productShopSubCategoryB/$1/$2/$3';
@@ -67,7 +69,6 @@ $route['inquireProduct/(:num)'] = 'Front/Product/inquireProduct/$1';
 
 $route['premium'] = 'Front/Premium';
 $route['checkout'] = 'Front/Premium/checkout';
-
 
 
 //registrasi
@@ -102,6 +103,8 @@ $route['dashboard/supplier/product/editProduct/(:any)'] = 'Supplier/Product/edit
 
 //Supplier Facility
 $route['dashboard/supplier/facility'] = 'Supplier/Facility';
+$route['dashboard/supplier/facilityForm'] = 'Supplier/Facility/add';
+$route['tambahFacility'] = 'Supplier/Facility/store';
 
 
 //Profil

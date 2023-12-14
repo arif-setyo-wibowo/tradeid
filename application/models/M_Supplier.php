@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_Supplier extends CI_Model {
 
     function getSupplier(){
-       return $this->db->get('supplier')->result();;
+       return $this->db->get('supplier')->result();
     }
 
     function insertSupplier($data){
