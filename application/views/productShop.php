@@ -153,7 +153,7 @@
       <aside class="col-lg-3 sidebar">
     <div class="widget mt-1">
         <h4 class="mb-3">Categories</h4>
-        <nav class="navbar list-unstyled ps-0 navbar-expand-lg navbar-expand-md navbar-expand-sm center-nav navbar-light navbar-bg-light">
+        <nav class=" list-unstyled ps-0 navbar-expand-lg navbar-expand-md navbar-expand-sm center-nav navbar-light navbar-bg-light">
             <div class="container">
                 <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start my-auto">
                     <div class="offcanvas-body flex-column text-dark h-100">
