@@ -13,6 +13,14 @@ class M_Supplier extends CI_Model {
         $this->db->insert('supplier',$data);
     }
     
+    function getWhereIdCompanyAndSupplier($id){
+        $this->db->select('*')
+                ->from('company')
+                ->join('supplier', 'supplier.idsupplier = company.idsupplier')
+                ->where('supplier.idsupplier',$id);
+                        
+        return $this->db->get()->result();
+    }
 
     function getWhereIdSupplier($id){
         $this->db->select('*')

@@ -21,14 +21,29 @@ class Product extends CI_Controller {
         $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
         $company = $this->M_Product->getWhereIdSupplier($supplier[0]->idsupplier);
 
-        $data = [ 
-            'product' => $this->M_Product->getProduct($company[0]->idcompany),
-            'kategori' => $this->M_Kategori->getKategori(),
-            'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-            'header' => 'template/v_header_supplier',
-            'footer' => 'template/v_footer_supplier',
-        ];
-        return $this->load->view('supplier/v_product',$data);
+        if ($this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier) == null) {
+            $data = [
+                'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                'cekdata' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                'header' => 'template/v_header_supplier',
+                'footer' => 'template/v_footer_supplier',
+            ];
+
+            $this->session->set_flashdata('pesan', 'Complete Your Data Company');
+
+            return $this->load->view('supplier/v_profileCompany',$data);
+        }else{
+            $data = [ 
+                'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                'product' => $this->M_Product->getProduct($company[0]->idcompany),
+                'kategori' => $this->M_Kategori->getKategori(),
+                'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                'header' => 'template/v_header_supplier',
+                'footer' => 'template/v_footer_supplier',
+            ];
+            return $this->load->view('supplier/v_product',$data);
+        }
     }
 
     public function detail($id)
@@ -43,6 +58,8 @@ class Product extends CI_Controller {
             redirect('supplier/product');
         }else{
             $data = [
+                'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
                 'product' => $this->M_Product->getWhere($id,$company[0]->idcompany),
                 'header' => 'template/v_header_supplier',
                 'footer' => 'template/v_footer_supplier',
@@ -117,6 +134,7 @@ class Product extends CI_Controller {
             redirect('supplier/product');
         }else{
             $data = [
+                'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
                 'supplier' => $supplier,
                 'product' => $this->M_Product->getWhere($id,$company[0]->idcompany),
                 'kategori' =>  $this->M_Kategori->getKategori(),
@@ -135,6 +153,7 @@ class Product extends CI_Controller {
         $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
 
         $data = [
+            'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
             'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
             'kategori' => $this->M_Kategori->getKategori(),
             'header' => 'template/v_header_supplier',
