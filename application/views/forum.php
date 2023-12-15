@@ -6,6 +6,11 @@
           <div class="col-md-7 col-lg-6 col-xl-5 mx-auto">
             <h3 class="display-1 ">Forum Discussion</h3>
             <p class="lead px-lg-5 px-xxl-8">Find Solution or Question</p>
+            <div class="mt-3 mt-md-0 ms-auto ">
+          <a href="#" class="btn btn-soft-ash  btn-sm rounded-pill btn-icon btn-icon-start mb-0" data-bs-toggle="modal" data-bs-target="#modal-signin">
+            <i class="uil uil-comment-message"></i> Add Posting
+          </a>
+      </div> 
           </div>
           <!-- /column -->
         </div>
@@ -86,5 +91,30 @@
   </div>
 </section>
     <!-- /section -->
+
+<div class="modal fade" id="modal-signin" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h2 class="mb-3 text-start">Reply</h2>
+                <p class="lead mb-6 text-start">Your message will be Post to the comment section</p>
+                <form class="text-start mb-3">
+                <div class="form-floating mb-4">
+                    <input type="text" class="form-control" placeholder="Email" value="" >
+                    <label for="loginEmail">Topic</label>
+                </div>
+                <div class="form-floating mb-4">
+                    <textarea id="textareaExample" class="form-control" placeholder="Textarea" style="height: 150px" required></textarea>
+                    <label for="textareaExample">Message</label>
+                </div>
+                <a href="" class="btn btn-primary rounded-pill btn-login w-100 mb-2" >Send Message</a>
+                </form>
+                <!-- /form -->
+                <!--/.social -->
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php $this->load->view($footer); ?>
