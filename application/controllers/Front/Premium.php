@@ -54,7 +54,7 @@ class Premium extends CI_Controller {
         }
     }
 
-    public function checkout()
+    public function checkout($id)
     {
         $iduser = $this->session->userdata('iduser');
         $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
