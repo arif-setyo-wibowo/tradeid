@@ -75,7 +75,8 @@ $route['supplier/(:num)/(:num)'] = 'Front/Supplier/supplierSubCategoryA/$1/$2';
 $route['supplier/detail/(:num)'] = 'Front/Supplier/detailCompany/$1';
 
 $route['premium'] = 'Front/Premium';
-$route['checkout'] = 'Front/Premium/checkout';
+$route['checkout/(:num)'] = 'Front/Premium/checkoutView/$1';
+$route['checkoutPremium'] = 'Front/Premium/checkout';
 
 
 //registrasi
@@ -175,3 +176,10 @@ $route['admin/databuyer/tambahdatabuyer'] = 'Admin/Databuyer/store';
 $route['admin/databuyer/deletedatabuyer/(:any)'] = 'Admin/Databuyer/delete/$1';
 $route['admin/databuyer/updatedatabuyer/(:any)'] = 'Admin/Databuyer/edit/$1';
 $route['admin/databuyer/update'] = 'Admin/Databuyer/update';
+
+//Premium
+$route['admin/premium'] = 'Admin/Premium';
+$route['admin/premium/tambahPremium'] = 'Admin/Premium/store';
+$route['admin/premium/deletePremium/(:any)'] = 'Admin/Premium/delete/$1';
+$route['admin/premium/updatePremium/(:any)'] = 'Admin/Premium/edit/$1';
+$route['admin/premium/update'] = 'Admin/Premium/update';

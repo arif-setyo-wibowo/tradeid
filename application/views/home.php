@@ -1,4 +1,5 @@
-    <section class="wrapper bg-gradient-primary">
+<?php $this->load->view($header); ?>
+<section class="wrapper bg-gradient-primary">
     <div class="container pt-7 pt-md-11 pb-8">
         <div class="row gx-0 gy-10 align-items-center">
           <div class="col-lg-6" data-cues="slideInDown" data-group="page-title" data-delay="600">
@@ -662,4 +663,5 @@
     <!-- /section -->
   </div>
   <!-- /.content-wrapper -->
+  <?php $this->load->view($footer); ?>
   

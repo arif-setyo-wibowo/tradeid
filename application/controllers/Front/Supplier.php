@@ -19,7 +19,9 @@ class Supplier extends CI_Controller {
 
     public function index()
     {
+        $iduser = $this->session->userdata('iduser');
         $data = [
+            'userHeader' => $this->M_User->get_where($iduser),
             'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
             'supplier' => $this->M_Supplier->getSupplierCategory(),
             'header' => 'componen/header',
@@ -32,7 +34,9 @@ class Supplier extends CI_Controller {
     public function detailCompany($id)
     {
 
+        $iduser = $this->session->userdata('iduser');
         $data = [
+            'userHeader' => $this->M_User->get_where($iduser),
             'supplier' => $this->M_Company->getWhereJoin($id),
             'product' => $this->M_Product->getProduct($id),
             'facility' => $this->M_Facility->getWhereFacility($id),
@@ -100,6 +104,7 @@ class Supplier extends CI_Controller {
                     redirect('profil');
                 }else{
                     $data = array(
+                        'userHeader' => $this->M_User->get_where($iduser),
                         'header' => 'componen/header',
                         'footer' => 'componen/footer',
                     );
@@ -110,7 +115,9 @@ class Supplier extends CI_Controller {
     }
 
     function supplierCategory($id){
+        $iduser = $this->session->userdata('iduser');
         $data = [
+            'userHeader' => $this->M_User->get_where($iduser),
             'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
             'supplier' => $this->M_Company->getWhereCategory($id),
             'header' => 'componen/header',
@@ -121,7 +128,9 @@ class Supplier extends CI_Controller {
     }
 
     function supplierSubCategoryA($id,$idsuba){
+        $iduser = $this->session->userdata('iduser');
         $data = [
+            'userHeader' => $this->M_User->get_where($iduser),
             'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
             'supplier' => $this->M_Company->getWhereSubCategoryA($id,$idsuba),
             'header' => 'componen/header',
