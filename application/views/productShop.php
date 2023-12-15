@@ -103,9 +103,8 @@
               <div class="row">
                 <div class="d-flex mb-2">
                   <div class="">
-                  <?php  $imageArray = explode(',', $data->gambar);
-                      ?>
-                    <a href="<?= base_url('product/productDetail/'.$data->idproduct)?>"><img style="max-width: 150px; max-height: 150px;" src="<?= base_url('uploads/'.$imageArray[0]) ?>" srcset="./assets/img/photos/sh1@2x.jpg 2x" alt="" /></a>
+                  <?php  $imageArray = explode(',', $data->gambar);?>
+                    <a href="<?= base_url('product/productDetail/'.$data->idproduct)?>"><img style="max-width: 150px; max-height: 150px;" src="<?= base_url('uploads/'.$imageArray[0]) ?>" srcset="<?= base_url('uploads/'.$imageArray[0]) ?>" alt="" /></a>
                   </div>
                   <div class="" style="margin-left:10px;">
                     <div class="align-items-center">
@@ -151,57 +150,57 @@
       </div>
       <!-- /column -->
       <aside class="col-lg-3 sidebar">
-    <div class="widget mt-1">
-        <h4 class="mb-3">Categories</h4>
-        <nav class="navbar list-unstyled ps-0 navbar-expand-lg navbar-expand-md navbar-expand-sm center-nav navbar-light navbar-bg-light">
-            <div class="container">
-                <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start my-auto">
-                    <div class="offcanvas-body flex-column text-dark h-100">
-                    <?php foreach ($kategori_structure as $row) : ?>
-                      <?php if (!isset($previous_category) || $previous_category != $row['kategori']) : ?>
-                        <ul class="navbar-nav ">
-                                    <!-- Jika kategori sebelumnya belum di-set atau tidak sama dengan kategori saat ini -->
-                                    <li class="dropdown dropdown-submenu dropend">
-                                        <a class="dropdown-item dropdown-header "  ><?php echo $row['kategori']; ?></a>
-                                        <ul class="dropdown-menu">
-                                            <li class="nav-item">
-                                                <a class="dropdown-item item-header" href="#"><?php echo $row['kategori']; ?></a>
-                                            </li>
-                                            <?php foreach ($kategori_structure as $subrow) : ?>
-                                                <?php if ($subrow['kategori'] == $row['kategori'] && $subrow['subkategori_a'] != null) : ?>
-                                                    <!-- Jika subkategori A tidak null -->
-                                                    <li class="dropdown dropdown-submenu dropend text-dark">
-                                                        <a class="dropdown-item text-dark" href="#" ><?php echo $subrow['subkategori_a']; ?></a>
-                                                        <ul class="dropdown-menu">
-                                                            <li class="nav-item">
-                                                                <a class="dropdown-item" href="#"><?php echo $subrow['subkategori_a']; ?></a>
-                                                            </li>
-                                                            <?php if ($subrow['subkategori_b'] != null) : ?>
-                                                                <!-- Jika subkategori B tidak null -->
-                                                                <li class="nav-item">
-                                                                    <a class="dropdown-item" href="#"><?php echo $subrow['subkategori_b']; ?></a>
-                                                                </li>
-                                                            <?php endif; ?>
-                                                        </ul>
-                                                    </li>
-                                                <?php endif; ?>
-                                            <?php endforeach; ?>
-                                        </ul>
-                                    </li>
-                        </ul>
-                        <?php endif; ?>
-                                <?php $previous_category = $row['kategori']; // Set kategori sebelumnya untuk perbandingan selanjutnya ?>
-                            <?php endforeach; ?>
-                    </div>
-                    <!-- /.offcanvas-body -->
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container -->
-        </nav>
-        <!-- /.navbar -->
-    </div>
-</aside>
+          <div class="widget mt-1">
+              <h4 class="mb-3">Categories</h4>
+              <nav class="navbar list-unstyled ps-0 navbar-expand-lg navbar-expand-md navbar-expand-sm center-nav navbar-light navbar-bg-light">
+                  <div class="container">
+                      <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start my-auto">
+                          <div class="offcanvas-body flex-column text-dark h-100">
+                          <?php foreach ($kategori_structure as $row) : ?>
+                            <?php if (!isset($previous_category) || $previous_category != $row['kategori']) : ?>
+                              <ul class="navbar-nav ">
+                                          <!-- Jika kategori sebelumnya belum di-set atau tidak sama dengan kategori saat ini -->
+                                          <li class="dropdown dropdown-submenu dropend">
+                                              <a class="dropdown-item dropdown-header "  ><?php echo $row['kategori']; ?></a>
+                                              <ul class="dropdown-menu">
+                                                  <li class="nav-item">
+                                                      <a class="dropdown-item item-header" href="#"><?php echo $row['kategori']; ?></a>
+                                                  </li>
+                                                  <?php foreach ($kategori_structure as $subrow) : ?>
+                                                      <?php if ($subrow['kategori'] == $row['kategori'] && $subrow['subkategori_a'] != null) : ?>
+                                                          <!-- Jika subkategori A tidak null -->
+                                                          <li class="dropdown dropdown-submenu dropend text-dark">
+                                                              <a class="dropdown-item text-dark" href="#" ><?php echo $subrow['subkategori_a']; ?></a>
+                                                              <ul class="dropdown-menu">
+                                                                  <li class="nav-item">
+                                                                      <a class="dropdown-item" href="#"><?php echo $subrow['subkategori_a']; ?></a>
+                                                                  </li>
+                                                                  <?php if ($subrow['subkategori_b'] != null) : ?>
+                                                                      <!-- Jika subkategori B tidak null -->
+                                                                      <li class="nav-item">
+                                                                          <a class="dropdown-item" href="#"><?php echo $subrow['subkategori_b']; ?></a>
+                                                                      </li>
+                                                                  <?php endif; ?>
+                                                              </ul>
+                                                          </li>
+                                                      <?php endif; ?>
+                                                  <?php endforeach; ?>
+                                              </ul>
+                                          </li>
+                              </ul>
+                              <?php endif; ?>
+                                      <?php $previous_category = $row['kategori']; // Set kategori sebelumnya untuk perbandingan selanjutnya ?>
+                                  <?php endforeach; ?>
+                          </div>
+                          <!-- /.offcanvas-body -->
+                      </div>
+                      <!-- /.navbar-collapse -->
+                  </div>
+                  <!-- /.container -->
+              </nav>
+              <!-- /.navbar -->
+          </div>
+      </aside>
       <!-- /column .sidebar -->
     </div>
     <!-- /.row -->

@@ -56,7 +56,7 @@ class SubKategoriB extends CI_Controller {
         $subkategoriB = $this->M_SubkategoriB->getWhere($id);
 
         // Mendapatkan data subkategori A berdasarkan ID Kategori
-        $subkategoriAOptions = $this->M_SubkategoriB->getSubkategoriAOptions($subkategoriB->idkategori);
+        $subkategoriAOptions = $this->M_SubkategoriB->getSubkategoriAOptions($subkategoriB[0]->idkategori);
 
         $data = array(
             'subkategorib' => $subkategoriB,
@@ -72,20 +72,24 @@ class SubKategoriB extends CI_Controller {
     function update(){
 
         $data = array(
-            'idkategori' => $this->input->post('namaKategoriUpdate'),
-            'namaSubKategori' => $this->input->post('namaSubKategoriUpdate')
+            'idsubkategori_a' => $this->input->post('namasubkategori_a'),
+            'namaSubKategori_b' => $this->input->post('namasubkategori_b'),
+            'idkategori' => $this->input->post('namaKategori')
         );
-        $id = $this->input->post('idsubkategori_a');
-        $this->M_SubkategoriA->updateSubKategori($id,$data);
-        redirect('admin/subkategoriA');
+
+
+        $id = $this->input->post('idsubkategori_b');
+        $this->M_SubkategoriB->updateSubKategori($id,$data);
+
+        redirect('admin/subkategoriB');
             
     }
 
 
     function delete($id) {
-        $this->M_SubkategoriA->deleteSubKategori($id);
+        $this->M_SubkategoriB->deleteSubKategori($id);
 
-		redirect('admin/subkategoriA');
+		redirect('admin/subkategoriB');
     }
 }
 

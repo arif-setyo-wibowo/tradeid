@@ -9,7 +9,11 @@
                 <?php if($cekdata == null) : ?>
                     <img class="img-avatar img-avatar-thumb" src="<?= base_url() ?>./assets/admin/media/avatars/avatar13.jpg" alt="">
                 <?php else :?>
-                    <img class="img-avatar img-avatar-thumb" src="<?= base_url('uploads/'.$cekdata[0]->gambarCompany) ?>" alt="">
+                    <?php if($cekdata[0]->gambarCompany == null) : ?>
+                        <img class="img-avatar img-avatar-thumb" src="<?= base_url() ?>./assets/admin/media/avatars/avatar13.jpg" alt="">
+                    <?php else:?>
+                        <img class="img-avatar img-avatar-thumb" src="<?= base_url('uploads/'.$cekdata[0]->gambarCompany) ?>" alt="">
+                    <?php endif;?>
                 <?php endif;?>
             </div>
             <h1 class="h2  mb-0">
@@ -92,6 +96,22 @@
                             </select>
                         </div>
                         <div class="mb-4">
+                                <label class="form-label" for="one-ecom-product-category">Suplier Category</label>
+                                <select class="js-select2 form-select" id="kategori" name="kategori" onchange="loadSubkategoriA()" required style="width: 100%;" data-placeholder="Choose one..">
+                                    <option value="">Choose Category</option>
+                                    <?php foreach ($kategori as $data) : ?>
+                                        <option value="<?= $data->idkategori?>"><?= $data->namaKategori?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                        </div> 
+                        
+                        <div class="mb-4">
+                                <label class="form-label" for="one-ecom-product-category">Supplier Sub-Category</label>
+                                <select class="js-select2 form-select" id="subkategori_a" name="subkategori_a" required style="width: 100%;" data-placeholder="Choose one..">
+                                    <option value=""></option>
+                                </select>
+                        </div>
+                        <div class="mb-4">
                             <label class="form-label">Your Logo</label>
                             <div class="mb-4">
                                 <img id="previewAvatar" class="img-avatar" style="height:150px;width:150px;" src="<?= base_url() ?>./assets/admin/media/avatars/avatar13.jpg" alt="">
@@ -155,9 +175,31 @@
                             </select>
                         </div>
                         <div class="mb-4">
+                                <label class="form-label" for="one-ecom-product-category">Suplier Category</label>
+                                <select class="js-select2 form-select" id="kategori" name="kategori" onchange="loadSubkategoriA()" required style="width: 100%;" data-placeholder="Choose one..">
+                                    <option value="">Choose Category</option>
+                                    <?php foreach ($kategori as $data) : ?>
+                                        <option value="<?= $data->idkategori?>" <?= $data->idkategori == $cekdata[0]->idkategori ? 'selected' : '' ?>><?= $data->namaKategori?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                        </div> 
+                        
+                        <div class="mb-4">
+                                <label class="form-label" for="one-ecom-product-category">Supplier Sub-Category</label>
+                                <select class="js-select2 form-select" id="subkategori_a" name="subkategori_a" required style="width: 100%;" data-placeholder="Choose one..">
+                                <?php foreach ($subkategoria as $data) : ?>
+                                    <option value="<?= $data->idsubkategori_a?>" <?= $data->idsubkategori_a == $cekdata[0]->idsubkategori_a ? 'selected' : '' ?>><?= $data->namaSubKategori?></option>
+                                <?php endforeach; ?>
+                                </select>
+                        </div>
+                        <div class="mb-4">
                             <label class="form-label">Your Logo</label>
                             <div class="mb-4">
-                                <img class="img-avatar" id="previewAvatar"  style="height:250px;width:250px;" src='<?php echo base_url() ?>uploads/<?php echo $cekdata[0]->gambarCompany ?>'>
+                                <?php if($cekdata[0]->gambarCompany == null) : ?>
+                                    <img id="previewAvatar" class="img-avatar" style="height:150px;width:150px;" src="<?= base_url() ?>./assets/admin/media/avatars/avatar13.jpg" alt="">
+                                <?php else:?>
+                                    <img class="img-avatar" id="previewAvatar"  style="height:250px;width:250px;" src='<?php echo base_url() ?>uploads/<?php echo $cekdata[0]->gambarCompany ?>'>
+                                <?php endif;?>
                             </div>
                             <div class="mb-4">
                                 <label for="one-profile-edit-avatar" class="form-label">Choose a new Logo</label>
@@ -319,8 +361,40 @@
     </div>
     <!-- END Connections -->
 </div>
-<!-- END Page Content -->
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
+    
+    function loadSubkategoriA() {
+        var idkategori = $("#kategori").val();
+        if (idkategori !== "") {
+            // Lakukan permintaan Ajax untuk mendapatkan opsi Subkategori A
+            $.ajax({
+                url: "<?= site_url('Supplier/Company/getSubkategoriAOptions') ?>",
+                type: "POST",
+                data: { idkategori: idkategori },
+                dataType: "json",
+                success: function(data) {
+                    var options = '<option value="">Choose SubCategory A</option>';
+                    $.each(data, function(index, item) {
+                        options += '<option value="' + item.idsubkategori_a + '">' + item.namaSubKategori + '</option>';
+                    });
+                    $("#subkategori_a").html(options);
+
+                    // Tambahkan baris ini untuk mereset Subkategori B setiap kali Kategori diubah
+                    $("#subkategori_a").val("").trigger("change");
+
+                }
+            });
+        } else {
+            $("#subkategori_a").html('<option value="">Choose SubCategory A</option>');
+            // Tambahkan baris ini untuk mereset Subkategori B ketika Kategori dipilih ulang
+            $("#subkategori_a").val("").trigger("change");
+        }
+    }
+
+    
     document.getElementById('one-profile-edit-avatar').addEventListener('change', function (event) {
         var fileInput = event.target;
         var previewImage = document.getElementById('previewAvatar');

@@ -9,6 +9,14 @@ class M_Facility extends CI_Model {
         return $this->db->get('facility')->result();
     }
 
+    function getWhereFacility($id){
+        $this->db->select('*')
+                ->from('facility')
+                ->where('idcompany',$id);
+
+        return  $this->db->get()->result();
+    }
+
     function insertfacility($data){
         $this->db->insert('facility',$data);
     }

@@ -5,9 +5,8 @@
         <nav class="d-inline-block" aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Supplier</a></li>
-                <li class="breadcrumb-item"><a href="#">view Company</a></li>
-                <li class="breadcrumb-item active text-muted" aria-current="page">PT Cinta Sejati</li>
+                <li class="breadcrumb-item"><a href="<?= base_url('supplier')?>">Supplier</a></li>
+                <li class="breadcrumb-item active text-muted" aria-current="page"><?= $supplier[0]->namaPerusahaan?></li>
             </ol>
         </nav>
         <!-- /nav -->
@@ -19,14 +18,16 @@
     <div class="container py-5 mb-0">
         <span class="row justify-content-between align-items-center">
             <span class="col-md-5 mb-2 mb-md-0 d-flex align-items-center text-body">
-                <img class="rounded-circle w-15 mb-4 " src="<?= base_url() ?>./assets/front/img/avatars/te1.jpg"srcset="<?= base_url() ?>./assets/front/img/avatars/te1@2x.jpg 2x" alt="" />
-                 <h3 style="margin-left: 10px;">PT Mencari Cinta Sejati </h3> 
+
+                <img class="rounded-circle w-15 mb-4 " src="<?= base_url('uploads/'.$supplier[0]->gambarCompany) ?>"srcset="<?= base_url() ?>./assets/front/img/avatars/te1@2x.jpg 2x" alt="" />
+                 
+                <h3 style="margin-left: 10px;"><?= $supplier[0]->namaPerusahaan?> </h3> 
             </span>
             <span class="col-5 col-md-3 text-body d-flex align-items-center">
-                <h4 class="text-aqua">Supplier Of Cococnut</h4>
+                <h4 class="text-aqua">Supplier Of <?= $supplier[0]->namaSubKategori?></h4>
             </span>
             <span class="col-7 col-md-4 col-lg-3 text-body d-flex align-items-center">
-                <h5 class="text-muted">Established : 2010</h5>
+                <h5 class="text-muted">Established : <?= $supplier[0]->tgl?></h5>
             </span>
             
         </span>
@@ -40,7 +41,7 @@
                 <a class="nav-link" data-bs-toggle="tab" href="#tab1-2">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#tab1-3">Delivery</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#tab1-3">Facility</a>
             </li>
         </ul>
         <!-- /.nav-tabs -->
@@ -48,21 +49,13 @@
             <div class="tab-pane fade show active pb-10" id="tab1-1">
                 <div>
                     <p> 
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
-                        venenatis vestibulum. Sed posuere consectetur est at lobortis. Sed posuere consectetur est at
-                        lobortis. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem
-                        lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas
-                        sed diam eget risus varius blandit sit amet non magna. Integer posuere erat a ante venenatis dapibus
-                        posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula
-                        porta felis euismod semper.
+                       <?= $supplier[0]->deskripsiPerusahaan?>
                     </p>
                 </div>
                 <hr class="my-5 text-aqua">
                 <div>
                     <h4  class="text-blue">Dealing In Products And Services</h4>
-                    <span class="fw-bold">Our Primary Business : </span><span> Manufacturer/ OEM</span><br>
-                    <span class="fw-bold">Supplier : </span><span> MFresh coconut, husked coconut, semi husked coconut, dehusked coconut, desiccated coconut, coconut fiber, cocopeat, copra, dried copra, coconut shell charcoal</span>
+                    <span class="fw-bold">Supplier : </span><span> <?= $supplier[0]->namaKategori.','.$supplier[0]->namaSubKategori?></span>
                 </div>
                 <hr class="my-5 text-aqua">
                 <div>
@@ -70,16 +63,34 @@
                     <h4 class="text-blue">Contact Details</h4>
                     <div class="">
                         <p>
-                            <span>Indonesia, North Jakarta, Jl. Pantai Indah Utara 1 No.2, Rt.2/rw.7, Kapuk Muara, Kec. Penjaringan, Kota Jakarta Utara,</span>
+                            <span><?= $supplier[0]->alamat?></span>
                         </p>
                     </div>
-                    <span class="fw-bold">Contact Person : </span><span> Jumali Ahmad </span><span class="text-blue">, Chief Executive Officer</span><br>
-                    <span class="fw-bold">Phone : </span><span> +62 0893387364</span>
+                    <span class="fw-bold">Contact Person : </span><span> <?= $supplier[0]->nama?> </span><br>
+                    <span class="fw-bold">Phone : </span><span> <?= $supplier[0]->telp?></span>
                     <nav class="navjustify-center social mb-3 mt-2">
-                      <a href="#"><i class="uil uil-instagram"></i></a>
-                      <a href="#"><i class="uil uil-linkedin"></i></a>
-                      <a href="#"><i class="uil uil-facebook-f"></i></a>
-                      <a href="#"><i class="uil uil-dribbble"></i></a>
+                        <?php if ($supplier[0]->facebook == null) : ?>
+                        
+                        <?php else : ?>
+                          <a href="https://www.facebook.com/<?= $supplier[0]->facebook ?>" target="_blank"><i class="uil uil-facebook-f"></i></a>
+                        <?php endif;?>
+                        <?php if ($supplier[0]->linkedin == null) : ?>
+                          
+                        <?php else : ?>
+                          <a href="https://www.linkedin.com/in<?= $supplier[0]->linkedin?>" target="_blank"><i class="uil uil-linkedin"></i></a>
+                        <?php endif;?>
+
+                        <?php if ($supplier[0]->website == null) : ?>
+                          
+                        <?php else : ?>
+                          <a href="http://<?= $supplier[0]->website?>" target="_blank"><i class="uil uil-dribbble"></i></a>
+                        <?php endif;?>
+
+                        <?php if ($supplier[0]->instagram == null) : ?>
+                          
+                        <?php else : ?>
+                          <a href="https://www.instagram.com/<?= $supplier[0]->instagram?>"><i class="uil uil-instagram"></i></a>
+                        <?php endif;?>
                     </nav>
                 </div>
             </div>
@@ -87,98 +98,47 @@
             <div class="tab-pane fade" id="tab1-2">
             <div class="grid grid-view projects-masonry shop">
                 <div class="row gx-md-8 gy-10 gy-md-13 ">
+                    <?php foreach ($product as $data) : ?>
                     <div class=" item col-md-12 col-xl-12  p-5 bg-soft-aqua rounded" >
-                    <div class="row">
-                        <div class="d-flex justify-content-between">
-                        <div class="">
-                            <div class="post-category text-ash "><a class="text-blue" href="">Semi-Husked Coconut</a></div>
-                        </div>
-                        <div class="">
+                        <div class="row">
+                            <div class="d-flex justify-content-between">
                             <div class="">
-                            <h4 class="post-title h4 fs-18"><a href="./shop-product.html" class="link-dark">PT.Indo Coco</a></h4>
+                                <div class="post-category text-ash "><a class="text-blue" href=""><?= $data->namaProduk?></a></div>
                             </div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="d-flex mb-2">
-                        <div class="">
-                            <a href="<?= base_url() ?>Front/product/productDetail"><img style="max-width: 150px; max-height: 150px;" src="<?= base_url() ?>./assets/front/img/produk/fiber.jpg" srcset="./assets/img/photos/sh1@2x.jpg 2x" alt="" /></a>
-                        </div>
-                        <div class="" style="margin-left:10px;">
-                            <div class="align-items-center">
-                                <span>We have a different type of Coconut Briquette Charcoal 100% pure charcoal briquettes made from
-                                the shell of coconut fruit and its dried pulp.
-                                Specification Information: Moisture MAX 6% Ash Content MAX 2,4% Volatile Matter MAX 13% Fix Carbon
-                                MIN 85% Calorific Value UP TO 7500 Kcal / kg
-                                Heat Content UP TO 600 C Ignition Time MAX 10 minutes Glowing Time MIN 2 hours Size Cubes : 22 mm x
-                                25 mm Size Hexagonal : 22 mm x 50 mm, 25 mm x
-                                50 mm
-                                </span>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="d-flex justify-content-between">
-                        <div>
-                            <div class="fs-16 text-ash ">Supplier From Jawa Timur, Malang</div>
-                        </div>
-                        <div >
-                            <div>
-                            <a href="" class="text-blue fs-sm" data-bs-toggle="modal" data-bs-target="#modal-signin"><i class="uil uil-envelope"></i> Inquire now</a>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <!-- /.item -->
-                    <div class=" item col-md-12 col-xl-12  p-5 bg-soft-aqua rounded" >
-                    <div class="row">
-                        <div class="d-flex justify-content-between">
-                        <div class="">
-                            <div class="post-category text-ash "><a class="text-blue" href="">Semi-Husked Coconut</a></div>
-                        </div>
-                        <div class="">
                             <div class="">
-                            <h4 class="post-title h4 fs-18"><a href="./shop-product.html" class="link-dark">PT.Indo Coco</a></h4>
+                                <div class="">
+                                <h4 class="post-title h4 fs-18"><a href="" class="link-dark"><?= $data->namaPerusahaan?></a></h4>
+                                </div>
+                            </div>
                             </div>
                         </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="d-flex mb-2">
-                        <div class="">
-                            <a href="<?= base_url() ?>Front/product/productDetail"><img style="max-width: 150px; max-height: 150px;" src="<?= base_url() ?>./assets/front/img/produk/fiber.jpg" srcset="./assets/img/photos/sh1@2x.jpg 2x" alt="" /></a>
-                        </div>
-                        <div class="" style="margin-left:10px;">
-                            <div class="align-items-center">
-                                <span>We have a different type of Coconut Briquette Charcoal 100% pure charcoal briquettes made from
-                                the shell of coconut fruit and its dried pulp.
-                                Specification Information: Moisture MAX 6% Ash Content MAX 2,4% Volatile Matter MAX 13% Fix Carbon
-                                MIN 85% Calorific Value UP TO 7500 Kcal / kg
-                                Heat Content UP TO 600 C Ignition Time MAX 10 minutes Glowing Time MIN 2 hours Size Cubes : 22 mm x
-                                25 mm Size Hexagonal : 22 mm x 50 mm, 25 mm x
-                                50 mm
-                                </span>
+                        <div class="row">
+                            <div class="d-flex mb-2">
+                                <div class="">
+                                <?php  $imageArray = explode(',', $data->gambar); ?>
+                                    <a href="<?= base_url('product/productDetail/'.$data->idproduct)?>"><img style="max-width: 150px; max-height: 150px;" src="<?= base_url('uploads/'.$imageArray[0]) ?>" srcset="<?= base_url('uploads/'.$imageArray[0]) ?>" alt="" /></a>
+                                </div>
+                                <div class="" style="margin-left:10px;">
+                                    <div class="align-items-center">
+                                        <span><?= $data->despen?></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="d-flex justify-content-between">
-                        <div>
-                            <div class="fs-16 text-ash ">Supplier From Jawa Timur, Malang</div>
-                        </div>
-                        <div >
-                            <div>
-                            <a href="" class="text-blue fs-sm" data-bs-toggle="modal" data-bs-target="#modal-signin"><i class="uil uil-envelope"></i> Inquire now</a>
+                        <div class="row">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <div class="fs-16 text-ash ">Supplier From Jawa Timur, Malang</div>
+                                </div>
+                                <div >
+                                    <div>
+                                    <a href="" class="text-blue fs-sm" data-bs-toggle="modal" data-bs-target="#modal-signin"><i class="uil uil-envelope"></i> Inquire now</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        </div>
                     </div>
-                    </div>
-                    <!-- /.item -->
+                    <?php endforeach;?>
                 </div>
                 <!-- /.row -->
                 </div>
@@ -189,21 +149,22 @@
             <div class="card-body">
                   <div class="classic-view">
                     <article class="post">
-                      <div class="post-content mb-5">
-                      <div class="row g-6 mt-3 mb-10">
-                          <div class="col-md-4">
-                            <figure class="hover-scale rounded cursor-dark"><a  data-glightbox="title: Heading; description: Purus Vulputate Sem Tellus Quam" data-gallery="post"> <img src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" alt="" /></a></figure>
-                          </div>
-                          <!--/column -->
-                          <div class="col-md-4">
-                            <figure class="hover-scale rounded cursor-dark"><a  data-glightbox data-gallery="post"> <img src="<?= base_url() ?>./assets/front/img/produk/briket.jpg" alt="" /></a></figure>
-                          </div>
-                        </div>
-                        <h2 class="h1 mb-4">Cras mattis consectetur purus fermentum</h2>
-                        <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget porta ac consectetur vestibulum.</p>
-                        <p>Donec sed odio dui consectetur adipiscing elit. Etiam adipiscing tincidunt elit, eu convallis felis suscipit ut. Phasellus rhoncus tincidunt auctor. Nullam eu sagittis mauris. Donec non dolor ac elit aliquam tincidunt at at sapien. Aenean tortor libero, condimentum ac laoreet vitae, varius tempor nisi. Duis non arcu vel lectus urna mollis ornare vel eu leo.</p>
-                        <!-- /.row -->
-                      </div>
+                        <?php foreach ($facility as $data) : ?>
+                            <div class="post-content mb-5">
+                                <div class="row g-6 mt-3 mb-10">
+                                <?php  $imageArray = explode(',', $data->gambarFacility);
+                                        foreach ($imageArray as $Image): 
+                                ?>
+                                    <div class="col-md-4">
+                                        <figure class="hover-scale rounded cursor-dark"><img src="<?= base_url('uploads/'.$Image)?>" alt="" /></figure>
+                                    </div>
+                                <?php endforeach; ?>
+                                </div>
+                                    <h2 class="h1 mb-4"><?= $data->namaFacility?></h2>
+                                    <p><?= $data->deskripsiFacility?></p>
+                                    
+                            </div>
+                        <?php endforeach;?>
                       <!-- /.post-content -->
                     </article>
                     <!-- /.post -->

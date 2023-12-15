@@ -28,13 +28,13 @@ class M_SubkategoriB extends CI_Model {
     }
 
     function updateSubKategori($id,$data) {
-        $this->db->where('idsubkategori_a', $id);
-        $this->db->update('subkategori_a',$data);
+        $this->db->where('idsubkategori_b', $id);
+        $this->db->update('subkategori_b',$data);
     }
 
     function deleteSubKategori($id){
-        $this->db->where('idsubkategori_a', $id);
-        $this->db->delete('subkategori_a');
+        $this->db->where('idsubkategori_b', $id);
+        $this->db->delete('subkategori_b');
     }
 
     public function getSubkategoriAOptions($idkategori) {

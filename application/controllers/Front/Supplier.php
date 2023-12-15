@@ -9,13 +9,19 @@ class Supplier extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('M_Kategori');
         $this->load->model('M_Supplier');
         $this->load->model('M_User');
+        $this->load->model('M_Company');
+        $this->load->model('M_Product');
+        $this->load->model('M_Facility');
     }
 
     public function index()
     {
         $data = [
+            'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
+            'supplier' => $this->M_Supplier->getSupplierCategory(),
             'header' => 'componen/header',
             'footer' => 'componen/footer',
         ];
@@ -23,9 +29,13 @@ class Supplier extends CI_Controller {
         return $this->load->view('supplierFind',$data);
     }
 
-    public function viewCompany()
+    public function detailCompany($id)
     {
+
         $data = [
+            'supplier' => $this->M_Company->getWhereJoin($id),
+            'product' => $this->M_Product->getProduct($id),
+            'facility' => $this->M_Facility->getWhereFacility($id),
             'header' => 'componen/header',
             'footer' => 'componen/footer',
         ];
@@ -97,6 +107,28 @@ class Supplier extends CI_Controller {
                     return $this->load->view('regisSupplier',$data);
             }
         }
+    }
+
+    function supplierCategory($id){
+        $data = [
+            'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
+            'supplier' => $this->M_Company->getWhereCategory($id),
+            'header' => 'componen/header',
+            'footer' => 'componen/footer',
+        ];
+        
+        return $this->load->view('supplierFindCategory',$data);
+    }
+
+    function supplierSubCategoryA($id,$idsuba){
+        $data = [
+            'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
+            'supplier' => $this->M_Company->getWhereSubCategoryA($id,$idsuba),
+            'header' => 'componen/header',
+            'footer' => 'componen/footer',
+        ];
+        
+        return $this->load->view('supplierFindCategoryA',$data);
     }
 
 }

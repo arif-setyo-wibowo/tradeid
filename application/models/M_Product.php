@@ -27,14 +27,16 @@ class M_Product extends CI_Model {
     }
     
     function getProduct($id){
-        $this->db->select('*')
+        $this->db->select('*,product.deskripsiPendek AS despen')
                  ->from('product')
-                 ->where('idcompany',$id)
+                 ->where('product.idcompany',$id)
+                 ->join('company', 'company.idcompany = product.idcompany')
                  ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
                  ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
 
         return  $this->db->get()->result();
     }
+
 
     function getWhereProduct($id){
         $this->db->select('*')
@@ -62,22 +64,22 @@ class M_Product extends CI_Model {
 
     function getWhereCategory($id){
         $this->db->select('*')
-        ->from('product')
-        ->where('product.idkategori',$id)    
-        ->join('company', 'company.idcompany = product.idcompany')
-        ->join('kategori', 'kategori.idkategori = product.idkategori');
+                ->from('product')
+                ->where('product.idkategori',$id)    
+                ->join('company', 'company.idcompany = product.idcompany')
+                ->join('kategori', 'kategori.idkategori = product.idkategori');
 
         return  $this->db->get()->result();
     }
 
     function getWhereSubCategoryA($id,$idSuba){
         $this->db->select('*')
-        ->from('product')
-        ->where('product.idkategori',$id)    
-        ->where('product.idsubkategori_a',$idSuba)  
-        ->join('company', 'company.idcompany = product.idcompany')
-        ->join('kategori', 'kategori.idkategori = product.idkategori')
-        ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a');
+                    ->from('product')
+                    ->where('product.idkategori',$id)    
+                    ->where('product.idsubkategori_a',$idSuba)  
+                    ->join('company', 'company.idcompany = product.idcompany')
+                    ->join('kategori', 'kategori.idkategori = product.idkategori')
+                    ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a');
 
         return  $this->db->get()->result();
     }

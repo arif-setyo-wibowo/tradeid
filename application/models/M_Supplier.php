@@ -9,6 +9,15 @@ class M_Supplier extends CI_Model {
        return $this->db->get('supplier')->result();
     }
 
+    function getSupplierCategory(){ 
+        $this->db->select('*')
+                ->from('company')
+                ->join('kategori', 'kategori.idkategori = company.idkategori')
+                ->join('subkategori_a', 'subkategori_a.idsubkategori_a = company.idsubkategori_a');
+
+        return $this->db->get()->result();
+     }
+
     function insertSupplier($data){
         $this->db->insert('supplier',$data);
     }

@@ -16,31 +16,30 @@ class Facility extends CI_Controller {
     {
         $iduser = $this->session->userdata('iduser');
         $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
+        $companyCek = $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier);
 
-        if ($this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier) == null) {
-            $data = [
-                'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
-                'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
-                'cekdata' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                'header' => 'template/v_header_supplier',
-                'footer' => 'template/v_footer_supplier',
-            ];
-
+        if ($companyCek[0] == null) {
             $this->session->set_flashdata('pesan', 'Complete Your Data Company');
-
-            return $this->load->view('supplier/v_profileCompany',$data);
+            redirect('dashboard/supplier/company');
+            
         }else{
-            $data = [
-                'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
-                'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
-                'facility' => $this->M_Facility->getFacility(),
-                'header' => 'template/v_header_supplier',
-                'footer' => 'template/v_footer_supplier',
-            ];
-            return $this->load->view('supplier/v_facility',$data);
+            if ($companyCek[0]->namaPerusahaan == null || $companyCek[0]->alamat == null || $companyCek[0]->kota == null || $companyCek[0]->gambarCompany == null || $companyCek[0]->idkategori == null || $companyCek[0]->idsubkategori_a == null) {
+                $this->session->set_flashdata('pesan', 'Complete Your Data Company');
+                redirect('dashboard/supplier/company');
+
+            }else{
+                $data = [
+                    'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                    'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                    'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                    'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                    'facility' => $this->M_Facility->getWhereFacility($companyCek[0]->idcompany),
+                    'header' => 'template/v_header_supplier',
+                    'footer' => 'template/v_footer_supplier',
+                ];
+
+                return $this->load->view('supplier/v_facility',$data);
+            }
         }
     }
 
@@ -48,30 +47,28 @@ class Facility extends CI_Controller {
     {
         $iduser = $this->session->userdata('iduser');
         $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
+        $companyCek = $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier);
 
-        if ($this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier) == null) {
-            $data = [
-                'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
-                'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
-                'cekdata' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                'header' => 'template/v_header_supplier',
-                'footer' => 'template/v_footer_supplier',
-            ];
-
+        if ($companyCek[0] == null) {
             $this->session->set_flashdata('pesan', 'Complete Your Data Company');
-
-            return $this->load->view('supplier/v_profileCompany',$data);
-        }else{
+            redirect('dashboard/supplier/company');
             
-            $data = [
-                'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
-                'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                'header' => 'template/v_header_supplier',
-                'footer' => 'template/v_footer_supplier',
-            ];
-            return $this->load->view('supplier/v_facilityForm',$data);
+        }else{
+            if ($companyCek[0]->namaPerusahaan == null || $companyCek[0]->alamat == null || $companyCek[0]->kota == null || $companyCek[0]->gambarCompany == null || $companyCek[0]->idkategori == null || $companyCek[0]->idsubkategori_a == null) {
+                $this->session->set_flashdata('pesan', 'Complete Your Data Company');
+                redirect('dashboard/supplier/company');
+
+            }else{
+            
+                $data = [
+                    'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                    'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                    'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                    'header' => 'template/v_header_supplier',
+                    'footer' => 'template/v_footer_supplier',
+                ];
+                return $this->load->view('supplier/v_facilityForm',$data);
+            }
         }
     }
 

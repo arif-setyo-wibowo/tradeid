@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'home';
-$route['404_override'] = '';
+$route['404_override'] = 'page_404';
 $route['translate_uri_dashes'] = FALSE;
 
 
@@ -68,6 +68,11 @@ $route['product/(:num)/(:num)'] = 'Front/Product/productShopSubCategoryA/$1/$2';
 $route['product/(:num)/(:num)/(:num)'] = 'Front/Product/productShopSubCategoryB/$1/$2/$3';
 $route['product/productDetail/(:num)'] = 'Front/Product/productDetail/$1';
 $route['inquireProduct/(:num)'] = 'Front/Product/inquireProduct/$1';
+
+//Front Suppplier
+$route['supplier/(:num)'] = 'Front/Supplier/supplierCategory/$1';
+$route['supplier/(:num)/(:num)'] = 'Front/Supplier/supplierSubCategoryA/$1/$2';
+$route['supplier/detail/(:num)'] = 'Front/Supplier/detailCompany/$1';
 
 $route['premium'] = 'Front/Premium';
 $route['checkout'] = 'Front/Premium/checkout';
