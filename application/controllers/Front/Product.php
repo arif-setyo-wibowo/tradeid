@@ -14,19 +14,30 @@ class Product extends CI_Controller {
         $this->load->model('M_User');
     }
     
-    public function index()
-    {
+    public function index() {
+        $this->load->library('pagination');
+    
+        $config["base_url"] = site_url('product/index'); 
+        $config["total_rows"] = $this->M_Product->countProduct('product');
+        $config["per_page"] = 5; 
+        $config["uri_segment"] = 3;
+    
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+    
         $iduser = $this->session->userdata('iduser');
         $data = [
             'userHeader' => $this->M_User->get_where($iduser),
             'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
-            'product' => $this->M_Product->getAllProduct(),
+            'product' => $this->M_Product->getProductALL($config["per_page"], $page),
             'header' => 'componen/header',
             'footer' => 'componen/footer',
         ];
-        
-        return $this->load->view('productShop',$data);
+        $data['pagination'] = $this->pagination->create_links();
+        $this->load->view('productShop', $data);
     }
+    
+    
 
     public function productDetail($id)
     {   

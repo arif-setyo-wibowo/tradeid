@@ -11,15 +11,18 @@ class M_Product extends CI_Model {
         $this->db->where('idcompany', $idcompany);
         return $this->db->count_all_results();
     }
+
+
     
-    function getAllProduct(){
+    function getAllProduct() {
         $this->db->select('*')
                  ->from('product')
                  ->join('company', 'product.idcompany = company.idcompany');
-
-        return  $this->db->get()->result();
+                 
     
+        return $this->db->get()->result();
     }
+    
 
     function getWhereIdSupplier($id){
         $query = $this->db->get_where('company', array('idsupplier' => $id));
@@ -51,13 +54,14 @@ class M_Product extends CI_Model {
     }
 
 
-    function getProductAll(){
+    function getProductAll($limit, $start){
         $this->db->select('*')
                  ->from('product')
                  ->join('company', 'company.idcompany = product.idcompany')
                  ->join('kategori', 'kategori.idkategori = product.idkategori')
                  ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
-                 ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
+                 ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b')
+                 ->limit($limit, $start);
         
          return  $this->db->get()->result();
     }

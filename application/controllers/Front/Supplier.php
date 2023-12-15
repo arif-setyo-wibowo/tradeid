@@ -19,6 +19,8 @@ class Supplier extends CI_Controller {
 
     public function index()
     {
+
+        
         $iduser = $this->session->userdata('iduser');
         $data = [
             'userHeader' => $this->M_User->get_where($iduser),
