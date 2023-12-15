@@ -44,7 +44,7 @@
                                     <td class="d-nonea d-sm-table-cell text-center">
                                         <div class="btn-group">
                                         <?php if($data->verify == 1):?>
-                                            <button type="button" class="btn btn-alt-danger"  title="Tidak Diterima">
+                                            <button type="button" class="btn btn-sm btn-alt-danger"  title="Tidak Diterima">
                                                 Tidak Diterima
                                             </button>
                                         <?php elseif($data->verify == 2):?>

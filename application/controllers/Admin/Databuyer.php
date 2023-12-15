@@ -27,6 +27,15 @@ class Databuyer extends CI_Controller {
         return $this->load->view('admin/v_databuyer',$data);
     }
 
+    public function detail()
+    {
+        $data = [
+            'header' => 'template/v_header_admin',
+            'footer' => 'template/v_footer_admin',
+        ];
+        return $this->load->view('admin/v_detailDataBuyer',$data);
+    }
+
     public function getSubkategoriAOptions() {
         $idkategori = $this->input->post('idkategori');
         $subkategoria_options = $this->M_SubkategoriB->getSubkategoriAOptions($idkategori);
