@@ -1,6 +1,6 @@
 <?php $this->load->view($header); ?>
 <section class="wrapper bg-gradient-primary pt-10">
-  <div class="container rounded bg-white pt-10 px-md-10 pb-10 pt-md-5 pb-md-15 ">
+  <div class="container rounded bg-white pt-10 px-md-10 pb-10 pt-md-5 pb-md-15 mb-3 ">
     <div class="author-info d-md-flex align-items-center mb-3">
       <div class="d-flex align-items-center">
         <figure class="user-avatar"><img class="rounded-circle" alt="" src="<?= base_url()?>./assets/front/img/avatars/te1.jpg" /></figure>

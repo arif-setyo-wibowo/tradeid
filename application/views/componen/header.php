@@ -128,6 +128,7 @@
                     <li class="nav-item"><a class="dropdown-item" href="<?= base_url() ?>dashboard/supplier">Dashboard</a></li>
                     <li class="nav-item"><a class="dropdown-item" href="<?= base_url() ?>premium">Get Premium</a></li>
                     <li class="nav-item"><a class="dropdown-item" href="<?= base_url() ?>forum">Forum</a></li>
+                    <li class="nav-item"><a class="dropdown-item" href="<?= base_url() ?>dataBuyer">Data Buyer</a></li>
                     <!-- Else -->
                     <li class="nav-item"><a class="dropdown-item" href="<?= base_url() ?>profil">Profile</a></li>
                     <li class="nav-item"><a class="dropdown-item" href="<?= base_url() ?>logout">Logout</a></li>

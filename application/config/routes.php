@@ -58,6 +58,8 @@ $route['translate_uri_dashes'] = FALSE;
 //Front 
 $route['profil'] = 'Front/User';
 $route['forum'] = 'Front/Forum';
+$route['dataBuyer'] = 'Front/buyer';
+$route['detail/demain'] = 'Front/buyer/detail';
 $route['forum/post'] = 'Front/Forum/detailPosting';
 $route['product'] = 'Front/Product';
 $route['supplier'] = 'Front/Supplier';
