@@ -126,6 +126,9 @@ $route['admin/login'] = 'Admin/Admin/loginadmin';
 //identitas
 $route['admin/identitas'] ='Admin/Identitas';
 
+//premium
+$route['admin/premium'] ='Admin/Premium';
+
 //perusahaan
 $route['admin/perusahaan'] ='Admin/Perusahaan';
 $route['admin/detailPerusahaan/(:any)'] ='Admin/Perusahaan/detail/$1';
@@ -167,6 +170,7 @@ $route['admin/subkategoriB/updatesubkategoriB'] = 'Admin/SubKategoriB/update';
 
 //data buyer
 $route['admin/databuyer'] = 'Admin/Databuyer';
+$route['admin/databuyer/detail'] = 'Admin/Databuyer/detail';
 $route['admin/databuyer/tambahdatabuyer'] = 'Admin/Databuyer/store';
 $route['admin/databuyer/deletedatabuyer/(:any)'] = 'Admin/Databuyer/delete/$1';
 $route['admin/databuyer/updatedatabuyer/(:any)'] = 'Admin/Databuyer/edit/$1';

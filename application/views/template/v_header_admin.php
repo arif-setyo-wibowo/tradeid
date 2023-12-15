@@ -246,6 +246,11 @@
                       <span class="nav-main-link-name ">Data Buyer</span>
                     </a>
                   </li>
+                  <li class="nav-main-item ">
+                    <a class="nav-main-link active" href="<?= base_url('admin/premium')?>">
+                      <span class="nav-main-link-name ">Premium</span>
+                    </a>
+                  </li>
                   </li>
                 </ul>
               </li>

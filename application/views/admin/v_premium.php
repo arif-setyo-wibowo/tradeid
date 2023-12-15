@@ -10,7 +10,7 @@
             <button type="button" class="nav-link active" id="search-projects-tab" data-bs-toggle="tab" data-bs-target="#search-projects" role="tab" aria-controls="search-projects" aria-selected="true">Data</button>
             </li>
             <li class="nav-item">
-            <button type="button" class="nav-link" id="search-users-tab" data-bs-toggle="tab" data-bs-target="#search-users" role="tab" aria-controls="search-users" aria-selected="false">Tambah Data Demain</button>
+            <button type="button" class="nav-link" id="search-users-tab" data-bs-toggle="tab" data-bs-target="#search-users" role="tab" aria-controls="search-users" aria-selected="false">Tambah Data Premium</button>
             </li>
         </ul>
         <div class="block-content tab-content overflow-hidden">
@@ -23,29 +23,23 @@
                     <table class="table table-bordered table-striped table-vcenter js-dataTable-buttons">
                         <thead>
                             <tr>
-                                <th class="text-center" style="width: 80px;">ID</th>
-                                <th>Nama Buyer</th>
-                                <th>Negara</th>
-                                <th>Produk</th>
-                                <th>Kategori</th>
+                                <th class="text-center" style="width: 80px;">No</th>
+                                <th>Premium</th>
+                                <th>Harga</th>
+                                <th>Waktu</th>
                                 <th class="d-none d-sm-table-cell text-center" style="width: 15%;">Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            
                             <tr>
                                 <td class="text-center fs-sm"></td>
-                                <td class="text-center fs-sm"></td>
-                                <td class="text-center fs-sm"></td>
-                                <td class="text-center fs-sm"></td>
-                                <td class="text-center fs-sm"></td>
+                                <td class="fw-semibold fs-sm"></td>
+                                <td class="fw-semibold fs-sm"></td>
+                                <td class="fw-semibold fs-sm"></td>
                                 <td class="d-nonea d-sm-table-cell text-center">
                                     <div class="btn-group">
-                                    <a class="m-1" href="<?= base_url('admin/databuyer/detail')?>">
-                                        <button type="button" class="btn btn-sm btn-alt-secondary" data-bs-toggle="tooltip" title="detail">
-                                            <i class="fa fa-eye"></i>
-                                        </button>
-                                    </a>
-                                    <a class="m-1" href="">
+                                    <a class="m-1"  href="">
                                         <button type="button" class="btn btn-sm btn-alt-secondary" data-bs-toggle="tooltip" title="Edit">
                                             <i class="fa fa-pencil-alt"></i>
                                         </button>
@@ -58,6 +52,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            
                         </tbody>
                     </table>
                 </div>
@@ -79,53 +74,16 @@
                         <!-- Form Labels on top - Default Style -->
                         <form action="<?= base_url('admin/subkategoriB/tambahsubkategoriB')?>" method="POST">
                             <div class="mb-4">
-                                <label class="form-label">Nama Buyer</label>
-                                <input type="text" class="form-control" id="namabuyer" name="namabuyer" placeholder="Nama buyer">
+                                <label class="form-label">Premium</label>
+                                <input type="text" class="form-control" id="premium" name="premium" placeholder="Preimum">
                             </div>
                             <div class="mb-4">
-                                <label class="form-label">Email Buyer</label>
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                                <label class="form-label">Harga</label>
+                                <input type="number" class="form-control" id="harga" name="harga" placeholder="harga layanan">
                             </div>
                             <div class="mb-4">
-                                <label class="form-label">Alamat</label>
-                                <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat">
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label">Negara</label>
-                                <input type="text" class="form-control" id="negara" name="negara" placeholder="Negara">
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label">Telepon</label>
-                                <input type="text" class="form-control" id="no_telp" name="no_telp" placeholder="Telepon">
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label">Produk</label>
-                                <input type="text" class="form-control" id="produk" name="produk" placeholder="Nama Produk">
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label">Deskripsi Permintaan</label>
-                                <Textarea type="text" class="form-control" id="deskripsiPermintaan" name="deskripsiPermintaan" placeholder="Deskripsi Permintaan">
-                                </Textarea>
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label">Nama Kategori</label>
-                                <select class="js-select2 form-select" id="idkategori" name="namaKategori" style="width: 100%;" data-placeholder="Pilih Kategori" required>
-                                <option disable value=""></option>
-                                </select>
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label">Nama Sub Kategori A</label>
-                                <select class="js-select2 form-select" id="idsubkategoria" name="namasubkategori_a" style="width: 100%;" data-placeholder="Pilih Kategori" required>
-                                <option disable value=""></option>
-                                    <option value=""></option>
-                                </select>
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label">Nama Sub Kategori b</label>
-                                <select class="js-select2 form-select" id="idsubkategorib" name="namasubkategori_b" style="width: 100%;" data-placeholder="Pilih Kategori" required>
-                                <option disable value=""></option>
-                                    <option value=""></option>
-                                </select>
+                                <label class="form-label">Waktu</label>
+                                <input type="number" class="form-control" id="waktu" name="waktu" placeholder="waktu (bulan)">
                             </div>
                             <div class="mb-4">
                                 <button type="submit" class="btn btn-alt-primary">Submit</button>
