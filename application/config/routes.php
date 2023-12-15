@@ -126,6 +126,9 @@ $route['admin/login'] = 'Admin/Admin/loginadmin';
 //identitas
 $route['admin/identitas'] ='Admin/Identitas';
 
+//premium
+$route['admin/premium'] ='Admin/Premium';
+
 //perusahaan
 $route['admin/perusahaan'] ='Admin/Perusahaan';
 $route['admin/detailPerusahaan/(:any)'] ='Admin/Perusahaan/detail/$1';
