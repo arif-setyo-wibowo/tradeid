@@ -32,7 +32,7 @@
             
         </span>
     </div>
-    <div class="container py ">
+    <div class="container py mb-3">
         <ul class="nav nav-tabs nav-tabs-basic ">
             <li class="nav-item">
                 <a class="nav-link active" data-bs-toggle="tab" href="#tab1-1">Our Company</a>

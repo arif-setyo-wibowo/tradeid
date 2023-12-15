@@ -43,7 +43,7 @@
           <?php foreach($supplier as $data) : ?>
             <div class=" item col-md-6 col col-xl-4  p-3  rounded" style="margin-bottom:-30px;">
               <div class="card">
-                    <div class="card-body text-center">
+                    <div class="card-body text-center" style="min-height:400px;">
                       <img class="rounded-circle w-15 mb-4" src="<?= base_url('uploads/'.$data->gambarCompany)?>" srcset="<?= base_url()?>./assets/front/img/avatars/te1@2x.jpg 2x" alt="" />
                       <h4 class="mb-1"><a href="<?= base_url('supplier/detail/'.$data->idcompany)?>" class="link-dark"><?= $data->namaPerusahaan?></a></h4>
                       <div class="meta mb-2"><a href=""><a href="" class="text-blue">Supplier Of <?= $data->namaSubKategori?> </a></div>
