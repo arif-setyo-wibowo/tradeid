@@ -31,20 +31,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                        <?php $no=1; foreach ($premium as $data) :?>
                             <tr>
-                                <td class="text-center fs-sm"></td>
-                                <td class="fw-semibold fs-sm"></td>
-                                <td class="fw-semibold fs-sm"></td>
-                                <td class="fw-semibold fs-sm"></td>
+                                <td class="text-center fs-sm"><?= $no++;?></td>
+                                <td class="fw-semibold fs-sm"><?= $data->namaPremium?></td>
+                                <td class="fw-semibold fs-sm"><?= $data->hargaPremium?></td>
+                                <td class="fw-semibold fs-sm"><?= $data->waktuPremium?></td>
                                 <td class="d-nonea d-sm-table-cell text-center">
                                     <div class="btn-group">
-                                    <a class="m-1"  href="">
+                                    <a class="m-1"  href="<?= base_url('admin/premium/updatePremium/'.$data->idpremium)?>">
                                         <button type="button" class="btn btn-sm btn-alt-secondary" data-bs-toggle="tooltip" title="Edit">
                                             <i class="fa fa-pencil-alt"></i>
                                         </button>
                                     </a>
-                                    <a class="m-1" href="">
+                                    <a class="m-1" href="<?= base_url('admin/premium/deletePremium/'.$data->idpremium)?>">
                                         <button type="button" class="btn btn-sm btn-alt-secondary" data-bs-toggle="tooltip" title="Delete">
                                             <i class="fa fa-times"></i>
                                         </button>
@@ -52,7 +52,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            
+                        <?php endforeach; ?> 
                         </tbody>
                     </table>
                 </div>
@@ -72,18 +72,18 @@
                     </div>
                     <div class="col-lg-7 space-y-5">
                         <!-- Form Labels on top - Default Style -->
-                        <form action="<?= base_url('admin/subkategoriB/tambahsubkategoriB')?>" method="POST">
+                        <form action="<?= base_url('admin/premium/tambahPremium')?>" method="POST">
                             <div class="mb-4">
                                 <label class="form-label">Premium</label>
-                                <input type="text" class="form-control" id="premium" name="premium" placeholder="Preimum">
+                                <input type="text" class="form-control" id="premium" name="namaPremium" placeholder="Preimum">
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Harga</label>
-                                <input type="number" class="form-control" id="harga" name="harga" placeholder="harga layanan">
+                                <input type="number" class="form-control" id="harga" name="hargaPremium" placeholder="harga layanan">
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Waktu</label>
-                                <input type="number" class="form-control" id="waktu" name="waktu" placeholder="waktu (bulan)">
+                                <input type="text" class="form-control" id="waktu" name="waktuPremium" placeholder="waktu (bulan)">
                             </div>
                             <div class="mb-4">
                                 <button type="submit" class="btn btn-alt-primary">Submit</button>

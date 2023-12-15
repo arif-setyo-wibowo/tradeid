@@ -16,7 +16,9 @@ class Product extends CI_Controller {
     
     public function index()
     {
+        $iduser = $this->session->userdata('iduser');
         $data = [
+            'userHeader' => $this->M_User->get_where($iduser),
             'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
             'product' => $this->M_Product->getAllProduct(),
             'header' => 'componen/header',
@@ -30,6 +32,7 @@ class Product extends CI_Controller {
     {   
         $iduser = $this->session->userdata('iduser');
         $data = [
+            'userHeader' => $this->M_User->get_where($iduser),
             'user' => $this->M_User->get_where($iduser),
             'product' => $this->M_Product->getWhereProduct($id),
             'header' => 'componen/header',
@@ -66,17 +69,12 @@ class Product extends CI_Controller {
         
     }
 
-    public function productForm()
-    {
-        $data = [
-            'header' => 'template/v_header_supplier',
-            'footer' => 'template/v_footer_supplier',
-        ];
-        return $this->load->view('supplier/v_productForm',$data);
-    }
 
     function productShopCategory($id){
+        
+        $iduser = $this->session->userdata('iduser');
         $data = [
+            'userHeader' => $this->M_User->get_where($iduser),
             'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
             'product' => $this->M_Product->getWhereCategory($id),
             'header' => 'componen/header',
@@ -87,8 +85,10 @@ class Product extends CI_Controller {
     }
 
     function productShopSubCategoryA($id,$idsuba){
+        
         $iduser = $this->session->userdata('iduser');
         $data = [
+            'userHeader' => $this->M_User->get_where($iduser),
             'user' => $this->M_User->get_where($iduser),
             'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
             'product' => $this->M_Product->getWhereSubCategoryA($id,$idsuba),
@@ -100,8 +100,10 @@ class Product extends CI_Controller {
     }
 
     function productShopSubCategoryB($id,$idsuba,$idsubb){
+        
         $iduser = $this->session->userdata('iduser');
         $data = [
+            'userHeader' => $this->M_User->get_where($iduser),
             'user' => $this->M_User->get_where($iduser),
             'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
             'product' => $this->M_Product->getWhereSubCategoryB($id,$idsuba,$idsubb),
