@@ -5,6 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Company extends CI_Model {
 
+    public function countAllData() {
+        return $this->db->count_all('company');
+    }
     function getCompany(){
        return $this->db->get('company')->result();
     }

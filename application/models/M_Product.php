@@ -5,13 +5,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Product extends CI_Model {
 
+    public function countAllData() {
+        return $this->db->count_all('product');
+    }
 
     function countProduct($idcompany){
         $this->db->from('product');
         $this->db->where('idcompany', $idcompany);
         return $this->db->count_all_results();
     }
-
 
     
     function getAllProduct() {

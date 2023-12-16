@@ -281,6 +281,11 @@
                   <span class="nav-main-link-name">Products</span>
                 </a>
               </li>
+              <li class="nav-main-item">
+                <a class="nav-main-link" href="<?= base_url('admin/inquire') ?>">
+                  <span class="nav-main-link-name">Inquire</span>
+                </a>
+              </li>
             </ul>
           </div>
           <!-- END Side Navigation -->

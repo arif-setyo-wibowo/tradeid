@@ -5,6 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_SubkategoriB extends CI_Model {
 
+    public function countAllData() {
+        return $this->db->count_all('subkategori_b');
+    }
     function getSubKategori() {
         $this->db->select('*')
                  ->from('subkategori_b')

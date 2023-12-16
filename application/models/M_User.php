@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_User extends CI_Model {
 
+    public function countAllData() {
+        return $this->db->count_all('user');
+    }
     function getUser() {
         return $this->db->get('user')->result();
     }

@@ -136,6 +136,10 @@ $route['admin/identitas'] ='Admin/Identitas';
 //premium
 $route['admin/premium'] ='Admin/Premium';
 
+//inauire
+$route['admin/inquire'] ='Admin/inquire';
+$route['admin/detailInquire/(:any)'] ='Admin/inquire/detail/$1';
+
 //perusahaan
 $route['admin/perusahaan'] ='Admin/Perusahaan';
 $route['admin/detailPerusahaan/(:num)'] ='Admin/Perusahaan/detail/$1';
