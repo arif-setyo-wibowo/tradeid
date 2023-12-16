@@ -35,6 +35,9 @@ class Admin extends CI_Controller {
             'countkategoriA'=> $this->M_SubkategoriA->countAllData(),
             'countkategoriB'=> $this->M_SubkategoriB->countAllData(),
         ];
+        $top_categories = $this->M_Inquire->getTopCategoriesThisMonth();
+        $data['top_categories'] = $top_categories;
+
         $data['kategoriall'] = $data['countkategori']+$data['countkategoriA']+$data['countkategoriB'];
         $data['subkategori'] = $data['countkategoriA']+$data['countkategoriB'];
         return $this->load->view('admin/v_admin',$data);

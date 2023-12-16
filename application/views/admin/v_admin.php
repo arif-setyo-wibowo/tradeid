@@ -15,14 +15,12 @@
             </div>
             <div class="mt-3 mt-md-0 ms-md-3 space-x-1">
                 <a class="btn btn-sm btn-alt-secondary space-x-1" href="be_pages_generic_profile_edit.html">
-                    <i class="fa fa-cogs opacity-50"></i>
-                    <span>Settings</span>
+                    
+                    
                 </a>
                 <div class="dropdown d-inline-block">
                     <button type="button" class="btn btn-sm btn-alt-secondary space-x-1" id="dropdown-analytics-overview" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-fw fa-calendar-alt opacity-50"></i>
-                  <span>All time</span>
-                  <i class="fa fa-fw fa-angle-down"></i>
+                  
                 </button>
                     <div class="dropdown-menu dropdown-menu-end fs-sm" aria-labelledby="dropdown-analytics-overview">
                         <a class="dropdown-item fw-medium" href="javascript:void(0)">Last 30 days</a>
@@ -203,7 +201,7 @@
                 <!-- Lines Chart -->
               <div class="block block-rounded">
                 <div class="block-header block-header-default">
-                  <h3 class="block-title">Lines</h3>
+                  <h3 class="block-title">Total Inquire</h3>
                   <div class="block-options">
                     <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
                       <i class="si si-refresh"></i>
@@ -214,6 +212,26 @@
                   <div class="py-3" style="height: 360px">
                     <!-- Lines Chart Container -->
                     <canvas id="js-chartjs-lines"></canvas>
+                  </div>
+                </div>
+              </div>
+              <!-- END Lines Chart -->
+            </div>
+            <div class="col-xl-8 col-xxl-9 d-flex flex-column">
+                <!-- Lines Chart -->
+              <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                  <h3 class="block-title">Top 7 this Month</h3>
+                  <div class="block-options">
+                    <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                      <i class="si si-refresh"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="block-content block-content-full text-center">
+                  <div class="py-3" style="height: 360px">
+                    <!-- Lines Chart Container -->
+                    <canvas id="topCategoriesChart" ></canvas>
                   </div>
                 </div>
               </div>
@@ -260,10 +278,36 @@
                 maintainAspectRatio: false
             }
         });
+         // Ambil data dari PHP dan gunakan untuk membuat chart
+    let categories = <?php echo json_encode(array_column($top_categories, 'category')); ?>;
+    let totalInquires = <?php echo json_encode(array_column($top_categories, 'total_inquires')); ?>;
+
+    // Buat data untuk chart
+    let ct = document.getElementById('topCategoriesChart').getContext('2d');
+    let topCategoriesChart = new Chart(ct, {
+        type: 'bar',
+        data: {
+            labels:categories,
+            datasets: [{
+                label: 'Top Categories This Month',
+                data: totalInquires,
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
     });
 </script>
-
-
 
 <script src="<?= base_url()?>assets/admin/js/plugins/chart.js/chart.umd.js"></script>
 

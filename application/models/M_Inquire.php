@@ -19,23 +19,20 @@ class M_Inquire extends CI_Model {
         return $query->result_array();
     }
 
-    public function getTopFiveCategoriesPerMonth() {
-        $query = $this->db->query("
-            SELECT COUNT(i.idinquire) as total, MONTH(i.tgl) as bulan, sa.namaSubKategori
-            FROM inquire i
-            JOIN product p ON i.idproduct = p.idproduct
-            JOIN subkategori_a sa ON p.idsubkategori_a = sa.idsubkategori_a
-            GROUP BY MONTH(i.tgl), sa.namaSubKategori
-            ORDER BY MONTH(i.tgl), total DESC
-            LIMIT 5
-        ");
+    public function getTopCategoriesThisMonth() {
+        $query = $this->db->select('ska.namaSubKategori_b AS category, COUNT(*) AS total_inquires')
+                          ->from('inquire i')
+                          ->join('product p', 'i.idproduct = p.idproduct')
+                          ->join('subkategori_b ska', 'p.idsubkategori_b = ska.idsubkategori_b')
+                          ->where('MONTH(i.tgl)', date('m'))
+                          ->group_by('ska.namaSubKategori_b')
+                          ->order_by('total_inquires', 'DESC')
+                          ->limit(7)
+                          ->get();
+
         return $query->result_array();
     }
 
-    
-    
-    
-    
     
     function getOne($id) {
         $this->db->select('*')

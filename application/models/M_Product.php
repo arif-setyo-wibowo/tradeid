@@ -15,7 +15,6 @@ class M_Product extends CI_Model {
         return $this->db->count_all_results();
     }
 
-
     
     function getAllProduct() {
         $this->db->select('*')

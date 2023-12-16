@@ -17,7 +17,7 @@ class Inquire extends CI_Controller {
     $data = [
         'header' => 'template/v_header_admin',
         'footer' => 'template/v_footer_admin',
-        'top_categories' => $this->M_Inquire->getTopFiveCategoriesPerMonth(),
+        'inquire' => $this->M_Inquire->getAll(),
     ];
 
     return $this->load->view('admin/v_inquire', $data);
