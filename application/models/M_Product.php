@@ -161,17 +161,6 @@ class M_Product extends CI_Model {
         $this->db->where('idproduct', $productId)->where('idcompany',$idcompany)->update('product', $data);
     }
 
-    public function getExistingImages($productId,$idcompany) {
-        $query = $this->db->select('gambar')->where('idproduct', $productId)->where('idcompany',$idcompany)->get('product');
-        $result = $query->row();
-
-        if ($result) {
-            return explode(',', $result->gambar);
-        } else {
-            return array();
-        }
-    }
-
     function deleteProduct($id,$idsupplier){
         $this->db->where('idproduct', $id);
         $this->db->where('idcompany', $idsupplier);

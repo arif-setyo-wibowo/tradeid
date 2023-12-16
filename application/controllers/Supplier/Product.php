@@ -237,8 +237,6 @@ class Product extends CI_Controller {
 
 
             $allImages = array_merge($existingImages, $uploaded_images);
-            $id = $this->input->post('idproduct');
-            $idcompany = $this->input->post('idcompany');
 
             $data = array(
                 'namaProduk' => $this->input->post('product'),
