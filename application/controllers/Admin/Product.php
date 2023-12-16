@@ -15,7 +15,7 @@ class Product extends CI_Controller {
     public function index()
     {
         $data = [
-            'product' => $this->M_Product->getProductAll(),
+            'product' => $this->M_Product->getProductAll(null,null),
             'header' => 'template/v_header_admin',
             'footer' => 'template/v_footer_admin',
         ];

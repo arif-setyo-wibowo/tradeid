@@ -5,6 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Kategori extends CI_Model {
 
+    public function countAllData() {
+        return $this->db->count_all('kategori');
+    }
     function getKategori() {
         return $this->db->get('kategori')->result();
     }
