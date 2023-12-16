@@ -12,7 +12,7 @@
     </div>
     <div class="content text-end content-full  ">
         <a href="<?= base_url('dashboard/supplier/product/editProduct/'.$product[0]->idproduct)?>" class="btn btn-outline-primary mb-2"><i class="fa fa-pen"></i> Edit</a>
-        <a href="" class="btn btn-outline-danger mb-2"><i class="fa fa-trash-can"></i> Delete</a>
+        <a href="<?= base_url('deleteProduct/'.$product[0]->idproduct)?>" class="btn btn-outline-danger mb-2"><i class="fa fa-trash-can"></i> Delete</a>
     </div>
 </div>
 <!-- END Hero Content -->

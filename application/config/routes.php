@@ -110,6 +110,8 @@ $route['dashboard/supplier/product/productForm'] = 'Supplier/Product/productForm
 $route['tambahproduct'] = 'Supplier/Product/store';
 $route['dashboard/supplier/product/productDetail/(:any)'] = 'Supplier/Product/detail/$1';
 $route['dashboard/supplier/product/editProduct/(:any)'] = 'Supplier/Product/edit/$1';
+$route['updateproduct'] = 'Supplier/Product/update';
+$route['deleteProduct/(:num)'] = 'Supplier/Product/delete/$1';
 
 //Supplier Facility
 $route['dashboard/supplier/facility'] = 'Supplier/Facility';

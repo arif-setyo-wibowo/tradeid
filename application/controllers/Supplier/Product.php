@@ -12,6 +12,8 @@ class Product extends CI_Controller {
         $this->load->model('M_Supplier');
         $this->load->model('M_Product');
         $this->load->model('M_Kategori');
+        $this->load->model('M_Company');
+        $this->load->model('M_SubkategoriB');
     }
     
     public function index()
@@ -159,12 +161,15 @@ class Product extends CI_Controller {
                     redirect('dashboard/supplier/company');
     
                 }else{
+                    $product = $this->M_Product->getWhere($id,$company[0]->idcompany);
                     $data = [
                         'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
                         'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
-                        'supplier' => $supplier,
+                        'company' => $companyCek,
                         'product' => $this->M_Product->getWhere($id,$company[0]->idcompany),
                         'kategori' =>  $this->M_Kategori->getKategori(),
+                        'subkategoria' => $this->M_Product->getSubkategoriAOptions( $product[0]->idkategori),
+                        'subkategorib' => $this->M_Product->getSubkategoriBOptions( $product[0]->idsubkategori_a),
                         'header' => 'template/v_header_supplier',
                         'footer' => 'template/v_footer_supplier',
                     ];
@@ -173,6 +178,84 @@ class Product extends CI_Controller {
                 }
             }
         }
+    }
+
+    function update(){
+
+        $id = $this->input->post('idproduct');
+        $idcompany = $this->input->post('idcompany');
+
+        $this->load->library('upload');
+
+        $existingImages = explode(',', $this->input->post('gambar_lama'));
+
+        $removed_images = $this->input->post('remove_images');
+
+        if (!empty($this->input->post('remove_images'))) {
+            $removedImages = $this->input->post('remove_images');
+            foreach ($removedImages as $removedImage) {
+                // Remove the image file from the server
+                $imagePath = FCPATH . 'uploads/' . $removedImage;
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+    
+                // Remove the image from the existing images array
+                $key = array_search($removedImage, $existingImages);
+                if ($key !== false) {
+                    unset($existingImages[$key]);
+                }
+            }
+        }
+        
+        $uploaded_images = array();
+
+        if (!empty($_FILES['gambar']['name'][0])) {
+            foreach ($_FILES['gambar']['name'] as $key => $file_name) {
+
+                $config['upload_path'] = 'uploads/';
+                $config['allowed_types'] = 'gif|jpg|jpeg|png';
+                $config['overwrite']     = FALSE;
+                $config['encrypt_name'] = TRUE;
+
+                $this->upload->initialize($config);
+
+                $_FILES['userfile']['name']     = $_FILES['gambar']['name'][$key];
+                $_FILES['userfile']['type']     = $_FILES['gambar']['type'][$key];
+                $_FILES['userfile']['tmp_name'] = $_FILES['gambar']['tmp_name'][$key];
+                $_FILES['userfile']['error']    = $_FILES['gambar']['error'][$key];
+                $_FILES['userfile']['size']     = $_FILES['gambar']['size'][$key];
+
+                if ($this->upload->do_upload('userfile')) {
+                    $uploaded_images[] = $this->upload->data('file_name');
+                } else {
+                    $this->session->set_flashdata('pesan_e', 'Failed Upload Images');
+                    redirect('dashboard/supplier/product');
+                }
+            }
+        }
+
+
+            $allImages = array_merge($existingImages, $uploaded_images);
+            $id = $this->input->post('idproduct');
+            $idcompany = $this->input->post('idcompany');
+
+            $data = array(
+                'namaProduk' => $this->input->post('product'),
+                'idcompany' => $this->input->post('idcompany'),
+                'idkategori' => $this->input->post('kategori'),
+                'idsubkategori_a' => $this->input->post('subkategori_a'),
+                'idsubkategori_b' => $this->input->post('subkategori_b'),
+                'deskripsiProduk' => $this->input->post('despan'),
+                'deskripsiPendek' => $this->input->post('despen'),
+                'harga' => $this->input->post('harga'),
+                'gambar' => implode(',', $allImages)
+            );
+        
+            $this->M_Product->updateProduct($id,$data,$idcompany);
+
+            $this->session->set_flashdata('pesan', 'Succesfully Update Product');
+            redirect('dashboard/supplier/product');
     }
 
     public function productForm()
@@ -208,32 +291,30 @@ class Product extends CI_Controller {
 
     function delete($id){
         $iduser = $this->session->userdata('iduser');
-        $user = $this->M_User->get_where($iduser);
         $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
-        $data =  $this->M_Product->getWhere($id,$supplier[0]->idsupplier);
+        $company = $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier);
+
+        $data =  $this->M_Product->getWhere($id,$company[0]->idcompany);
 
         if ($data) {
             // Delete product record from the database
-            $this->product_model->delete_product($id);
+            $this->M_Product->deleteProduct($id,$company[0]->idcompany);
     
-            // Delete associated files
-            $file_paths = explode(',', $data->gambar);
+            $file_paths = explode(',', $data[0]->gambar);
             foreach ($file_paths as $file_path) {
                 $full_path = FCPATH . 'uploads/' . $file_path;
                 if (file_exists($full_path)) {
                     unlink($full_path); 
                 }
             }
-            $this->M_Film->deleteFilm($id, $supplier[0]->idsupplier);
             
-            $this->session->set_flashdata('pesan', 'Delete Image Successfully');
+            $this->session->set_flashdata('pesan', 'Delete Data Successfully');
             redirect('dashboard/supplier/product');
         } else {
             $this->session->set_flashdata('pesan_e', 'Product not found');
             redirect('dashboard/supplier/product');
         }
 
-		redirect('film');
     }
 
     public function getKategoriOptions() {
@@ -243,9 +324,10 @@ class Product extends CI_Controller {
 
     public function getSubkategoriAOptions() {
         $idkategori = $this->input->post('idkategori');
-        $subkategoriAOptions = $this->M_Product->getSubkategoriAOptions($idkategori);
-        echo json_encode($subkategoriAOptions);
+        $subkategoria_options = $this->M_Product->getSubkategoriAOptions($idkategori);
+        echo json_encode($subkategoria_options);
     }
+
 
     public function getSubkategoriBOptions() {
         $idsubkategoria = $this->input->post('idsubkategoria');
