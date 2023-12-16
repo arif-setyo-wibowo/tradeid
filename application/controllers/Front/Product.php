@@ -29,7 +29,7 @@ class Product extends CI_Controller {
         $data = [
             'userHeader' => $this->M_User->get_where($iduser),
             'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
-            'product' => $this->M_Product->getProductALL($config["per_page"], $page),
+            'product' => $this->M_Product->getProductAll($config["per_page"], $page),
             'header' => 'componen/header',
             'footer' => 'componen/footer',
         ];

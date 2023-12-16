@@ -108,14 +108,18 @@ $route['updatesosmed'] = 'Supplier/Company/update_sosmed';
 $route['dashboard/supplier/product'] = 'Supplier/Product';
 $route['dashboard/supplier/product/productForm'] = 'Supplier/Product/productForm';
 $route['tambahproduct'] = 'Supplier/Product/store';
-$route['dashboard/supplier/product/productDetail/(:any)'] = 'Supplier/Product/detail/$1';
-$route['dashboard/supplier/product/editProduct/(:any)'] = 'Supplier/Product/edit/$1';
+$route['dashboard/supplier/product/productDetail/(:num)'] = 'Supplier/Product/detail/$1';
+$route['dashboard/supplier/product/editProduct/(:num)'] = 'Supplier/Product/edit/$1';
+$route['updateproduct'] = 'Supplier/Product/update';
+$route['deleteProduct/(:num)'] = 'Supplier/Product/delete/$1';
 
 //Supplier Facility
 $route['dashboard/supplier/facility'] = 'Supplier/Facility';
 $route['dashboard/supplier/facilityForm'] = 'Supplier/Facility/add';
 $route['tambahFacility'] = 'Supplier/Facility/store';
-
+$route['dashboard/supplier/facility/editFacility/(:num)'] = 'Supplier/Facility/edit/$1';
+$route['updateFacility'] = 'Supplier/Facility/update';
+$route['deleteFacility/(:num)'] = 'Supplier/Facility/delete/$1';
 
 //Profil
 $route['editprofil'] = '/Front/user/editProfile';
@@ -138,54 +142,54 @@ $route['admin/detailInquire/(:any)'] ='Admin/inquire/detail/$1';
 
 //perusahaan
 $route['admin/perusahaan'] ='Admin/Perusahaan';
-$route['admin/detailPerusahaan/(:any)'] ='Admin/Perusahaan/detail/$1';
+$route['admin/detailPerusahaan/(:num)'] ='Admin/Perusahaan/detail/$1';
 
 //product admin
 $route['admin/product'] ='Admin/Product';
-$route['admin/detailProduct/(:any)'] ='Admin/Product/detail/$1';
+$route['admin/detailProduct/(:num)'] ='Admin/Product/detail/$1';
 
 //pembelian
 $route['admin/pembelian'] ='Admin/Pembelian';
 
 //cek Supplier
 $route['admin/supplier'] = 'Admin/Admin/registrasiSupplier';
-$route['admin/supplier/(:any)'] = 'Admin/Admin/regisdetail/$1';
-$route['admin/supplier/update/(:any)/(:any)'] = 'Admin/Admin/verify/$1/$2';
-$route['admin/supplier/update_d/(:any)/(:any)'] = 'Admin/Admin/verify_d/$1/$2';
+$route['admin/supplier/(:num)'] = 'Admin/Admin/regisdetail/$1';
+$route['admin/supplier/update/(:num)/(:num)'] = 'Admin/Admin/verify/$1/$2';
+$route['admin/supplier/update_d/(:num)/(:num)'] = 'Admin/Admin/verify_d/$1/$2';
 
 
 //kategori
 $route['admin/kategori'] = 'Admin/Kategori';
 $route['admin/kategori/tambahkategori'] = 'Admin/Kategori/store';
-$route['admin/kategori/deleteKategori/(:any)'] = 'Admin/Kategori/delete/$1';
-$route['admin/kategori/updateKategori/(:any)'] = 'Admin/Kategori/edit/$1';
+$route['admin/kategori/deleteKategori/(:num)'] = 'Admin/Kategori/delete/$1';
+$route['admin/kategori/updateKategori/(:num)'] = 'Admin/Kategori/edit/$1';
 $route['admin/kategori/update'] = 'Admin/Kategori/update';
 
 //subkategori A
 $route['admin/subkategoriA'] = 'Admin/SubKategoriA';
 $route['admin/subkategoriA/tambahsubkategoriA'] = 'Admin/SubKategoriA/store';
-$route['admin/subkategoriA/deletesubkategoriA/(:any)'] = 'Admin/SubKategoriA/delete/$1';
-$route['admin/subkategoriA/updatesubkategoriA/(:any)'] = 'Admin/SubKategoriA/edit/$1';
+$route['admin/subkategoriA/deletesubkategoriA/(:num)'] = 'Admin/SubKategoriA/delete/$1';
+$route['admin/subkategoriA/updatesubkategoriA/(:num)'] = 'Admin/SubKategoriA/edit/$1';
 $route['admin/subkategoriA/updatesubkategoriA'] = 'Admin/SubKategoriA/update';
 
 //subkategori B
 $route['admin/subkategoriB'] = 'Admin/SubKategoriB';
 $route['admin/subkategoriB/tambahsubkategoriB'] = 'Admin/SubKategoriB/store';
-$route['admin/subkategoriB/deletesubkategoriB/(:any)'] = 'Admin/SubKategoriB/delete/$1';
-$route['admin/subkategoriB/updatesubkategoriB/(:any)'] = 'Admin/SubKategoriB/edit/$1';
+$route['admin/subkategoriB/deletesubkategoriB/(:num)'] = 'Admin/SubKategoriB/delete/$1';
+$route['admin/subkategoriB/updatesubkategoriB/(:num)'] = 'Admin/SubKategoriB/edit/$1';
 $route['admin/subkategoriB/updatesubkategoriB'] = 'Admin/SubKategoriB/update';
 
 //data buyer
 $route['admin/databuyer'] = 'Admin/Databuyer';
 $route['admin/databuyer/detail'] = 'Admin/Databuyer/detail';
 $route['admin/databuyer/tambahdatabuyer'] = 'Admin/Databuyer/store';
-$route['admin/databuyer/deletedatabuyer/(:any)'] = 'Admin/Databuyer/delete/$1';
-$route['admin/databuyer/updatedatabuyer/(:any)'] = 'Admin/Databuyer/edit/$1';
+$route['admin/databuyer/deletedatabuyer/(:num)'] = 'Admin/Databuyer/delete/$1';
+$route['admin/databuyer/updatedatabuyer/(:num)'] = 'Admin/Databuyer/edit/$1';
 $route['admin/databuyer/update'] = 'Admin/Databuyer/update';
 
 //Premium
 $route['admin/premium'] = 'Admin/Premium';
 $route['admin/premium/tambahPremium'] = 'Admin/Premium/store';
-$route['admin/premium/deletePremium/(:any)'] = 'Admin/Premium/delete/$1';
-$route['admin/premium/updatePremium/(:any)'] = 'Admin/Premium/edit/$1';
+$route['admin/premium/deletePremium/(:num)'] = 'Admin/Premium/delete/$1';
+$route['admin/premium/updatePremium/(:num)'] = 'Admin/Premium/edit/$1';
 $route['admin/premium/update'] = 'Admin/Premium/update';

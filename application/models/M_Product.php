@@ -20,8 +20,10 @@ class M_Product extends CI_Model {
     function getAllProduct() {
         $this->db->select('*')
                  ->from('product')
-                 ->join('company', 'product.idcompany = company.idcompany');
-                 
+                 ->join('company', 'product.idcompany = company.idcompany')
+                 ->join('kategori', 'kategori.idkategori = product.idkategori')
+                 ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
+                 ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
     
         return $this->db->get()->result();
     }
@@ -112,7 +114,7 @@ class M_Product extends CI_Model {
                 ->from('product')
                 ->where('idproduct',$id)    
                 ->join('company', 'company.idcompany = product.idcompany')
-                ->join('kategori', 'kategori.idKategori = product.idkategori')
+                ->join('kategori', 'kategori.idkategori = product.idkategori')
                 ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
                 ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
 
@@ -124,6 +126,7 @@ class M_Product extends CI_Model {
                 ->from('product')
                 ->where('idproduct',$id)
                 ->where('idcompany', $idsup)
+                ->join('kategori', 'kategori.idkategori = product.idkategori')
                 ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
                 ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
                         
@@ -157,11 +160,14 @@ class M_Product extends CI_Model {
         $this->db->insert('product',$data);
     }
 
+    public function updateProduct($productId, $data,$idcompany) {
+        $this->db->where('idproduct', $productId)->where('idcompany',$idcompany)->update('product', $data);
+    }
 
     function deleteProduct($id,$idsupplier){
         $this->db->where('idproduct', $id);
         $this->db->where('idcompany', $idsupplier);
-        $this->db->delete('arif_film');
+        $this->db->delete('product');
     }
 
 }

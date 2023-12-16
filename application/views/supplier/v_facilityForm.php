@@ -61,7 +61,7 @@
                     <div class="block-content">
                         <div class="d-flex justify-between mb-3 gap-3">
                           <a href="<?= base_url()?>dashboard/supplier/facility" class="btn bg-gray-light ">cancel</a>
-                          <button type="submit"  class="btn bg-amethyst text-white ">Add product</button>
+                          <button type="submit"  class="btn bg-amethyst text-white ">Add Facility</button>
                         </div>
                     </div>
                   </div>

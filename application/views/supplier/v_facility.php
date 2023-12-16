@@ -21,8 +21,6 @@
               <div class="col-sm-8">
                 <!-- Story -->
                 <article class="story">
-                
-              
                 <?php foreach ($facility as $data) : ?>
                   <div class="row g-sm items-push js-gallery push img-fluid-100">
                   <?php  $imageArray = explode(',', $data->gambarFacility);
@@ -38,15 +36,14 @@
                   <!-- END Gallery -->
                   <div class="d-flex gap-2">
                     <h3 class="fw-bold my-auto"><?= $data->namaFacility?> </h3>
-                    <a href="<?= base_url('dashboard/supplier/edit/'.$data->idfacility)?>" class=" my-auto "><i  class="far fa-edit"></i></a>
+                    <a href="<?= base_url('dashboard/supplier/facility/editFacility/'.$data->idfacility)?>" class=" my-auto "><i  class="far fa-edit"></i></a>
+                    <a href="<?= base_url('deleteFacility/'.$data->idfacility)?>" class=" my-auto "><i  class="fa fa-trash-can"></i></a>
                   </div>
                   <p><?= $data->deskripsiFacility?></p>               
                 
                 <?php endforeach;?>
                 </article>
                 <!-- END Story -->
-
-                
               </div>
             </div>
           </div>
