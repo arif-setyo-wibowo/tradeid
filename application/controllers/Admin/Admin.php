@@ -38,6 +38,9 @@ class Admin extends CI_Controller {
         $top_categories = $this->M_Inquire->getTopCategoriesThisMonth();
         $data['top_categories'] = $top_categories;
 
+        $top_negara = $this->M_Inquire->getTopInquiredCategoriesAndCountries();
+        $data['top_negara'] = $top_negara;
+
         $data['kategoriall'] = $data['countkategori']+$data['countkategoriA']+$data['countkategoriB'];
         $data['subkategori'] = $data['countkategoriA']+$data['countkategoriB'];
         return $this->load->view('admin/v_admin',$data);

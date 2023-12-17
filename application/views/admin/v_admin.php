@@ -58,8 +58,8 @@
                         </div>
                     </div>
                     <div class="bg-body-light rounded-bottom">
-                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                            <span>View all orders</span>
+                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="<?= base_url('admin/user')?>">
+                            <span>View all Data</span>
                             <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                         </a>
                     </div>
@@ -79,8 +79,8 @@
                         </div>
                     </div>
                     <div class="bg-body-light rounded-bottom">
-                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                            <span>View all customers</span>
+                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="<?= base_url('admin/premium')?>">
+                            <span>View all Data</span>
                             <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                         </a>
                     </div>
@@ -100,8 +100,8 @@
                         </div>
                     </div>
                     <div class="bg-body-light rounded-bottom">
-                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                            <span>View all messages</span>
+                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="<?= base_url('admin/perusahaan')?>">
+                            <span>View all Data</span>
                             <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                         </a>
                     </div>
@@ -121,8 +121,8 @@
                         </div>
                     </div>
                     <div class="bg-body-light rounded-bottom">
-                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                            <span>View statistics</span>
+                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="<?= base_url('admin/product')?>">
+                            <span>View All Data</span>
                             <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                         </a>
                     </div>
@@ -142,8 +142,8 @@
                         </div>
                     </div>
                     <div class="bg-body-light rounded-bottom">
-                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                            <span>View statistics</span>
+                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="<?= base_url('admin/inquire')?>">
+                            <span>View All Data</span>
                             <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                         </a>
                     </div>
@@ -163,8 +163,8 @@
                         </div>
                     </div>
                     <div class="bg-body-light rounded-bottom">
-                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                            <span>View statistics</span>
+                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="<?= base_url('admin/kategori')?>">
+                            <span>View All Data</span>
                             <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                         </a>
                     </div>
@@ -184,8 +184,8 @@
                         </div>
                     </div>
                     <div class="bg-body-light rounded-bottom">
-                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                            <span>View statistics</span>
+                        <a class="block-content block-content-full block-content-sm fs-sm fw-medium d-flex align-items-center justify-content-between" href="<?= base_url('admin/subkategoriA')?>">
+                            <span>View All Data</span>
                             <i class="fa fa-arrow-alt-circle-right ms-1 opacity-25 fs-base"></i>
                         </a>
                     </div>
@@ -197,7 +197,7 @@
 
         <!-- Statistics -->
         <div class="row">
-            <div class="col-xl-8 col-xxl-9 d-flex flex-column">
+            <div class="col-xl-10 col-xxl-6 d-flex flex-column">
                 <!-- Lines Chart -->
               <div class="block block-rounded">
                 <div class="block-header block-header-default">
@@ -217,7 +217,7 @@
               </div>
               <!-- END Lines Chart -->
             </div>
-            <div class="col-xl-8 col-xxl-9 d-flex flex-column">
+            <div class="col-xl-10 col-xxl-6 d-flex flex-column">
                 <!-- Lines Chart -->
               <div class="block block-rounded">
                 <div class="block-header block-header-default">
@@ -232,6 +232,26 @@
                   <div class="py-3" style="height: 360px">
                     <!-- Lines Chart Container -->
                     <canvas id="topCategoriesChart" ></canvas>
+                  </div>
+                </div>
+              </div>
+              <!-- END Lines Chart -->
+            </div>
+            <div class="col-xl-10 col-xxl-6 d-flex flex-column">
+                <!-- Lines Chart -->
+              <div class="block block-rounded">
+                <div class="block-header block-header-default">
+                  <h3 class="block-title">top Country</h3>
+                  <div class="block-options">
+                    <button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                      <i class="si si-refresh"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="block-content block-content-full text-center">
+                  <div class="py-3" style="height: 360px">
+                    <!-- Lines Chart Container -->
+                    <canvas id="chartCountry" ></canvas>
                   </div>
                 </div>
               </div>
@@ -293,7 +313,7 @@
                 data: totalInquires,
                 backgroundColor: 'rgba(54, 162, 235, 0.6)',
                 borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 2
+                borderWidth: 1
             }]
         },
         options: {
@@ -302,10 +322,58 @@
                     beginAtZero: true
                 }
             },
-            responsive: true,
-            maintainAspectRatio: false
+            
         }
     });
+    let topnegara = <?php echo json_encode($top_negara); ?>;
+
+// Menyiapkan data untuk chart
+let kategoris = [];
+let negara = [];
+
+topnegara.forEach(item => {
+    kategoris.push(item.category);
+    negara.push(item.total_inquires);
+});
+
+// Membuat Chart menggunakan Chart.js
+let c = document.getElementById('chartCountry').getContext('2d');
+let myChartCountry = new Chart(c, {
+    type: 'bar',
+    data: {
+        labels: kategoris,
+        datasets: [{
+            label: 'Top Inquired Categories by Country',
+            data: negara,
+            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        let country = topnegara[context.dataIndex].negara;
+                        let inquires = topnegara[context.dataIndex].total_inquires;
+                        return inquires + ' inquire from ' + country;
+                    }
+                }
+            }
+        }
+    }
+});
+
+
+
+
+        
     });
 </script>
 

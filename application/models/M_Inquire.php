@@ -33,6 +33,21 @@ class M_Inquire extends CI_Model {
         return $query->result_array();
     }
 
+    public function getTopInquiredCategoriesAndCountries() {
+        $query = $this->db->select('ska.namaSubKategori_b AS category, COUNT(i.idinquire) AS total_inquires, i.negara')
+                          ->from('inquire i')
+                          ->join('product p', 'i.idproduct = p.idproduct')
+                          ->join('subkategori_b ska', 'p.idsubkategori_b = ska.idsubkategori_b')
+                          ->where('MONTH(i.tgl)', date('m')) 
+                          ->group_by('ska.namaSubKategori_b, i.negara')
+                          ->order_by('total_inquires', 'DESC')
+                          ->limit(7)
+                          ->get();
+
+        return $query->result_array();
+    }
+
+
     
     function getOne($id) {
         $this->db->select('*')
