@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Premium extends CI_Model {
 
+    public function countAllData() {
+        return $this->db->count_all('premium');
+    }
     function getPremium() {
         return $this->db->get('premium')->result();
     }

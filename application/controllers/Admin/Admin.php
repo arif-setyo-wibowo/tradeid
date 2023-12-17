@@ -10,6 +10,13 @@ class Admin extends CI_Controller {
         parent::__construct();
         $this->load->model('M_Admin');
         $this->load->model('M_User');
+        $this->load->model('M_Premium');
+        $this->load->model('M_Inquire');
+        $this->load->model('M_Company');
+        $this->load->model('M_Product');
+        $this->load->model('M_Kategori');
+        $this->load->model('M_SubkategoriA');
+        $this->load->model('M_SubkategoriB');
 
     }
     
@@ -18,7 +25,24 @@ class Admin extends CI_Controller {
         $data = [
             'header' => 'template/v_header_admin',
             'footer' => 'template/v_footer_admin',
+            'inquire'=> $this->M_Inquire->getInquireData(),
+            'countuser'=> $this->M_User->countAllData(),
+            'countmember'=> $this->M_Premium->countAllData(),
+            'countcompany'=> $this->M_Company->countAllData(),
+            'countproduct'=> $this->M_Product->countAllData(),
+            'countinquire'=> $this->M_Inquire->countAllData(),
+            'countkategori'=> $this->M_Kategori->countAllData(),
+            'countkategoriA'=> $this->M_SubkategoriA->countAllData(),
+            'countkategoriB'=> $this->M_SubkategoriB->countAllData(),
         ];
+        $top_categories = $this->M_Inquire->getTopCategoriesThisMonth();
+        $data['top_categories'] = $top_categories;
+
+        $top_negara = $this->M_Inquire->getTopInquiredCategoriesAndCountries();
+        $data['top_negara'] = $top_negara;
+
+        $data['kategoriall'] = $data['countkategori']+$data['countkategoriA']+$data['countkategoriB'];
+        $data['subkategori'] = $data['countkategoriA']+$data['countkategoriB'];
         return $this->load->view('admin/v_admin',$data);
     }
 
