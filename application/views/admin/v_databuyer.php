@@ -32,12 +32,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $no=1; foreach ($buyer as $data) : ?>
                             <tr>
-                                <td class="text-center fs-sm"></td>
-                                <td class="text-center fs-sm"></td>
-                                <td class="text-center fs-sm"></td>
-                                <td class="text-center fs-sm"></td>
-                                <td class="text-center fs-sm"></td>
+                                <td class="text-center fs-sm"><?= $no++;?></td>
+                                <td class="text-center fs-sm"><?= $data->namaBuyer?></td>
+                                <td class="text-center fs-sm"><?= $data->negaraBuyer?></td>
+                                <td class="text-center fs-sm"><?= $data->produkBuyer?></td>
+                                <td class="text-center fs-sm"><?= $data->namaKategori?></td>
                                 <td class="d-nonea d-sm-table-cell text-center">
                                     <div class="btn-group">
                                     <a class="m-1" href="<?= base_url('admin/databuyer/detail')?>">
@@ -45,12 +46,12 @@
                                             <i class="fa fa-eye"></i>
                                         </button>
                                     </a>
-                                    <a class="m-1" href="">
+                                    <a class="m-1" href="<?= base_url('admin/databuyer/updateDatabuyer/'.$data->idbuyer)?>">
                                         <button type="button" class="btn btn-sm btn-alt-secondary" data-bs-toggle="tooltip" title="Edit">
                                             <i class="fa fa-pencil-alt"></i>
                                         </button>
                                     </a>
-                                    <a class="m-1" href="">
+                                    <a class="m-1" href="<?= base_url('admin/databuyer/deleteDatabuyer/'.$data->idbuyer)?>">
                                         <button type="button" class="btn btn-sm btn-alt-secondary" data-bs-toggle="tooltip" title="Delete">
                                             <i class="fa fa-times"></i>
                                         </button>
@@ -58,6 +59,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -77,10 +79,10 @@
                     </div>
                     <div class="col-lg-7 space-y-5">
                         <!-- Form Labels on top - Default Style -->
-                        <form action="<?= base_url('admin/subkategoriB/tambahsubkategoriB')?>" method="POST">
+                        <form action="<?= base_url('admin/databuyer/tambahdatabuyer')?>" method="POST">
                             <div class="mb-4">
                                 <label class="form-label">Nama Buyer</label>
-                                <input type="text" class="form-control" id="namabuyer" name="namabuyer" placeholder="Nama buyer">
+                                <input type="text" class="form-control" id="namabuyer" name="nama" placeholder="Nama buyer">
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Email Buyer</label>
@@ -96,7 +98,7 @@
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Telepon</label>
-                                <input type="text" class="form-control" id="no_telp" name="no_telp" placeholder="Telepon">
+                                <input type="text" class="form-control" id="no_telp" name="telp" placeholder="Telepon">
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Produk</label>
@@ -104,25 +106,28 @@
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Deskripsi Permintaan</label>
-                                <Textarea type="text" class="form-control" id="deskripsiPermintaan" name="deskripsiPermintaan" placeholder="Deskripsi Permintaan">
+                                <Textarea type="text" class="form-control" id="deskripsiPermintaan" name="deskripsi" placeholder="Deskripsi Permintaan">
                                 </Textarea>
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Nama Kategori</label>
-                                <select class="js-select2 form-select" id="idkategori" name="namaKategori" style="width: 100%;" data-placeholder="Pilih Kategori" required>
-                                <option disable value=""></option>
+                                <select class="js-select2 form-select" id="kategori" name="kategori" onchange="loadSubkategoriA()" style="width: 100%;" data-placeholder="Pilih Kategori" required>
+                                    <option value="">Choose Category</option>
+                                    <?php foreach ($kategori as $data) : ?>
+                                        <option value="<?= $data->idkategori?>"><?= $data->namaKategori?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Nama Sub Kategori A</label>
-                                <select class="js-select2 form-select" id="idsubkategoria" name="namasubkategori_a" style="width: 100%;" data-placeholder="Pilih Kategori" required>
+                                <select class="js-select2 form-select"id="subkategori_a" name="subkategori_a" onchange="loadSubkategoriB()" style="width: 100%;" data-placeholder="Pilih Kategori" required>
                                 <option disable value=""></option>
                                     <option value=""></option>
                                 </select>
                             </div>
                             <div class="mb-4">
                                 <label class="form-label">Nama Sub Kategori b</label>
-                                <select class="js-select2 form-select" id="idsubkategorib" name="namasubkategori_b" style="width: 100%;" data-placeholder="Pilih Kategori" required>
+                                <select class="js-select2 form-select" id="subkategori_b" name="subkategori_b" style="width: 100%;" data-placeholder="Pilih Kategori" required>
                                 <option disable value=""></option>
                                     <option value=""></option>
                                 </select>
@@ -148,24 +153,49 @@
 
 <script>
     function loadSubkategoriA() {
-        var idkategori = $("#idkategori").val();
+        var idkategori = $("#kategori").val();
         if (idkategori !== "") {
+            // Lakukan permintaan Ajax untuk mendapatkan opsi Subkategori A
             $.ajax({
-                url: "<?= site_url('Admin/SubKategoriB/getSubkategoriAOptions') ?>",
+                url: "<?= site_url('Supplier/Product/getSubkategoriAOptions') ?>",
                 type: "POST",
                 data: { idkategori: idkategori },
                 dataType: "json",
                 success: function(data) {
-                    var options = '<option value="">Pilih Subkategori A</option>';
+                    var options = '<option value="">Choose SubCategory A</option>';
                     $.each(data, function(index, item) {
                         options += '<option value="' + item.idsubkategori_a + '">' + item.namaSubKategori + '</option>';
                     });
-                    $("#idsubkategoria").html(options).prop("disabled", false);
+                    $("#subkategori_a").html(options);
+
+                    loadSubkategoriB();
                 }
             });
         } else {
-            $("#idsubkategoria").html('<option value="">Pilih Subkategori A</option>').prop("disabled", true);
-            $("#namasubkategori_b").val("").prop("disabled", true);
+            $("#subkategori_a").html('<option value="">Choose SubCategory A/option>');
+            $("#subkategori_b").html('<option value="">Choose SubCategory B</option>').prop("disabled", true);
+        }
+    }
+
+    function loadSubkategoriB() {
+        var idsubkategoria = $("#subkategori_a").val();
+        if (idsubkategoria !== "") {
+            $.ajax({
+                url: "<?= site_url('Supplier/Product/getSubkategoriBOptions') ?>",
+                type: "POST",
+                data: { idsubkategoria: idsubkategoria },
+                dataType: "json",
+                success: function(data) {
+                console.log(data);
+                    var options = '<option value="">Choose SubCategory B</option>';
+                    $.each(data, function(index, item) {
+                        options += '<option value="' + item.idsubkategori_b + '">' + item.namaSubKategori_b + '</option>';
+                    });
+                    $("#subkategori_b").html(options).prop("disabled", false);
+                }
+            });
+        } else {
+            $("#subkategori_b").html('<option value="">Choose SubCategory B</option>').prop("disabled", true);
         }
     }
 </script>

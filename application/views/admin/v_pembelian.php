@@ -12,7 +12,7 @@
           <div class="block block-rounded overflow-hidden">
             <ul class="nav nav-tabs nav-tabs-block" role="tablist">
               <li class="nav-item">
-                <button type="button" class="nav-link active" id="search-projects-tab" data-bs-toggle="tab" data-bs-target="#search-projects" role="tab" aria-controls="search-projects" aria-selected="true">Data Registed Supplier</button>
+                <button type="button" class="nav-link active" id="search-projects-tab" data-bs-toggle="tab" data-bs-target="#search-projects" role="tab" aria-controls="search-projects" aria-selected="true">Data Pembelian</button>
               </li>
             </ul>
             <div class="block-content tab-content overflow-hidden">
@@ -28,27 +28,38 @@
                                     <th class="text-center" style="width: 80px;">ID</th>
                                     <th class="d-none d-sm-table-cell" style="width: 30%;">User</th>
                                     <th class="d-none d-sm-table-cell" style="width: 25%;">Company</th>
-                                    <th class="d-none d-sm-table-cell" style="width: 10%;">Tanggal Awal</th>
-                                    <th class="d-none d-sm-table-cell" style="width: 20%;">Tanggal Selesai</th>
+                                    <th class="d-none d-sm-table-cell" style="width: 10%;">Tanggal</th>
                                     <th class="d-none d-sm-table-cell" style="width: 30%;">Layanan</th>
+                                    <th class="d-none d-sm-table-cell" style="width: 30%;">Action</th>
                                     <th class="d-none d-sm-table-cell text-center" style="width: 15%;">Detail</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no=1; ?>
+                                <?php $no=1; foreach ($premium as $data) : ?>
                                 <tr>
                                     <td class="text-center fs-sm"><?= $no++;?></td>
-                                    <td class="d-none d-sm-table-cell" style="width: 30%;">bambang Sahid</td>
-                                    <td class="d-none d-sm-table-cell" style="width: 25%;">PT Cinta Sejati</td>
-                                    <td class="d-none d-sm-table-cell" style="width: 25%;">12-12-2023</td>
-                                    <td class="d-none d-sm-table-cell" style="width: 20%;">12-01-2024</td>
+                                    <td class="d-none d-sm-table-cell" style="width: 30%;"><?= $data->namaPembelian ?></td>
+                                    <td class="d-none d-sm-table-cell" style="width: 25%;"><?= $data->namaPerusahaan ?></td>
+                                    <td class="d-none d-sm-table-cell" style="width: 25%;"><?= $data->tglPembelian ?></td>
                                     <td class="d-none text-center d-sm-table-cell" style="width: 30%;">
-                                      <button class="btn rounded-pill px-3 btn-sm btn-alt-primary">Premium</button>
+                                      <button class="btn rounded-pill px-3 btn-sm btn-alt-primary"><?= $data->namaPremium ?> </button>
+                                    </td>
+                                    <td class="d-none d-sm-table-cell" style="width: 30%;">
+                                    <?php if ($data->statusAdmin == 0) : ?>
+                                      <a href="<?= base_url('updatePembelian/'.$data->idpembelian.'/'.$data->idcompany.'/'.$data->idpremium)?>" class=" rounded-pill px-3 btn-sm text-primary">
+                                        <button class="btn rounded-pill px-3 btn-sm btn-alt-primary">Tidak </button>
+                                      </a>
+                                    <?php else : ?>
+                                      <a href="<?= base_url('updatePembelian/'.$data->idpembelian.'/'.$data->idcompany.'/'.$data->idpremium)?>" class=" rounded-pill px-3 btn-sm text-primary">
+                                        <button class="btn rounded-pill px-3 btn-sm btn-alt-primary">Ya </button>
+                                      </a>
+                                    <?php endif; ?>
                                     </td>
                                     <td class="d-none d-sm-table-cell" style="width: 30%;">
                                       <a href="" class=" rounded-pill px-3 btn-sm text-primary">Lihat</a>
                                     </td>
                                 </tr>
+                                <?php endforeach;?>
                             </tbody>
                         </table>
                     </div>

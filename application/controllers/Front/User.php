@@ -11,6 +11,7 @@ class User extends CI_Controller {
         parent::__construct();
         $this->load->model('M_User');
         $this->load->model('M_Supplier');
+        $this->load->model('M_Product');
     }
     
     public function index()
@@ -19,9 +20,14 @@ class User extends CI_Controller {
            redirect('logout');
         }else{
             $iduser = $this->session->userdata('iduser');
+            $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
+            $company = $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier);
+
             $data = [
                 'userHeader' => $this->M_User->get_where($iduser),
                 'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                'company' => $company,
+                'product' => $this->M_Product->countProduct($company[0]->idcompany),
                 'user' => $this->M_User->get_where($iduser),
                 'header' => 'componen/header',
                 'footer' => 'componen/footer',
@@ -116,8 +122,10 @@ class User extends CI_Controller {
             $password = $this->input->post('password');
             $user = $this->M_User->get_email_or_username($username_or_email);
 
+
             if ($user && password_verify($password, $user->password)) {
                 $this->session->set_userdata('iduser', $user->iduser);
+                $this->session->set_userdata('idmember', $member->idmember);
                 $this->session->set_userdata('email', $user->email);
                 $this->session->set_userdata('username', $user->username);
                 $this->session->set_userdata('nama', $user->nama);
@@ -151,6 +159,7 @@ class User extends CI_Controller {
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('nama');
+        $this->session->unset_userdata('idmember');
         $this->session->unset_userdata('alamat');
         $this->session->unset_userdata('negara');
         $this->session->unset_userdata('telp');

@@ -80,38 +80,57 @@
                     <?php if($user->cSupplier == 1 || $user->cSupplier != NULL) : ?>
                         <div class="d-flex justify-content-between ">
                             <h4 class="fw-light">Company Information</h4>
-                            <a href="<?=base_url()?>supplier/company" class="text-blue fw-light font-sm"><i class="uil uil-"></i> Manage company </a>
+                            <a href="<?=base_url()?>dashboard/supplier/company" class="text-blue fw-light font-sm"><i class="uil uil-"></i> Manage company </a>
                         </div>
                         <div class="mb-2">
-                        <img class="rounded  " style="height: 80px; width: 80px;" src="<?= base_url() ?>./assets/front/img/avatars/te1.jpg" srcset="<?= base_url() ?>./assets/front//avatars/te1@2x.jpg 2x" alt="" />
+                        <img class="rounded  " style="height: 80px; width: 80px;" src="<?= base_url('uploads/'.$company[0]->gambarCompany) ?>" srcset="<?= base_url() ?>./assets/front//avatars/te1@2x.jpg 2x" alt="" />
                         </div>
                         <div class="mb-2">
-                            <span class="fw-bold">Company Name :</span><span class="text-muted m-2 fw-light"> PT Mencari Cinta Sejati</span>
+                            <span class="fw-bold">Company Name :</span><span class="text-muted m-2 fw-light"> <?= $company[0]->namaPerusahaan ?></span>
                         </div>
                         <div class="mb-2">
-                            <span class="fw-bold">About Company :</span><span class="text-muted m-2 fw-light"> We operate in the field of coconut agriculture and its derivatives. We aim to provide the best products for you.We operate in the field of coconut agriculture and its derivatives. We aim to provide the best products for you</span>
+                            <span class="fw-bold">About Company :</span><span class="text-muted m-2 fw-light"> <?= $company[0]->deskripsiPanjang ?></span>
                         </div>
                         <div class="mb-2">
-                            <span class="fw-bold">Products Owned :</span><span class="text-muted m-2 fw-light"> 12 product</span>
+                            <span class="fw-bold">Products Owned :</span><span class="text-muted m-2 fw-light"><?= $product ?> product</span>
                         </div>
                         <div class="mb-2">
-                            <span class="fw-bold">Location :</span><span class="text-muted m-2 fw-light"> Malang, Jawa Timur, Indonesia</span>
+                            <span class="fw-bold">Location :</span><span class="text-muted m-2 fw-light"><?= $company[0]->kota?></span>
                         </div>
                         <div class="mb-2 row">
                             <div class="col">
                                 <span class="fw-bold">Contact :</span>
                                 <div class="">
-                                    <li class="text-muted fw-light">cintasejati@gmail.com</li>
-                                    <li class="text-muted  fw-light">+62 8988377363</li>
+                                    <li class="text-muted fw-light"><?= $user->email?></li>
+                                    <li class="text-muted  fw-light"><?= $user->telp?></li>
                                     
                                 </div>
                             </div>
                             <div class="col">
                                 <span class="fw-bold">Social Media :</span>
                                 <nav class="nav social mb-0">
-                                <a href="#"><i class="uil uil-instagram"></i></a>
-                                <a href="#"><i class="uil uil-facebook-f"></i></a>
-                                <a href="#"><i class="uil uil-dribbble"></i></a>
+                                    <?php if ($company[0]->facebook == null) : ?>
+                            
+                                    <?php else : ?>
+                                    <a href="https://www.facebook.com/<?= $company[0]->facebook ?>" target="_blank"><i class="uil uil-facebook-f"></i></a>
+                                    <?php endif;?>
+                                    <?php if ($company[0]->linkedin == null) : ?>
+                                    
+                                    <?php else : ?>
+                                    <a href="https://www.linkedin.com/in<?= $company[0]->linkedin?>" target="_blank"><i class="uil uil-linkedin"></i></a>
+                                    <?php endif;?>
+
+                                    <?php if ($company[0]->website == null) : ?>
+                                    
+                                    <?php else : ?>
+                                    <a href="http://<?= $company[0]->website?>" target="_blank"><i class="uil uil-dribbble"></i></a>
+                                    <?php endif;?>
+
+                                    <?php if ($company[0]->instagram == null) : ?>
+                                    
+                                    <?php else : ?>
+                                    <a href="https://www.instagram.com/<?= $company[0]->instagram?>"><i class="uil uil-instagram"></i></a>
+                                    <?php endif;?>
                                 </nav>
                             </div>
                         </div>

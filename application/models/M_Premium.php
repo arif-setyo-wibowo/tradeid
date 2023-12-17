@@ -26,11 +26,29 @@ class M_Premium extends CI_Model {
         $this->db->delete('premium');
     }
 
-
-    function insertPembelian(){
+    function insertPembelian($data){
         $this->db->insert('pembelian',$data);
     }
 
+    function getWhereCompany($idcompany){
+        $query = $this->db->get_where('pembelian', array('idcompany' => $idcompany));
+        return $query->result();
+    }
+
+    function getPembelian() {
+        $this->db->select('*')
+                ->from('pembelian')
+                ->join('company', 'company.idcompany = pembelian.idcompany')
+                ->join('premium', 'premium.idpremium = pembelian.idpremium');
+
+        return $this->db->get()->result();
+    }
+
+    function updatePembelian($idpembelian,$idpremium,$data) {
+        $this->db->where('idpembelian', $idpembelian);
+        $this->db->where('idpremium', $idpremium);
+        $this->db->update('pembelian',$data);
+    }
 }
 
 /* End of file M_Premium.php */

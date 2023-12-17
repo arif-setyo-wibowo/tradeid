@@ -20,14 +20,15 @@
   <div class="container ">
       <div class="grid mx-auto grid-view projects-masonry shop mb-10 " style="max-width:1200px;">
           <div class="row gx-md-8 gy-10 gy-md-13 isotope container " >
+            <?php foreach($buyer as $data) : ?>
             <div class=" item col-md-12 col-xl-12  p-5  shadow-xl rounded" style="margin-bottom:-30px;">
               <div class="row">
                 <div class="d-flex justify-content-between">
                   <div class="">
-                    <div class="post-category text-dark h6">Wanted : <a href="" class="text-blue">Coconut  </a></div>
+                    <div class="post-category text-dark h6">Wanted : <a href="" class="text-blue"><?= $data->produkBuyer?>  </a></div>
                   </div>
                   <div class="align-items-center  mt-sm-n3 d-blok col-md-3 col-lg-2">
-                        <span class="text-dark fw-normal fs-18 fs-sm-12">15-12-2023</span>
+                        <span class="text-dark fw-normal fs-18 fs-sm-12"><?= $data->tglbuyer?></span>
                     </div>
                 </div>
               </div>
@@ -35,7 +36,7 @@
                 <div class="d-flex">
                   <div class=" row w-100" >
                     <div class="align-items-center d-blok col-md-8 col-lg-10">
-                        <span class="text-dark fw-bold fs-20">Buyer from : India</span>
+                        <span class="text-dark fw-bold fs-20">Buyer from : <?= $data->negaraBuyer?></span>
                     </div>
                   </div>
                 </div>
@@ -43,9 +44,7 @@
               <div class="row">
                 <div class="d-flex justify-content-between">
                   <div>
-                    <div class="fs-18 text-ash ">Buyer is interested to receive quotations for the following RFQ - 
-                      Product Name: Fresh Coconut Specifications : Type: Fresh Quantity Required : MOQ Shipping Terms : FOB Or CNF Destination Port : Netherlands Payment Terms :
-                        To be discussed with sellers Looking for suppliers from : Worldwide Contact : Import Dep
+                    <div class="fs-18 text-ash "><?= $data->deskripsiBuyer?>
                     </div>
                   </div>
                 </div>
@@ -53,14 +52,15 @@
               <div class="row">
                 <div class="d-flex justify-content-between mt-1">
                   <div>
-                    <div class=" text-ash fw-normal text-blue"><a href="" class="text-blue">Coconut | </a><a href="" class="text-blue"> Husked Coconut  </a></div>
+                    <div class=" text-ash fw-normal text-blue"><a href="" class="text-blue"><?= $data->namaSubKategori?> | </a><a href="" class="text-blue"> <?= $data->namaSubKategori_b?>  </a></div>
                   </div>
                   <div>
-                    <div class=" text-ash fw-normal text-blue"><a href="<?= base_url('detail/demain')?>" class="text-blue">see more</a></div>
+                    <div class=" text-ash fw-normal text-blue"><a href="<?= base_url('databuyer/detail/'.$data->idbuyer)?>" class="text-blue">see more</a></div>
                   </div>
                 </div>
               </div>
             </div>
+            <?php endforeach;?>
             <!-- /.item -->
           </div>
           <!-- /.row -->

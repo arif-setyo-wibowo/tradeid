@@ -59,8 +59,11 @@ $route['translate_uri_dashes'] = FALSE;
 $route['profil'] = 'Front/User';
 $route['forum'] = 'Front/Forum';
 $route['dataBuyer'] = 'Front/buyer';
-$route['detail/demain'] = 'Front/buyer/detail';
-$route['forum/post'] = 'Front/Forum/detailPosting';
+$route['databuyer/detail/(:num)'] = 'Front/buyer/detail/$1';
+$route['forum/post/(:num)'] = 'Front/Forum/detailPosting/$1';
+$route['tambahPosting'] = 'Front/Forum/store';
+$route['tambahKomen'] = 'Front/Forum/storeKomen';
+$route['balasKomen'] = 'Front/Forum/storeBalas';
 $route['product'] = 'Front/Product';
 $route['supplier'] = 'Front/Supplier';
 
@@ -189,3 +192,14 @@ $route['admin/premium/tambahPremium'] = 'Admin/Premium/store';
 $route['admin/premium/deletePremium/(:num)'] = 'Admin/Premium/delete/$1';
 $route['admin/premium/updatePremium/(:num)'] = 'Admin/Premium/edit/$1';
 $route['admin/premium/update'] = 'Admin/Premium/update';
+
+//data Buyer
+$route['admin/databuyer'] = 'Admin/Databuyer';
+$route['admin/databuyer/tambahdatabuyer'] = 'Admin/Databuyer/store';
+$route['admin/databuyer/deleteDatabuyer/(:num)'] = 'Admin/Databuyer/delete/$1';
+$route['admin/databuyer/updateDatabuyer/(:num)'] = 'Admin/Databuyer/edit/$1';
+$route['admin/databuyer/update'] = 'Admin/Databuyer/update';
+
+//Pembelian
+$route['admin/pembelian'] = 'Admin/Pembelian';
+$route['updatePembelian/(:num)/(:num)/(:num)'] = 'Admin/Pembelian/insertMember/$1/$2/$3';

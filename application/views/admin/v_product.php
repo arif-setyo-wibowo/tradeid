@@ -40,7 +40,7 @@
                                 <tr>
                                     <td class="text-center" style="width: 80px;"><?= $no++?></td>
                                     <td class="text-center" ><?= $data->namaProduk?></td>
-                                    <td class="text-center" ><a href=""><?= $data->namaPerusahaan?></a></td>
+                                    <td class="text-center" ><?= $data->namaPerusahaan?></td>
                                     <td class="text-center" ><?= $data->namaKategori?></td>
                                     <td class="text-center" ><?= $data->namaSubKategori?></td>
                                     <td class="text-center" ><?= $data->namaSubKategori_b?></td>

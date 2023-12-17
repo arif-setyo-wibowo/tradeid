@@ -4,20 +4,18 @@
     <div class="author-info d-md-flex align-items-center mb-3">
       <div class="d-flex align-items-center">
         <div>
-          <h6>Wanted  coconut</h6>
+          <h6>Wanted  <?= $buyer[0]->produkBuyer?></h6>
           
         </div>
       </div>
       <div class="mt-3 mt-md-0 ms-auto">
-      <span class="h6">Buyer From : India</span>
+      <span class="h6">Buyer From : <?= $buyer[0]->negaraBuyer?></span>
             </div>
     </div>
     <!-- /.author-info -->
-    <p>Buyer is interested to receive quotations for the following RFQ - 
-        Product Name: Fresh Coconut Specifications : Type: Fresh Quantity Required : MOQ Shipping Terms : FOB Or CNF Destination Port : Netherlands Payment Terms :
-        To be discussed with sellers Looking for suppliers from : Worldwide Contact : Import Dep</p>
+    <p><?= $buyer[0]->deskripsiBuyer?></p>
     <nav class="nav social mb-n14">
-      <p>14 Jan 2022</p>
+      <p><?= $buyer[0]->tglbuyer?></p>
     </nav>
     <!-- /.social -->
     <hr />
@@ -28,9 +26,9 @@
           <div class="comment-header d-md-flex align-items-center">
             <div class="d-flex align-items-center">
               <div>
-                <h6 class="comment-author">Email :<span class="fw-normal"> Example@gmail.com</span></h6>
-                <h6 class="comment-author">Phone :<span class="fw-normal"> +459827728272</span></h6>
-                <h6 class="comment-author">Address :<span class="fw-normal"> jalan Sitummpang lima, Kanada</span></h6>
+                <h6 class="comment-author">Email :<span class="fw-normal"> <?= $buyer[0]->emailBuyer?></span></h6>
+                <h6 class="comment-author">Phone :<span class="fw-normal"> <?= $buyer[0]->telpBuyer?></span></h6>
+                <h6 class="comment-author">Address :<span class="fw-normal"> <?= $buyer[0]->alamatBuyer?></span></h6>
                 <!-- /.post-meta -->
               </div>
               <!-- /div -->

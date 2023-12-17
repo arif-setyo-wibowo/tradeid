@@ -19,8 +19,7 @@ class Databuyer extends CI_Controller {
     {
         $data = [
             'kategori' => $this->M_Kategori->getKategori(),
-            'subkategori_a' => $this->M_SubkategoriA->getSubKategori(),
-            'subkategori_b' => $this->M_SubkategoriB->getSubKategori(),
+            'buyer' => $this->M_Databuyer->getDatabuyer(),
             'header' => 'template/v_header_admin',
             'footer' => 'template/v_footer_admin',
         ];
@@ -36,65 +35,83 @@ class Databuyer extends CI_Controller {
         return $this->load->view('admin/v_detailDataBuyer',$data);
     }
 
-    public function getSubkategoriAOptions() {
-        $idkategori = $this->input->post('idkategori');
-        $subkategoria_options = $this->M_SubkategoriB->getSubkategoriAOptions($idkategori);
-        echo json_encode($subkategoria_options);
-    }
-
-
 
     public function store()
     {
-        if ($this->input->post()) {
             $data = array(
-                'idsubkategori_a' => $this->input->post('namasubkategori_a'),
-                'namaSubKategori_b' => $this->input->post('namasubkategori_b'),
-                'idkategori' => $this->input->post('namaKategori')
+                'namaBuyer' => $this->input->post('nama'),
+                'emailBuyer' => $this->input->post('email'),
+                'alamatBuyer' => $this->input->post('alamat'),
+                'negaraBuyer' => $this->input->post('negara'),
+                'telpBuyer' => $this->input->post('telp'),
+                'tglbuyer' => date('Y-m-d H:i:s'),
+                'produkBuyer' => $this->input->post('produk'),
+                'deskripsiBuyer' => $this->input->post('deskripsi'),
+                'idkategori' => $this->input->post('kategori'),
+                'idsubkategori_a' => $this->input->post('subkategori_a'),
+                'idsubkategori_b' => $this->input->post('subkategori_b'),
             );
     
-            $this->M_SubkategoriB->insertSubKategori($data);
+            $this->M_Databuyer->insertDatabuyer($data);
 
-            redirect('admin/subkategoriB');
-        }
+            redirect('admin/databuyer');
     }
 
     function edit($id){
 
-        // Mendapatkan data subkategori B berdasarkan ID
-        $subkategoriB = $this->M_SubkategoriB->getWhere($id);
-
-        // Mendapatkan data subkategori A berdasarkan ID Kategori
-        $subkategoriAOptions = $this->M_SubkategoriB->getSubkategoriAOptions($subkategoriB->idkategori);
+        $buyer = $this->M_Databuyer->getWhere($id);
 
         $data = array(
-            'subkategorib' => $subkategoriB,
-            'subkategoria' => $subkategoriAOptions,
+            'subkategoria' => $this->M_Databuyer->getSubkategoriAOptions( $buyer[0]->idkategori),
+            'subkategorib' => $this->M_Databuyer->getSubkategoriBOptions( $buyer[0]->idsubkategori_a),
             'kategori' => $this->M_Kategori->getKategori(),
+            'buyer' => $this->M_Databuyer->getWhere($id),
             'footer' => 'template/v_footer_admin',
             'header' => 'template/v_header_admin',
         );
         
-        return $this->load->view('admin/v_subkategori_b_update',$data);
+        return $this->load->view('admin/v_databuyerUpdate',$data);
     }
 
     function update(){
 
         $data = array(
-            'idkategori' => $this->input->post('namaKategoriUpdate'),
-            'namaSubKategori' => $this->input->post('namaSubKategoriUpdate')
+            'namaBuyer' => $this->input->post('nama'),
+            'emailBuyer' => $this->input->post('email'),
+            'alamatBuyer' => $this->input->post('alamat'),
+            'negaraBuyer' => $this->input->post('negara'),
+            'telpBuyer' => $this->input->post('telp'),
+            'produkBuyer' => $this->input->post('produk'),
+            'deskripsiBuyer' => $this->input->post('deskripsi'),
+            'idkategori' => $this->input->post('kategori'),
+            'idsubkategori_a' => $this->input->post('subkategori_a'),
+            'idsubkategori_b' => $this->input->post('subkategori_b'),
         );
-        $id = $this->input->post('idsubkategori_a');
-        $this->M_SubkategoriA->updateSubKategori($id,$data);
-        redirect('admin/subkategoriA');
-            
+        
+        $id = $this->input->post('idbuyer');
+        $this->M_Databuyer->updateBuyer($id,$data);
+        redirect('admin/databuyer');
+
     }
 
 
     function delete($id) {
-        $this->M_SubkategoriA->deleteSubKategori($id);
+        $this->M_Databuyer->deleteBuyer($id);
 
-		redirect('admin/subkategoriA');
+		redirect('admin/databuyer');
+    }
+
+    public function getSubkategoriAOptions() {
+        $idkategori = $this->input->post('idkategori');
+        $subkategoria_options = $this->M_Databuyer->getSubkategoriAOptions($idkategori);
+        echo json_encode($subkategoria_options);
+    }
+
+
+    public function getSubkategoriBOptions() {
+        $idsubkategoria = $this->input->post('idsubkategoria');
+        $subkategoriBOptions = $this->M_Databuyer->getSubkategoriBOptions($idsubkategoria);
+        echo json_encode($subkategoriBOptions);
     }
 }
 
