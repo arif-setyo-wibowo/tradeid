@@ -55,6 +55,7 @@ class Kategori extends CI_Controller {
         );
         $id = $this->input->post('idkategori');
         $this->M_Kategori->updateKategori($id,$data);
+        $this->session->set_flashdata('pesan', 'Succesfully Update kategori');
         redirect('admin/kategori');
             
     }

@@ -49,7 +49,7 @@
                                     <input type="text" class="form-control" id="namasubkategori_b" name="namasubkategori_b" value="<?= $subkategorib[0]->namaSubKategori_b ?>" placeholder="Sub Kategori B">
                                 </div>
                                 <div class="mb-4">
-                                    <button type="submit" class="btn btn-alt-primary">Submit</button>
+                                    <button type="button" onclick="confirmUpdate()" class="btn btn-alt-primary">Submit</button>
                                 </div>
                             </form>
                             <!-- END Form Labels on top - Default Style -->
@@ -110,6 +110,23 @@
         } else {
             $("#namasubkategori_b").prop("disabled", true).val("");
         }
+    }
+
+    function confirmUpdate() {
+      Swal.fire({
+        title: 'Are you sure to update?',
+        text: 'You are about to update the Subkategori B',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, update it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Submit the form for update
+          $('form').submit();
+        }
+      });
     }
 </script>
 

@@ -15,7 +15,18 @@
 <!-- END Hero -->
 
 <!-- Page Content -->
-
+<?php  $pesan = $this->session->flashdata('pesan') ?>
+            <?php  if($pesan != NULL) : ?>
+                <div class="alert alert-success alert-icon alert-dismissible fade show mb-2" role="alert">
+                    <i class="uil uil-check-circle"></i> <?= $pesan ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php elseif($pesan = $this->session->flashdata('pesan_e')) : ?>
+                <div class="alert alert-danger alert-icon alert-dismissible fade show mb-2" role="alert">
+                    <i class="uil uil-times-circle"></i> <?= $pesan ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif;?>
 <div class="bg-body-extra-light">
           <div class="content content-boxed">
             <div class="row justify-content-center">

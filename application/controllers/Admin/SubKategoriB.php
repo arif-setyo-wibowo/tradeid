@@ -80,7 +80,7 @@ class SubKategoriB extends CI_Controller {
 
         $id = $this->input->post('idsubkategori_b');
         $this->M_SubkategoriB->updateSubKategori($id,$data);
-
+        $this->session->set_flashdata('pesan', 'Succesfully Update Subkategori B');
         redirect('admin/subkategoriB');
             
     }
@@ -88,7 +88,7 @@ class SubKategoriB extends CI_Controller {
 
     function delete($id) {
         $this->M_SubkategoriB->deleteSubKategori($id);
-
+        $this->session->set_flashdata('pesan', 'Succesfully Delete Subkategori B');
 		redirect('admin/subkategoriB');
     }
 }

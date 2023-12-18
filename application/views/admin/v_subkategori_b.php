@@ -3,6 +3,18 @@
 <main id="main-container">
     <!-- Page Content -->
     <div class="content">
+    <?php  $pesan = $this->session->flashdata('pesan') ?>
+                <?php  if($pesan != NULL) : ?>
+                    <div class="alert alert-success alert-icon alert-dismissible fade show mb-2" role="alert">
+                        <i class="uil uil-check-circle"></i> <?= $pesan ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php elseif($pesan = $this->session->flashdata('pesan_e')) : ?>
+                    <div class="alert alert-danger alert-icon alert-dismissible fade show mb-2" role="alert">
+                        <i class="uil uil-times-circle"></i> <?= $pesan ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif;?>
         <!-- Results -->
         <div class="block block-rounded overflow-hidden">
         <ul class="nav nav-tabs nav-tabs-block" role="tablist">

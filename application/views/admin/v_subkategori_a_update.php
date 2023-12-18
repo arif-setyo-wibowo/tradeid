@@ -44,7 +44,7 @@
                                     <input type="text" class="form-control"  name="namaSubKategoriUpdate" value="<?= $subkategoria[0]->namaSubKategori?>" placeholder="Sub Kategori A">
                                 </div>
                                 <div class="mb-4">
-                                    <button type="submit" class="btn btn-alt-primary">Update</button>
+                                    <button type="button" onclick="confirmUpdate()" class="btn btn-alt-primary">Update</button>
                                 </div>
                             </form>
                             <!-- END Form Labels on top - Default Style -->
@@ -61,5 +61,24 @@
         </div>
         <!-- END Page Content -->
       </main>
+
+<script>
+  function confirmUpdate() {
+      Swal.fire({
+        title: 'Are you sure to update?',
+        text: 'You are about to update the Subkategori A',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, update it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Submit the form for update
+          $('form').submit();
+        }
+      });
+    }
+</script>
         
 <?php $this->load->view($footer)?>

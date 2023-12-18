@@ -59,6 +59,7 @@ class SubKategoriA extends CI_Controller {
         );
         $id = $this->input->post('idsubkategori_a');
         $this->M_SubKategoriA->updateSubKategori($id,$data);
+        $this->session->set_flashdata('pesan', 'Succesfully Update Subkategori A');
         redirect('admin/subkategoriA');
             
     }
