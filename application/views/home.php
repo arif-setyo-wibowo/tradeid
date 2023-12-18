@@ -6,14 +6,14 @@
             <h1 class="display-1  mb-4">Connecting the World, Sourcing Indonesia's  <span class="underline-3 style-3 primary">Finest.</span></h1>
             <p class="lead fs-24 lh-sm  mb-7 pe-md-18 pe-lg-0 pe-xxl-15">Find Company, Product, Supplier what u need</p>
             <div>
-              <form action="#">
-          <div class="form-floating input-group ">
-            <input type="url" class="form-control border-0 rounded" placeholder="Find Supplier, Product" id="analyze">
-            <label for="analyze">Find Supplier, Product</label>
-            <a href=""><button class="btn btn-md btn-primary rounded" type="button" style="margin:0 5px 0 5px;">Supplier</button></a>
-            <a href=""><button class="btn btn-md btn-primary rounded" type="button">Product</button></a>
-          </div>
-        </form>
+              <form action="<?= base_url('search')?>" method="get">
+                <div class="form-floating input-group ">
+                  <input type="text" class="form-control border-0 rounded" name="search" placeholder="Find Supplier, Product" id="analyze">
+                  <label for="analyze">Find Supplier, Product</label>
+                  <button class="btn btn-md btn-primary rounded" type="submit" name="search_type" value="supplier" style="margin:0 5px 0 5px;">Supplier</button>
+                  <button class="btn btn-md btn-primary rounded" type="submit" name="search_type" value="product" >Product</button>
+                </div>
+              </form>
             </div>
           </div>
           <!-- /column -->
