@@ -106,7 +106,6 @@
               </a>
             </li>
           </ul>
-          <!-- /.pagination -->
         </nav>
         <!-- /nav -->
       </div>

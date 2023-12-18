@@ -5,8 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Product extends CI_Model {
 
-    public function countAllData() {
-        return $this->db->count_all('product');
+    public function getAllData() {
+        return $this->db->get('product');
     }
 
     function search_data_product($query){
@@ -83,7 +83,7 @@ class M_Product extends CI_Model {
                  ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b')
                  ->limit($limit, $start);
         
-         return  $this->db->get()->result();
+         return $query =  $this->db->get();
     }
 
     function getWhereCategory($id){

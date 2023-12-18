@@ -44,6 +44,8 @@
   color: #3f78e0 !important;
 }
 
+
+
 </style>
 
 <section class="wrapper bg-gradient-primary">
@@ -131,13 +133,9 @@
         
 
         <!-- /.grid -->
-        <nav class="d-flex" aria-label="pagination">
-            <ul class="pagination">
-                <li class="page-item">
-                    <?= $pagination; ?>
-                </li>
-            </ul>
-        </nav>
+        
+            <?= $pagination; ?>
+        
 
         <!-- /nav -->
         
