@@ -9,6 +9,22 @@ class M_Product extends CI_Model {
         return $this->db->count_all('product');
     }
 
+    function search_data_product($query){
+        $this->db->select('*')
+                ->from('product')
+                ->join('kategori', 'kategori.idkategori = product.idkategori', 'left') 
+                ->join('company', 'company.idcompany = product.idcompany', 'left') 
+                ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a', 'left')
+                ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b', 'left')
+                ->group_start()
+                    ->like('kategori.namaKategori', $query)
+                    ->or_like('subkategori_b.namaSubKategori_b', $query)
+                    ->or_like('subkategori_a.namaSubKategori', $query)
+                ->group_end();
+
+        return $this->db->get()->result();
+    }
+
     function countProduct($idcompany){
         $this->db->from('product');
         $this->db->where('idcompany', $idcompany);

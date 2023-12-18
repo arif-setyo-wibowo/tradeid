@@ -66,6 +66,7 @@ $route['tambahKomen'] = 'Front/Forum/storeKomen';
 $route['balasKomen'] = 'Front/Forum/storeBalas';
 $route['product'] = 'Front/Product';
 $route['supplier'] = 'Front/Supplier';
+$route['search'] = 'Home/searchView';
 
 //Front product
 $route['product/(:num)'] = 'Front/Product/productShopCategory/$1';
