@@ -70,7 +70,7 @@
                     <div class="block-content">
                         <div class="d-flex justify-between mb-3 gap-3">
                           <a href="<?= base_url()?>dashboard/supplier/facility" class="btn bg-gray-light ">cancel</a>
-                          <button type="submit"  class="btn bg-amethyst text-white ">Update facility</button>
+                          <button type="button" onclick="confirmUpdate()" class="btn bg-amethyst text-white ">Update facility</button>
                         </div>
                     </div>
                   </div>
@@ -157,5 +157,23 @@
             }
         }
     }
+
+    function confirmUpdate() {
+      Swal.fire({
+        title: 'Are you sure to update?',
+        text: 'You are about to update the facility',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, update it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Submit the form for update
+          $('form').submit();
+        }
+      });
+    }
+
 </script>
 <?php $this->load->view($footer) ?>

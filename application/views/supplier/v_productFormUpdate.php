@@ -95,7 +95,7 @@
                         <div class="">
                         <div class="flex justify-between mb-3">
                           <a href="<?= base_url()?>supplier/product" class="btn bg-gray-light ">cancel</a>
-                          <button type="submit" style="margin-left: 8px;" class="btn bg-amethyst text-white ">Add product</button>
+                          <button type="button" onclick="confirmUpdate()" style="margin-left: 8px;" class="btn bg-amethyst text-white ">Add product</button>
                         </div>
                         </div>
                     </div>
@@ -266,6 +266,23 @@
                 document.getElementById('one').parentNode.appendChild(input);
             }
         }
+    }
+
+    function confirmUpdate() {
+      Swal.fire({
+        title: 'Are you sure to update?',
+        text: 'You are about to update the product',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, update it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Submit the form for update
+          $('form').submit();
+        }
+      });
     }
 </script>
 <?php $this->load->view($footer) ?>

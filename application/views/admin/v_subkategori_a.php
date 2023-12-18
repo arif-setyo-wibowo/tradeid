@@ -3,6 +3,18 @@
 <main id="main-container">
         <!-- Page Content -->
         <div class="content">
+        <?php  $pesan = $this->session->flashdata('pesan') ?>
+                <?php  if($pesan != NULL) : ?>
+                    <div class="alert alert-success alert-icon alert-dismissible fade show mb-2" role="alert">
+                        <i class="uil uil-check-circle"></i> <?= $pesan ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php elseif($pesan = $this->session->flashdata('pesan_e')) : ?>
+                    <div class="alert alert-danger alert-icon alert-dismissible fade show mb-2" role="alert">
+                        <i class="uil uil-times-circle"></i> <?= $pesan ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif;?>
           <!-- Results -->
           <div class="block block-rounded overflow-hidden">
             <ul class="nav nav-tabs nav-tabs-block" role="tablist">
@@ -42,7 +54,7 @@
                                               <i class="fa fa-pencil-alt"></i>
                                           </button>
                                         </a>
-                                        <a href="<?= base_url('admin/subkategoriA/deletesubkategoriA/'.$data->idsubkategori_a)?>">
+                                        <a href="javascript:void(0);" onclick="confirmDelete(<?= $data->idsubkategori_a ?>)">
                                             <button type="button" class="btn btn-sm btn-alt-secondary" data-bs-toggle="tooltip" title="Delete">
                                                 <i class="fa fa-times"></i>
                                             </button>
@@ -102,5 +114,24 @@
         </div>
         <!-- END Page Content -->
       </main>
+
+<script>
+  function confirmDelete(id) {
+        Swal.fire({
+        title: 'Are you sure to delete?',
+        text: 'Once deleted, you will not be able to recover this data!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            // Send the delete request
+            window.location.href = "<?= base_url('admin/subkategoriA/deletesubkategoriA/') ?>" + id;
+        }
+        });
+    }
+</script>
         
 <?php $this->load->view($footer)?>
