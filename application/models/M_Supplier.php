@@ -5,6 +5,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Supplier extends CI_Model {
 
+    public function getAllData() {
+        return $this->db->get('company');
+    }
+
+    function getAllSupplier($limit, $start){ 
+        $this->db->select('*')
+                ->from('company')
+                ->join('kategori', 'kategori.idkategori = company.idkategori')
+                ->join('subkategori_a', 'subkategori_a.idsubkategori_a = company.idsubkategori_a')
+                ->limit($limit, $start);
+            return $query =  $this->db->get();
+     }
+
+
+
     public function search_data_supplier($query) {
         
         $this->db->select('*')
