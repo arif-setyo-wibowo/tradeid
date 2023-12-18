@@ -44,7 +44,7 @@
                                             <i class="fa fa-pencil-alt"></i>
                                         </button>
                                     </a>
-                                    <a href="<?= base_url('admin/subkategoriB/deletesubkategoriB/'.$data->idsubkategori_b)?>">
+                                    <a href="javascript:void(0);" onclick="confirmDelete(<?= $data->idsubkategori_b ?>)">
                                         <button type="button" class="btn btn-sm btn-alt-secondary" data-bs-toggle="tooltip" title="Delete">
                                             <i class="fa fa-times"></i>
                                         </button>
@@ -134,6 +134,26 @@
             $("#namasubkategori_b").val("").prop("disabled", true);
         }
     }
+
+    function confirmDelete(id) {
+        Swal.fire({
+        title: 'Are you sure to delete?',
+        text: 'Once deleted, you will not be able to recover this data!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            // Send the delete request
+            window.location.href = "<?= base_url('admin/subkategoriB/deletesubkategoriB/') ?>" + id;
+        }
+        });
+    }
+
 </script>
+
+
 
 <?php $this->load->view($footer)?>
