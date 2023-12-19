@@ -25,7 +25,7 @@ class Supplier extends CI_Controller {
     
         $config["base_url"] = site_url('Front/supplier/index');
         $config["total_rows"] = $data['jmlh'];
-        $config["per_page"] = 100;
+        $config["per_page"] = 10;
 
         $config['full_tag_open'] = '<nav class="d-flex" aria-label="pagination"><ul class="pagination">';
         $config['full_tag_close'] = '</ul></nav>';

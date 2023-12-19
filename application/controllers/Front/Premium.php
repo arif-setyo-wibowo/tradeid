@@ -43,7 +43,7 @@ class Premium extends CI_Controller {
         $pembelian = $this->M_Premium->getWhereCompany($company[0]->idcompany);
         
         if ($supplier[0]->verify == 2) {
-            if ($pembelian == null || $pembelian->statusPembelian == 0 ) {
+            if ($pembelian[0] == null || $pembelian[0]->statusPembelian == 0 ) {
                 $data = [
                     'userHeader' => $this->M_User->get_where($iduser),
                     'supplier' =>  $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),

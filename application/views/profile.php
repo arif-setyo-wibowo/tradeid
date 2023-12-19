@@ -77,7 +77,7 @@
             </div>
             <div class="col-lg-6 ">
                 <div class="card p-3 " >
-                    <?php if($company= NULL ) : ?>
+                    <?php if($company[0] ) : ?>
                         <div class="d-flex justify-content-between ">
                             <h4 class="fw-light">Company Information</h4>
                             <a href="<?=base_url()?>dashboard/supplier/company" class="text-blue fw-light font-sm"><i class="uil uil-"></i> Manage company </a>

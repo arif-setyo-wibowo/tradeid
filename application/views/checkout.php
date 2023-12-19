@@ -16,7 +16,24 @@
     <!-- /section -->
     <section class="wrapper bg-light">
       <div class="container pt-12 pt-md-14 pb-14 pb-md-16">
-        <div class="row gx-md-8 gx-xl-12 gy-12">
+      <div class="row gx-md-8 gx-xl-12 gy-12 mb-n10">
+          <div class="col-lg-8">
+            <h3 class="mb-4">Payment Intruction</h3>
+              <div class="row g-3">
+                <div class="col-sm-12">
+                  <div class="">
+                    <div class=""> You can transfer to the bank account below </div>
+                    <div class="">
+                      Account Owner Name: Admin tradeid <br>
+                      Account No: 01677272 <br>
+                      Bank Name: Bank Central Asia </div>
+                  </div>
+                  <div class="fw-light fs-13">*Fill in the form below and upload proof of payment in accordance with the conditions stated</div>
+                </div>
+          </div>
+        </div>
+        <!-- /.row -->
+        <div class="row mt-n10 gx-md-8 gx-xl-12 gy-12">
           <div class="col-lg-8">
             <h3 class="mb-4">Billing address</h3>
             <form class="" action="<?= base_url('checkoutPremium')?>" method="POST">
