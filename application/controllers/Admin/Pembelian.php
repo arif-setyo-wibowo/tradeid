@@ -26,15 +26,15 @@ class Pembelian extends CI_Controller {
         return $this->load->view('admin/v_pembelian',$data);
     }
 
-    function insertMember($idcompany,$idpembelian,$idpremium){
+    function insertMember($idpembelian,$idcompany,$idpremium){
 
         $tgl_awal = date('Y-m-d H:i:s');
         if ($idpremium == 1) {
-            $tgl_selesai = date('Y-m-d H:i:s', strtotime('+10 seconds', strtotime($tgl_awal)));
+            $tgl_selesai = date('Y-m-d H:i:s', strtotime('+180 seconds', strtotime($tgl_awal)));
         }elseif($idpremium == 2){
-            $tgl_selesai = date('Y-m-d H:i:s', strtotime('+20 seconds', strtotime($tgl_awal)));
+            $tgl_selesai = date('Y-m-d H:i:s', strtotime('+250 seconds', strtotime($tgl_awal)));
         }elseif ($idpremium == 3) {
-            $tgl_selesai = date('Y-m-d H:i:s', strtotime('+30 seconds', strtotime($tgl_awal)));
+            $tgl_selesai = date('Y-m-d H:i:s', strtotime('+300 seconds', strtotime($tgl_awal)));
         }
 
         $data = array(
