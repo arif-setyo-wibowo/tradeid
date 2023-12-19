@@ -158,7 +158,7 @@
     }).then((result) => {
       if (result.isConfirmed) {
         // Send the delete request
-        window.location.href = "<?= base_url('deleteFacility/') ?>" + id;
+        window.location.href = "<?= base_url('deleteProduct/') ?>" + id;
       }
     });
   }
