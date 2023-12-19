@@ -4,10 +4,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Databuyer extends CI_Model {
-    
-    public function countAllData() {
-        return $this->db->count_all('kategori');
-    }
 
     function getDatabuyer() {
         $this->db->select('*')
