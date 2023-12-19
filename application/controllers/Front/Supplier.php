@@ -142,8 +142,6 @@ class Supplier extends CI_Controller {
         return $this->load->view('supplierFindCategoryA',$data);
     }
 
-    
-
 }
 
 /* End of file Supplier.php */
