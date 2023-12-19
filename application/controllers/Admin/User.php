@@ -11,6 +11,7 @@ class User extends CI_Controller {
         parent::__construct();
         $this->load->model('M_User');
         $this->load->model('M_Supplier');
+        
     }
     
     public function index()

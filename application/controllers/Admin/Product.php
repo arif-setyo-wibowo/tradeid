@@ -10,6 +10,7 @@ class Product extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('M_Product');
+        
     }
     
     public function index()

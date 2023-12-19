@@ -9,7 +9,7 @@ class M_Admin extends CI_Model {
    } 
 
    function getWhereUsername($username){
-        $this->db->here('username', $username);
+        $this->db->where('username', $username);
         $query = $this->db->get('admin');
 
         return $query->row();

@@ -10,10 +10,11 @@ class Kategori extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('M_Kategori');
+        
     }
     
     public function index()
-    {
+    {   
         $data = [
             'judul' => 'Data Kategori',
             'kategori' => $this->M_Kategori->getKategori(),

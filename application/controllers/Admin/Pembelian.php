@@ -11,6 +11,7 @@ class Pembelian extends CI_Controller {
         parent::__construct();
         $this->load->model('M_Premium');
         $this->load->model('M_Member');
+        
 
     }
     
@@ -45,7 +46,6 @@ class Pembelian extends CI_Controller {
         
         $dataMember = array(
             'idcompany' => $idcompany,
-            'idpremium' => $idpremium,
             'tglstart' => $tgl_awal,
             'tglakhir' => $tgl_selesai,
             'statusMember' => 1
