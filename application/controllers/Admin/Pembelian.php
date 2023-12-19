@@ -26,6 +26,17 @@ class Pembelian extends CI_Controller {
         return $this->load->view('admin/v_pembelian',$data);
     }
 
+    public function detail()
+    {
+        $data = [
+            'premium' => $this->M_Premium->getPembelian(),
+            'header' => 'template/v_header_admin',
+            'footer' => 'template/v_footer_admin',
+        ];
+
+        return $this->load->view('admin/v_detailpembelian',$data);
+    }
+
     function insertMember($idpembelian,$idcompany,$idpremium){
 
         $tgl_awal = date('Y-m-d H:i:s');

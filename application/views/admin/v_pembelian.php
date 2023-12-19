@@ -56,7 +56,7 @@
                                     <?php endif; ?>
                                     </td>
                                     <td class="d-none d-sm-table-cell" style="width: 30%;">
-                                      <a href="" class=" rounded-pill px-3 btn-sm text-primary">Lihat</a>
+                                      <a href="<?= base_url() ?>admin/pembelian/detail" class=" rounded-pill px-3 btn-sm text-primary">Lihat</a>
                                     </td>
                                 </tr>
                                 <?php endforeach;?>
