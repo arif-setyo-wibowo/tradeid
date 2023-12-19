@@ -28,7 +28,7 @@
                         <div class="fw-light mt-n2"><?= $user->email ?></div>
                     </div>
                     <div class="my-auto " >
-                        <?php if($supplier == false || $supplier[0]->verify == 0) : ?>
+                        <?php if($supplier == false || $supplier[0]->verify == 1) : ?>
                             <a href="<?=base_url()?>regSup" class="btn btn-sm btn-sky ">Register as a supplier</a>
                         <?php else : ?>
                             <a href="<?=base_url()?>dashboard/supplier" class="btn btn-sm btn-sky ">Supplier</a>

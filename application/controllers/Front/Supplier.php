@@ -25,7 +25,7 @@ class Supplier extends CI_Controller {
     
         $config["base_url"] = site_url('Front/supplier/index');
         $config["total_rows"] = $data['jmlh'];
-        $config["per_page"] = 5;
+        $config["per_page"] = 100;
 
         $config['full_tag_open'] = '<nav class="d-flex" aria-label="pagination"><ul class="pagination">';
         $config['full_tag_close'] = '</ul></nav>';
@@ -127,7 +127,7 @@ class Supplier extends CI_Controller {
                         'email' => $this->input->post('email'),
                         'telp' => $this->input->post('telp'),
                         'iduser' => $this->input->post('iduser'),
-                        'verify' => '0',
+                        'verify' => '1',
                         'tgl' => date('Y-m-d H:i:s')
                     );
                     

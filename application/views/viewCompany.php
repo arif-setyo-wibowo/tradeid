@@ -48,9 +48,9 @@
         <div class="tab-content mt-0 mt-md-5">
             <div class="tab-pane fade show active pb-10" id="tab1-1">
                 <div>
-                    <p> 
-                       <?= $supplier[0]->deskripsiPerusahaan?>
-                    </p>
+                     
+                       <?= $supplier[0]->deskripsiPanjang?>
+                    
                 </div>
                 <hr class="my-5 text-aqua">
                 <div>
@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="" style="margin-left:10px;">
                                     <div class="align-items-center">
-                                        <span><?= $data->despen?></span>
+                                        <span><?= $data->despan?></span>
                                     </div>
                                 </div>
                             </div>
