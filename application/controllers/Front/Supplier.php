@@ -23,7 +23,7 @@ class Supplier extends CI_Controller {
     {
         $data['jmlh'] = $this->M_Supplier->getAllData()->num_rows();
     
-        $config["base_url"] = site_url('supplier/page_page');
+        $config["base_url"] = site_url('Front/supplier/index');
         $config["total_rows"] = $data['jmlh'];
         $config["per_page"] = 5;
 
@@ -50,7 +50,7 @@ class Supplier extends CI_Controller {
         $config['attributes'] = array('class' => 'page-link');
     
         $this->pagination->initialize($config);
-        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
         
         $iduser = $this->session->userdata('iduser');
         $data = [
@@ -61,7 +61,7 @@ class Supplier extends CI_Controller {
             'footer' => 'componen/footer',
         ];
         $data['pagination'] = $this->pagination->create_links();
-
+        
         return $this->load->view('supplierFind',$data);
     }
 
@@ -93,7 +93,7 @@ class Supplier extends CI_Controller {
          }else{
             if($user->nama && $user->alamat && $user->email && $user->negara && $user->telp){
                 if ($user->negara == 'Indonesia') {
-                    if ($supplier[0]->verify == 0) {
+                    if ($supplier[0]->verify == 1) {
                         $this->session->set_flashdata('pesan', 'Tunggu pengajuanmu diverifikasi Admin 1x24 Jam');
                         redirect('profil');
                     }else{

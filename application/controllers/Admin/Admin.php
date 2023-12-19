@@ -48,11 +48,35 @@ class Admin extends CI_Controller {
 
     public function loginadmin()
     {  
-        $data = [
-        'header' => 'template/v_header_admin',
-        'footer' => 'template/v_footer_admin',
-               ];
-        return $this->load->view('admin/v_login_admin',$data);
+        if ($this->input->post()) {
+            $password = $this->input->post('password');
+            $username = $this->input->post('username');
+
+            $user = $this->M_User->getWhereUsername($username);
+
+            if ($user  && password_verify($password, $user->password)) {
+                $this->session->set_userdata('idadmin', $user->idadmin);
+                $this->session->set_userdata('username', $user->username);
+
+                redirect('admin');
+            }else{
+                $data = array(
+                    'header' => 'template/v_header_admin',
+                    'footer' => 'template/v_footer_admin',
+                    'error' => 'Username, email, atau password salah.'
+                );
+                $this->load->view('admin/v_login_admin', $data);
+            }
+
+        } else{
+            $data = [
+                'header' => 'template/v_header_admin',
+                'footer' => 'template/v_footer_admin',
+                'error' => ''
+            ];
+    
+            return $this->load->view('admin/v_login_admin',$data);
+        }
     }
 
     public function akunbaru()
