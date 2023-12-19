@@ -50,7 +50,7 @@ class Supplier extends CI_Controller {
         $config['attributes'] = array('class' => 'page-link');
     
         $this->pagination->initialize($config);
-        $page = $this->uri->segment(3, 0);
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         
         $iduser = $this->session->userdata('iduser');
         $data = [
@@ -61,10 +61,6 @@ class Supplier extends CI_Controller {
             'footer' => 'componen/footer',
         ];
         $data['pagination'] = $this->pagination->create_links();
-
-        if ($this->uri->segment(3) === FALSE) {
-            redirect('supplier');
-        }
 
         return $this->load->view('supplierFind',$data);
     }
