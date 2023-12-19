@@ -75,6 +75,13 @@
                     <div class="invalid-feedback"> Please enter your Company Name </div>
                   </div>
                 </div>
+                <div class="col-12">
+                  <div class="mb-4">
+                      <label for="one-profile-edit-avatar" class="form-label">Upload Image</label>
+                        <input class="form-control" type="file" name="upgambar" id="one-profile-edit-avatar">
+                        <input type="hidden" class="form-control" name="lastgambar" value="">
+                  </div>
+                </div>
               </div>
               <hr class="mt-7 mb-6">
               <div class="mt- mb-6">
