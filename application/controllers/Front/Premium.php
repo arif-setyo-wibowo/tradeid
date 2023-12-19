@@ -43,21 +43,29 @@ class Premium extends CI_Controller {
         $pembelian = $this->M_Premium->getWhereCompany($company[0]->idcompany);
         
         if ($supplier[0]->verify == 2) {
-            if ($pembelian[0] == null || $pembelian[0]->statusPembelian == 0 ) {
-                $data = [
-                    'userHeader' => $this->M_User->get_where($iduser),
-                    'supplier' =>  $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
-                    'premium' => $this->M_Premium->getWhere($id),
-                    'header' => 'componen/header',
-                    'footer' => 'componen/footer',
-                ];
-                
-                return $this->load->view('checkout',$data);
-                
+            if ($company[0] == null) {
+                $this->session->set_flashdata('pesan', 'Complete Your Data Company');
+                redirect('dashboard/supplier/company');
             }else{
-                $this->session->set_flashdata('pesan','Buy Premium Still Need Wait 1x24 for Verification Admin');
+                if ($pembelian == null) {
 
-                redirect('profil');
+                    $data = [
+                        'userHeader' => $this->M_User->get_where($iduser),
+                        'supplier' =>  $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                        'premium' => $this->M_Premium->getWhere($id),
+                        'header' => 'componen/header',
+                        'footer' => 'componen/footer',
+                    ];
+                    
+                    return $this->load->view('checkout',$data);
+
+                } else{
+                    if ($pembelian[0]->statusPembelian == 0) {
+                        $this->session->set_flashdata('pesan','Buy Premium Still Need Wait 1x24 for Verification Admin');
+    
+                        redirect('profil');
+                    }
+                }
             }
         }else{
             redirect('profil');
