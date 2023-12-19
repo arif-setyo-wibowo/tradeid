@@ -9,7 +9,7 @@
   <meta name="keywords"
     content="bootstrap 5, business, corporate, creative, gulp, marketing, minimal, modern, multipurpose, one page, responsive, saas, sass, seo, startup, html5 template, site template">
   <meta name="author" content="elemis">
-  <title>Sandbox - Modern & Multipurpose Bootstrap 5 Template</title>
+  <title>TradeID</title>
   <link rel="shortcut icon" href="<?= base_url() ?>./assets/front/img/favicon.png">
   <link rel="stylesheet" href="<?= base_url() ?>./assets/front/css/plugins.css">
   <link rel="stylesheet" href="<?= base_url() ?>./assets/front/css/style.css">
