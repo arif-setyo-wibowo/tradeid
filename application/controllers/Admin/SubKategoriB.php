@@ -12,6 +12,7 @@ class SubKategoriB extends CI_Controller {
         $this->load->model('M_SubkategoriB');
         $this->load->model('M_SubkategoriA');
         $this->load->model('M_Kategori');
+        
     }
     
     public function index()

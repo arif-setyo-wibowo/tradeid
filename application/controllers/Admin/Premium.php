@@ -10,6 +10,7 @@ class Premium extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('M_Premium');
+        
     }
     
     public function index()

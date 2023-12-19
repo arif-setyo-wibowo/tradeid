@@ -11,6 +11,7 @@ class SubKategoriA extends CI_Controller {
         parent::__construct();
         $this->load->model('M_SubKategoriA');
         $this->load->model('M_Kategori');
+        
     }
     
     public function index()

@@ -16,23 +16,34 @@ class Databuyer extends CI_Controller {
     }
     
     public function index()
-    {
-        $data = [
-            'kategori' => $this->M_Kategori->getKategori(),
-            'buyer' => $this->M_Databuyer->getDatabuyer(),
-            'header' => 'template/v_header_admin',
-            'footer' => 'template/v_footer_admin',
-        ];
-        return $this->load->view('admin/v_databuyer',$data);
+    {   
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
+            $data = [
+                'kategori' => $this->M_Kategori->getKategori(),
+                'buyer' => $this->M_Databuyer->getDatabuyer(),
+                'header' => 'template/v_header_admin',
+                'footer' => 'template/v_footer_admin',
+            ];
+            return $this->load->view('admin/v_databuyer',$data);
+        }
     }
 
     public function detail()
     {
-        $data = [
-            'header' => 'template/v_header_admin',
-            'footer' => 'template/v_footer_admin',
-        ];
-        return $this->load->view('admin/v_detailDataBuyer',$data);
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
+
+            $data = [
+                'header' => 'template/v_header_admin',
+                'footer' => 'template/v_footer_admin',
+            ];
+            return $this->load->view('admin/v_detailDataBuyer',$data);
+        }
     }
 
 
@@ -58,19 +69,23 @@ class Databuyer extends CI_Controller {
     }
 
     function edit($id){
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
+            $buyer = $this->M_Databuyer->getWhere($id);
 
-        $buyer = $this->M_Databuyer->getWhere($id);
-
-        $data = array(
-            'subkategoria' => $this->M_Databuyer->getSubkategoriAOptions( $buyer[0]->idkategori),
-            'subkategorib' => $this->M_Databuyer->getSubkategoriBOptions( $buyer[0]->idsubkategori_a),
-            'kategori' => $this->M_Kategori->getKategori(),
-            'buyer' => $this->M_Databuyer->getWhere($id),
-            'footer' => 'template/v_footer_admin',
-            'header' => 'template/v_header_admin',
-        );
-        
-        return $this->load->view('admin/v_databuyerUpdate',$data);
+            $data = array(
+                'subkategoria' => $this->M_Databuyer->getSubkategoriAOptions( $buyer[0]->idkategori),
+                'subkategorib' => $this->M_Databuyer->getSubkategoriBOptions( $buyer[0]->idsubkategori_a),
+                'kategori' => $this->M_Kategori->getKategori(),
+                'buyer' => $this->M_Databuyer->getWhere($id),
+                'footer' => 'template/v_footer_admin',
+                'header' => 'template/v_header_admin',
+            );
+            
+            return $this->load->view('admin/v_databuyerUpdate',$data);
+        }
     }
 
     function update(){
