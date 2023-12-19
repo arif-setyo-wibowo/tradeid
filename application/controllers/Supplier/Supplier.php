@@ -51,6 +51,7 @@ class Supplier extends CI_Controller {
                     }
                 }
             }else{
+                
                 redirect('profil');
             }
             

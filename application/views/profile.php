@@ -28,7 +28,7 @@
                         <div class="fw-light mt-n2"><?= $user->email ?></div>
                     </div>
                     <div class="my-auto " >
-                        <?php if($supplier == false || $supplier[0]->verify == 1) : ?>
+                        <?php if($supplier == false || $supplier[0]->verify == 0) : ?>
                             <a href="<?=base_url()?>regSup" class="btn btn-sm btn-sky ">Register as a supplier</a>
                         <?php else : ?>
                             <a href="<?=base_url()?>dashboard/supplier" class="btn btn-sm btn-sky ">Supplier</a>
@@ -77,7 +77,7 @@
             </div>
             <div class="col-lg-6 ">
                 <div class="card p-3 " >
-                    <?php if($user->cSupplier == 1 || $user->cSupplier != NULL) : ?>
+                    <?php if($company= NULL ) : ?>
                         <div class="d-flex justify-content-between ">
                             <h4 class="fw-light">Company Information</h4>
                             <a href="<?=base_url()?>dashboard/supplier/company" class="text-blue fw-light font-sm"><i class="uil uil-"></i> Manage company </a>

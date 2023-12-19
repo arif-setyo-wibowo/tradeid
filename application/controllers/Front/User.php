@@ -21,19 +21,48 @@ class User extends CI_Controller {
         }else{
             $iduser = $this->session->userdata('iduser');
             $supplier = $this->M_Supplier->getWhereIdSupplier($iduser);
-            $company = $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier);
+            if ($supplier == null) {
+                $data = [
+                    'userHeader' => $this->M_User->get_where($iduser),
+                    'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                    'user' => $this->M_User->get_where($iduser),
+                    'header' => 'componen/header',
+                    'footer' => 'componen/footer',
+                ];
+                
+                return $this->load->view('profile',$data);
+            }else{
+                
+                $company = $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier);
+                
+                if ($company == null) {
+                    
+                    $data = [
+                        'userHeader' => $this->M_User->get_where($iduser),
+                        'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                        'user' => $this->M_User->get_where($iduser),
+                        'header' => 'componen/header',
+                        'footer' => 'componen/footer',
+                    ];
+                    
+                    return $this->load->view('profile',$data);
+                }else{
+                    $data = [
+                        'userHeader' => $this->M_User->get_where($iduser),
+                        'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                        'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'product' => $this->M_Product->countProduct($company[0]->idcompany),
+                        'user' => $this->M_User->get_where($iduser),
+                        'header' => 'componen/header',
+                        'footer' => 'componen/footer',
+                    ];
 
-            $data = [
-                'userHeader' => $this->M_User->get_where($iduser),
-                'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
-                'company' => $company,
-                'product' => $this->M_Product->countProduct($company[0]->idcompany),
-                'user' => $this->M_User->get_where($iduser),
-                'header' => 'componen/header',
-                'footer' => 'componen/footer',
-            ];
-            
-            return $this->load->view('profile',$data);
+                    return $this->load->view('profile',$data);
+                }
+                
+            }
+
+           
         }
     
     }

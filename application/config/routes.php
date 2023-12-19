@@ -66,6 +66,7 @@ $route['tambahKomen'] = 'Front/Forum/storeKomen';
 $route['balasKomen'] = 'Front/Forum/storeBalas';
 $route['product'] = 'Front/Product';
 $route['supplier'] = 'Front/Supplier';
+$route['supplier/page_page/(:num)'] = 'Front/Supplier/page_page/$id';
 $route['search'] = 'Home/searchView';
 
 //Front product
@@ -76,8 +77,8 @@ $route['product/productDetail/(:num)'] = 'Front/Product/productDetail/$1';
 $route['inquireProduct/(:num)'] = 'Front/Product/inquireProduct/$1';
 
 //Front Suppplier
-$route['supplier/(:num)'] = 'Front/Supplier/supplierCategory/$1';
-$route['supplier/(:num)/(:num)'] = 'Front/Supplier/supplierSubCategoryA/$1/$2';
+$route['supplier/c/(:num)'] = 'Front/Supplier/supplierCategory/$1';
+$route['supplier/c/(:num)/sa/(:num)'] = 'Front/Supplier/supplierSubCategoryA/$1/$2';
 $route['supplier/detail/(:num)'] = 'Front/Supplier/detailCompany/$1';
 
 $route['premium'] = 'Front/Premium';
