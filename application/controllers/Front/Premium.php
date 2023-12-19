@@ -64,6 +64,16 @@ class Premium extends CI_Controller {
                         $this->session->set_flashdata('pesan','Buy Premium Still Need Wait 1x24 for Verification Admin');
     
                         redirect('profil');
+                    }else{
+                        $data = [
+                            'userHeader' => $this->M_User->get_where($iduser),
+                            'supplier' =>  $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                            'premium' => $this->M_Premium->getWhere($id),
+                            'header' => 'componen/header',
+                            'footer' => 'componen/footer',
+                        ];
+                        
+                        return $this->load->view('checkout',$data);
                     }
                 }
             }
