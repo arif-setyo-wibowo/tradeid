@@ -8,6 +8,13 @@ class M_Admin extends CI_Model {
         return $this->db->get('supplier')->result();
    } 
 
+   function getWhereUsername($username){
+        $this->db->here('username', $username);
+        $query = $this->db->get('admin');
+
+        return $query->row();
+   }
+
    function update($id,$data){
         $this->db->update('supplier', $data, array('idsupplier' => $id));
    }

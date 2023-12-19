@@ -5,6 +5,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Supplier extends CI_Model {
 
+    public function countAllData() {
+        return $this->db->count_all('supplier');
+    }
+
     public function getAllData() {
         return $this->db->get('company');
     }
