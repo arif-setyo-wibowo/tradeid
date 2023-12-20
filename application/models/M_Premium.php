@@ -47,6 +47,16 @@ class M_Premium extends CI_Model {
         return $this->db->get()->result();
     }
 
+    function getwherePembelian($idpembelian) {
+        $this->db->select('*')
+                ->from('pembelian')
+                ->where('idpembelian',$idpembelian)
+                ->join('company', 'company.idcompany = pembelian.idcompany')
+                ->join('premium', 'premium.idpremium = pembelian.idpremium');
+
+        return $this->db->get()->result();
+    }
+
     function updatePembelian($idpembelian,$idpremium,$data) {
         $this->db->where('idpembelian', $idpembelian);
         $this->db->where('idpremium', $idpremium);

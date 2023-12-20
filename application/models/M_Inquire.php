@@ -74,7 +74,10 @@ class M_Inquire extends CI_Model {
         $this->db->select('*')
                  ->from('inquire')
                  ->where('idinquire',$id)
-                 ->where('idcompany',$company);
+                 ->where('inquire.idcompany',$company)
+                 ->join('product', 'product.idproduct = inquire.idproduct')
+                 ->join('company', 'company.idcompany = inquire.idcompany')
+                 ->join('subkategori_a', 'subkategori_a.idsubkategori_a = company.idsubkategori_a');
         
          return  $this->db->get()->result();
     }

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2023 at 07:01 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Dec 20, 2023 at 12:23 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,12 +27,46 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `idadmin` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`idadmin`, `username`, `password`) VALUES
+(1, 'admin', 123);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `buyer`
+--
+
+CREATE TABLE `buyer` (
+  `idbuyer` int(11) NOT NULL,
+  `namaBuyer` text NOT NULL,
+  `emailBuyer` text NOT NULL,
+  `alamatBuyer` varchar(255) NOT NULL,
+  `tglbuyer` date NOT NULL,
+  `negaraBuyer` varchar(255) NOT NULL,
+  `telpBuyer` varchar(255) NOT NULL,
+  `produkBuyer` varchar(255) NOT NULL,
+  `deskripsiBuyer` text NOT NULL,
+  `idkategori` int(11) NOT NULL,
+  `idsubkategori_a` int(11) NOT NULL,
+  `idsubkategori_b` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `buyer`
+--
+
+INSERT INTO `buyer` (`idbuyer`, `namaBuyer`, `emailBuyer`, `alamatBuyer`, `tglbuyer`, `negaraBuyer`, `telpBuyer`, `produkBuyer`, `deskripsiBuyer`, `idkategori`, `idsubkategori_a`, `idsubkategori_b`) VALUES
+(2, 'ronald', 'arif13.aw@gmail.com', 'Perum Citra surya mas BLOK D-12 RT 40 RW 10', '2023-12-17', 'Indonesia', '081805404140', 'kepala', 'dsfsdfsdfsdf df sdf              ', 12, 9, 4);
 
 -- --------------------------------------------------------
 
@@ -40,7 +74,6 @@ CREATE TABLE `admin` (
 -- Table structure for table `company`
 --
 
-DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
   `idcompany` int(11) NOT NULL,
   `namaPerusahaan` varchar(255) DEFAULT NULL,
@@ -73,7 +106,8 @@ INSERT INTO `company` (`idcompany`, `namaPerusahaan`, `alamat`, `kota`, `gambarC
 (14, 'Last Choice Company', 'Kedungpring Street 23', 'Surabaya', '5faa79b5661ca3457e0188d084dad9d6.png', NULL, NULL, NULL, NULL, NULL, NULL, 20, 20, 26),
 (15, 'Next Level Store', 'Balikpapan Street 23', 'Balikpapan', 'a149b317aaa6fd2e1231098eb2eda79d.png', NULL, NULL, NULL, NULL, NULL, NULL, 19, 19, 24),
 (16, 'Terbang Jauh Company', 'Balongsari Street 225', 'Surabaya', '6891dc4785e077af86af1d029a63dd55.png', NULL, NULL, NULL, NULL, NULL, NULL, 18, 18, 22),
-(17, 'Makmur Star Company', 'Tenggilis HIghway Street 42', 'Surabaya', 'f4c7fd151eb97373374edd676ea793e2.png', NULL, NULL, NULL, NULL, NULL, NULL, 17, 17, 20);
+(17, 'Makmur Star Company', 'Tenggilis HIghway Street 42', 'Surabaya', 'f4c7fd151eb97373374edd676ea793e2.png', NULL, NULL, NULL, NULL, NULL, NULL, 17, 17, 20),
+(20, 'Rumah Masak', 'Perum Citra surya mas BLOK D-12 RT 40 RW 10', 'Banjarmasin', '2b35f8a0959807b983254123be5775f0.png', NULL, NULL, NULL, NULL, NULL, NULL, 24, 12, 11);
 
 -- --------------------------------------------------------
 
@@ -81,7 +115,6 @@ INSERT INTO `company` (`idcompany`, `namaPerusahaan`, `alamat`, `kota`, `gambarC
 -- Table structure for table `databuyer`
 --
 
-DROP TABLE IF EXISTS `databuyer`;
 CREATE TABLE `databuyer` (
   `iddatabuyer` int(11) NOT NULL,
   `namabuyer` varchar(655) NOT NULL,
@@ -102,7 +135,6 @@ CREATE TABLE `databuyer` (
 -- Table structure for table `facility`
 --
 
-DROP TABLE IF EXISTS `facility`;
 CREATE TABLE `facility` (
   `idfacility` int(11) NOT NULL,
   `idcompany` int(11) NOT NULL,
@@ -116,7 +148,10 @@ CREATE TABLE `facility` (
 --
 
 INSERT INTO `facility` (`idfacility`, `idcompany`, `gambarFacility`, `namaFacility`, `deskripsiFacility`) VALUES
-(1, 1, 'a0ced18de3a96ec002df42a9f10b1720.jpg,2add8897623d384874f6c953c50a1c37.jpg,9d7b29ffc70d93b3be0a48385a353186.jpg', 'One Piece', 'test Ini');
+(3, 10, 'b1924a4be91ebcfb19049d59800bb386.png', 'Wooden Box', 'Wooden box included the lid'),
+(4, 9, 'e59b9a656f05641b7f883be26ae7d501.png', 'Ice Box', 'The materials of ice box is styrofoam'),
+(5, 11, '7a2f329bd3785992f26bf6d4a1339ee2.png', 'Jewelry Case', 'Jewelry case included price'),
+(6, 13, 'ee535af2547abff67b596214c6adfd55.png', 'Box', 'Safe box ');
 
 -- --------------------------------------------------------
 
@@ -124,7 +159,6 @@ INSERT INTO `facility` (`idfacility`, `idcompany`, `gambarFacility`, `namaFacili
 -- Table structure for table `inquire`
 --
 
-DROP TABLE IF EXISTS `inquire`;
 CREATE TABLE `inquire` (
   `idinquire` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
@@ -190,7 +224,6 @@ INSERT INTO `inquire` (`idinquire`, `nama`, `email`, `telp`, `negara`, `pesan`, 
 -- Table structure for table `kategori`
 --
 
-DROP TABLE IF EXISTS `kategori`;
 CREATE TABLE `kategori` (
   `idkategori` int(11) NOT NULL,
   `namaKategori` varchar(255) NOT NULL
@@ -217,10 +250,126 @@ INSERT INTO `kategori` (`idkategori`, `namaKategori`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `komen`
+--
+
+CREATE TABLE `komen` (
+  `idkomen` int(11) NOT NULL,
+  `idbalas` int(11) DEFAULT NULL,
+  `idposting` int(11) NOT NULL,
+  `pesankomen` text NOT NULL,
+  `created_at_komen` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `komen`
+--
+
+INSERT INTO `komen` (`idkomen`, `idbalas`, `idposting`, `pesankomen`, `created_at_komen`) VALUES
+(3, NULL, 1, 'test\r\n', '2023-12-17 07:42:55'),
+(7, 3, 1, 'hayo', '2023-12-17 08:15:27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member`
+--
+
+CREATE TABLE `member` (
+  `idmember` int(11) NOT NULL,
+  `idcompany` int(11) NOT NULL,
+  `tglstart` datetime NOT NULL,
+  `tglakhir` datetime NOT NULL,
+  `statusMember` int(1) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`idmember`, `idcompany`, `tglstart`, `tglakhir`, `statusMember`, `created_at`) VALUES
+(1, 1, '2023-12-16 00:00:00', '2023-12-16 22:59:08', 0, '2023-12-16 06:21:15'),
+(3, 1, '2023-12-19 05:36:31', '2023-12-21 05:37:01', 1, '2023-12-19 04:36:31'),
+(5, 2, '2023-12-19 05:51:12', '2023-12-19 05:51:22', 1, '2023-12-19 04:51:12'),
+(11, 20, '2023-12-20 11:43:21', '2024-06-20 11:43:21', 1, '2023-12-20 10:43:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pembelian`
+--
+
+CREATE TABLE `pembelian` (
+  `idpembelian` int(11) NOT NULL,
+  `idcompany` int(11) NOT NULL,
+  `namaPembelian` varchar(255) NOT NULL,
+  `emailPembelian` varchar(255) NOT NULL,
+  `tglPembelian` date NOT NULL,
+  `gambarPembelian` text DEFAULT NULL,
+  `idpremium` int(11) NOT NULL,
+  `statusPembelian` int(1) DEFAULT NULL,
+  `statusAdmin` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pembelian`
+--
+
+INSERT INTO `pembelian` (`idpembelian`, `idcompany`, `namaPembelian`, `emailPembelian`, `tglPembelian`, `gambarPembelian`, `idpremium`, `statusPembelian`, `statusAdmin`) VALUES
+(1, 1, 'Arif setyo wibowo', 'arif13.aw@gmail.com', '2023-12-16', '23f2887e2b546d63c0a88605509d8b29.jpg', 3, 1, 1),
+(2, 18, 'udin sapii', 'arif13.aw@gmail.com', '2023-12-19', '', 1, 1, 1),
+(3, 20, 'Nando Arifin', 'arif13.aw@gmail.com', '2023-12-20', 'fab9a6f4c1d5406202ec55d0bada1a5c.jpg', 2, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posting`
+--
+
+CREATE TABLE `posting` (
+  `idposting` int(11) NOT NULL,
+  `idcompany` int(11) NOT NULL,
+  `topic` text NOT NULL,
+  `pesan` text NOT NULL,
+  `created_at_posting` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `posting`
+--
+
+INSERT INTO `posting` (`idposting`, `idcompany`, `topic`, `pesan`, `created_at_posting`) VALUES
+(1, 1, 'test', 'Bagus', '2023-12-17 07:03:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `premium`
+--
+
+CREATE TABLE `premium` (
+  `idpremium` int(11) NOT NULL,
+  `namaPremium` varchar(255) NOT NULL,
+  `hargaPremium` varchar(255) NOT NULL,
+  `waktuPremium` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `premium`
+--
+
+INSERT INTO `premium` (`idpremium`, `namaPremium`, `hargaPremium`, `waktuPremium`) VALUES
+(1, 'Premium 1', '150000', 'Bulan'),
+(2, 'Premium 2', '450000', '6 Bulan'),
+(3, 'Premium 3', '700000', 'Tahun');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product`
 --
 
-DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
   `idproduct` int(11) NOT NULL,
   `namaProduk` varchar(255) NOT NULL,
@@ -239,8 +388,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`idproduct`, `namaProduk`, `idcompany`, `idkategori`, `idsubkategori_a`, `idsubkategori_b`, `deskripsiProduk`, `deskripsiPendek`, `harga`, `gambar`) VALUES
-(9, 'Test', 1, 10, 4, 2, '<p>Kelapa</p>\r\n', 'sadasd', '1500', '9021204e22c59cb20250d01d6480a09b.jpeg,145cf7e01b00a1a5b9e206760bc15374.jpg,e047d04814647bcd8597538601ed1465.jpg'),
-(10, 'sadasdas', 1, 10, 4, 2, '<p><em>saSas&nbsp; &nbsp;</em><strong>dasdasd</strong></p>\r\n', 'sadsadasd sdasdas dasdsad', '3232', '3c97e236f2b239f86acacd9d639443d0.jpg,a55ddad3adbd4b29cc64ef5581d97930.jpg,fafd65904652930b68f7f108fd7e2e13.jpg'),
+(9, 'Test', 1, 18, 22, 23, '<p>Kelapa</p>\r\n', 'sadasd', '1500', '9021204e22c59cb20250d01d6480a09b.jpeg,145cf7e01b00a1a5b9e206760bc15374.jpg,e047d04814647bcd8597538601ed1465.jpg'),
+(10, 'Coconut Husked', 1, 12, 9, 4, '<p><em>COconut or kelapa</em></p>\r\n', 'Deskripsi Pendek', '1250', '3c97e236f2b239f86acacd9d639443d0.jpg,a55ddad3adbd4b29cc64ef5581d97930.jpg,fafd65904652930b68f7f108fd7e2e13.jpg'),
 (13, 'test', 8, 8, 7, 5, '<p>qwwe</p>\r\n', 'wqe', '21321', '5ae6aaffe436045c710797655af3aed0.jpg,04edb1f80aacc6556ddb19f63ef76fa1.jpg'),
 (14, 'Ikan Gurame', 9, 10, 4, 2, '', 'Segar dan besar', '20000', 'ad3648754b2192dccb19cf395217935e.png'),
 (15, 'Ikan Salmon', 9, 10, 4, 3, '', 'Salmon segar premiun', '80000', '46b9d3a0fe8bdac67f65319b03f37418.png'),
@@ -289,7 +438,6 @@ INSERT INTO `product` (`idproduct`, `namaProduk`, `idcompany`, `idkategori`, `id
 -- Table structure for table `subkategori_a`
 --
 
-DROP TABLE IF EXISTS `subkategori_a`;
 CREATE TABLE `subkategori_a` (
   `idsubkategori_a` int(11) NOT NULL,
   `idkategori` int(11) NOT NULL,
@@ -331,7 +479,6 @@ INSERT INTO `subkategori_a` (`idsubkategori_a`, `idkategori`, `namaSubKategori`)
 -- Table structure for table `subkategori_b`
 --
 
-DROP TABLE IF EXISTS `subkategori_b`;
 CREATE TABLE `subkategori_b` (
   `idsubkategori_b` int(11) NOT NULL,
   `idsubkategori_a` int(11) NOT NULL,
@@ -384,7 +531,6 @@ INSERT INTO `subkategori_b` (`idsubkategori_b`, `idsubkategori_a`, `idkategori`,
 -- Table structure for table `supplier`
 --
 
-DROP TABLE IF EXISTS `supplier`;
 CREATE TABLE `supplier` (
   `idsupplier` int(11) NOT NULL,
   `namaUsaha` varchar(255) NOT NULL,
@@ -402,8 +548,8 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`idsupplier`, `namaUsaha`, `deskripsiPerusahaan`, `nama`, `email`, `telp`, `iduser`, `verify`, `tgl`) VALUES
-(4, 'Toko Maju Jaya', 'wqeewqe', 'udin sapii', 'arif13.aw@gmail.com', '081805404140', 2, 2, '2023-12-04'),
-(9, 'TradeId', 'asdnasdnasnda,snd,sadsmdndmadasd\r\n\r\n\r\nsadasdas\r\nd\r\nadsadas', 'Arif setyo wibowo', 'arif13.aw@gmail.com', '081805404140', 1, 2, '2023-12-05'),
+(4, 'Toko Maju Jaya', 'Terus Maju', 'udin sapii', 'arif13.aw@gmail.com', '081805404140', 2, 2, '2023-12-04'),
+(9, 'TradeId', 'Perusahaan Induk', 'Arif setyo wibowo', 'arif13.aw@gmail.com', '081805404140', 1, 2, '2023-12-05'),
 (10, 'pt baru', 'baru', 'ronald', 'arif13.aw@gmail.com', '081805404140', 3, 1, '2023-12-05'),
 (11, 'PT Sejahtera', 'ikan segar dengan kualitas mantap', 'Salsabila Arifa', 'arifaa@gmail.com', '081556406233', 4, 2, '2023-12-15'),
 (12, 'PT Makmur', 'Macam-macam bunga di sini!!', 'Hanun Nabila', 'hanunabila@gmail.com', '082226456222', 8, 2, '2023-12-15'),
@@ -414,7 +560,8 @@ INSERT INTO `supplier` (`idsupplier`, `namaUsaha`, `deskripsiPerusahaan`, `nama`
 (17, 'Makmur Star Company', 'Selling quality goods', 'MakmurStar', 'MakmurStar@gmail.com', '628364069537', 37, 2, '2023-12-15'),
 (18, 'Terbang Jauh Company', 'Sell ​​the items you want', 'Faisal Habibi Wildan', 'FaisalHW@gmail.com', '081805404291', 38, 2, '2023-12-15'),
 (19, 'Next Level Store', 'Bring the thing that you want', 'Aris Iwa Syahputra', 'ArisSiwaS@gmail.com', '081805404791', 39, 2, '2023-12-15'),
-(20, 'Last Choice Company', 'Our Company Have the goods u want', 'Zidan Islamy', 'ZidanISme@gmail.com', '081235404291', 40, 2, '2023-12-15');
+(20, 'Last Choice Company', 'Our Company Have the goods u want', 'Zidan Islamy', 'ZidanISme@gmail.com', '081235404291', 40, 2, '2023-12-15'),
+(24, 'Rumah Masak', 'Perum Citra surya mas BLOK D-12 RT 40 RW 10', 'Nando Arifin', 'arif13.aw@gmail.com', '081805404140', 44, 2, '2023-12-20');
 
 -- --------------------------------------------------------
 
@@ -422,7 +569,6 @@ INSERT INTO `supplier` (`idsupplier`, `namaUsaha`, `deskripsiPerusahaan`, `nama`
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `iduser` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
@@ -445,7 +591,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`iduser`, `username`, `email`, `password`, `cSupplier`, `nama`, `alamat`, `telp`, `negara`, `verify_token`, `verify_ token_created`, `status`) VALUES
 (1, 'Polixyner', 'arif15.sw@gmail.com', '$2y$10$gM2HtlzBb55FBs3P9xnEMOiwn0twB3zsnu/fySJ8cSH8adDuXEiMC', 1, 'Arif Setyo Wibowo', 'Perum Citra surya mas BLOK D-12 RT 40 RW 10', '081805404140', 'Indonesia', NULL, NULL, NULL),
 (2, 'arifsw__', 'arif13.aw@gmail.com', '$2y$10$ua.RZRbGxl6HclYpYZk0YOxDfWJocbHhD9OW77r8hIGoqVBSmDHEC', 1, 'Arif setyo wibowo', 'Perum Citra surya mas BLOK D-12 RT 40 RW 10', '081805404140', 'Indonesia', NULL, NULL, NULL),
-(3, 'baru', 'arif13.aw@gmail.com', '$2y$10$FCcZs4k27GYpfVx5JAHWzOkg1W.mAOs/uk6Da7wkPrpY2p7b5VcHK', NULL, 'baru', 'coba', '081805404140', 'Malaysia', NULL, NULL, NULL),
+(3, 'baru', 'arif13.aw@gmail.com', '$2y$10$FCcZs4k27GYpfVx5JAHWzOkg1W.mAOs/uk6Da7wkPrpY2p7b5VcHK', NULL, 'baru', 'coba', '081805404140', 'Indonesia', NULL, NULL, NULL),
 (4, 'salsaarifa', 'arifaa@gmail.com', '$2y$10$sJkMQCELrIhhc8PFbv8BOOFpbaf0jm8WLauJhFIfkZEeXKWP4lNhu', 1, 'Salsabila Arifa', 'Jl. Amir Mahmud IX, Surabaya', '081556406233', 'Indonesia', NULL, NULL, NULL),
 (5, 'lala', 'lalale@gmail.com', '$2y$10$TVGFzq.s.zs8YuJ2JCscm.sRDRMWm90mY8pDstklNJq3uEvmf3kY2', NULL, 'Lala kana', 'Jl. Imam Bonjol', '081556605123', 'Philippines', NULL, NULL, NULL),
 (6, 'alda', 'inialda@gmail.com', '$2y$10$/VR1/sKYTSa8Rg1PJR.3jONP2kRexoUAE0eRQAWU2k5SRME9iLYsO', 1, 'alda nurry', 'Karangtengah, sidoarjo', '081556406224', 'Indonesia', NULL, NULL, NULL),
@@ -482,7 +628,11 @@ INSERT INTO `user` (`iduser`, `username`, `email`, `password`, `cSupplier`, `nam
 (37, 'DafaMaulana', 'DafaMaulana@gmail.com', '$2y$10$3pzxlfPgxsPMQ9Q6d0KbL.d1Nw6Oavu/ZsRcwvwgQPwibEz/jTu/m', 1, 'Dafa Maulana', 'Tenggilis HIghway Street 42', '081805404291', 'Indonesia', NULL, NULL, NULL),
 (38, 'FaisalHW', 'FaisalHW@gmail.com', '$2y$10$aV0hPp2SE1yJhCSJ6vXqruWw9eQcbi4To00.ENlAKXuuZ93.BmnFS', 1, 'Faisal Habibi Wildan', 'Balongsari Street 225', '081205409632', 'Indonesia', NULL, NULL, NULL),
 (39, 'ArisSiwaS', 'ArisSiwaS@gmail.com', '$2y$10$tOZ9etv8yIytuVXHuxy7xu2cGLTEQ3VgWOjFifZeups3UXBwtgqEC', 1, 'Aris Iwa Syahputra', 'Balikpapan Street 23', '081805404791', 'Indonesia', NULL, NULL, NULL),
-(40, 'ZidanIs', 'ZidanISme@gmail.com', '$2y$10$GAGpt17r6ppByU3NjoZor.3Lzhx0CinY67dzLHe3OlbQch3W3.m4C', 1, 'Zidan Islamy', 'Kedungpring Street 23', '081235404291', 'Indonesia', NULL, NULL, NULL);
+(40, 'ZidanIs', 'ZidanISme@gmail.com', '$2y$10$GAGpt17r6ppByU3NjoZor.3Lzhx0CinY67dzLHe3OlbQch3W3.m4C', 1, 'Zidan Islamy', 'Kedungpring Street 23', '081235404291', 'Indonesia', NULL, NULL, NULL),
+(41, 'test', 'arif13.aw@gmail.com', '$2y$10$R5wXSwOzS7JWubeatGNWEOTLD7XxKvfNo5fP/5RsJI3nSRLwgk7Ia', 1, 'dsa', 'Perum Citra surya mas BLOK D-12 RT 40 RW 10', '081805404140', 'Indonesia', NULL, NULL, NULL),
+(42, 'saiful', 'arif13.aw@gmail.com', '$2y$10$q3YT.RN6.E6BKrV4GHGfvu9A6AnGasqlsZ.wu8KOFXviBEcgyk3Fe', 1, 'arif13.aw@gmail.com', 'Perum Citra surya mas BLOK D-12 RT 40 RW 10', '081805404140', 'Indonesia', NULL, NULL, NULL),
+(43, 'rudi', 'arif13.aw@gmail.com', '$2y$10$bhseaOxWi8ShtKjToZkPKO130vSpFQW3BHDYS.5QHUkGFS2yu4n8C', 1, 'arif13.aw@gmail.com', 'Perum Citra surya mas BLOK D-12 RT 40 RW 10', '081805404140', 'Indonesia', NULL, NULL, NULL),
+(44, 'nando', 'nando@gmail.com', '$2y$10$QDS8RSMRbaJ7E.mlAaFmhe1BqdrnjiIF/JAELG3ihTCfS2ANukph2', 1, 'Nando Arifin', 'Singapura', '028398123', 'Indonesia', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -493,6 +643,12 @@ INSERT INTO `user` (`iduser`, `username`, `email`, `password`, `cSupplier`, `nam
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`idadmin`);
+
+--
+-- Indexes for table `buyer`
+--
+ALTER TABLE `buyer`
+  ADD PRIMARY KEY (`idbuyer`);
 
 --
 -- Indexes for table `company`
@@ -524,6 +680,36 @@ ALTER TABLE `inquire`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`idkategori`);
+
+--
+-- Indexes for table `komen`
+--
+ALTER TABLE `komen`
+  ADD PRIMARY KEY (`idkomen`);
+
+--
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`idmember`);
+
+--
+-- Indexes for table `pembelian`
+--
+ALTER TABLE `pembelian`
+  ADD PRIMARY KEY (`idpembelian`);
+
+--
+-- Indexes for table `posting`
+--
+ALTER TABLE `posting`
+  ADD PRIMARY KEY (`idposting`);
+
+--
+-- Indexes for table `premium`
+--
+ALTER TABLE `premium`
+  ADD PRIMARY KEY (`idpremium`);
 
 --
 -- Indexes for table `product`
@@ -565,13 +751,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `idadmin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idadmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `buyer`
+--
+ALTER TABLE `buyer`
+  MODIFY `idbuyer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `idcompany` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idcompany` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `databuyer`
@@ -583,7 +775,7 @@ ALTER TABLE `databuyer`
 -- AUTO_INCREMENT for table `facility`
 --
 ALTER TABLE `facility`
-  MODIFY `idfacility` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idfacility` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `inquire`
@@ -598,10 +790,40 @@ ALTER TABLE `kategori`
   MODIFY `idkategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT for table `komen`
+--
+ALTER TABLE `komen`
+  MODIFY `idkomen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `member`
+--
+ALTER TABLE `member`
+  MODIFY `idmember` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `pembelian`
+--
+ALTER TABLE `pembelian`
+  MODIFY `idpembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `posting`
+--
+ALTER TABLE `posting`
+  MODIFY `idposting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `premium`
+--
+ALTER TABLE `premium`
+  MODIFY `idpremium` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `idproduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `idproduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `subkategori_a`
@@ -619,13 +841,13 @@ ALTER TABLE `subkategori_b`
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `idsupplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `idsupplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Constraints for dumped tables

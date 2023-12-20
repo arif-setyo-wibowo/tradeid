@@ -34,7 +34,6 @@
                 <table class="table table-borderless table-striped table-vcenter fs-sm">
                   <thead>
                     <tr>
-                      <th class="text-center" style="width: 100px;">ID</th>
                       <th>Nama</th>
                       <th class="text-center">Email</th>
                       <th class="text-center">Perusahaan</th>
@@ -45,13 +44,12 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="text-center"><a href=""><strong>PID.965</strong></a></td>
-                      <td><a href="" >Jumali</a></td>
-                      <td><a href="" >Jumali@gmiasl.com </a></td>
-                      <td class="text-center">PT aboga</td>
-                      <td class="text-center"><strong>Premium 2</strong></td>
-                      <td class="text-center">menuggu konfirmasi</td>
-                      <td class="text-center">19/12/2023</td>
+                      <td><a href="" ><?= $pembelian[0]->namaPembelian?></a></td>
+                      <td><a href="" ><?= $pembelian[0]->emailPembelian?></a></td>
+                      <td class="text-center"><?= $pembelian[0]->namaPerusahaan?></td>
+                      <td class="text-center"><strong><?= $pembelian[0]->namaPremium?></strong></td>
+                      <td class="text-center"><?= $pembelian[0]->statusPembelian == 1 ? "Disetujui" : "Tidak Disetujui" ?></td>
+                      <td class="text-center"><?= $pembelian[0]->tglPembelian?></td>
                     </tr>                    
                   </tbody>
                 </table>
@@ -70,11 +68,11 @@
                 <div class="block-content">
                 <div class="col-8 animated fadeIn mb-2">
                       <a class="img-link img-link-simple img-link-zoom-in img-lightbox" href="<?= base_url('uploads/23f2887e2b546d63c0a88605509d8b29.jpg')?>">
-                        <img class="img-fluid" src="<?= base_url('uploads/23f2887e2b546d63c0a88605509d8b29.jpg')?>" alt="">
+                        <img class="img-fluid" src="<?= base_url('uploads/'.$pembelian[0]->gambarPembelian)?>" alt="">
                       </a>
                       <div class="mt-4">
                         <div class="mb-2">Konfirmasi Pembayaran</div>
-                        <a href="" class=" rounded-pill  btn-sm text-primary">
+                        <a href="<?= base_url('updatePembelian/'.$pembelian[0]->idpembelian.'/'.$pembelian[0]->idcompany.'/'.$pembelian[0]->idpremium)?>"" class=" rounded-pill  btn-sm text-primary">
                               <button class="btn rounded px-3 btn-sm btn-alt-primary">Terima </button>
                         </a>
                       </div>     

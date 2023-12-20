@@ -107,7 +107,7 @@
                             </div>
                             <div class="">
                                 <div class="">
-                                <h4 class="post-title h4 fs-18"><a href="" class="link-dark"><?= $data->namaPerusahaan?></a></h4>
+                                <h4 class="post-title h4 fs-18"><a href="<?= base_url('supplier/detail/'.$data->idcompany) ?>" class="link-dark"><?= $data->namaPerusahaan?></a></h4>
                                 </div>
                             </div>
                             </div>

@@ -46,17 +46,13 @@
                                     </td>
                                     <td class="d-none d-sm-table-cell" style="width: 30%;">
                                     <?php if ($data->statusAdmin == 0) : ?>
-                                      <a href="<?= base_url('updatePembelian/'.$data->idpembelian.'/'.$data->idcompany.'/'.$data->idpremium)?>" class=" rounded-pill px-3 btn-sm text-primary">
-                                        <button class="btn rounded-pill px-3 btn-sm btn-alt-primary">Tidak </button>
-                                      </a>
+                                        <button class="btn rounded-pill px-3 btn-sm btn-alt-primary">Ditolak </button>
                                     <?php else : ?>
-                                      <a href="<?= base_url('updatePembelian/'.$data->idpembelian.'/'.$data->idcompany.'/'.$data->idpremium)?>" class=" rounded-pill px-3 btn-sm text-primary">
-                                        <button class="btn rounded-pill px-3 btn-sm btn-alt-primary">Ya </button>
-                                      </a>
+                                        <button class="btn rounded-pill px-3 btn-sm btn-alt-primary">Disetujui </button>
                                     <?php endif; ?>
                                     </td>
                                     <td class="d-none d-sm-table-cell" style="width: 30%;">
-                                      <a href="<?= base_url() ?>admin/pembelian/detail" class=" rounded-pill px-3 btn-sm text-primary">Lihat</a>
+                                      <a href="<?= base_url('admin/pembelian/detail/'.$data->idpembelian) ?>" class=" rounded-pill px-3 btn-sm text-primary">Lihat</a>
                                     </td>
                                 </tr>
                                 <?php endforeach;?>

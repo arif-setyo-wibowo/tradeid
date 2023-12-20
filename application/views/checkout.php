@@ -36,7 +36,7 @@
         <div class="row mt-n10 gx-md-8 gx-xl-12 gy-12">
           <div class="col-lg-8">
             <h3 class="mb-4">Billing address</h3>
-            <form class="" action="<?= base_url('checkoutPremium')?>" method="POST">
+            <form class="" action="<?= base_url('checkoutPremium')?>" enctype="multipart/form-data" method="POST">
               <div class="row g-3">
                 <div class="col-sm-12">
                   <div class="form-floating">
@@ -77,9 +77,8 @@
                 </div>
                 <div class="col-12">
                   <div class="mb-4">
-                      <label for="one-profile-edit-avatar" class="form-label">Upload Image</label>
-                        <input class="form-control" type="file" name="upgambar" id="one-profile-edit-avatar">
-                        <input type="hidden" class="form-control" name="lastgambar" value="">
+                      <label for="one-profile-edit-avatar" class="form-label">Upload Image Payment</label>
+                        <input class="form-control" type="file" name="gambarPembelian" id="one-profile-edit-avatar">
                   </div>
                 </div>
               </div>

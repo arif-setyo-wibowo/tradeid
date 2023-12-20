@@ -8,6 +8,7 @@ class Product extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('M_Member');
         $this->load->model('M_User');
         $this->load->model('M_Supplier');
         $this->load->model('M_Product');
@@ -34,17 +35,33 @@ class Product extends CI_Controller {
                 redirect('dashboard/supplier/company');
 
             }else{
-                $data = [ 
-                    'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                    'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
-                    'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
-                    'product' => $this->M_Product->getProduct($company[0]->idcompany),
-                    'kategori' => $this->M_Kategori->getKategori(),
-                    'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                    'header' => 'template/v_header_supplier',
-                    'footer' => 'template/v_footer_supplier',
-                ];
-                return $this->load->view('supplier/v_product',$data);
+                if ($this->M_Member->getWhere($companyCek[0]->idcompany)) {
+                    $data = [ 
+                        'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                        'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                        'product' => $this->M_Product->getProduct($company[0]->idcompany),
+                        'kategori' => $this->M_Kategori->getKategori(),
+                        'member' => $this->M_Member->getWhere($companyCek[0]->idcompany),
+                        'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'header' => 'template/v_header_supplier',
+                        'footer' => 'template/v_footer_supplier',
+                    ];
+                    return $this->load->view('supplier/v_product',$data);
+                }else{
+                    $data = [ 
+                        'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                        'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                        'product' => $this->M_Product->getProduct($company[0]->idcompany),
+                        'kategori' => $this->M_Kategori->getKategori(),
+                        'member' => array(''),
+                        'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'header' => 'template/v_header_supplier',
+                        'footer' => 'template/v_footer_supplier',
+                    ];
+                    return $this->load->view('supplier/v_product',$data);
+                }
             }
         }
     }
@@ -71,30 +88,34 @@ class Product extends CI_Controller {
                     redirect('dashboard/supplier/company');
     
                 }else{
-                    $data = [
-                        'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                        'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
-                        'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
-                        'product' => $this->M_Product->getWhere($id,$company[0]->idcompany),
-                        'header' => 'template/v_header_supplier',
-                        'footer' => 'template/v_footer_supplier',
-                    ];
-            
-                    return $this->load->view('supplier/v_productDetail',$data);
+                    if ($this->M_Member->getWhere($companyCek[0]->idcompany)) {
+                        $data = [
+                            'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                            'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                            'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                            'member' => $this->M_Member->getWhere($companyCek[0]->idcompany),
+                            'product' => $this->M_Product->getWhere($id,$company[0]->idcompany),
+                            'header' => 'template/v_header_supplier',
+                            'footer' => 'template/v_footer_supplier',
+                        ];
+                
+                        return $this->load->view('supplier/v_productDetail',$data);
+                    }else{
+                        $data = [
+                            'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                            'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                            'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                            'product' => $this->M_Product->getWhere($id,$company[0]->idcompany),
+                            'member' => array(''),
+                            'header' => 'template/v_header_supplier',
+                            'footer' => 'template/v_footer_supplier',
+                        ];
+                
+                        return $this->load->view('supplier/v_productDetail',$data);
+                    }
                 }
             }
         }
-    }
-    private function set_upload_options()
-    {   
-        //upload an image options
-        $config = array();
-        $config['upload_path'] = 'uploads/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size']      = '0';
-        $config['overwrite']     = FALSE;
-
-        return $config;
     }
 
     function store(){
@@ -273,16 +294,31 @@ class Product extends CI_Controller {
                 redirect('dashboard/supplier/company');
 
             }else{
-                $data = [
-                    'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                    'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
-                    'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
-                    'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                    'kategori' => $this->M_Kategori->getKategori(),
-                    'header' => 'template/v_header_supplier',
-                    'footer' => 'template/v_footer_supplier',
-                ];
-                return $this->load->view('supplier/v_productForm',$data);
+                if ($this->M_Member->getWhere($companyCek[0]->idcompany)) {
+                    $data = [
+                        'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                        'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                        'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'kategori' => $this->M_Kategori->getKategori(),
+                        'member' => $this->M_Member->getWhere($companyCek[0]->idcompany),
+                        'header' => 'template/v_header_supplier',
+                        'footer' => 'template/v_footer_supplier',
+                    ];
+                    return $this->load->view('supplier/v_productForm',$data);
+                }else{
+                    $data = [
+                        'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                        'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                        'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'kategori' => $this->M_Kategori->getKategori(),
+                        'member' => array(''),
+                        'header' => 'template/v_header_supplier',
+                        'footer' => 'template/v_footer_supplier',
+                    ];
+                    return $this->load->view('supplier/v_productForm',$data);
+                }
             }
         }
     }

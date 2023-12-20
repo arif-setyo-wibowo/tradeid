@@ -244,23 +244,25 @@
 
                 </div>
                 <div class="p-2">
-                  <a class="dropdown-item d-flex align-items-center justify-content-between" href="be_pages_generic_inbox.html">
-                    <span class="fs-sm fw-medium">Inbox</span>
-                    <span class="badge rounded-pill bg-primary ms-2">3</span>
-                  </a>
-                  <a class="dropdown-item d-flex align-items-center justify-content-between" href="be_pages_generic_profile.html">
-                    <span class="fs-sm fw-medium">Profile</span>
-                    <span class="badge rounded-pill bg-primary ms-2">1</span>
-                  </a>
-                  <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
-                    <span class="fs-sm fw-medium">Settings</span>
-                  </a>
+                
+                  <?php if($member[0] == null ):?>
+                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="<?= base_url() ?>premium">
+                      <span class="fs-sm fw-medium">Get Premium</span>
+                    </a>
+                  <?php else : ?>
+                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="<?= base_url() ?>forum">
+                      <span class="fs-sm fw-medium">Forum</span>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center justify-content-between" href="<?= base_url() ?>dataBuyer">
+                      <span class="fs-sm fw-medium">Data Buyer</span>
+                    </a>
+                  <?php endif; ?>
                 </div>
                 <div role="separator" class="dropdown-divider m-0"></div>
                 <div class="p-2">
-                  <a class="dropdown-item d-flex align-items-center justify-content-between" href="op_auth_lock.html">
+                  <!-- <a class="dropdown-item d-flex align-items-center justify-content-between" href="op_auth_lock.html">
                     <span class="fs-sm fw-medium">Lock Account</span>
-                  </a>
+                  </a> -->
                   <a class="dropdown-item d-flex align-items-center justify-content-between" href="<?= base_url('logout')?>">
                     <span class="fs-sm fw-medium">Log Out</span>
                   </a>
