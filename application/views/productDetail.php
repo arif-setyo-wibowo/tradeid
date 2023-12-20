@@ -66,7 +66,7 @@
                             <a href="<?= base_url('supplier/detail/'.$product[0]->idcompany) ?>"><img style="max-width: 70px; max-height: 70px;" src="<?= base_url('uploads/'.$product[0]->gambarCompany) ?>" srcset="./assets/img/photos/sh1@2x.jpg 2x" alt="" /></a>
                         </div>
                         <div class="my-auto">
-                            <p class=" price fs-20 mb-2"><a href="" class="link-dark"><span class="amount"><?= $product[0]->namaPerusahaan?></span></p>
+                            <p class=" price fs-20 mb-2"><a href="" class="link-dark"><span class="amount"><a href="<?= base_url('supplier/detail/'.$product[0]->idcompany)?>"><?= $product[0]->namaPerusahaan?></a></span></p>
                         </div>
                         
                     </div>

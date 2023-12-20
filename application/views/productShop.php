@@ -170,7 +170,7 @@
                         $current_kategori = $kategori_row['kategori'];
                 ?>
                         <li class="mb-1">
-                            <a href="<?= base_url('supplier/'.$kategori_row['idkategori'])?>"  class="align-items-center rounded link-body" data-bs-target="#<?= strtodash($current_kategori) ?>-collapse" aria-expanded="true"><?= $current_kategori ?> <span class="fs-sm text-muted ms-1"></span>
+                            <a href="<?= base_url('product/'.$kategori_row['idkategori'])?>"  class="align-items-center rounded link-body" data-bs-target="#<?= strtodash($current_kategori) ?>-collapse" aria-expanded="true"><?= $current_kategori ?> <span class="fs-sm text-muted ms-1"></span>
                             </a>
                             <div class="collapse show mt-1" id="<?= strtodash($current_kategori) ?>-collapse" style="">
                                 <ul class="btn-toggle-nav list-unstyled ps-2">
@@ -179,7 +179,7 @@
                                     foreach ($kategori_structure as $subkategori_a_row):
                                         if ($current_kategori == $subkategori_a_row['kategori'] && $current_subkategori_a != $subkategori_a_row['subkategori_a']):
                                     ?>
-                                            <li><a href="<?= base_url('supplier/'.$kategori_row['idkategori'].'/'.$subkategori_a_row['idsubkategori_a']) ?>" class="align-items-center rounded link-body" data-bs-target="#<?= strtodash($current_kategori) ?>-<?= strtodash($current_subkategori_a) ?>-collapse" aria-expanded="true"><?= $subkategori_a_row['subkategori_a'] ?></a>
+                                            <li><a href="<?= base_url('product/'.$kategori_row['idkategori'].'/'.$subkategori_a_row['idsubkategori_a']) ?>" class="align-items-center rounded link-body" data-bs-target="#<?= strtodash($current_kategori) ?>-<?= strtodash($current_subkategori_a) ?>-collapse" aria-expanded="true"><?= $subkategori_a_row['subkategori_a'] ?></a>
                                                 <div class="collapse show mt-1" id="<?= strtodash($current_kategori) ?>-<?= strtodash($current_subkategori_a) ?>-collapse" style="">
                                                     <ul class="btn-toggle-nav list-unstyled ps-2">
                                                         <?php

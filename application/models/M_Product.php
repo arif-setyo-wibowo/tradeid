@@ -90,15 +90,17 @@ class M_Product extends CI_Model {
          return $query =  $this->db->get();
     }
 
-    function getWhereCategory($id){
+    function getWhereCategory($id, $limit, $start){
         $this->db->select('*')
                 ->from('product')
                 ->where('product.idkategori',$id)    
                 ->join('company', 'company.idcompany = product.idcompany')
-                ->join('kategori', 'kategori.idkategori = product.idkategori');
+                ->join('kategori', 'kategori.idkategori = product.idkategori')
+                ->limit($limit, $start);
 
         return  $this->db->get()->result();
     }
+    
 
     function getWhereSubCategoryA($id,$idSuba){
         $this->db->select('*')

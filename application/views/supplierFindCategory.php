@@ -34,10 +34,13 @@
               </select> -->
             </div>
             <!--/.form-select-wrapper -->
+            
           </div>
           <!--/column -->
+          
         </div>
         <!--/.row -->
+        
         <div class="grid grid-view projects-masonry shop mb-13">
           <div class="row gx-md-8 gy-10 gy-md-13 isotope">
           <?php foreach($supplier as $data) : ?>
