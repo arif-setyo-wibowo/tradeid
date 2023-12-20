@@ -54,12 +54,12 @@ class M_Product extends CI_Model {
     }
     
     function getProduct($id){
-        $this->db->select('*,product.deskripsiPendek AS despen')
+        $this->db->select('*, product.deskripsiPendek AS despen')
                  ->from('product')
-                 ->where('product.idcompany',$id)
                  ->join('company', 'company.idcompany = product.idcompany')
                  ->join('subkategori_a', 'subkategori_a.idsubkategori_a = product.idsubkategori_a')
-                 ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b');
+                 ->join('subkategori_b', 'subkategori_b.idsubkategori_b = product.idsubkategori_b')
+                 ->where('product.idcompany',$id);
 
         return  $this->db->get()->result();
     }

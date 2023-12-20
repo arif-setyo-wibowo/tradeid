@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="" style="margin-left:10px;">
                                     <div class="align-items-center">
-                                        <span><?= $data->deskripsiPanjang?></span>
+                                        <span><?= $data->despen?></span>
                                     </div>
                                 </div>
                             </div>
@@ -128,7 +128,7 @@
                         <div class="row">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <div class="fs-16 text-ash ">Supplier From Jawa Timur, Malang</div>
+                                    <div class="fs-16 text-ash ">Supplier From <?= $data->kota?></div>
                                 </div>
                                 <div >
                                     <div>
