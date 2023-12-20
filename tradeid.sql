@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2023 at 12:23 PM
+-- Generation Time: Dec 20, 2023 at 06:31 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -257,6 +257,7 @@ CREATE TABLE `komen` (
   `idkomen` int(11) NOT NULL,
   `idbalas` int(11) DEFAULT NULL,
   `idposting` int(11) NOT NULL,
+  `idcompany` int(11) NOT NULL,
   `pesankomen` text NOT NULL,
   `created_at_komen` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -265,9 +266,15 @@ CREATE TABLE `komen` (
 -- Dumping data for table `komen`
 --
 
-INSERT INTO `komen` (`idkomen`, `idbalas`, `idposting`, `pesankomen`, `created_at_komen`) VALUES
-(3, NULL, 1, 'test\r\n', '2023-12-17 07:42:55'),
-(7, 3, 1, 'hayo', '2023-12-17 08:15:27');
+INSERT INTO `komen` (`idkomen`, `idbalas`, `idposting`, `idcompany`, `pesankomen`, `created_at_komen`) VALUES
+(3, NULL, 1, 1, 'test\r\n', '2023-12-17 07:42:55'),
+(7, 3, 1, 1, 'hayo', '2023-12-17 08:15:27'),
+(8, 3, 1, 20, 'jghj\r\n', '2023-12-20 14:32:55'),
+(9, NULL, 1, 0, 'Bagus', '2023-12-20 17:27:58'),
+(10, NULL, 1, 20, 'test', '2023-12-20 17:29:40'),
+(11, 3, 1, 20, 'uhuy', '2023-12-20 17:29:50'),
+(12, 3, 1, 20, 'iin', '2023-12-20 17:30:04'),
+(13, 3, 1, 20, 'test', '2023-12-20 17:31:10');
 
 -- --------------------------------------------------------
 
@@ -291,7 +298,6 @@ CREATE TABLE `member` (
 INSERT INTO `member` (`idmember`, `idcompany`, `tglstart`, `tglakhir`, `statusMember`, `created_at`) VALUES
 (1, 1, '2023-12-16 00:00:00', '2023-12-16 22:59:08', 0, '2023-12-16 06:21:15'),
 (3, 1, '2023-12-19 05:36:31', '2023-12-21 05:37:01', 1, '2023-12-19 04:36:31'),
-(5, 2, '2023-12-19 05:51:12', '2023-12-19 05:51:22', 1, '2023-12-19 04:51:12'),
 (11, 20, '2023-12-20 11:43:21', '2024-06-20 11:43:21', 1, '2023-12-20 10:43:21');
 
 -- --------------------------------------------------------
@@ -560,8 +566,8 @@ INSERT INTO `supplier` (`idsupplier`, `namaUsaha`, `deskripsiPerusahaan`, `nama`
 (17, 'Makmur Star Company', 'Selling quality goods', 'MakmurStar', 'MakmurStar@gmail.com', '628364069537', 37, 2, '2023-12-15'),
 (18, 'Terbang Jauh Company', 'Sell ​​the items you want', 'Faisal Habibi Wildan', 'FaisalHW@gmail.com', '081805404291', 38, 2, '2023-12-15'),
 (19, 'Next Level Store', 'Bring the thing that you want', 'Aris Iwa Syahputra', 'ArisSiwaS@gmail.com', '081805404791', 39, 2, '2023-12-15'),
-(20, 'Last Choice Company', 'Our Company Have the goods u want', 'Zidan Islamy', 'ZidanISme@gmail.com', '081235404291', 40, 2, '2023-12-15'),
-(24, 'Rumah Masak', 'Perum Citra surya mas BLOK D-12 RT 40 RW 10', 'Nando Arifin', 'arif13.aw@gmail.com', '081805404140', 44, 2, '2023-12-20');
+(20, 'Last Choice Company', 'Our Company Have the goods u want', 'Zidan Islamy', 'ZidanISme@gmail.com', '081235404291', 41, 2, '2023-12-15'),
+(24, 'Rumah Masak', 'Perum Citra surya mas BLOK D-12 RT 40 RW 10', 'Nando Arifin', 'arif13.aw@gmail.com', '081805404140', 40, 2, '2023-12-20');
 
 -- --------------------------------------------------------
 
@@ -628,11 +634,7 @@ INSERT INTO `user` (`iduser`, `username`, `email`, `password`, `cSupplier`, `nam
 (37, 'DafaMaulana', 'DafaMaulana@gmail.com', '$2y$10$3pzxlfPgxsPMQ9Q6d0KbL.d1Nw6Oavu/ZsRcwvwgQPwibEz/jTu/m', 1, 'Dafa Maulana', 'Tenggilis HIghway Street 42', '081805404291', 'Indonesia', NULL, NULL, NULL),
 (38, 'FaisalHW', 'FaisalHW@gmail.com', '$2y$10$aV0hPp2SE1yJhCSJ6vXqruWw9eQcbi4To00.ENlAKXuuZ93.BmnFS', 1, 'Faisal Habibi Wildan', 'Balongsari Street 225', '081205409632', 'Indonesia', NULL, NULL, NULL),
 (39, 'ArisSiwaS', 'ArisSiwaS@gmail.com', '$2y$10$tOZ9etv8yIytuVXHuxy7xu2cGLTEQ3VgWOjFifZeups3UXBwtgqEC', 1, 'Aris Iwa Syahputra', 'Balikpapan Street 23', '081805404791', 'Indonesia', NULL, NULL, NULL),
-(40, 'ZidanIs', 'ZidanISme@gmail.com', '$2y$10$GAGpt17r6ppByU3NjoZor.3Lzhx0CinY67dzLHe3OlbQch3W3.m4C', 1, 'Zidan Islamy', 'Kedungpring Street 23', '081235404291', 'Indonesia', NULL, NULL, NULL),
-(41, 'test', 'arif13.aw@gmail.com', '$2y$10$R5wXSwOzS7JWubeatGNWEOTLD7XxKvfNo5fP/5RsJI3nSRLwgk7Ia', 1, 'dsa', 'Perum Citra surya mas BLOK D-12 RT 40 RW 10', '081805404140', 'Indonesia', NULL, NULL, NULL),
-(42, 'saiful', 'arif13.aw@gmail.com', '$2y$10$q3YT.RN6.E6BKrV4GHGfvu9A6AnGasqlsZ.wu8KOFXviBEcgyk3Fe', 1, 'arif13.aw@gmail.com', 'Perum Citra surya mas BLOK D-12 RT 40 RW 10', '081805404140', 'Indonesia', NULL, NULL, NULL),
-(43, 'rudi', 'arif13.aw@gmail.com', '$2y$10$bhseaOxWi8ShtKjToZkPKO130vSpFQW3BHDYS.5QHUkGFS2yu4n8C', 1, 'arif13.aw@gmail.com', 'Perum Citra surya mas BLOK D-12 RT 40 RW 10', '081805404140', 'Indonesia', NULL, NULL, NULL),
-(44, 'nando', 'nando@gmail.com', '$2y$10$QDS8RSMRbaJ7E.mlAaFmhe1BqdrnjiIF/JAELG3ihTCfS2ANukph2', 1, 'Nando Arifin', 'Singapura', '028398123', 'Indonesia', NULL, NULL, NULL);
+(40, 'nando', 'ZidanISme@gmail.com', '$2y$10$GAGpt17r6ppByU3NjoZor.3Lzhx0CinY67dzLHe3OlbQch3W3.m4C', 1, 'Zidan Islamy', 'Kedungpring Street 23', '081235404291', 'Indonesia', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -763,7 +765,7 @@ ALTER TABLE `buyer`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `idcompany` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `idcompany` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `databuyer`
@@ -793,7 +795,7 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `komen`
 --
 ALTER TABLE `komen`
-  MODIFY `idkomen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idkomen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `member`
@@ -841,13 +843,13 @@ ALTER TABLE `subkategori_b`
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `idsupplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idsupplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Constraints for dumped tables
