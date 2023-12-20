@@ -53,6 +53,8 @@ class Facility extends CI_Controller {
                         'header' => 'template/v_header_supplier',
                         'footer' => 'template/v_footer_supplier',
                     ];
+
+                    return $this->load->view('supplier/v_facility',$data);
                 }
             }
         }
