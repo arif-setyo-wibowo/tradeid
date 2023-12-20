@@ -107,7 +107,7 @@
           <!-- Left Section -->
           <div class="d-flex align-items-center">
             <!-- Logo -->
-            <a class="fw-semibold fs-5 tracking-wider text-dual me-3" href="<?= base_url('supplier')?>"> OneUI </a>
+            <a class="fw-semibold fs-5 tracking-wider text-dual me-3" href="<?= base_url('dashboard/supplier')?>"> TradeID </a>
             <!-- END Logo -->
 
             <!-- Notifications Dropdown -->
@@ -115,7 +115,7 @@
               <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-fw fa-bell"></i>
                 <span class="text-primary">•</span>
-              </button>
+              <!-- </button>
               <div class="dropdown-menu dropdown-menu-lg p-0 border-0 fs-sm" aria-labelledby="page-header-notifications-dropdown">
                 <div class="p-2 bg-body-light border-bottom text-center rounded-top">
                   <h5 class="dropdown-header text-uppercase">Notifications</h5>
@@ -193,7 +193,7 @@
                     <i class="fa fa-fw fa-arrow-down me-1 opacity-50"></i> Load More..
                   </a>
                 </div>
-              </div>
+              </div> -->
             </div>
             <!-- END Notifications Dropdown -->
           </div>

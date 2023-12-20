@@ -47,65 +47,8 @@
                 <li class="nav-item ">
                   <a class="nav-link dropdown-item" href="<?= base_url() ?>supplier">Supplier</a>
                 </li>
-                <li class="nav-item dropdown dropdown-mega">
-                  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Category</a>
-                  <ul class="dropdown-menu mega-menu">
-                    <li class="mega-menu-content">
-                      <div class="row gx-0 gx-lg-3">
-                        <div class="col-lg-4">
-                          <h6 class="dropdown-header">Coconut</h6>
-                          <ul class="list-unstyled cc-2 pb-lg-1">
-                            <li><a class="dropdown-item" href="./docs/index.html">Bricket</a></li>
-                            <li><a class="dropdown-item" href="./docs/forms.html">Cocopeat</a></li>
-                            <li><a class="dropdown-item" href="./docs/faq.html">Coco-Fiber</a></li>
-                          </ul>
-                          <h6 class="dropdown-header mt-lg-6">Food and Agricultural</h6>
-                          <ul class="list-unstyled cc-2">
-                            <li><a class="dropdown-item" href="./docs/styleguide/colors.html">Apple</a></li>
-                            <li><a class="dropdown-item" href="./docs/styleguide/fonts.html">Cinamon</a></li>
-                            <li><a class="dropdown-item" href="./docs/styleguide/icons-svg.html">Penapple</a></li>
-                            <li><a class="dropdown-item" href="./docs/styleguide/colors.html">Apple</a></li>
-                            <li><a class="dropdown-item" href="./docs/styleguide/fonts.html">Cinamon</a></li>
-                            <li><a class="dropdown-item" href="./docs/styleguide/icons-svg.html">Penapple</a></li>
-                          </ul>
-                        </div>
-                        <!--/column -->
-                        <div class="col-lg-8">
-                          <h6 class="dropdown-header">Sea & Water</h6>
-                          <ul class="list-unstyled cc-3">
-                            <li><a class="dropdown-item" href="./docs/elements/accordion.html">Sarder</a></li>
-                            <li><a class="dropdown-item" href="./docs/elements/alerts.html">Ikan Kering</a></li>
-                            <li><a class="dropdown-item" href="./docs/elements/animations.html">Fish Oil</a></li>
-                            <li><a class="dropdown-item" href="./docs/elements/accordion.html">Sarder</a></li>
-                            <li><a class="dropdown-item" href="./docs/elements/alerts.html">Ikan Kering</a></li>
-                            <li><a class="dropdown-item" href="./docs/elements/animations.html">Fish Oil</a></li>
-                          </ul>
-                        </div>
-                        <!--/column -->
-                      </div>
-                      <!--/.row -->
-                    </li>
-                    <!--/.mega-menu-content-->
-                  </ul>
-                  <!--/.dropdown-menu -->
-                </li>
               </ul>
               <!-- /.navbar-nav -->
-              <div class="offcanvas-footer d-lg-none">
-                <div>
-                  <a href="mailto:first.last@email.com" class="link-inverse">info@email.com</a>
-                  <br /> 00 (123) 456 78 90 <br />
-                  <nav class="nav social social-white mt-4">
-                    <a href="#"><i class="uil uil-twitter"></i></a>
-                    <a href="#"><i class="uil uil-facebook-f"></i></a>
-                    <a href="#"><i class="uil uil-dribbble"></i></a>
-                    <a href="#"><i class="uil uil-instagram"></i></a>
-                    <a href="#"><i class="uil uil-youtube"></i></a>
-                  </nav>
-                  <!-- /.social -->
-                </div>
-              </div>
-              <!-- /.offcanvas-footer -->
             </div>
             <!-- /.offcanvas-body -->
           </div>
@@ -152,47 +95,6 @@
         <!-- /.container -->
       </nav>
       <!-- /.navbar -->
-      <div class="offcanvas offcanvas-end text-inverse" id="offcanvas-info" data-bs-scroll="true">
-        <div class="offcanvas-header">
-          <h3 class="text-white fs-30 mb-0">Sandbox</h3>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-            aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body pb-6">
-          <div class="widget mb-8">
-            <p>Sandbox is a multipurpose HTML5 template with various layouts which will be a great solution for your
-              business.</p>
-          </div>
-          <!-- /.widget -->
-          <div class="widget mb-8">
-            <h4 class="widget-title text-white mb-3">Contact Info</h4>
-            <address> Moonshine St. 14/05 <br /> Light City, London </address>
-            <a href="mailto:first.last@email.com">info@email.com</a><br /> 00 (123) 456 78 90
-          </div>
-          <!-- /.widget -->
-          <div class="widget mb-8">
-            <h4 class="widget-title text-white mb-3">Learn More</h4>
-            <ul class="list-unstyled">
-              <li><a href="#">Our Story</a></li>
-              <li><a href="#">Terms of Use</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-            </ul>
-          </div>
-          <!-- /.widget -->
-          <div class="widget">
-            <h4 class="widget-title text-white mb-3">Follow Us</h4>
-            <nav class="nav social social-white">
-              <a href="#"><i class="uil uil-twitter"></i></a>
-              <a href="#"><i class="uil uil-facebook-f"></i></a>
-              <a href="#"><i class="uil uil-dribbble"></i></a>
-              <a href="#"><i class="uil uil-instagram"></i></a>
-              <a href="#"><i class="uil uil-youtube"></i></a>
-            </nav>
-            <!-- /.social -->
-          </div>
-          <!-- /.widget -->
-        </div>
-        <!-- /.offcanvas-body -->
       </div>
       <!-- /.offcanvas -->
     </header>
