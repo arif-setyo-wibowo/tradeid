@@ -17,15 +17,21 @@ class SubKategoriB extends CI_Controller {
     
     public function index()
     {
-        $data = [
-            'judul' => 'Data Kategori',
-            'kategori' => $this->M_Kategori->getKategori(),
-            'subkategori_a' => $this->M_SubkategoriA->getSubKategori(),
-            'subkategori_b' => $this->M_SubkategoriB->getSubKategori(),
-            'header' => 'template/v_header_admin',
-            'footer' => 'template/v_footer_admin',
-        ];
-        return $this->load->view('admin/v_subkategori_b',$data);
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
+
+            $data = [
+                'judul' => 'Data Kategori',
+                'kategori' => $this->M_Kategori->getKategori(),
+                'subkategori_a' => $this->M_SubkategoriA->getSubKategori(),
+                'subkategori_b' => $this->M_SubkategoriB->getSubKategori(),
+                'header' => 'template/v_header_admin',
+                'footer' => 'template/v_footer_admin',
+            ];
+            return $this->load->view('admin/v_subkategori_b',$data);
+        }
     }
 
     public function getSubkategoriAOptions() {
@@ -53,21 +59,27 @@ class SubKategoriB extends CI_Controller {
 
     function edit($id){
 
-        // Mendapatkan data subkategori B berdasarkan ID
-        $subkategoriB = $this->M_SubkategoriB->getWhere($id);
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
 
-        // Mendapatkan data subkategori A berdasarkan ID Kategori
-        $subkategoriAOptions = $this->M_SubkategoriB->getSubkategoriAOptions($subkategoriB[0]->idkategori);
+            // Mendapatkan data subkategori B berdasarkan ID
+            $subkategoriB = $this->M_SubkategoriB->getWhere($id);
 
-        $data = array(
-            'subkategorib' => $subkategoriB,
-            'subkategoria' => $subkategoriAOptions,
-            'kategori' => $this->M_Kategori->getKategori(),
-            'footer' => 'template/v_footer_admin',
-            'header' => 'template/v_header_admin',
-        );
-        
-        return $this->load->view('admin/v_subkategori_b_update',$data);
+            // Mendapatkan data subkategori A berdasarkan ID Kategori
+            $subkategoriAOptions = $this->M_SubkategoriB->getSubkategoriAOptions($subkategoriB[0]->idkategori);
+
+            $data = array(
+                'subkategorib' => $subkategoriB,
+                'subkategoria' => $subkategoriAOptions,
+                'kategori' => $this->M_Kategori->getKategori(),
+                'footer' => 'template/v_footer_admin',
+                'header' => 'template/v_header_admin',
+            );
+            
+            return $this->load->view('admin/v_subkategori_b_update',$data);
+        }
     }
 
     function update(){

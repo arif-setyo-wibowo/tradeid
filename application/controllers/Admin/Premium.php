@@ -15,12 +15,18 @@ class Premium extends CI_Controller {
     
     public function index()
     {
-        $data = [
-            'premium' =>  $this->M_Premium->getPremium(),
-            'header' => 'template/v_header_admin',
-            'footer' => 'template/v_footer_admin',
-        ];
-        return $this->load->view('admin/v_Premium',$data);
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
+
+            $data = [
+                'premium' =>  $this->M_Premium->getPremium(),
+                'header' => 'template/v_header_admin',
+                'footer' => 'template/v_footer_admin',
+            ];
+            return $this->load->view('admin/v_Premium',$data);
+        }
     }
 
     public function store()
@@ -38,16 +44,21 @@ class Premium extends CI_Controller {
         }
     }
 
-    function edit($id){
+    function edit($id)
+    {
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
+            $data = array(
+                'premium' =>  $this->M_Premium->getWhere($id),
+                'judul' => "Update Premium",
+                'footer' => 'template/v_footer_admin',
+                'header' => 'template/v_header_admin',
+            );
 
-        $data = array(
-            'premium' =>  $this->M_Premium->getWhere($id),
-            'judul' => "Update Premium",
-            'footer' => 'template/v_footer_admin',
-            'header' => 'template/v_header_admin',
-        );
-
-        return $this->load->view('admin/v_premium_update',$data);
+            return $this->load->view('admin/v_premium_update',$data);
+        }
     }
 
     function update(){

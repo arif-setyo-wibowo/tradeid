@@ -15,15 +15,20 @@ class SubKategoriA extends CI_Controller {
     }
     
     public function index()
-    {
-        $data = [
-            'judul' => 'Data Kategori',
-            'kategori' => $this->M_Kategori->getKategori(),
-            'subkategori_a' => $this->M_SubKategoriA->getSubKategori(),
-            'header' => 'template/v_header_admin',
-            'footer' => 'template/v_footer_admin',
-        ];
-        return $this->load->view('admin/v_subkategori_a',$data);
+    {   
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
+            $data = [
+                'judul' => 'Data Kategori',
+                'kategori' => $this->M_Kategori->getKategori(),
+                'subkategori_a' => $this->M_SubKategoriA->getSubKategori(),
+                'header' => 'template/v_header_admin',
+                'footer' => 'template/v_footer_admin',
+            ];
+            return $this->load->view('admin/v_subkategori_a',$data);
+        }
     }
 
     public function store()
@@ -41,15 +46,19 @@ class SubKategoriA extends CI_Controller {
     }
 
     function edit($id){
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
+            $data = array(
+                'subkategoria' =>  $this->M_SubKategoriA->getWhere($id),
+                'kategori' => $this->M_Kategori->getKategori(),
+                'footer' => 'template/v_footer_admin',
+                'header' => 'template/v_header_admin',
+            );
 
-        $data = array(
-            'subkategoria' =>  $this->M_SubKategoriA->getWhere($id),
-            'kategori' => $this->M_Kategori->getKategori(),
-            'footer' => 'template/v_footer_admin',
-            'header' => 'template/v_header_admin',
-        );
-
-        return $this->load->view('admin/v_subkategori_a_update',$data);
+            return $this->load->view('admin/v_subkategori_a_update',$data);
+        }
     }
 
     function update(){

@@ -15,13 +15,18 @@ class Kategori extends CI_Controller {
     
     public function index()
     {   
-        $data = [
-            'judul' => 'Data Kategori',
-            'kategori' => $this->M_Kategori->getKategori(),
-            'header' => 'template/v_header_admin',
-            'footer' => 'template/v_footer_admin',
-        ];
-        return $this->load->view('admin/v_kategori',$data);
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
+            $data = [
+                'judul' => 'Data Kategori',
+                'kategori' => $this->M_Kategori->getKategori(),
+                'header' => 'template/v_header_admin',
+                'footer' => 'template/v_footer_admin',
+            ];
+            return $this->load->view('admin/v_kategori',$data);
+        }
     }
 
     public function store()
@@ -38,15 +43,19 @@ class Kategori extends CI_Controller {
     }
 
     function edit($id){
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
+            $data = array(  
+                'kategori' =>  $this->M_Kategori->getWhere($id),
+                'judul' => "Update Kategori",
+                'footer' => 'template/v_footer_admin',
+                'header' => 'template/v_header_admin',
+            );
 
-        $data = array(
-            'kategori' =>  $this->M_Kategori->getWhere($id),
-            'judul' => "Update Kategori",
-            'footer' => 'template/v_footer_admin',
-            'header' => 'template/v_header_admin',
-        );
-
-        return $this->load->view('admin/v_kategori_update',$data);
+            return $this->load->view('admin/v_kategori_update',$data);
+        }
     }
 
     function update(){

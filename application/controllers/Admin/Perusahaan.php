@@ -15,22 +15,34 @@ class Perusahaan extends CI_Controller {
     
     public function index()
     {
-        $data = [
-            'header' => 'template/v_header_admin',
-            'footer' => 'template/v_footer_admin',
-            'company' => $this->M_Company->getCompany(),
-        ];
-        return $this->load->view('admin/v_company',$data);
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
+
+            $data = [
+                'header' => 'template/v_header_admin',
+                'footer' => 'template/v_footer_admin',
+                'company' => $this->M_Company->getCompany(),
+            ];
+            return $this->load->view('admin/v_company',$data);
+        }
     }
 
     public function detail($id)
     {
-        $data = [
-            'company' =>  $this->M_Company->getWhere($id),
-            'header' => 'template/v_header_admin',
-            'footer' => 'template/v_footer_admin',
-        ];
-        return $this->load->view('admin/v_detailCompany',$data);
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
+
+            $data = [
+                'company' =>  $this->M_Company->getWhere($id),
+                'header' => 'template/v_header_admin',
+                'footer' => 'template/v_footer_admin',
+            ];
+            return $this->load->view('admin/v_detailCompany',$data);
+        }
     }
 
 

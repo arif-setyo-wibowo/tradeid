@@ -17,24 +17,36 @@ class Pembelian extends CI_Controller {
     
     public function index()
     {
-        $data = [
-            'premium' => $this->M_Premium->getPembelian(),
-            'header' => 'template/v_header_admin',
-            'footer' => 'template/v_footer_admin',
-        ];
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
 
-        return $this->load->view('admin/v_pembelian',$data);
+            $data = [
+                'premium' => $this->M_Premium->getPembelian(),
+                'header' => 'template/v_header_admin',
+                'footer' => 'template/v_footer_admin',
+            ];
+
+            return $this->load->view('admin/v_pembelian',$data);
+        }
     }
 
     public function detail($id)
     {
-        $data = [
-            'pembelian' => $this->M_Premium->getwherePembelian($id),
-            'header' => 'template/v_header_admin',
-            'footer' => 'template/v_footer_admin',
-        ];
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
 
-        return $this->load->view('admin/v_detailpembelian',$data);
+            $data = [
+                'pembelian' => $this->M_Premium->getwherePembelian($id),
+                'header' => 'template/v_header_admin',
+                'footer' => 'template/v_footer_admin',
+            ];
+
+            return $this->load->view('admin/v_detailpembelian',$data);
+        }
     }
 
     function insertMember($idpembelian,$idcompany,$idpremium){

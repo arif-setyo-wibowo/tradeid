@@ -14,24 +14,35 @@ class Inquire extends CI_Controller {
     
     public function index()
 {
-    $data = [
-        'header' => 'template/v_header_admin',
-        'footer' => 'template/v_footer_admin',
-        'inquire' => $this->M_Inquire->getAll(),
-    ];
+    $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
+            $data = [
+                'header' => 'template/v_header_admin',
+                'footer' => 'template/v_footer_admin',
+                'inquire' => $this->M_Inquire->getAll(),
+            ];
+            
 
-    return $this->load->view('admin/v_inquire', $data);
+            return $this->load->view('admin/v_inquire', $data);
+        }
 }
 
 
     public function detail($id = NULL)
     {
-        $data = [
-            'header' => 'template/v_header_admin',
-            'footer' => 'template/v_footer_admin',
-            'inquire' => $this->M_Inquire->getOne($id),
-        ];
-        return $this->load->view('admin/v_detailinquire',$data);
+        $idadmin = $this->session->userdata('idadmin');
+        if($idadmin == null){
+            redirect('admin/login');
+        }else{
+            $data = [
+                'header' => 'template/v_header_admin',
+                'footer' => 'template/v_footer_admin',
+                'inquire' => $this->M_Inquire->getOne($id),
+            ];
+            return $this->load->view('admin/v_detailinquire',$data);
+        }
     }
 
 
