@@ -68,6 +68,10 @@ class M_Supplier extends CI_Model {
         return $query->result();
     }
 
+    function getCompany(){
+        return $this->db->get('company')->result();
+    }
+
     function insertCompany($data){
         $this->db->insert('company',$data);
     }

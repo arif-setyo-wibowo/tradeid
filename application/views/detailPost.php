@@ -65,7 +65,7 @@
                         <div>
                           <h6 class="comment-author"><?= $data->nama ?></h6>
                           <ul class="post-meta">
-                            <li><i class="uil uil-calendar-alt"></i><?= $data->namaPerusahaan ?></li>
+                            <li><i class="uil uil-calendar-alt"></i><?= $data->idcompany ?></li>
                           </ul>
                           <!-- /.post-meta -->
                         </div>
@@ -127,6 +127,7 @@
                 <p class="lead mb-6 text-start">Your message will be sent to the comment section</p>
                 <form class="text-start mb-3" action="<?= base_url('balasKomen')?>" method="POST">
                   <div class="form-floating mb-4">
+                    <input type="hidden" name="idcompany" value="<?= $company[0]->idcompany ?>" class="form-control">
                       <input type="hidden" name="idposting" value="<?= $posting[0]->idposting ?>" class="form-control">
                       <input type="hidden" id="dataIdInpu" name="idkomen" class="form-control">
                   </div>

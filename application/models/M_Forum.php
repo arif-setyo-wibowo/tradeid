@@ -43,7 +43,7 @@ class M_Forum extends CI_Model {
                 ->from('komen')
                 ->where('komen.idposting',$idposting)
                 ->join('posting', 'posting.idposting = komen.idposting')
-                ->join('company', 'company.idcompany = posting.idcompany')
+                ->join('company', 'company.idcompany = komen.idcompany')
                 ->join('supplier', 'supplier.idsupplier = company.idsupplier');
 
         return $this->db->get()->result();

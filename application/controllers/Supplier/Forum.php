@@ -43,6 +43,7 @@ class Forum extends CI_Controller {
 
         $data = [
             'userHeader' => $this->M_User->get_where($iduser),
+            'company' => $company,
             'posting' => $this->M_Forum->getWherePosting($id),
             'countcomment' => $this->M_Forum->countkomen($id),
             'komen' => $this->M_Forum->getWhereKomen($id),
