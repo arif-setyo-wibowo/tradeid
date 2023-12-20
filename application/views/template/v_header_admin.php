@@ -268,6 +268,11 @@
                 </a>
               </li>
               <li class="nav-main-item">
+                <a class="nav-main-link" href="<?= base_url('admin/member') ?>">
+                  <span class="nav-main-link-name">Member</span>
+                </a>
+              </li>
+              <li class="nav-main-item">
                 <a class="nav-main-link" href="<?= base_url('admin/supplier') ?>">
                   <span class="nav-main-link-name">Registrasi Supplier</span>
                 </a>

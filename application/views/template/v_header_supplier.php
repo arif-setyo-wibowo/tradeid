@@ -241,7 +241,6 @@
                     <p class="mt-2 mb-0 fw-medium"><?= $supplierHeader[0]->nama?></p>
                     <p class="mb-0 text-muted fs-sm fw-medium"><?= $supplierHeader[0]->namaPerusahaan?></p>
                   <?php endif ?>
-
                 </div>
                 <div class="p-2">
                 

@@ -211,3 +211,6 @@ $route['admin/databuyer/update'] = 'Admin/Databuyer/update';
 $route['admin/pembelian'] = 'Admin/Pembelian';
 $route['admin/pembelian/detail/(:num)'] = 'Admin/Pembelian/detail/$1';
 $route['updatePembelian/(:num)/(:num)/(:num)'] = 'Admin/Pembelian/insertMember/$1/$2/$3';
+
+// Admin Member
+$route['admin/member'] = 'Admin/member';

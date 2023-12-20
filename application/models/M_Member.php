@@ -17,6 +17,19 @@ class M_Member extends CI_Model {
         
     }
 
+    public function countAllData() {
+        return $this->db->count_all('member');
+    }
+
+    public function getMember() {
+        $this->db->select('*')
+                ->from('member')
+                ->join('company', 'company.idcompany = member.idcompany');
+        
+                
+        return $this->db->get()->result();  
+    }
+
     function insertMember($data){
         $this->db->insert('member',$data);
     }

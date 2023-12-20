@@ -12,6 +12,7 @@ class Admin extends CI_Controller {
         $this->load->model('M_User');
         $this->load->model('M_Premium');
         $this->load->model('M_Inquire');
+        $this->load->model('M_Member');
         $this->load->model('M_Company');
         $this->load->model('M_Product');
         $this->load->model('M_Kategori');
@@ -31,7 +32,7 @@ class Admin extends CI_Controller {
                 'footer' => 'template/v_footer_admin',
                 'inquire'=> $this->M_Inquire->getInquireData(),
                 'countuser'=> $this->M_User->countAllData(),
-                'countmember'=> $this->M_Premium->countAllData(),
+                'countmember'=> $this->M_Member->countAllData(),
                 'countcompany'=> $this->M_Company->countAllData(),
                 'countproduct'=> $this->M_Product->countAllData(),
                 'countinquire'=> $this->M_Inquire->countAllData(),
