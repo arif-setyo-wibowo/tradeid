@@ -57,13 +57,14 @@ $route['translate_uri_dashes'] = FALSE;
 
 //Front 
 $route['profil'] = 'Front/User';
-$route['forum'] = 'Front/Forum';
-$route['dataBuyer'] = 'Front/buyer';
-$route['databuyer/detail/(:num)'] = 'Front/buyer/detail/$1';
-$route['forum/post/(:num)'] = 'Front/Forum/detailPosting/$1';
-$route['tambahPosting'] = 'Front/Forum/store';
-$route['tambahKomen'] = 'Front/Forum/storeKomen';
-$route['balasKomen'] = 'Front/Forum/storeBalas';
+$route['forum'] = 'Supplier/Forum';
+$route['dataBuyer'] = 'Supplier/Buyer';
+$route['databuyer/detail/(:num)'] = 'Supplier/Buyer/detail/$1';
+$route['forum/post/(:num)'] = 'Supplier/Forum/detailPosting/$1';
+$route['tambahPosting'] = 'Supplier/Forum/store';
+$route['tambahKomen'] = 'Supplier/Forum/storeKomen';
+$route['balasKomen'] = 'Supplier/Forum/storeBalas';
+
 $route['product'] = 'Front/Product';
 $route['supplier'] = 'Front/Supplier';
 $route['supplier/page_page/(:num)'] = 'Front/Supplier';
