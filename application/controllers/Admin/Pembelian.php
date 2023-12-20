@@ -26,10 +26,10 @@ class Pembelian extends CI_Controller {
         return $this->load->view('admin/v_pembelian',$data);
     }
 
-    public function detail()
+    public function detail($id)
     {
         $data = [
-            'premium' => $this->M_Premium->getPembelian(),
+            'pembelian' => $this->M_Premium->getwherePembelian($id),
             'header' => 'template/v_header_admin',
             'footer' => 'template/v_footer_admin',
         ];
@@ -41,11 +41,11 @@ class Pembelian extends CI_Controller {
 
         $tgl_awal = date('Y-m-d H:i:s');
         if ($idpremium == 1) {
-            $tgl_selesai = date('Y-m-d H:i:s', strtotime('+180 seconds', strtotime($tgl_awal)));
+            $tgl_selesai = date('Y-m-d H:i:s', strtotime('+1 month', strtotime($tgl_awal)));
         }elseif($idpremium == 2){
-            $tgl_selesai = date('Y-m-d H:i:s', strtotime('+250 seconds', strtotime($tgl_awal)));
+            $tgl_selesai = date('Y-m-d H:i:s', strtotime('+6 month', strtotime($tgl_awal)));
         }elseif ($idpremium == 3) {
-            $tgl_selesai = date('Y-m-d H:i:s', strtotime('+300 seconds', strtotime($tgl_awal)));
+            $tgl_selesai = date('Y-m-d H:i:s', strtotime('+1 year', strtotime($tgl_awal)));
         }
 
         $data = array(
@@ -55,6 +55,7 @@ class Pembelian extends CI_Controller {
 
         $this->M_Premium->updatePembelian($idpembelian,$idpremium,$data);
         
+
         $dataMember = array(
             'idcompany' => $idcompany,
             'tglstart' => $tgl_awal,

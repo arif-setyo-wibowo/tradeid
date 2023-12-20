@@ -84,21 +84,35 @@ class Premium extends CI_Controller {
 
     public function checkout()
     {
-        $data = array(
-            'idcompany' => $this->input->post('idcompany'),
-            'namaPembelian' => $this->input->post('nama'),
-            'emailPembelian' => $this->input->post('email'),
-            'tglPembelian' => date('Y-m-d H:i:s'),
-            'idpremium' => $this->input->post('idpremium'),
-            'statusPembelian' => '0',
-            'statusAdmin' => '0'
-        );
+        $gambar = $_FILES['gambarPembelian']['name'];
+        $config['upload_path']          = 'uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['file_name']        = $gambar;
+        $config['encrypt_name'] = TRUE;
+        
+        $this->load->library('upload', $config);
 
-        $this->M_Premium->insertPembelian($data);
+        if (!$this->upload->do_upload('gambarPembelian')) {
+            $this->session->set_flashdata('pesan_e', 'Gambar gagal diupload');
+            redirect('supplier/company');
+        } else {
+            $data = array(
+                'idcompany' => $this->input->post('idcompany'),
+                'namaPembelian' => $this->input->post('nama'),
+                'emailPembelian' => $this->input->post('email'),
+                'tglPembelian' => date('Y-m-d H:i:s'),
+                'idpremium' => $this->input->post('idpremium'),
+                'gambarPembelian' => $this->upload->data('file_name'),
+                'statusPembelian' => '0',
+                'statusAdmin' => '0'
+            );
 
-        $this->session->set_flashdata('pesan','Buy Premium Succesfully Wait 1x24 for Verification Admin');
+            $this->M_Premium->insertPembelian($data);
 
-        redirect('profil');
+            $this->session->set_flashdata('pesan','Buy Premium Succesfully Wait 1x24 for Verification Admin');
+
+            redirect('profil');
+        }
     }
         
 }

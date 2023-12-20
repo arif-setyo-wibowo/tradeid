@@ -355,7 +355,7 @@
                   <p class="mt-2 mb-0 fw-medium">Admin</p>
                 </div>
                 <div class="p-2">
-                  <a class="dropdown-item d-flex align-items-center justify-content-between" href="be_pages_generic_inbox.html">
+                  <!-- <a class="dropdown-item d-flex align-items-center justify-content-between" href="be_pages_generic_inbox.html">
                     <span class="fs-sm fw-medium">Inbox</span>
                     <span class="badge rounded-pill bg-primary ms-2">3</span>
                   </a>
@@ -365,13 +365,13 @@
                   </a>
                   <a class="dropdown-item d-flex align-items-center justify-content-between" href="javascript:void(0)">
                     <span class="fs-sm fw-medium">Settings</span>
-                  </a>
+                  </a> -->
                 </div>
                 <div role="separator" class="dropdown-divider m-0"></div>
                 <div class="p-2">
-                  <a class="dropdown-item d-flex align-items-center justify-content-between" href="op_auth_lock.html">
+                  <!-- <a class="dropdown-item d-flex align-items-center justify-content-between" href="op_auth_lock.html">
                     <span class="fs-sm fw-medium">Lock Account</span>
-                  </a>
+                  </a> -->
                   <a class="dropdown-item d-flex align-items-center justify-content-between" href=" <?php echo base_url('admin/logout'); ?>">
                     <span class="fs-sm fw-medium">Log Out</span>
                   </a>

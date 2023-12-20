@@ -50,20 +50,20 @@
                     <div class="fs">
                        <?= $product[0]->deskripsiProduk?>
                     </div>
-                    <p class="text-blue">Price and Minimum Quantity :</p>
+                    <p class="text-blue">Price  :</p>
                     <div class="row">
                         <div class="col">
-                            <p><span class="fw-bold">Price FOB in $USD :</span>  in Discussed</p>
-                            <p><span class="fw-bold">Production Capacity :</span>  100Mt/day</p>
+                            <p><span class="fw-bold">Price FOB in $USD :</span>  <?= $product[0]->harga?></p>
+                            <!-- <p><span class="fw-bold">Production Capacity :</span>  100Mt/day</p> -->
                         </div>
                         <div class="col">
-                            <p><span class="fw-bold">Minimum Order Qty : </span>  12ton</p>
-                            <p><span class="fw-bold">Packaging : </span>  Gunny Bag</p>
+                            <!-- <p><span class="fw-bold">Minimum Order Qty : </span>  12ton</p>
+                            <p><span class="fw-bold">Packaging : </span>  Gunny Bag</p> -->
                         </div>
                     </div>
                     <div class="post-body mb-5 d-flex">
                         <div class="m-5">
-                            <a href="<?= base_url() ?>Front/product/productDetail"><img style="max-width: 70px; max-height: 70px;" src="<?= base_url('uploads/'.$product[0]->gambarCompany) ?>" srcset="./assets/img/photos/sh1@2x.jpg 2x" alt="" /></a>
+                            <a href="<?= base_url('supplier/detail/'.$product[0]->idcompany) ?>"><img style="max-width: 70px; max-height: 70px;" src="<?= base_url('uploads/'.$product[0]->gambarCompany) ?>" srcset="./assets/img/photos/sh1@2x.jpg 2x" alt="" /></a>
                         </div>
                         <div class="my-auto">
                             <p class=" price fs-20 mb-2"><a href="" class="link-dark"><span class="amount"><?= $product[0]->namaPerusahaan?></span></p>
@@ -83,7 +83,7 @@
         </div>
         <!-- /.row -->
         <!-- /.nav-tabs -->
-        <div class="tab-content mt-0 mt-md-5">
+        <!-- <div class="tab-content mt-0 mt-md-5">
             <div class="tab-pane fade show active" id="tab1-1">
                 <h4>More Product similar to Coconut, Agriculture :</h4>
             </div>
@@ -132,8 +132,8 @@
                 </div>
               </div>
             </div>
-            <!-- /.item -->
-        </div>
+            /.item 
+        </div> -->
         <!-- /.tab-content -->
     </div>
     <!-- /.container -->

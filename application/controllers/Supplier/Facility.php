@@ -8,6 +8,7 @@ class Facility extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('M_Member');
         $this->load->model('M_Supplier');
         $this->load->model('M_Facility');
     }
@@ -28,17 +29,31 @@ class Facility extends CI_Controller {
                 redirect('dashboard/supplier/company');
 
             }else{
-                $data = [
+                if ($this->M_Member->getWhere($companyCek[0]->idcompany)) {
+                    $data = [
                     'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
                     'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
                     'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
                     'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                    'member' => $this->M_Member->getWhere($companyCek[0]->idcompany),
                     'facility' => $this->M_Facility->getWhereFacility($companyCek[0]->idcompany),
                     'header' => 'template/v_header_supplier',
                     'footer' => 'template/v_footer_supplier',
-                ];
+                    ];
 
-                return $this->load->view('supplier/v_facility',$data);
+                    return $this->load->view('supplier/v_facility',$data);
+                }else{
+                    $data = [
+                        'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                        'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                        'member' => array(''),
+                        'facility' => $this->M_Facility->getWhereFacility($companyCek[0]->idcompany),
+                        'header' => 'template/v_header_supplier',
+                        'footer' => 'template/v_footer_supplier',
+                    ];
+                }
             }
         }
     }
@@ -59,15 +74,28 @@ class Facility extends CI_Controller {
                 redirect('dashboard/supplier/company');
 
             }else{
-            
-                $data = [
-                    'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                    'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
-                    'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                    'header' => 'template/v_header_supplier',
-                    'footer' => 'template/v_footer_supplier',
-                ];
-                return $this->load->view('supplier/v_facilityForm',$data);
+                if ($this->M_Member->getWhere($companyCek[0]->idcompany)) {
+                    $data = [
+                        'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                        'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'member' => $this->M_Member->getWhere($companyCek[0]->idcompany),
+                        'header' => 'template/v_header_supplier',
+                        'footer' => 'template/v_footer_supplier',
+                    ];
+
+                    return $this->load->view('supplier/v_facilityForm',$data);
+                }else{
+                    $data = [
+                        'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                        'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'member' => array(''),
+                        'header' => 'template/v_header_supplier',
+                        'footer' => 'template/v_footer_supplier',
+                    ];
+                    return $this->load->view('supplier/v_facilityForm',$data);
+                }   
             }
         }
     }
@@ -123,16 +151,31 @@ class Facility extends CI_Controller {
                 redirect('dashboard/supplier/company');
 
             }else{
-            
-                $data = [
-                    'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                    'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
-                    'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                    'facility' => $this->M_Facility->getWhereFacilityUpdate($id),
-                    'header' => 'template/v_header_supplier',
-                    'footer' => 'template/v_footer_supplier',
-                ];
-                return $this->load->view('supplier/v_facilityFormUpdate',$data);
+                if ($this->M_Member->getWhere($companyCek[0]->idcompany)) {
+                    $data = [
+                        'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                        'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'facility' => $this->M_Facility->getWhereFacilityUpdate($id),
+                        'member' => $this->M_Member->getWhere($companyCek[0]->idcompany),
+                        'header' => 'template/v_header_supplier',
+                        'footer' => 'template/v_footer_supplier',
+                    ];
+                    return $this->load->view('supplier/v_facilityFormUpdate',$data);
+
+                }else{
+                    $data = [
+                        'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                        'company' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'facility' => $this->M_Facility->getWhereFacilityUpdate($id),
+                        'member' => array(''),
+                        'header' => 'template/v_header_supplier',
+                        'footer' => 'template/v_footer_supplier',
+                    ];
+                    return $this->load->view('supplier/v_facilityFormUpdate',$data);
+                }
+                
             }
         }
     }

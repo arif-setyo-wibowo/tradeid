@@ -14,6 +14,7 @@ class Company extends CI_Controller {
         $this->load->model('M_Kategori');
         $this->load->model('M_Company');
         $this->load->model('M_SubkategoriB');
+        $this->load->model('M_Member');
         
         $this->load->library('form_validation');  
     }
@@ -35,6 +36,7 @@ class Company extends CI_Controller {
                         'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
                         'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
                         'kategori' => $this->M_Kategori->getKategori(),
+                        'member' => array(''),
                         'cekdata' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
                         'header' => 'template/v_header_supplier',
                         'footer' => 'template/v_footer_supplier',
@@ -42,18 +44,35 @@ class Company extends CI_Controller {
                     
                     return $this->load->view('supplier/v_profileCompany',$data);
                 }else{
-                    $data = [
-                        'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                        'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
-                        'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
-                        'kategori' => $this->M_Kategori->getKategori(),
-                        'subkategoria' => $this->M_Company->getSubkategoriAOptions($company[0]->idkategori),
-                        'cekdata' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                        'header' => 'template/v_header_supplier',
-                        'footer' => 'template/v_footer_supplier',
-                    ];
-                    
-                    return $this->load->view('supplier/v_profileCompany',$data);
+                    if ($this->M_Member->getWhere($company[0]->idcompany)) {
+                        $data = [
+                            'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                            'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                            'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                            'kategori' => $this->M_Kategori->getKategori(),
+                            'member' => $this->M_Member->getWhere($company[0]->idcompany),
+                            'subkategoria' => $this->M_Company->getSubkategoriAOptions($company[0]->idkategori),
+                            'cekdata' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                            'header' => 'template/v_header_supplier',
+                            'footer' => 'template/v_footer_supplier',
+                        ];
+                        
+                        return $this->load->view('supplier/v_profileCompany',$data);
+                    }else{
+                        $data = [
+                            'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                            'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                            'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                            'kategori' => $this->M_Kategori->getKategori(),
+                            'member' => array(''),
+                            'subkategoria' => $this->M_Company->getSubkategoriAOptions($company[0]->idkategori),
+                            'cekdata' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                            'header' => 'template/v_header_supplier',
+                            'footer' => 'template/v_footer_supplier',
+                        ];
+                        
+                        return $this->load->view('supplier/v_profileCompany',$data);
+                    }
                 }
             }else{
                 redirect('profil');

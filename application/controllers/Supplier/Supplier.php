@@ -8,6 +8,7 @@ class Supplier extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('M_Member');
         $this->load->model('M_Product');
         $this->load->model('M_Supplier');
         $this->load->model('M_Inquire');
@@ -37,21 +38,36 @@ class Supplier extends CI_Controller {
 
                         redirect('dashboard/supplier/company');
                     }else{
-                        $data = [
-                            'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                            'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
-                            'product' =>  $this->M_Product->countProduct($company[0]->idcompany),
-                            'inquireCount' =>  $this->M_Inquire->countInquire($company[0]->idcompany),
-                            'inquire' => $this->M_Inquire->getWhereCompany($company[0]->idcompany),
-                            'header' => 'template/v_header_supplier',
-                            'footer' => 'template/v_footer_supplier',
-                        ];
-    
-                        return $this->load->view('supplier/v_supplier',$data);
+                        if ($this->M_Member->getWhere($companyCek[0]->idcompany)) {
+                            $data = [
+                                'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                                'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                                'product' =>  $this->M_Product->countProduct($company[0]->idcompany),
+                                'inquireCount' =>  $this->M_Inquire->countInquire($company[0]->idcompany),
+                                'inquire' => $this->M_Inquire->getWhereCompany($company[0]->idcompany),
+                                'member' => $this->M_Member->getWhere($companyCek[0]->idcompany),
+                                'header' => 'template/v_header_supplier',
+                                'footer' => 'template/v_footer_supplier',
+                            ];
+        
+                            return $this->load->view('supplier/v_supplier',$data);
+                        }else{
+                            $data = [
+                                'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                                'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                                'product' =>  $this->M_Product->countProduct($company[0]->idcompany),
+                                'inquireCount' =>  $this->M_Inquire->countInquire($company[0]->idcompany),
+                                'inquire' => $this->M_Inquire->getWhereCompany($company[0]->idcompany),
+                                'member' => array(''),
+                                'header' => 'template/v_header_supplier',
+                                'footer' => 'template/v_footer_supplier',
+                            ];
+        
+                            return $this->load->view('supplier/v_supplier',$data);
+                        }
                     }
                 }
             }else{
-                
                 redirect('profil');
             }
             
@@ -77,14 +93,28 @@ class Supplier extends CI_Controller {
 
                 redirect('dashboard/supplier/company');
             }else{
-                $data = [
-                    'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
-                    'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
-                    'inquire' => $this->M_Inquire->getWhereInquire($id,$company[0]->idcompany),
-                    'header' => 'template/v_header_supplier',
-                    'footer' => 'template/v_footer_supplier',
-                ];
-                return $this->load->view('supplier/v_detailInquire',$data);
+                if ($this->M_Member->getWhere($companyCek[0]->idcompany)) {
+                    $data = [
+                        'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                        'inquire' => $this->M_Inquire->getWhereInquire($id,$company[0]->idcompany),
+                        'member' => $this->M_Member->getWhere($companyCek[0]->idcompany),
+                        'header' => 'template/v_header_supplier',
+                        'footer' => 'template/v_footer_supplier',
+                    ];
+                    return $this->load->view('supplier/v_detailInquire',$data);
+                }else{
+                    $data = [
+                        'companyHeader' => $this->M_Supplier->getWhereIdCompany($supplier[0]->idsupplier),
+                        'supplierHeader' => $this->M_Supplier->getWhereIdCompanyAndSupplier($supplier[0]->idsupplier),
+                        'inquire' => $this->M_Inquire->getWhereInquire($id,$company[0]->idcompany),
+                        'member' => array(),
+                        'header' => 'template/v_header_supplier',
+                        'footer' => 'template/v_footer_supplier',
+                    ];
+                    return $this->load->view('supplier/v_detailInquire',$data);
+                }
+                
             }
         }
     }

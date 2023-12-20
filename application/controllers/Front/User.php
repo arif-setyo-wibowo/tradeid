@@ -26,6 +26,7 @@ class User extends CI_Controller {
                     'userHeader' => $this->M_User->get_where($iduser),
                     'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
                     'user' => $this->M_User->get_where($iduser),
+                    'company' => array(''),
                     'header' => 'componen/header',
                     'footer' => 'componen/footer',
                 ];
@@ -40,6 +41,7 @@ class User extends CI_Controller {
                     $data = [
                         'userHeader' => $this->M_User->get_where($iduser),
                         'supplier' => $this->M_Supplier->getWhereIdSupplier($iduser),
+                        'company' => array(''),
                         'user' => $this->M_User->get_where($iduser),
                         'header' => 'componen/header',
                         'footer' => 'componen/footer',

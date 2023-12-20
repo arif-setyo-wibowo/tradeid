@@ -20,18 +20,18 @@
         <div class="row align-items-center mb-10 position-relative zindex-1">
           <div class="col-md-7 col-xl-8 pe-xl-20">
             <h2 class="display-6 mb-1">Find All Supplier</h2>
-            <p class="mb-0 text-muted">Showing 1–9 of 30 results</p>
+            <!-- <p class="mb-0 text-muted">Showing 1–9 of 30 results</p> -->
           </div>
           <!--/column -->
           <div class="col-md-5 col-xl-4 ms-md-auto text-md-end mt-5 mt-md-0">
             <div class="form-select-wrapper">
-              <select class="form-select">
+              <!-- <select class="form-select">
                 <option value="popularity">Sort by popularity</option>
                 <option value="rating">Sort by average rating</option>
                 <option value="newness">Sort by newness</option>
                 <option value="price: low to high">Sort by price: low to high</option>
                 <option value="price: high to low">Sort by price: high to low</option>
-              </select>
+              </select> -->
             </div>
             <!--/.form-select-wrapper -->
           </div>
@@ -44,9 +44,9 @@
             <div class=" item col-md-6 col col-xl-4  p-3  rounded" style="margin-bottom:-30px;">
               <div class="card">
                     <div class="card-body text-center" style="min-height:400px;">
-                      <img style="min-height:100px;" class="rounded-circle w-15 mb-4" src="<?= base_url('uploads/'.$data->gambarCompany)?>" srcset="<?= base_url()?>./assets/front/img/avatars/te1@2x.jpg 2x" alt="" />
+                    <a href="<?= base_url('supplier/detail/'.$data->idcompany)?>" class="link-dark"><img style="min-height:100px;" class="rounded-circle w-15 mb-4" src="<?= base_url('uploads/'.$data->gambarCompany)?>" srcset="<?= base_url()?>./assets/front/img/avatars/te1@2x.jpg 2x" alt="" /></a>
                       <h4 class="mb-1"><a href="<?= base_url('supplier/detail/'.$data->idcompany)?>" class="link-dark"><?= $data->namaPerusahaan?></a></h4>
-                      <div class="meta mb-2"><a href=""><a href="" class="text-blue">Supplier Of <?= $data->namaSubKategori?> </a></div>
+                      <div class="meta mb-2"> Supplier Of <?= $data->namaSubKategori?></div>
                       <?php if ($data->deskripsiPendek == null) : ?>
                         <p class="mb-2">&nbsp;</p>
                       <?php else : ?>

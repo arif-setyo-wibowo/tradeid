@@ -69,18 +69,18 @@
                 <div class="row align-items-center mb-10 position-relative zindex-1">
                 <div class="col-md-7 col-xl-8 pe-xl-20">
                     <h2 class="display-6 mb-1">Product <?= $product[0]->namaSubKategori_b?></h2>
-                    <p class="mb-0 text-muted">Showing 1–9 of 30 results</p>
+                    <!-- <p class="mb-0 text-muted">Showing 1–9 of 30 results</p> -->
                 </div>
                 <!--/column -->
                 <div class="col-md-5 col-xl-4 ms-md-auto text-md-end mt-5 mt-md-0">
                     <div class="form-select-wrapper">
-                    <select class="form-select">
+                    <!-- <select class="form-select">
                         <option value="popularity">Sort by popularity</option>
                         <option value="rating">Sort by average rating</option>
                         <option value="newness">Sort by newness</option>
                         <option value="price: low to high">Sort by price: low to high</option>
                         <option value="price: high to low">Sort by price: high to low</option>
-                    </select>
+                    </select> -->
                     </div>
                     <!--/.form-select-wrapper -->
                 </div>
@@ -98,7 +98,7 @@
                         </div>
                         <div class="">
                             <div class="">
-                            <h4 class="post-title h4 fs-18"><a href="./shop-product.html" class="link-dark"><?= $data->namaPerusahaan?></a></h4>
+                            <h4 class="post-title h4 fs-18"><a href="<?= base_url('supplier/detail/'.$data->idcompany) ?>" class="link-dark"><?= $data->namaPerusahaan?></a></h4>
                             </div>
                         </div>
                         </div>
