@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="" style="margin-left:10px;">
                                     <div class="align-items-center">
-                                        <span><?= $data->despan?></span>
+                                        <span><?= $data->deskripsiPanjang?></span>
                                     </div>
                                 </div>
                             </div>

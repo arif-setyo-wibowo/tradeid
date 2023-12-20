@@ -13,38 +13,44 @@ class Product extends CI_Controller {
         $this->load->model('M_Inquire');
         $this->load->model('M_User');
     }
-    public function index() {
-        $this->load->library('pagination');
-        $data['jmlh'] = $this->M_Product->getAllData()->num_rows();
-    
-        $config["base_url"] = site_url('Front/product/index');
-        $config["total_rows"] = $data['jmlh'];
-        $config["per_page"] = 5;
 
+    private function initializePagination() {
+        $this->load->library('pagination');
+    
         $config['full_tag_open'] = '<nav class="d-flex" aria-label="pagination"><ul class="pagination">';
         $config['full_tag_close'] = '</ul></nav>';
-
+    
         $config['prev_link'] = '<span aria-hidden="true"><i class="uil uil-arrow-left"></i></span>';
         $config['prev_tag_open'] = '<li class="page-item">';
         $config['prev_tag_close'] = '</li>';
-
-        $config['first_link'] = 'First';
-        $config['last_link'] = 'Last';
-
+    
+        $config['first_link'] = false;
+        $config['last_link'] = false;
+    
         $config['next_link'] = '<span aria-hidden="true"><i class="uil uil-arrow-right"></i></span>';
         $config['next_tag_open'] = '<li class="page-item">';
         $config['next_tag_close'] = '</li>';
-
+    
         $config['num_tag_open'] = '<li class="page-item">';
         $config['num_tag_close'] = '</li>';
-
+    
         $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
         $config['cur_tag_close'] = '</a></li>';
-
+    
         $config['attributes'] = array('class' => 'page-link');
     
+        return $config;
+    }
+    public function index() {
+        
+        $config = $this->initializePagination();
+        $data['jmlh'] = $this->M_Product->getAllData()->num_rows();
+        $config["base_url"] = site_url('Front/product/index');
+        $config["total_rows"] = $data['jmlh'];
+        $config["per_page"] = 5;
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+        
     
         $iduser = $this->session->userdata('iduser');
         $data = [
@@ -104,46 +110,70 @@ class Product extends CI_Controller {
 
 
     function productShopCategory($id){
+        $config = $this->initializePagination();
+        $data['jmlh'] = $this->M_Product->getAllData()->num_rows();
+        $config["base_url"] = site_url('Front/product/index');
+        $config["total_rows"] = $data['jmlh'];
+        $config["per_page"] = 5;
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
         
         $iduser = $this->session->userdata('iduser');
         $data = [
             'userHeader' => $this->M_User->get_where($iduser),
             'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
-            'product' => $this->M_Product->getWhereCategory($id),
+            'product' => $this->M_Product->getWhereCategory($id,$config["per_page"], $page),
             'header' => 'componen/header',
             'footer' => 'componen/footer',
         ];
-        
+
+        $data['pagination'] = $this->pagination->create_links();
         return $this->load->view('productShopCategory',$data);
     }
 
     function productShopSubCategoryA($id,$idsuba){
+        $config = $this->initializePagination();
+        $data['jmlh'] = $this->M_Product->getAllData()->num_rows();
+        $config["base_url"] = site_url('Front/product/index');
+        $config["total_rows"] = $data['jmlh'];
+        $config["per_page"] = 5;
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
         
         $iduser = $this->session->userdata('iduser');
         $data = [
             'userHeader' => $this->M_User->get_where($iduser),
             'user' => $this->M_User->get_where($iduser),
             'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
-            'product' => $this->M_Product->getWhereSubCategoryA($id,$idsuba),
+            'product' => $this->M_Product->getWhereSubCategoryA($id,$idsuba,$config["per_page"], $page),
             'header' => 'componen/header',
             'footer' => 'componen/footer',
         ];
-        
+
+        $data['pagination'] = $this->pagination->create_links();
         return $this->load->view('productShopSubCategoryA',$data);
     }
 
     function productShopSubCategoryB($id,$idsuba,$idsubb){
+        $config = $this->initializePagination();
+        $data['jmlh'] = $this->M_Product->getAllData()->num_rows();
+        $config["base_url"] = site_url('Front/product/index');
+        $config["total_rows"] = $data['jmlh'];
+        $config["per_page"] = 5;
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
         
         $iduser = $this->session->userdata('iduser');
         $data = [
             'userHeader' => $this->M_User->get_where($iduser),
             'user' => $this->M_User->get_where($iduser),
             'kategori_structure' => $this->M_Kategori->getKategoriandSubkategoriA(),
-            'product' => $this->M_Product->getWhereSubCategoryB($id,$idsuba,$idsubb),
+            'product' => $this->M_Product->getWhereSubCategoryB($id,$idsuba,$idsubb,$config["per_page"], $page),
             'header' => 'componen/header',
             'footer' => 'componen/footer',
         ];
         
+        $data['pagination'] = $this->pagination->create_links();
         return $this->load->view('productShopSubCategoryB',$data);
     }
 
